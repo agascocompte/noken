@@ -1,5 +1,5 @@
 // Sección Gramática: mismo contenido, dos vistas.
-//  · Por lección: los 25 acordeones de siempre + chips L1–L25.
+//  · Por lección: los 25 acordeones de siempre.
 //  · Por tema: los mismos puntos agrupados por etiqueta (temas en data/grammar.js).
 // Deep links: #/gramatica/l13  ·  #/gramatica/tema/forma-te
 "use strict";
@@ -35,13 +35,12 @@
   let vista = "leccion";       // "leccion" | "tema"
   let temaActivo = "particulas";
 
-  // En la vista por tema las etiquetas sobran (ya estás dentro del tema).
   const puntoHTML = (p, extra = "") => `
     <div class="gpoint">
       <h4><span class="pat jp">${rubyEsc(p.patron)}</span>${extra}</h4>
       <p>${ruby(p.explicacion)}</p>
       ${p.ejemplos.map(x => `<div class="ex"><span class="j jp">${rubyEsc(x.jp)}</span><span class="s">${esc(x.es)}</span></div>`).join("")}
-      ${vista === "tema" ? "" : `<div class="gtags">${p.temas.map(t => TEMAS[t] ? `<button data-tema="${t}">${TEMAS[t]}</button>` : "").join("")}</div>`}
+      <div class="gtags">${p.temas.map(t => TEMAS[t] ? `<button data-tema="${t}">${TEMAS[t]}</button>` : "").join("")}</div>
     </div>`;
 
   function renderLecciones() {
@@ -70,10 +69,7 @@
     $("#gViewSeg .seg-tema").classList.toggle("on", vista === "tema");
     if (vista === "leccion") {
       $("#gSubnav").innerHTML =
-        `<div class="chips">` +
-        N5.data.grammar.map(L => `<button data-l="${L.leccion}">L${L.leccion}</button>`).join("") +
-        `</div>
-        <button class="btn" id="gOpenAll">Abrir todas</button>
+        `<button class="btn" id="gOpenAll">Abrir todas</button>
         <button class="btn secondary" id="gCloseAll">Cerrar todas</button>`;
     } else {
       $("#gSubnav").innerHTML =
