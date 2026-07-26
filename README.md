@@ -1,8 +1,10 @@
-# Nōken 5 — Guía de estudio
+# Nōken — Guía de estudio
 
-Guía de consulta para el JLPT N5 basada en el Minna no Nihongo I (lecciones 1–25).
-Web estática, sin dependencias ni build: se abre con doble clic en `index.html`
-y se despliega tal cual en GitHub Pages.
+Guía de consulta para el JLPT, de momento nivel N5, basada en el Minna no
+Nihongo I (lecciones 1–25). Web estática, sin dependencias ni build: se abre
+con doble clic en `index.html` y se despliega tal cual en GitHub Pages.
+
+**Web**: https://agascocompte.github.io/noken/
 
 ## Estructura
 
