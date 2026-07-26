@@ -7,6 +7,10 @@
   const { $, esc, moraMatch, normQuery } = N5;
   const LIMIT = 5;
 
+  // 漢字[かんじ] → かんじ (lectura), y katakana → hiragana para comparar kana.
+  const lectura = s => s.replace(/([一-鿿々〇]+)\[([ぁ-ゖァ-ヺー]+)\]/g, "$2");
+  const aHira = s => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+
   function buscar(qRaw) {
     const q = normQuery(qRaw);
     if (!q) return null;
@@ -31,12 +35,16 @@
         if (r.kanji.length === LIMIT) break;
       }
     }
+    const qJa = aHira(q.replace(/\s+/g, ""));  // «と おもいます» → «とおもいます»
     outer:
     for (const L of N5.data.grammar) {
       for (let i = 0; i < L.puntos.length; i++) {
         const p = L.puntos[i];
-        const plano = (p.patron + " " + p.explicacion).replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
-        if (plano.toLowerCase().includes(q) || plano.includes(qRaw.trim())) {
+        const texto = p.patron + " " + p.explicacion;
+        const plano = texto.replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
+        const kana = aHira(lectura(texto));
+        if (plano.toLowerCase().includes(q) || plano.includes(qRaw.trim()) ||
+            kana.includes(qJa) || moraMatch(kana, qJa)) {
           r.gramatica.push({ leccion: L.leccion, idx: i, p });
           if (r.gramatica.length === LIMIT) break outer;
         }
