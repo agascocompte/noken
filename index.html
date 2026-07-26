@@ -1,255 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nōken 5 — Guía de estudio</title>
-<style>
-  :root{
-    --paper:#f6f4ef; --card:#fffefb; --ink:#26282e; --ink2:#63666e; --line:#e4e0d5;
-    --accent:#31548a; --accent-soft:#e8edf5; --beni:#b8432f; --beni-soft:#f6e9e5;
-    --ok:#4f6f45; --ok-soft:#e9efe4; --chip:#efece3;
-    --shadow:0 1px 3px rgba(38,40,46,.08);
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --paper:#15171c; --card:#1d2027; --ink:#e9e7df; --ink2:#9a9da6; --line:#2d313b;
-      --accent:#8db0dd; --accent-soft:#232c3a; --beni:#e08a76; --beni-soft:#392626;
-      --ok:#9ab887; --ok-soft:#242c20; --chip:#262a33;
-      --shadow:0 1px 3px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#15171c; --card:#1d2027; --ink:#e9e7df; --ink2:#9a9da6; --line:#2d313b;
-    --accent:#8db0dd; --accent-soft:#232c3a; --beni:#e08a76; --beni-soft:#392626;
-    --ok:#9ab887; --ok-soft:#242c20; --chip:#262a33;
-    --shadow:0 1px 3px rgba(0,0,0,.4);
-  }
-  :root[data-theme="light"]{
-    --paper:#f6f4ef; --card:#fffefb; --ink:#26282e; --ink2:#63666e; --line:#e4e0d5;
-    --accent:#31548a; --accent-soft:#e8edf5; --beni:#b8432f; --beni-soft:#f6e9e5;
-    --ok:#4f6f45; --ok-soft:#e9efe4; --chip:#efece3;
-    --shadow:0 1px 3px rgba(38,40,46,.08);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    background:var(--paper); color:var(--ink);
-    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP",sans-serif;
-    font-size:16px; line-height:1.6;
-  }
-  .jp{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif}
-  a{color:var(--accent)}
-
-  header.site{
-    border-bottom:1px solid var(--line); background:var(--card);
-    position:sticky; top:0; z-index:50;
-  }
-  .brand-row{
-    max-width:1300px; margin:0 auto; padding:14px 20px 10px;
-    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
-  }
-  .brand{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:1.5rem; font-weight:600; letter-spacing:.02em}
-  .brand .go{color:var(--beni)}
-  .brand-sub{color:var(--ink2); font-size:.85rem}
-  #themeBtn{
-    margin-left:auto; background:none; border:1px solid var(--line); border-radius:6px;
-    color:var(--ink2); padding:3px 10px; cursor:pointer; font-size:.8rem;
-  }
-  nav.tabs{
-    max-width:1300px; margin:0 auto; padding:0 12px;
-    display:flex; gap:2px; overflow-x:auto;
-  }
-  nav.tabs button{
-    appearance:none; background:none; border:none; cursor:pointer;
-    padding:10px 14px 12px; font-size:.95rem; color:var(--ink2);
-    border-bottom:3px solid transparent; white-space:nowrap; font-family:inherit;
-  }
-  nav.tabs button .k{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; margin-right:6px; color:var(--beni)}
-  nav.tabs button.active{color:var(--ink); border-bottom-color:var(--beni); font-weight:600}
-  nav.tabs button:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
-
-  main{max-width:1300px; margin:0 auto; padding:24px 20px 80px}
-  section.panel{display:none}
-  section.panel.active{display:block}
-  h2{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-weight:600; font-size:1.5rem; margin:.2em 0 .3em; text-wrap:balance}
-  .lead{color:var(--ink2); max-width:65ch; margin:0 0 20px}
-
-  .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:0 0 16px}
-  input[type=search], select{
-    background:var(--card); color:var(--ink); border:1px solid var(--line);
-    border-radius:8px; padding:8px 12px; font-size:.95rem; font-family:inherit;
-  }
-  input[type=search]{min-width:260px; flex:1; max-width:420px}
-  input[type=search]:focus-visible, select:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
-  .count{color:var(--ink2); font-size:.85rem; margin-left:auto}
-
-  .chips{display:flex; gap:6px; flex-wrap:wrap}
-  .chips button{
-    background:var(--chip); border:1px solid transparent; border-radius:999px;
-    padding:3px 12px; font-size:.82rem; color:var(--ink2); cursor:pointer; font-family:inherit;
-  }
-  .chips button.on{background:var(--accent-soft); color:var(--accent); border-color:var(--accent); font-weight:600}
-
-  .tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow)}
-  table{border-collapse:collapse; width:100%; font-size:.95rem}
-  th{
-    text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em;
-    color:var(--ink2); font-weight:600; padding:10px 14px; border-bottom:1px solid var(--line);
-    position:sticky; top:0; background:var(--card);
-  }
-  td{padding:8px 14px; border-bottom:1px solid var(--line); vertical-align:top}
-  tr:last-child td{border-bottom:none}
-  td.jpcell{font-size:1.05rem}
-  td.kanjicell{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:1.05rem; color:var(--beni)}
-  td.num{color:var(--ink2); font-variant-numeric:tabular-nums; text-align:right}
-  .muted{color:var(--ink2)}
-
-  .lesson-block{margin:0 0 14px; background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow)}
-  .lesson-block > summary{
-    cursor:pointer; padding:12px 16px; font-weight:600; list-style:none;
-    display:flex; align-items:baseline; gap:10px;
-  }
-  .lesson-block > summary::-webkit-details-marker{display:none}
-  .lesson-block > summary::before{content:"▸"; color:var(--beni); font-size:.8em}
-  .lesson-block[open] > summary::before{content:"▾"}
-  .lesson-block > summary .lnum{
-    font-family:"Hiragino Mincho ProN","Yu Mincho",serif; color:var(--beni);
-    font-size:.85rem; min-width:70px;
-  }
-  .lesson-block > summary .ltitle{flex:1}
-  .lesson-body{padding:0 16px 8px; border-top:1px solid var(--line)}
-
-  .gpoint{padding:14px 0; border-bottom:1px dashed var(--line)}
-  .gpoint:last-child{border-bottom:none}
-  .gpoint h4{margin:0 0 4px; font-size:1.05rem}
-  .gpoint h4 .pat{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; color:var(--accent)}
-  .gpoint p{margin:4px 0; max-width:70ch}
-  .ex{margin:8px 0 0; padding:8px 14px; background:var(--accent-soft); border-radius:8px}
-  .ex .j{font-size:1.02rem; display:block}
-  ruby{ruby-align:center}
-  ruby rt{font-size:.55em; color:var(--ink2); letter-spacing:0; font-weight:400}
-  .ex .j, .eq, .ans .a{line-height:2}
-  .ex .s{color:var(--ink2); font-size:.88rem; display:block}
-
-  .kanji-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
-  .kcard{
-    background:var(--card); border:1px solid var(--line); border-radius:10px;
-    padding:14px 16px; box-shadow:var(--shadow); cursor:pointer;
-  }
-  .kcard .glyph{
-    font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:2.6rem; line-height:1.15;
-    color:var(--beni); float:right; margin-left:8px;
-  }
-  .kcard .kmean{font-weight:600}
-  .kcard .kread{font-size:.85rem; color:var(--ink2); margin-top:2px}
-  .kcard .kread b{color:var(--ink); font-weight:600}
-  .kcard .kex{display:none; margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); font-size:.88rem}
-  .kcard.open .kex{display:block}
-  .kcard .kex div{margin:2px 0}
-  .kcard .kex .jp{color:var(--accent)}
-
-  .refcard{background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); padding:16px 20px; margin:0 0 18px}
-  .refcard h3{margin:0 0 8px; font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:1.15rem}
-  .refcard h3 .k{color:var(--beni); margin-right:8px}
-  .refgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; align-items:start}
-
-  .kanatable{table-layout:fixed}
-  .kanacell{text-align:center; padding:5px 4px !important}
-  .kanacell .jp{font-size:1.2rem; display:block; line-height:1.3}
-  .kanacell .r{display:block; font-size:.68rem; color:var(--ink2)}
-  .refcard h4{font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; color:var(--ink2); font-weight:600}
-  .pbadge{
-    display:inline-block; margin-left:8px; padding:1px 8px; border-radius:999px;
-    font-size:.78rem; font-weight:600; background:var(--chip); color:var(--ink2);
-    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif; vertical-align:middle;
-  }
-  .pbadge.hot{background:var(--beni-soft); color:var(--beni)}
-  .vej{display:block; font-size:.82rem; color:var(--ink2); margin-top:3px; line-height:1.9}
-  .formcell{font-weight:700; color:var(--beni); font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:1.05rem; vertical-align:top}
-  .formcell .muted{font-weight:400; font-size:.8rem; font-family:inherit}
-  .exercise{background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); padding:14px 18px; margin:0 0 12px}
-  .exercise .etag{
-    display:inline-block; font-size:.72rem; text-transform:uppercase; letter-spacing:.07em;
-    background:var(--chip); color:var(--ink2); border-radius:999px; padding:1px 10px; margin-bottom:6px;
-  }
-  .exercise .eq{font-size:1.02rem; margin:0 0 8px}
-  .exercise .ans{display:none; border-top:1px dashed var(--line); padding-top:8px; margin-top:4px}
-  .exercise.open .ans{display:block}
-  .exercise .ans .a{color:var(--ok); font-weight:600; font-size:1.02rem}
-  .exercise .ans .why{font-size:.88rem; color:var(--ink2); margin-top:2px; max-width:70ch}
-  .exercise .toggle{
-    background:var(--ok-soft); color:var(--ok); border:none; border-radius:6px;
-    padding:4px 12px; font-size:.82rem; cursor:pointer; font-family:inherit; font-weight:600;
-  }
-  .exercise.open .toggle{background:var(--chip); color:var(--ink2)}
-
-  .home-hero{padding:28px 0 8px}
-  .home-hero .big{
-    font-family:"Hiragino Mincho ProN","Yu Mincho",serif; font-size:clamp(2rem,6vw,3.2rem);
-    line-height:1.25; margin:0 0 10px; text-wrap:balance;
-  }
-  .home-hero .big .r{color:var(--beni)}
-  .statrow{display:flex; gap:14px; flex-wrap:wrap; margin:22px 0 6px}
-  .stat{
-    background:var(--card); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);
-    padding:12px 20px; min-width:130px; cursor:pointer;
-  }
-  .stat .n{font-size:1.7rem; font-weight:700; font-variant-numeric:tabular-nums; color:var(--accent)}
-  .stat .l{font-size:.82rem; color:var(--ink2)}
-  .home-notes{max-width:70ch}
-  .home-notes li{margin:6px 0}
-
-  @media (prefers-reduced-motion: no-preference){
-    .kcard, .stat{transition:transform .12s ease}
-    .kcard:hover, .stat:hover{transform:translateY(-2px)}
-  }
-</style>
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
 
 <header class="site">
   <div class="brand-row">
     <span class="brand jp">日本<span class="go">語</span>能力試験 N5</span>
-    <span class="brand-sub">Guía de estudio · Minna no Nihongo I · Lecciones 1–25</span>
-    <button id="themeBtn" type="button">◐ Tema</button>
+    <span class="brand-sub">Minna no Nihongo I · L1–25</span>
+    <div class="gsearch">
+      <input id="gSearch" type="search" placeholder="Buscar en toda la guía… (palabras, kanji, verbos, gramática)" aria-label="Búsqueda global" autocomplete="off">
+      <span class="slash">/</span>
+      <div class="gresults" id="gResults"></div>
+    </div>
+    <button id="furiBtn" class="hbtn jp" type="button" title="Ocultar furigana">ふりがな</button>
+    <button id="themeBtn" class="hbtn" type="button" title="Cambiar tema">◐</button>
   </div>
   <nav class="tabs" id="tabs">
-    <button data-t="home" class="active"><span class="k">始</span>Inicio</button>
-    <button data-t="vocab"><span class="k">語</span>Vocabulario</button>
-    <button data-t="grammar"><span class="k">文</span>Gramática</button>
-    <button data-t="verbs"><span class="k">動</span>Verbos</button>
+    <button data-t="inicio"><span class="k">始</span>Inicio</button>
+    <button data-t="vocabulario"><span class="k">語</span>Vocabulario</button>
+    <button data-t="gramatica"><span class="k">文</span>Gramática</button>
+    <button data-t="verbos"><span class="k">動</span>Verbos</button>
     <button data-t="kanji"><span class="k">漢</span>Kanji</button>
-    <button data-t="ref"><span class="k">参</span>Referencia</button>
-    <button data-t="drill"><span class="k">練</span>Ejercicios</button>
+    <button data-t="referencia"><span class="k">参</span>Referencia</button>
+    <button data-t="ejercicios"><span class="k">練</span>Ejercicios</button>
+    <button data-t="test"><span class="k">試</span>Test</button>
   </nav>
 </header>
 
 <main>
-  <section class="panel active" id="p-home">
+  <!-- ========== Inicio ========== -->
+  <section class="panel" id="p-inicio">
     <div class="home-hero">
       <p class="big jp">頑張って、<span class="r">アグス</span>さん。</p>
-      <p class="lead">Todo el contenido del Minna no Nihongo I resumido para el Nōken 5: vocabulario con buscador, la gramática de las 25 lecciones con ejemplos traducidos, todas las conjugaciones verbales, los kanji oficiales del N5 y ejercicios resueltos.</p>
-      <div class="statrow" id="statrow"></div>
+      <p class="lead">Todo el Minna no Nihongo I resumido para consultar mientras estudias: vocabulario, gramática por lección o por tema, conjugaciones con la partícula que rige cada verbo, los kanji del N5 y chuletas de referencia. Busca desde arriba (tecla <b>/</b>) y llega a cualquier cosa en dos pulsaciones.</p>
+      <div class="quickgrid" id="quickGrid"></div>
       <div class="home-notes">
-        <h2>Cómo usar esta guía</h2>
-        <ul>
-          <li><b>Vocabulario</b> — busca por kana, kanji o español y filtra por lección. Repasa una lección al día.</li>
-          <li><b>Gramática</b> — cada lección del libro con sus estructuras, explicación y ejemplos. Abre una lección y léela entera antes de hacer ejercicios.</li>
-          <li><b>Verbos</b> — tabla completa con forma ます, diccionario, て, た y ない de todos los verbos del libro, con su grupo, más un esquema de para qué sirve cada forma. Es la sección que más cae en el examen.</li>
-          <li><b>Kanji</b> — los kanji del N5 en fichas: toca una ficha para ver palabras de ejemplo.</li>
-          <li><b>Referencia</b> — tablas de hiragana y katakana, y chuletas de partículas, contadores, horas y fechas, interrogativos y こそあど.</li>
-          <li><b>Ejercicios</b> — preguntas tipo examen con la respuesta oculta: intenta responder antes de destaparla.</li>
-        </ul>
-        <h2>El examen N5</h2>
+        <h3 class="hsub">El examen N5</h3>
         <ul>
           <li><b><ruby>言語知識<rt>げんごちしき</rt></ruby> (<ruby>文字<rt>もじ</rt></ruby>・<ruby>語彙<rt>ごい</rt></ruby>)</b> — vocabulario y escritura, 20 min.</li>
           <li><b><ruby>言語知識<rt>げんごちしき</rt></ruby> (<ruby>文法<rt>ぶんぽう</rt></ruby>)・<ruby>読解<rt>どっかい</rt></ruby></b> — gramática y lectura, 40 min.</li>
-          <li><b><ruby>聴解<rt>ちょうかい</rt></ruby></b> — comprensión auditiva, 30 min. (Para esto: escucha los audios del Minna y exámenes de práctica oficiales.)</li>
-          <li>Se aprueba con ~80 de 180 puntos, con mínimo de 38/120 en conocimiento del idioma + lectura y 19/60 en audición.</li>
+          <li><b><ruby>聴解<rt>ちょうかい</rt></ruby></b> — comprensión auditiva, 30 min (usa los audios del Minna y exámenes de práctica oficiales).</li>
+          <li>Se aprueba con ~80 de 180 puntos, con mínimo de 38/120 en idioma + lectura y 19/60 en audición.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="panel" id="p-vocab">
+  <!-- ========== Vocabulario ========== -->
+  <section class="panel" id="p-vocabulario">
     <h2>Vocabulario</h2>
-    <p class="lead">Palabras del Minna no Nihongo I organizadas por lección. Busca en japonés (kana o kanji), romaji o español. Los verbos tienen su propia pestaña con todas las conjugaciones.</p>
+    <p class="lead">Palabras del Minna no Nihongo I por lección. Busca en kana, kanji, romaji o español. Los verbos tienen su propia pestaña con todas las conjugaciones.</p>
     <div class="toolbar">
       <input type="search" id="vSearch" placeholder="Buscar： わたし・私・yo…" aria-label="Buscar vocabulario">
       <select id="vLesson" aria-label="Filtrar por lección"></select>
@@ -263,21 +68,26 @@
     </div>
   </section>
 
-  <section class="panel" id="p-grammar">
-    <h2>Gramática por lecciones</h2>
-    <p class="lead">Las estructuras de cada lección del Minna no Nihongo I, con explicación breve y ejemplos traducidos.</p>
+  <!-- ========== Gramática ========== -->
+  <section class="panel" id="p-gramatica">
+    <h2>Gramática</h2>
+    <p class="lead">Las estructuras del Minna no Nihongo I con explicación y ejemplos traducidos. Dos vistas del mismo contenido: por lección del libro o por tema gramatical.</p>
     <div class="toolbar">
-      <button class="toggle" id="gOpenAll" style="background:var(--accent-soft);color:var(--accent);border:none;border-radius:6px;padding:4px 12px;cursor:pointer;font-family:inherit;font-weight:600;font-size:.82rem">Abrir todas</button>
-      <button class="toggle" id="gCloseAll" style="background:var(--chip);color:var(--ink2);border:none;border-radius:6px;padding:4px 12px;cursor:pointer;font-family:inherit;font-weight:600;font-size:.82rem">Cerrar todas</button>
+      <div class="seg" id="gViewSeg">
+        <button class="seg-leccion on" type="button">Por lección</button>
+        <button class="seg-tema" type="button">Por tema</button>
+      </div>
     </div>
+    <div class="toolbar" id="gSubnav"></div>
     <div id="gList"></div>
   </section>
 
-  <section class="panel" id="p-verbs">
+  <!-- ========== Verbos ========== -->
+  <section class="panel" id="p-verbos">
     <h2>Verbos y conjugación</h2>
-    <p class="lead">Todos los verbos del libro con sus formas: ます, diccionario, て, た y ない. Grupo I (godan), II (ichidan) y III (irregulares). Debajo, plegadas, las reglas de conjugación, el esquema de usos y los adjetivos.</p>
+    <p class="lead">Todos los verbos del libro con sus formas: ます, diccionario, て, た y ない, la partícula que rige cada uno (en rojo si no es el を de siempre) y un ejemplo. Debajo, plegadas, las reglas de conjugación, el esquema de usos y los adjetivos.</p>
     <div class="toolbar">
-      <input type="search" id="vbSearch" placeholder="Buscar verbo： のむ・飲む・beber…" aria-label="Buscar verbo">
+      <input type="search" id="vbSearch" placeholder="Buscar verbo： のむ・飲む・nonde・beber…" aria-label="Buscar verbo">
       <div class="chips" id="vbGroups">
         <button data-g="all" class="on">Todos</button>
         <button data-g="1">Grupo I</button>
@@ -292,6 +102,7 @@
         <tbody></tbody>
       </table>
     </div>
+
     <details class="lesson-block" style="margin-top:22px">
       <summary><span class="lnum jp">法</span><span class="ltitle">Reglas de conjugación</span></summary>
       <div class="lesson-body">
@@ -307,6 +118,7 @@
       </div>
       </div>
     </details>
+
     <details class="lesson-block">
       <summary><span class="lnum jp">使</span><span class="ltitle">¿Para qué sirve cada forma?</span></summary>
       <div class="lesson-body">
@@ -341,13 +153,14 @@
             <tr><td class="jpcell">〜まえに</td><td>antes de… (L18)</td><td class="jpcell"><ruby>寝<rt>ね</rt></ruby>るまえに、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</td></tr>
             <tr><td class="jpcell">〜と、〜</td><td>condición automática: «si A, siempre B» (L23)</td><td class="jpcell">このボタンを<ruby>押<rt>お</rt></ruby>すと、お<ruby>釣<rt>つ</rt></ruby>りが<ruby>出<rt>で</rt></ruby>ます。</td></tr>
             <tr><td class="jpcell">〜と<ruby>思<rt>おも</rt></ruby>います</td><td>opinar: «creo que…» (L21)</td><td class="jpcell">あした<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ると<ruby>思<rt>おも</rt></ruby>います。</td></tr>
-            <tr><td class="jpcell">V＋nombre</td><td>oración de relativo (L22)</td><td class="jpcell"><ruby>京都<rt>きょうと</rt></ruby>へ<ruby>行<rt>い</rt></ruby>く<ruby>人<rt>ひと</rt></ruby></td></tr>
+            <tr><td class="jpcell">V＋sustantivo</td><td>oración de relativo (L22)</td><td class="jpcell"><ruby>京都<rt>きょうと</rt></ruby>へ<ruby>行<rt>い</rt></ruby>く<ruby>人<rt>ひと</rt></ruby></td></tr>
             <tr><td class="jpcell">〜る。</td><td>presente informal (L20)</td><td class="jpcell"><ruby>毎日<rt>まいにち</rt></ruby>コーヒーを<ruby>飲<rt>の</rt></ruby>む。</td></tr>
           </tbody>
         </table>
       </div>
       </div>
     </details>
+
     <details class="lesson-block">
       <summary><span class="lnum jp">形</span><span class="ltitle">Adjetivos: conjugación</span></summary>
       <div class="lesson-body">
@@ -365,6 +178,7 @@
     </details>
   </section>
 
+  <!-- ========== Kanji ========== -->
   <section class="panel" id="p-kanji">
     <h2>Kanji del N5</h2>
     <p class="lead">Los kanji oficiales del nivel N5. Toca una ficha para ver palabras de ejemplo. Lecturas: <b>ON</b> en katakana, <b>kun</b> en hiragana.</p>
@@ -375,13 +189,15 @@
     <div class="kanji-grid" id="kGrid"></div>
   </section>
 
-  <section class="panel" id="p-ref">
+  <!-- ========== Referencia ========== -->
+  <section class="panel" id="p-referencia">
     <h2>Referencia rápida</h2>
     <p class="lead">Las chuletas que hay que saberse de memoria para el examen.</p>
     <div class="refgrid" id="refGrid"></div>
   </section>
 
-  <section class="panel" id="p-drill">
+  <!-- ========== Ejercicios ========== -->
+  <section class="panel" id="p-ejercicios">
     <h2>Ejercicios resueltos</h2>
     <p class="lead">Preguntas del estilo del examen. Piensa la respuesta antes de destaparla.</p>
     <div class="toolbar">
@@ -389,1179 +205,52 @@
     </div>
     <div id="dList"></div>
   </section>
+
+  <!-- ========== Test ========== -->
+  <section class="panel" id="p-test">
+    <h2>Autoevaluación</h2>
+    <p class="lead">Un test rápido generado al azar desde el contenido de la guía. No se guarda nada: respondes, ves tu nota y a otra cosa.</p>
+    <div class="quiz-config" id="quizCfg">
+      <div class="qrow">
+        <span class="qlabel">Contenido</span>
+        <label class="qcheck"><input type="checkbox" value="vocabulario" checked> Vocabulario</label>
+        <label class="qcheck"><input type="checkbox" value="kanji" checked> Kanji</label>
+        <label class="qcheck"><input type="checkbox" value="verbos" checked> Verbos</label>
+        <label class="qcheck"><input type="checkbox" value="gramatica"> Gramática</label>
+      </div>
+      <div class="qrow">
+        <span class="qlabel">Preguntas</span>
+        <select id="quizN"><option>5</option><option selected>10</option><option>20</option></select>
+      </div>
+      <button class="btn" id="quizStart">Empezar</button>
+    </div>
+    <div id="quizBox" style="margin-top:18px"></div>
+  </section>
 </main>
 
-<script>
-"use strict";
-/* ===== DATOS ===== */
-const VOCAB=[
-["わたし","私","yo",1],["わたしたち","私たち","nosotros",1],["あなた","","tú, usted",1],["あのひと","あの人","aquella persona",1],["みなさん","皆さん","todos ustedes",1],["〜さん","","Sr./Sra. (respetuoso)",1],["〜ちゃん","","(sufijo cariñoso, niños)",1],["〜じん","〜人","(nacionalidad: スペイン人)",1],["せんせい","先生","profesor (tratamiento)",1],["きょうし","教師","profesor (profesión)",1],["がくせい","学生","estudiante",1],["かいしゃいん","会社員","empleado de empresa",1],["ぎんこういん","銀行員","empleado de banco",1],["いしゃ","医者","médico",1],["けんきゅうしゃ","研究者","investigador",1],["だいがく","大学","universidad",1],["びょういん","病院","hospital",1],["でんき","電気","electricidad, luz",1],["だれ（どなた）","誰","quién",1],["〜さい","〜歳","… años (edad)",1],["なんさい","何歳","cuántos años",1],["はい","","sí",1],["いいえ","","no",1],["はじめまして","","encantado (al presentarse)",1],["どうぞよろしく","","mucho gusto",1],["おなまえは？","お名前は","¿su nombre?",1],
-["これ","","esto (cerca de mí)",2],["それ","","eso (cerca de ti)",2],["あれ","","aquello (lejos)",2],["この〜","","este… (+ nombre)",2],["その〜","","ese… (+ nombre)",2],["あの〜","","aquel… (+ nombre)",2],["ほん","本","libro",2],["じしょ","辞書","diccionario",2],["ざっし","雑誌","revista",2],["しんぶん","新聞","periódico",2],["ノート","","cuaderno",2],["てちょう","手帳","agenda",2],["めいし","名刺","tarjeta de visita",2],["カード","","tarjeta",2],["えんぴつ","鉛筆","lápiz",2],["ボールペン","","bolígrafo",2],["かぎ","鍵","llave",2],["とけい","時計","reloj",2],["かさ","傘","paraguas",2],["かばん","","bolso, cartera",2],["テレビ","","televisión",2],["カメラ","","cámara",2],["コンピューター","","ordenador",2],["くるま","車","coche",2],["つくえ","机","escritorio",2],["いす","","silla",2],["チョコレート","","chocolate",2],["コーヒー","","café",2],["おみやげ","お土産","regalo, souvenir",2],["えいご","英語","inglés (idioma)",2],["にほんご","日本語","japonés (idioma)",2],["なん／なに","何","qué",2],["そうです","","así es",2],["ちがいます","違います","no, no es así",2],
-["ここ","","aquí",3],["そこ","","ahí",3],["あそこ","","allí",3],["どこ","","dónde",3],["こちら","","aquí (formal); esta dirección",3],["どちら","","dónde (formal); cuál de los dos",3],["きょうしつ","教室","aula",3],["しょくどう","食堂","comedor",3],["じむしょ","事務所","oficina",3],["かいぎしつ","会議室","sala de reuniones",3],["うけつけ","受付","recepción",3],["ロビー","","vestíbulo",3],["へや","部屋","habitación",3],["トイレ（おてあらい）","お手洗い","baño, servicio",3],["かいだん","階段","escaleras",3],["エレベーター","","ascensor",3],["じどうはんばいき","自動販売機","máquina expendedora",3],["でんわ","電話","teléfono",3],["くつ","靴","zapatos",3],["ネクタイ","","corbata",3],["ワイン","","vino",3],["たばこ","","tabaco",3],["うりば","売り場","sección (de tienda)",3],["ちか","地下","sótano",3],["〜かい","〜階","planta, piso",3],["いくら","","cuánto (precio)",3],["〜えん","〜円","… yenes",3],["ひゃく","百","cien",3],["せん","千","mil",3],["まん","万","diez mil",3],["くに","国","país",3],["かいしゃ","会社","empresa",3],["うち","","casa (propia)",3],
-["いま","今","ahora",4],["〜じ","〜時","… (las) horas",4],["〜ふん／ぷん","〜分","… minutos",4],["はん","半","y media",4],["なんじ","何時","qué hora",4],["ごぜん","午前","a.m., por la mañana",4],["ごご","午後","p.m., por la tarde",4],["あさ","朝","mañana (parte del día)",4],["ひる","昼","mediodía",4],["ばん（よる）","晩（夜）","noche",4],["おととい","","anteayer",4],["きのう","昨日","ayer",4],["きょう","今日","hoy",4],["あした","明日","mañana",4],["あさって","","pasado mañana",4],["けさ","今朝","esta mañana",4],["こんばん","今晩","esta noche",4],["やすみ","休み","descanso, día libre",4],["ひるやすみ","昼休み","descanso del mediodía",4],["まいあさ","毎朝","cada mañana",4],["まいばん","毎晩","cada noche",4],["まいにち","毎日","cada día",4],["げつようび","月曜日","lunes",4],["かようび","火曜日","martes",4],["すいようび","水曜日","miércoles",4],["もくようび","木曜日","jueves",4],["きんようび","金曜日","viernes",4],["どようび","土曜日","sábado",4],["にちようび","日曜日","domingo",4],["なんようび","何曜日","qué día de la semana",4],["ばんごう","番号","número",4],["しごと","仕事","trabajo",4],["ぎんこう","銀行","banco",4],["ゆうびんきょく","郵便局","oficina de correos",4],["としょかん","図書館","biblioteca",4],["こうえん","公園","parque",4],
-["でんしゃ","電車","tren",5],["ちかてつ","地下鉄","metro",5],["しんかんせん","新幹線","tren bala",5],["バス","","autobús",5],["タクシー","","taxi",5],["ひこうき","飛行機","avión",5],["ふね","船","barco",5],["じてんしゃ","自転車","bicicleta",5],["あるいて","歩いて","a pie, andando",5],["ひと","人","persona",5],["ともだち","友達","amigo",5],["かれ","彼","él; novio",5],["かのじょ","彼女","ella; novia",5],["かぞく","家族","familia",5],["ひとりで","一人で","solo, sin compañía",5],["えき","駅","estación",5],["デパート","","grandes almacenes",5],["スーパー","","supermercado",5],["せんしゅう","先週","la semana pasada",5],["こんしゅう","今週","esta semana",5],["らいしゅう","来週","la semana que viene",5],["せんげつ","先月","el mes pasado",5],["こんげつ","今月","este mes",5],["らいげつ","来月","el mes que viene",5],["きょねん","去年","el año pasado",5],["ことし","今年","este año",5],["らいねん","来年","el año que viene",5],["〜がつ","〜月","mes (enero = 1月)",5],["なんがつ","何月","qué mes",5],["〜にち","〜日","día (del mes)",5],["なんにち","何日","qué día (del mes)",5],["いつ","","cuándo",5],["たんじょうび","誕生日","cumpleaños",5],
-["ごはん","ご飯","comida; arroz cocido",6],["あさごはん","朝ご飯","desayuno",6],["ひるごはん","昼ご飯","almuerzo",6],["ばんごはん","晩ご飯","cena",6],["パン","","pan",6],["たまご","卵","huevo",6],["にく","肉","carne",6],["さかな","魚","pescado",6],["やさい","野菜","verdura",6],["くだもの","果物","fruta",6],["みず","水","agua",6],["おちゃ","お茶","té (verde)",6],["こうちゃ","紅茶","té negro",6],["ぎゅうにゅう（ミルク）","牛乳","leche",6],["ジュース","","zumo",6],["ビール","","cerveza",6],["おさけ","お酒","sake; alcohol",6],["えいが","映画","película",6],["ビデオ","","vídeo",6],["てがみ","手紙","carta",6],["レポート","","informe",6],["しゃしん","写真","fotografía",6],["みせ","店","tienda",6],["レストラン","","restaurante",6],["にわ","庭","jardín",6],["しゅくだい","宿題","deberes",6],["テニス","","tenis",6],["サッカー","","fútbol",6],["（お）はなみ","（お）花見","ver los cerezos en flor",6],["いっしょに","一緒に","juntos",6],["ちょっと","","un poco",6],["いつも","","siempre",6],["ときどき","時々","a veces",6],["それから","","y después",6],
-["て","手","mano",7],["はし","","palillos",7],["スプーン","","cuchara",7],["ナイフ","","cuchillo",7],["フォーク","","tenedor",7],["はさみ","","tijeras",7],["パソコン","","ordenador personal",7],["けしゴム","消しゴム","goma de borrar",7],["かみ","紙","papel",7],["はな","花","flor",7],["シャツ","","camisa",7],["プレゼント","","regalo",7],["にもつ","荷物","equipaje, paquete",7],["おかね","お金","dinero",7],["きっぷ","切符","billete",7],["クリスマス","","Navidad",7],["ちち","父","mi padre",7],["はは","母","mi madre",7],["おとうさん","お父さん","padre (de otro)",7],["おかあさん","お母さん","madre (de otro)",7],["もう","","ya",7],["まだ","","todavía (no)",7],["これから","","a partir de ahora",7],["ニュース","","noticias",7],["メール","","correo electrónico",7],
-["ハンサム（な）","","guapo",8],["きれい（な）","","bonito; limpio",8],["しずか（な）","静か","tranquilo, silencioso",8],["にぎやか（な）","","animado, bullicioso",8],["ゆうめい（な）","有名","famoso",8],["しんせつ（な）","親切","amable",8],["げんき（な）","元気","sano, con energía",8],["ひま（な）","暇","libre (con tiempo)",8],["べんり（な）","便利","práctico, cómodo",8],["すてき（な）","","estupendo, bonito",8],["おおきい","大きい","grande",8],["ちいさい","小さい","pequeño",8],["あたらしい","新しい","nuevo",8],["ふるい","古い","viejo (cosas)",8],["いい（よい）","","bueno",8],["わるい","悪い","malo",8],["あつい","暑い・熱い","caluroso; caliente",8],["さむい","寒い","frío (clima)",8],["つめたい","冷たい","frío (al tacto)",8],["むずかしい","難しい","difícil",8],["やさしい","易しい","fácil",8],["たかい","高い","caro; alto",8],["やすい","安い","barato",8],["ひくい","低い","bajo",8],["おもしろい","面白い","interesante, divertido",8],["おいしい","","delicioso",8],["たのしい","楽しい","divertido, agradable",8],["しろい","白い","blanco",8],["くろい","黒い","negro",8],["あかい","赤い","rojo",8],["あおい","青い","azul",8],["さくら","桜","cerezo (flor)",8],["やま","山","montaña",8],["まち","町","ciudad, pueblo",8],["たべもの","食べ物","comida",8],["ところ","所","lugar",8],["りょう","寮","residencia de estudiantes",8],["べんきょう","勉強","estudio",8],["せいかつ","生活","vida (diaria)",8],["どう","","cómo, qué tal",8],["どんな〜","","qué tipo de…",8],["とても","","muy",8],["あまり（＋neg.）","","no mucho",8],["そして","","y, además",8],
-["おんがく","音楽","música",9],["うた","歌","canción",9],["クラシック","","música clásica",9],["ジャズ","","jazz",9],["コンサート","","concierto",9],["カラオケ","","karaoke",9],["かぶき","歌舞伎","kabuki (teatro)",9],["え","絵","dibujo, pintura",9],["じ","字","letra, carácter",9],["かんじ","漢字","kanji",9],["ひらがな","","hiragana",9],["かたかな","","katakana",9],["ローマじ","ローマ字","letras romanas",9],["こまかいおかね","細かいお金","dinero suelto, cambio",9],["チケット","","entrada, ticket",9],["じかん","時間","tiempo; hora(s)",9],["ようじ","用事","asunto, recado",9],["やくそく","約束","cita, promesa",9],["ごしゅじん","ご主人","esposo (de otra persona)",9],["おっと","夫","mi esposo",9],["おくさん","奥さん","esposa (de otro)",9],["つま","妻","mi esposa",9],["こども","子ども","niño; hijo",9],["すき（な）","好き","que gusta",9],["きらい（な）","嫌い","que no gusta",9],["じょうず（な）","上手","hábil, que se le da bien",9],["へた（な）","下手","torpe, que se le da mal",9],["よく","","bien; mucho",9],["だいたい","","más o menos",9],["たくさん","","mucho (cantidad)",9],["すこし","少し","un poco",9],["ぜんぜん（＋neg.）","全然","nada, en absoluto",9],["はやく","早く・速く","pronto; rápido",9],["どうして","","por qué",9],
-["うえ","上","encima, arriba",10],["した","下","debajo, abajo",10],["まえ","前","delante; antes",10],["うしろ","後ろ","detrás",10],["みぎ","右","derecha",10],["ひだり","左","izquierda",10],["なか","中","dentro, en medio",10],["そと","外","fuera",10],["となり","隣","al lado",10],["ちかく","近く","cerca",10],["あいだ","間","entre",10],["もの","物","cosa",10],["れいぞうこ","冷蔵庫","nevera",10],["テーブル","","mesa",10],["ベッド","","cama",10],["たな","棚","estantería",10],["ドア","","puerta",10],["まど","窓","ventana",10],["ポスト","","buzón",10],["ビル","","edificio (moderno)",10],["きっさてん","喫茶店","cafetería",10],["ほんや","本屋","librería",10],["〜や","〜屋","tienda de…",10],["のりば","乗り場","parada, andén",10],["スイッチ","","interruptor",10],["いろいろ（な）","","variado, diverso",10],
-["ひとつ","一つ","uno (objetos)",11],["ふたつ","二つ","dos",11],["みっつ","三つ","tres",11],["よっつ","四つ","cuatro",11],["いつつ","五つ","cinco",11],["むっつ","六つ","seis",11],["ななつ","七つ","siete",11],["やっつ","八つ","ocho",11],["ここのつ","九つ","nueve",11],["とお","十","diez",11],["いくつ","","cuántos",11],["ひとり","一人","una persona",11],["ふたり","二人","dos personas",11],["〜にん","〜人","… personas",11],["〜まい","〜枚","(contador: hojas, planos)",11],["〜だい","〜台","(contador: máquinas)",11],["〜ほん／ぼん／ぽん","〜本","(contador: alargados)",11],["〜さつ","〜冊","(contador: libros)",11],["〜こ","〜個","(contador: objetos pequeños)",11],["〜かい","〜回","… veces",11],["りんご","","manzana",11],["みかん","","mandarina",11],["サンドイッチ","","sándwich",11],["カレー","","curry",11],["きって","切手","sello",11],["はがき","","postal",11],["ふうとう","封筒","sobre",11],["そくたつ","速達","correo urgente",11],["エアメール","","correo aéreo",11],["りょうしん","両親","padres",11],["きょうだい","兄弟","hermanos",11],["あに","兄","mi hermano mayor",11],["おにいさん","お兄さん","hermano mayor (de otro)",11],["あね","姉","mi hermana mayor",11],["おねえさん","お姉さん","hermana mayor (de otro)",11],["おとうと","弟","mi hermano menor",11],["いもうと","妹","mi hermana menor",11],["がいこく","外国","país extranjero",11],["りゅうがくせい","留学生","estudiante extranjero",11],["ぜんぶで","全部で","en total",11],["みんな","","todos, todo el mundo",11],["〜だけ","","solo, solamente",11],
-["かんたん（な）","簡単","sencillo",12],["ちかい","近い","cercano",12],["とおい","遠い","lejano",12],["はやい","速い・早い","rápido; temprano",12],["おそい","遅い","lento; tarde",12],["おおい","多い","abundante, muchos",12],["すくない","少ない","escaso, pocos",12],["あたたかい","暖かい","templado, cálido",12],["すずしい","涼しい","fresco",12],["あまい","甘い","dulce",12],["からい","辛い","picante",12],["おもい","重い","pesado",12],["かるい","軽い","ligero",12],["きせつ","季節","estación del año",12],["はる","春","primavera",12],["なつ","夏","verano",12],["あき","秋","otoño",12],["ふゆ","冬","invierno",12],["てんき","天気","tiempo (clima)",12],["あめ","雨","lluvia",12],["ゆき","雪","nieve",12],["くもり","曇り","nublado",12],["はれ","晴れ","despejado",12],["そら","空","cielo",12],["うみ","海","mar",12],["せかい","世界","mundo",12],["パーティー","","fiesta",12],["（お）まつり","（お）祭り","festival",12],["すきやき","","sukiyaki",12],["さしみ","刺身","sashimi",12],["てんぷら","天ぷら","tempura",12],["いちばん","一番","el más, el número uno",12],["ずっと","","mucho más; todo el tiempo",12],["はじめて","初めて","por primera vez",12],
-["プール","","piscina",13],["かわ","川","río",13],["ひろい","広い","amplio",13],["せまい","狭い","estrecho",13],["びじゅつかん","美術館","museo de arte",4],["つり","釣り","pesca",13],["スキー","","esquí",13],["しゅうまつ","週末","fin de semana",13],["（お）しょうがつ","（お）正月","Año Nuevo",13],["〜ごろ","","hacia las… (hora aproximada)",13],["なにか","何か","algo",13],["どこか","","algún sitio",13],["おなかがすきました","","tengo hambre",13],["のどがかわきました","","tengo sed",13],["おなかがいっぱいです","","estoy lleno",13],["つかれました","疲れました","estoy cansado",13],["そうしましょう","","hagamos eso",13],
-["エアコン","","aire acondicionado",14],["パスポート","","pasaporte",14],["なまえ","名前","nombre",14],["じゅうしょ","住所","dirección",14],["ちず","地図","mapa",14],["しお","塩","sal",14],["さとう","砂糖","azúcar",14],["もんだい","問題","problema; pregunta",14],["こたえ","答え","respuesta",14],["よみかた","読み方","forma de leer",14],["かきかた","書き方","forma de escribir",14],["つかいかた","使い方","forma de usar",14],["ゆっくり","","despacio",14],["すぐ","","enseguida",14],["また","","otra vez",14],["あとで","後で","después, luego",14],["もうすこし","もう少し","un poco más",14],["まっすぐ","","recto, todo derecho",14],["さあ","","venga, vamos",14],
-["せいひん","製品","producto",15],["ソフト","","software",15],["せんもん","専門","especialidad",15],["はいしゃ","歯医者","dentista",15],["とこや","床屋","barbería",15],["しやくしょ","市役所","ayuntamiento",13],["こうこう","高校","instituto (bachillerato)",15],["どくしん","独身","soltero",15],["しりょう","資料","documentos, material",15],["カタログ","","catálogo",15],["きそく","規則","regla, norma",15],
-["じょうぶ（な）","丈夫","robusto, resistente",16],["だいじょうぶ（な）","大丈夫","estar bien, no hay problema",16],["わかい","若い","joven",16],["ながい","長い","largo",16],["みじかい","短い","corto",16],["あかるい","明るい","luminoso; alegre",16],["くらい","暗い","oscuro",16],["せ","背","estatura, espalda",16],["せがたかい","背が高い","alto (persona)",16],["あたま","頭","cabeza",16],["あたまがいい","頭がいい","inteligente",16],["かみ","髪","pelo, cabello",16],["め","目","ojo",16],["みみ","耳","oreja, oído",16],["くち","口","boca",16],["は","歯","diente",16],["かお","顔","cara",16],["あし","足","pie, pierna",16],["からだ","体","cuerpo",16],["ホテル","","hotel",12],["コンビニ","","tienda 24 horas",16],["ジョギング","","footing",16],["シャワー","","ducha",16],["（お）ふろ","（お）風呂","baño (bañera)",16],["ばんぐみ","番組","programa (de TV)",16],
-["くすり","薬","medicina",17],["ねつ","熱","fiebre",17],["びょうき","病気","enfermedad",17],["かぜ","風邪","resfriado",17],["おなか","","barriga, estómago",17],["いたい","痛い","doler, que duele",17],["ぐあい","具合","estado (de salud)",17],["ふく","服","ropa",17],["おだいじに","お大事に","¡cuídese! (a un enfermo)",17],["2、3にち","2、3日","dos o tres días",17],["〜までに","","antes de…, para… (plazo)",17],["たいせつ（な）","大切","importante, valioso",17],
-["しゅみ","趣味","hobby, afición",18],["どうぶつ","動物","animal",18],["いぬ","犬","perro",10],["ねこ","猫","gato",10],["うま","馬","caballo",18],["ピアノ","","piano",18],["ギター","","guitarra",18],["やきゅう","野球","béisbol",9],["こと","","cosa, asunto; (nominalizador: el hecho de…)",18],["ぜひ","","sin falta, por favor",18],["とくに","特に","especialmente",18],["へえ","","¿en serio?, ¡anda!",18],
-["すもう","相撲","sumo",19],["おちゃをたてます","お茶をたてます","preparar té ceremonial",19],["いちど","一度","una vez",19],["いちども（＋neg.）","一度も","ni una vez",19],["だんだん","","poco a poco",19],["もうすぐ","","dentro de poco",19],["おかげさまで","","gracias a usted (me va bien)",19],["かんぱい","乾杯","¡salud! (brindis)",19],["ダイエット","","dieta",19],["むり（な）","無理","imposible, excesivo",19],["ちょうし","調子","condición, estado",19],["からだにいい","体にいい","bueno para la salud",19],
-["きもの","着物","kimono",20],["ビザ","","visado",20],["はじめ","初め","principio",20],["おわり","終わり","final",20],["こっち","","aquí (coloquial)",20],["そっち","","ahí (coloquial)",20],["あっち","","allí (coloquial)",20],["どっち","","cuál de los dos (coloquial)",20],["みんなで","","todos juntos",20],["〜けど","","pero (coloquial)",20],["うん","","sí (coloquial)",20],["ううん","","no (coloquial)",20],["ことば","言葉","palabra; idioma",20],["くん","〜君","(sufijo para chicos)",20],
-["しあい","試合","partido, competición",21],["アルバイト","","trabajo a tiempo parcial",21],["いけん","意見","opinión",21],["はなし","話","charla, historia",21],["ちきゅう","地球","la Tierra",21],["つき","月","luna",21],["たぶん","","quizá, probablemente",21],["きっと","","seguro que…",21],["ほんとうに","本当に","de verdad",21],["そんなに（＋neg.）","","no tanto",21],["〜について","","sobre…, acerca de…",21],["むだ（な）","無駄","inútil, desperdicio",21],["やくにたちます","役に立ちます","ser útil",21],
-["うわぎ","上着","chaqueta",22],["ワイシャツ","","camisa (de vestir)",22],["ぼうし","帽子","sombrero, gorro",22],["めがね","眼鏡","gafas",22],["セーター","","jersey",22],["コート","","abrigo",22],["スーツ","","traje",22],["くつした","靴下","calcetines",22],["スカート","","falda",22],["ズボン","","pantalones",22],["サイズ","","talla",22],["よく（きます）","","a menudo",22],["おめでとうございます","","¡felicidades!",22],
-["みち","道","camino, calle",23],["こうさてん","交差点","cruce",23],["しんごう","信号","semáforo",23],["かど","角","esquina",23],["はし","橋","puente",23],["ちゅうしゃじょう","駐車場","aparcamiento",23],["たてもの","建物","edificio",23],["ガソリンスタンド","","gasolinera",23],["こうばん","交番","puesto de policía",23],["〜め","〜目","(ordinal: 一つ目 el primero)",23],["おと","音","sonido",23],["こしょう","故障","avería",23],["みちをわたります","道を渡ります","cruzar la calle",23],
-["おじいさん","","abuelo; anciano",24],["おばあさん","","abuela; anciana",24],["（お）べんとう","（お）弁当","bento, comida para llevar",24],["ぜんぶ","全部","todo",24],["じぶんで","自分で","uno mismo, por sí mismo",24],["ほかに","","además, aparte",24],["おかし","お菓子","dulces, golosinas",24],
-["いなか","田舎","pueblo, campo (natal)",25],["いみ","意味","significado",25],["てんきん","転勤","traslado (de trabajo)",25],["（お）せわになりました","（お）世話になりました","gracias por todo",25],["がんばります","頑張ります","me esforzaré, ¡ánimo!",25],["どうぞおげんきで","どうぞお元気で","que le vaya bien",25],
-["しゃいん","社員","empleado de la empresa …",1],["エンジニア","","ingeniero",1],["〜くん","〜君","(sufijo para chicos)",1],["しつれいですが","失礼ですが","disculpe, pero… (pregunta personal)",1],["こちらは〜さんです","","le presento al Sr./Sra. …",1],["〜からきました","〜から来ました","soy de…, vengo de…",1],["アメリカ","","EE. UU.",1],["イギリス","","Reino Unido",1],["インド","","India",1],["インドネシア","","Indonesia",1],["かんこく","韓国","Corea del Sur",1],["タイ","","Tailandia",1],["ちゅうごく","中国","China",1],["ドイツ","","Alemania",1],["にほん","日本","Japón",1],["フランス","","Francia",1],["ブラジル","","Brasil",1],["スペイン","","España",7],
-["シャープペンシル","","portaminas",2],["テレホンカード","","tarjeta telefónica",2],["ラジオ","","radio",2],["じどうしゃ","自動車","automóvil",2],["〜ご","〜語","idioma … (スペイン語)",2],["あのう","","esto… (vacilación)",2],["ほんのきもちです","ほんの気持ちです","es un pequeño detalle (al dar un regalo)",2],["どうぞ","","aquí tiene; adelante",2],["どうも","","gracias",2],["[どうも]ありがとう[ございます]","","[muchas] gracias",2],["そうですか","","ah, ya veo",2],["こちらこそよろしく","","igualmente, encantado",2],
-["エスカレーター","","escalera mecánica",3],["なんがい","何階","qué piso",3],["すみません","","disculpe; gracias",3],["じゃ","","bueno, entonces",3],["〜をください","","deme …, por favor",3],["〜をみせてください","〜を見せてください","muéstreme …, por favor",3],["〜でございます","","(forma cortés de です)",3],
-["なんぷん","何分","qué minuto",4],["なんばん","何番","qué número",4],["〜から","","desde …",4],["〜まで","","hasta …",4],["〜と","","y (une nombres)",4],["そちら","","ahí, su lugar",4],["よる","夜","noche",4],["たいへんですね","大変ですね","¡qué duro!, ¡cuánto lo siento!",4],["えーと","","esto…, a ver…",4],["おねがいします","お願いします","por favor (al pedir algo)",4],["かしこまりました","","muy bien, señor/a (formal)",4],
-["がっこう","学校","escuela",5],["ふつう","普通","(tren) local",5],["きゅうこう","急行","(tren) rápido",5],["とっきゅう","特急","(tren) exprés",5],["つぎの","次の","próximo, siguiente",5],["どういたしまして","","de nada",5],["〜ばんせん","〜番線","andén …",5],
-["なんですか","何ですか","¿sí?, ¿qué desea?",6],["じゃ、また[あした]","","hasta [mañana]",6],["いいですね","","¡buena idea!",6],["わかりました","","entendido",6],
-["ファクス","","fax",7],["ワープロ","","procesador de textos",7],["パンチ","","perforadora",7],["ホッチキス","","grapadora",7],["セロテープ","","cinta adhesiva",7],["ごめんください","","¿se puede? (al llegar a una casa)",7],["いらっしゃい","","bienvenido",7],["どうぞおあがりください","どうぞお上がりください","pase, por favor",7],["しつれいします","失礼します","con permiso",7],["〜はいかがですか","","¿le apetece …?",7],["いただきます","","(antes de comer)",7],["りょこう","旅行","viaje",7],
-["いそがしい","忙しい","ocupado, atareado",8],["どれ","","cuál (de tres o más)",8],["おげんきですか","お元気ですか","¿cómo está?",8],["そうですね","","pues… (pensando la respuesta); estoy de acuerdo, así es",8],["[いいえ、]けっこうです","[いいえ、]結構です","no, gracias",8],["そろそろしつれいします","そろそろ失礼します","ya es hora de irme",8],
-["りょうり","料理","cocina, plato",9],["のみもの","飲み物","bebida",9],["スポーツ","","deporte",9],["ダンス","","baile",9],["ざんねんです[ね]","残念です[ね]","¡qué pena!",9],["もしもし","","dígame, ¿sí? (teléfono)",9],["ああ","","ah (caigo en la cuenta)",9],["[〜は]ちょっと……","","[eso] es algo difícil… (rechazo)",9],["だめですか","","¿no puede ser?",9],["またこんどおねがいします","また今度お願いします","otra vez será, invíteme de nuevo",9],
-["おとこのひと","男の人","hombre",10],["おんなのひと","女の人","mujer",10],["おとこのこ","男の子","niño",10],["おんなのこ","女の子","niña",10],["き","木","árbol, madera",10],["フィルム","","carrete (de fotos)",10],["でんち","電池","pila",10],["はこ","箱","caja",10],["〜だんめ","〜段目","estante n.º …",10],
-["〜ぐらい","","aproximadamente …",11],["どのくらい","","cuánto (tiempo)",11],["〜じかん","〜時間","… horas (duración)",11],["〜しゅうかん","〜週間","… semanas",11],["〜かげつ","〜か月","… meses",11],["〜ねん","〜年","… años (duración)",11],["ふなびん","船便","correo marítimo",11],["こうくうびん","航空便","correo aéreo",11],["おとうとさん","弟さん","hermano menor (de otro)",11],["いもうとさん","妹さん","hermana menor (de otro)",11],["いらっしゃいませ","","bienvenido (en tiendas)",11],["いいてんきですね","いい天気ですね","hace buen tiempo, ¿verdad?",11],["おでかけですか","お出かけですか","¿va a salir?",11],["ちょっと〜まで","","voy solo a …",11],["いってらっしゃい","行ってらっしゃい","¡que vaya bien! (al que sale)",11],["いってまいります","行ってまいります","hasta luego (el que sale)",11],
-["しけん","試験","examen",12],["[お]すし","","sushi",12],["いけばな","生け花","arreglo floral",12],["もみじ","紅葉","hojas rojas de otoño",12],["どちらも","","ambos",12],["くうこう","空港","aeropuerto",12],["ただいま","","ya estoy en casa",12],["おかえりなさい","お帰りなさい","bienvenido a casa",12],["すごいですね","","¡impresionante!",12],["でも","","pero",12],
-["たいへん（な）","大変","duro, terrible",13],["ほしい","欲しい","querer, tener ganas de (algo)",13],["さびしい","寂しい","solitario, triste",13],["びじゅつ","美術","bellas artes",13],["けいざい","経済","economía",13],["かいぎ","会議","reunión",13],["とうろく","登録","registro",13],["ごちゅうもんは？","ご注文は","¿qué van a pedir?",13],["ていしょく","定食","menú del día",13],["ぎゅうどん","牛どん","gyūdon (arroz con carne)",13],["べつべつに","別々に","por separado (al pagar)",13],["[しょうしょう]おまちください","[少々]お待ちください","espere [un momento], por favor",13],
-["あれ？","","¿eh?, ¿anda? (sorpresa)",14],["おつり","お釣り","cambio, vuelta",14],["これでおねがいします","これでお願いします","cóbreme de esto",14],["〜かた","〜方","manera de …",14],["もう〜","","… más (もう少し)",14],
-["じこくひょう","時刻表","horario (de trenes)",15],["プレイガイド","","agencia de venta de entradas",15],["おもいだします","思い出します","recordar, acordarse",15],["ごかぞく","ご家族","su familia (de otro)",15],["いらっしゃいます","","estar (honorífico de います)",15],
-["サービス","","servicio",16],["みどり","緑","verde, vegetación",16],["[お]てら","[お]寺","templo budista",16],["じんじゃ","神社","santuario sintoísta",16],["〜ばん","〜番","número …",16],["どの〜","","cuál… (de tres o más)",16],["まず","","primero",16],["キャッシュカード","","tarjeta bancaria",16],["あんしょうばんごう","暗証番号","número PIN",16],["つぎに","次に","a continuación",16],["きんがく","金額","importe",16],["かくにん","確認","confirmación",16],["ボタン","","botón",16],["[いいえ、]まだまだです","","¡qué va!, aún me falta mucho",16],
-["あぶない","危ない","peligroso",17],["きんえん","禁煙","prohibido fumar",17],["[けんこう]ほけんしょう","[健康]保険証","tarjeta del seguro médico",17],["したぎ","下着","ropa interior",17],["のど","","garganta",17],["どうしましたか","","¿qué le pasa?",17],["ですから","","por eso",17],
-["げんきん","現金","dinero en efectivo",18],["にっき","日記","diario (personal)",18],["[お]いのり","[お]祈り","oración, rezo",18],["かちょう","課長","jefe de sección",18],["ぶちょう","部長","jefe de departamento",18],["しゃちょう","社長","presidente de empresa",18],["こくさい〜","国際〜","… internacional",18],["〜メートル","","… metros",18],["なかなか（＋neg.）","","no tan fácilmente",18],["ぼくじょう","牧場","granja, rancho",18],["それはおもしろいですね","それは面白いですね","¡qué interesante!",18],["ほんとうですか","本当ですか","¿en serio?",18],
-["ねむい","眠い","tener sueño",19],["つよい","強い","fuerte",19],["よわい","弱い","débil",19],["ゴルフ","","golf",19],["パチンコ","","pachinko",19],["ひ","日","día, fecha",19],["じつは","実は","en realidad, la verdad es que…",19],["なんかいも","何回も","muchas veces",19],["しかし","","pero, sin embargo",19],["ケーキ","","pastel, tarta",19],
-["ぼく","僕","yo (hombres, informal)",20],["きみ","君","tú (informal)",20],["サラリーマン","","oficinista, asalariado",20],["ぶっか","物価","coste de la vida",20],["このあいだ","この間","el otro día",20],["よかったら","","si te apetece",20],["いろいろ","","diversamente, de todo",20],
-["ふべん（な）","不便","poco práctico, inconveniente",21],["おなじ","同じ","igual, mismo",21],["すごい","","increíble, impresionante",21],["しゅしょう","首相","primer ministro",21],["だいとうりょう","大統領","presidente (de un país)",21],["せいじ","政治","política",21],["スピーチ","","discurso",21],["ユーモア","","humor",21],["デザイン","","diseño",21],["こうつう","交通","tráfico, transporte",21],["ラッシュ","","hora punta",21],["さいきん","最近","últimamente",21],["しかたがありません","","no hay remedio",21],["しばらくですね","","¡cuánto tiempo (sin vernos)!",21],["もちろん","","por supuesto",21],["カンガルー","","canguro",21],
-["やちん","家賃","alquiler (importe)",22],["ダイニングキチン","","cocina-comedor",22],["わしつ","和室","habitación de estilo japonés",22],["おしいれ","押し入れ","armario empotrado japonés",22],["ふとん","布団","futón",22],["アパート","","apartamento, piso",22],
-["でんきや","電気屋","electricista; tienda de electrodomésticos",23],["きかい","機械","máquina",23],["つまみ","","mando, ruedecilla (de aparato)",23],["ごちそうさま[でした]","","gracias por la comida",23],
-["じゅんび","準備","preparación",24],["ワゴンしゃ","ワゴン車","furgoneta",24],["ははのひ","母の日","Día de la Madre",24],
-["たいしかん","大使館","embajada",25],["グループ","","grupo",25],["チャンス","","oportunidad",25],["おく","億","cien millones",25],["もし[〜たら]","","si… (refuerza el condicional)",25],["いくら[〜ても]","","por más que…",25],["いっぱいのみましょう","一杯飲みましょう","¡vamos a tomar una copa!",25],
-["カナダ","","Canadá",1],
-["スペインご","スペイン語","español (idioma)",1],
-["フランスご","フランス語","francés (idioma)",1],
-["イタリアご","イタリア語","italiano (idioma)",1],
-["ちゅうごくご","中国語","chino (idioma)",1],
-["かんこくご","韓国語","coreano (idioma)",1],
-["ポルトガルご","ポルトガル語","portugués (idioma)",1],
-["おくじょう","屋上","azotea",3],
-["おもちゃ","","juguete",3],
-["ぶんぼうぐ","文房具","artículos de papelería",3],
-["かぐ","家具","muebles",3],
-["しょっき","食器","vajilla",3],
-["でんきせいひん","電気製品","electrodomésticos",3],
-["アクセサリー","","accesorios, bisutería",3],
-["けしょうひん","化粧品","cosméticos",3],
-["しょくりょうひん","食料品","alimentación (sección)",3],
-["きゅうり","","pepino",6],
-["トマト","","tomate",6],
-["なす","","berenjena",6],
-["まめ","豆","legumbres",6],
-["キャベツ","","col, repollo",6],
-["ねぎ","","cebolleta",6],
-["はくさい","白菜","col china",6],
-["ほうれんそう","","espinacas",6],
-["レタス","","lechuga",6],
-["じゃがいも","","patata",6],
-["だいこん","大根","nabo japonés",6],
-["たまねぎ","","cebolla",6],
-["にんじん","","zanahoria",6],
-["いちご","","fresa",6],
-["もも","","melocotón",6],
-["すいか","","sandía",6],
-["ぶどう","","uvas",6],
-["なし","","pera japonesa",6],
-["かき","柿","caqui",6],
-["バナナ","","plátano",6],
-["ぎゅうにく","牛肉","carne de ternera",6],
-["とりにく","とり肉","pollo (carne)",6],
-["ぶたにく","豚肉","carne de cerdo",6],
-["ソーセージ","","salchicha",6],
-["ハム","","jamón",6],
-["さけ","","salmón",6],
-["まぐろ","","atún",6],
-["えび","","gamba, langostino",6],
-["かに","","cangrejo",6],
-["いか","","calamar",6],
-["たこ","","pulpo",6],
-["こめ","米","arroz (sin cocer)",6],
-["そふ","祖父","mi abuelo",7],
-["そぼ","祖母","mi abuela",7],
-["むすこ","息子","mi hijo",7],
-["むすめ","娘","mi hija",7],
-["むすこさん","息子さん","hijo (de otro)",7],
-["むすめさん","娘さん","hija (de otro)",7],
-["おこさん","お子さん","hijo/a (de otro)",7],
-["ふうふ","夫婦","matrimonio (pareja)",7],
-["きいろい","黄色い","amarillo",8],
-["ちゃいろい","茶色い","marrón",8],
-["むらさき","紫","morado, violeta",8],
-["ピンク","","rosa (color)",8],
-["オレンジ","","naranja (color)",8],
-["グレー","","gris",8],
-["にがい","苦い","amargo",8],
-["しおからい","塩辛い","salado",8],
-["すっぱい","酸っぱい","ácido",8],
-["こい","濃い","fuerte, cargado (sabor, color)",8],
-["うすい","薄い","suave, poco cargado; fino",8],
-["ポップス","","música pop",9],
-["ロック","","rock",9],
-["ラテン","","música latina",9],
-["オペラ","","ópera",9],
-["ミュージカル","","musical (teatro)",9],
-["アニメ","","anime, dibujos animados",9],
-["ホラー","","cine de terror",9],
-["アクション","","cine de acción",9],
-["ドキュメンタリー","","documental",9],
-["ミステリー","","cine de misterio",9],
-["バレーボール","","voleibol",9],
-["バスケットボール","","baloncesto",9],
-["ラグビー","","rugby",9],
-["たっきゅう","卓球","tenis de mesa",9],
-["じゅうどう","柔道","judo",9],
-["からて","空手","kárate",9],
-["すいえい","水泳","natación",9],
-["スケート","","patinaje",9],
-["げんかん","玄関","recibidor, entrada",10],
-["だいどころ","台所","cocina (de casa)",10],
-["しんしつ","寝室","dormitorio",10],
-["いま","居間","salón, sala de estar",10],
-["ふろば","風呂場","cuarto de baño",10],
-["せんめんじょ","洗面所","lavabo",10],
-["ろうか","廊下","pasillo",10],
-["ベランダ","","balcón, terraza",10],
-["おにぎり","","bola de arroz",11],
-["みそしる","みそ汁","sopa de miso",11],
-["うどん","","udon (fideos de trigo)",11],
-["そば","","soba (fideos de alforfón)",11],
-["ラーメン","","ramen",11],
-["やきそば","焼きそば","fideos fritos",11],
-["おこのみやき","お好み焼き","okonomiyaki",11],
-["やきにく","焼肉","carne a la parrilla",11],
-["サラダ","","ensalada",11],
-["スープ","","sopa, caldo",11],
-["スパゲティー","","espaguetis",11],
-["ピザ","","pizza",11],
-["ハンバーガー","","hamburguesa (bocadillo)",11],
-["コーラ","","cola (refresco)",11],
-["ココア","","cacao (bebida)",11],
-["はくぶつかん","博物館","museo",13],
-["えいがかん","映画館","cine (edificio)",13],
-["どうぶつえん","動物園","zoo",13],
-["しょくぶつえん","植物園","jardín botánico",13],
-["ゆうえんち","遊園地","parque de atracciones",13],
-["きょうかい","教会","iglesia",13],
-["たいいくかん","体育館","gimnasio, polideportivo",13],
-["けいさつ","警察","policía",13],
-["にくや","肉屋","carnicería",13],
-["パンや","パン屋","panadería",13],
-["さかなや","魚屋","pescadería",13],
-["やおや","八百屋","verdulería",13],
-["しょうがっこう","小学校","escuela primaria",13],
-["ちゅうがっこう","中学校","instituto (secundaria)",13],
-["ようちえん","幼稚園","parvulario, jardín de infancia",13],
-["きっぷうりば","切符売り場","taquilla de billetes",14],
-["でぐち","出口","salida",14],
-["いりぐち","入口","entrada",14],
-["かいさつぐち","改札口","torniquetes de acceso",14],
-["ホーム","","andén",14],
-["ばいてん","売店","quiosco",14],
-["コインロッカー","","consigna automática",14],
-["バスてい","バス停","parada de autobús",14],
-["かたみち","片道","solo ida",14],
-["おうふく","往復","ida y vuelta",14],
-["〜ゆき","〜行き","con destino a…",14],
-["てんいん","店員","dependiente",15],
-["こうむいん","公務員","funcionario",15],
-["べんごし","弁護士","abogado",15],
-["かんごふ","看護婦","enfermera",15],
-["うんてんしゅ","運転手","conductor, taxista",15],
-["けいさつかん","警察官","agente de policía",15],
-["せいじか","政治家","político",15],
-["がか","画家","pintor (artista)",15],
-["さっか","作家","escritor, novelista",15],
-["おんがくか","音楽家","músico",15],
-["けんちくか","建築家","arquitecto",15],
-["デザイナー","","diseñador",15],
-["ジャーナリスト","","periodista",15],
-["かしゅ","歌手","cantante",15],
-["はいゆう","俳優","actor, actriz",15],
-["スポーツせんしゅ","スポーツ選手","deportista",15],
-["はな","鼻","nariz",17],
-["くび","首","cuello",17],
-["かた","肩","hombro",17],
-["むね","胸","pecho",17],
-["せなか","背中","espalda",17],
-["うで","腕","brazo",17],
-["ひじ","","codo",17],
-["ゆび","指","dedo",17],
-["つめ","爪","uña",17],
-["ひざ","","rodilla",17],
-["こし","腰","lumbares, cadera",17],
-["ほね","骨","hueso",17],
-["せき","","tos (せきが出ます)",17],
-["はなみず","鼻水","mocos (鼻水が出ます)",17],
-["はきけ","吐き気","náuseas (吐き気がします)",17],
-["けが","","herida (けがをします)",17],
-["やけど","","quemadura (やけどをします)",17],
-["かゆい","","que pica",17],
-["インフルエンザ","","gripe",17],
-["しょどう","書道","caligrafía japonesa",19],
-["さどう","茶道","ceremonia del té",19],
-["ちじ","知事","gobernador (de prefectura)",21],
-["しちょう","市長","alcalde",21],
-["がくちょう","学長","rector (universidad)",21],
-["こうちょう","校長","director (de escuela)",21],
-["かいちょう","会長","presidente (del consejo)",21],
-["えきちょう","駅長","jefe de estación",21],
-["ワンピース","","vestido",22],
-["ジーンズ","","vaqueros",22],
-["ブラウス","","blusa",22],
-["マフラー","","bufanda",22],
-["てぶくろ","手袋","guantes",22],
-["ベルト","","cinturón",22],
-["レインコート","","impermeable",22],
-["ハイヒール","","zapatos de tacón",22],
-["ブーツ","","botas",22],
-["うんどうぐつ","運動靴","zapatillas de deporte",22],
-["ほどう","歩道","acera",23],
-["とおり","通り","calle, avenida",23],
-["おうだんほどう","横断歩道","paso de cebra",23],
-["こうそくどうろ","高速道路","autopista",23],
-["さか","坂","cuesta, pendiente",23],
-["あかちゃん","赤ちゃん","bebé",25],
-["ろうじん","老人","anciano",25],
-/*V_END*/];
-const GRAMMAR=[
-{l:1,t:"Presentarse: 〜は〜です",p:[
-{t:"S1 は S2 です",e:"La partícula は (se lee «wa») marca el tema de la frase. です equivale a «ser» en estilo formal.",ex:[["わたしはアグスです。","Yo soy Agus."],["ミラーさんはアメリカ人[じん]です。","El Sr. Miller es americano."]]},
-{t:"S1 は S2 じゃありません",e:"Forma negativa de です. También existe la variante では ありません, un poco más formal.",ex:[["サントスさんは学生[がくせい]じゃありません。","El Sr. Santos no es estudiante."]]},
-{t:"〜か",e:"Añadir か al final convierte la frase en pregunta. No se usa el signo «?» en japonés formal.",ex:[["ミラーさんは会社員[かいしゃいん]ですか。…はい、会社員[かいしゃいん]です。","¿El Sr. Miller es empleado de empresa? …Sí, lo es."]]},
-{t:"S の S",e:"の une dos nombres: pertenencia o afiliación. El poseedor va delante.",ex:[["わたしは IMC の社員[しゃいん]です。","Soy empleado de IMC."],["これはわたしの本[ほん]です。","Este es mi libro."]]},
-{t:"〜さん",e:"Se añade al apellido de otras personas (nunca al propio nombre). Para niños: 〜ちゃん.",ex:[["あの人[ひと]は木村[きむら]さんです。","Aquella persona es la Sra. Kimura."]]}]},
-{l:2,t:"Esto, eso, aquello: これ・それ・あれ",p:[
-{t:"これ／それ／あれ",e:"これ = cerca del hablante, それ = cerca del oyente, あれ = lejos de ambos. Funcionan como pronombres.",ex:[["これは辞書[じしょ]です。","Esto es un diccionario."],["それはわたしの傘[かさ]です。","Eso es mi paraguas."]]},
-{t:"この S／その S／あの S",e:"Igual que los anteriores pero siempre acompañan a un nombre.",ex:[["この本[ほん]はわたしのです。","Este libro es mío."],["あの人[ひと]はだれですか。","¿Quién es aquella persona?"]]},
-{t:"そうです／そうじゃありません",e:"Para responder a preguntas con nombre: «así es / no es así».",ex:[["それはテレホンカードですか。…はい、そうです。","¿Eso es una tarjeta telefónica? …Sí, así es."]]},
-{t:"S1 ですか、S2 ですか",e:"Pregunta de elección entre dos opciones. Se responde con la opción, no con はい/いいえ.",ex:[["これは「9」ですか、「7」ですか。…「9」です。","¿Esto es un 9 o un 7? …Es un 9."]]},
-{t:"S の (sustitución)",e:"の puede sustituir a un nombre ya mencionado.",ex:[["これはコンピューターの本[ほん]です。","Este es un libro de informática."],["あのかばんはわたしのです。","Aquel bolso es el mío."]]}]},
-{l:3,t:"Lugares: ここ・そこ・あそこ",p:[
-{t:"ここ／そこ／あそこ／どこ",e:"Serie de lugar: aquí / ahí / allí / dónde. La versión formal es こちら／そちら／あちら／どちら.",ex:[["トイレはどこですか。…あそこです。","¿Dónde está el baño? …Allí."]]},
-{t:"S は place です",e:"Para indicar dónde está algo o alguien con です.",ex:[["電話[でんわ]は 2階[かい]です。","El teléfono está en la segunda planta."],["山田[やまだ]さんは事務所[じむしょ]です。","El Sr. Yamada está en la oficina."]]},
-{t:"どちら (país, empresa, escuela)",e:"どちら pregunta cortésmente por el lugar/institución: «¿de dónde?».",ex:[["会社[かいしゃ]はどちらですか。…IMC です。","¿Cuál es su empresa? …IMC."]]},
-{t:"S1 の S2 (origen, marca)",e:"の también indica origen o marca del producto.",ex:[["これはどこのコンピューターですか。…日本[にほん]のです。","¿De dónde es este ordenador? …Es japonés."]]},
-{t:"いくらですか",e:"Preguntar el precio.",ex:[["この時計[とけい]はいくらですか。…5000円[えん]です。","¿Cuánto cuesta este reloj? …5.000 yenes."]]}]},
-{l:4,t:"La hora y los verbos: 〜ます",p:[
-{t:"今[いま]〜時[じ]〜分[ふん]です",e:"Decir la hora. Ojo con las lecturas irregulares: 4時[じ] (よじ), 9時[じ] (くじ), 7時[じ] (しちじ).",ex:[["今[いま]何時[なんじ]ですか。…8時[じ]半[はん]です。","¿Qué hora es? …Las ocho y media."]]},
-{t:"V ます／ません／ました／ませんでした",e:"El verbo en forma ます: presente-futuro afirmativo, negativo, pasado y pasado negativo. El verbo siempre va al final.",ex:[["毎朝[まいあさ] 6時[じ]に起[お]きます。","Cada mañana me levanto a las seis."],["きのう勉強[べんきょう]しませんでした。","Ayer no estudié."]]},
-{t:"時間[じかん] に V",e:"La partícula に marca la hora a la que ocurre la acción. Se usa con horas y fechas concretas; con palabras como きょう o 毎日[まいにち] no se pone.",ex:[["6時[じ]に起[お]きます。","Me levanto a las seis."],["日曜日[にちようび]（に）働[はたら]きません。","No trabajo el domingo."]]},
-{t:"〜から〜まで",e:"から = desde, まで = hasta. Sirven para tiempo y lugar.",ex:[["銀行[ぎんこう]は 9時[じ]から 3時[じ]までです。","El banco abre de nueve a tres."],["大阪[おおさか]から東京[とうきょう]まで","desde Osaka hasta Tokio"]]},
-{t:"S1 と S2",e:"と une nombres: «y».",ex:[["銀行[ぎんこう]の休[やす]みは土曜日[どようび]と日曜日[にちようび]です。","Los días de cierre del banco son sábado y domingo."]]}]},
-{l:5,t:"Ir y venir: へ・で",p:[
-{t:"place へ 行[い]きます／来[き]ます／帰[かえ]ります",e:"へ (se lee «e») marca la dirección del movimiento.",ex:[["京都[きょうと]へ行[い]きます。","Voy a Kioto."],["うちへ帰[かえ]ります。","Vuelvo a casa."]]},
-{t:"どこ（へ）も 行[い]きません",e:"Interrogativo + も + negación = negación total: «no voy a ningún sitio».",ex:[["きのうどこも行[い]きませんでした。","Ayer no fui a ningún sitio."]]},
-{t:"transporte で 行[い]きます",e:"で marca el medio de transporte. Excepción: 歩[ある]いて (a pie, sin で).",ex:[["電車[でんしゃ]で大阪[おおさか]へ行[い]きます。","Voy a Osaka en tren."],["歩[ある]いて駅[えき]へ行[い]きます。","Voy a la estación andando."]]},
-{t:"persona と 行[い]きます",e:"と marca con quién se hace algo. «Solo» es 一人[ひとり]で.",ex:[["家族[かぞく]と日本[にほん]へ来[き]ました。","Vine a Japón con mi familia."]]},
-{t:"いつ",e:"«Cuándo». No lleva に. Las fechas concretas sí llevan に.",ex:[["いつ日本[にほん]へ来[き]ましたか。…3月[がつ]25日[にち]に来[き]ました。","¿Cuándo viniste a Japón? …El 25 de marzo."]]},
-{t:"〜よ",e:"Partícula final que aporta información nueva o énfasis al oyente.",ex:[["この電車[でんしゃ]は甲子園[こうしえん]へ行[い]きますよ。","Este tren sí va a Kōshien, ¿eh?"]]}]},
-{l:6,t:"Objeto directo: を",p:[
-{t:"S を V",e:"を marca el objeto directo del verbo.",ex:[["ジュースを飲[の]みます。","Bebo zumo."],["本[ほん]を読[よ]みます。","Leo un libro."]]},
-{t:"place で V",e:"で marca el lugar donde ocurre la acción (distinto de に de existencia).",ex:[["駅[えき]で新聞[しんぶん]を買[か]います。","Compro el periódico en la estación."]]},
-{t:"何[なに]をしますか",e:"Preguntar qué hace alguien.",ex:[["日曜日[にちようび]何[なに]をしますか。…テニスをします。","¿Qué haces el domingo? …Juego al tenis."]]},
-{t:"〜ませんか",e:"Invitación: «¿no quieres…?». Más cortés que ましょう.",ex:[["いっしょにビールを飲[の]みませんか。…ええ、いいですね。","¿Nos tomamos una cerveza juntos? …Sí, ¡buena idea!"]]},
-{t:"〜ましょう",e:"Propuesta de hacer algo juntos cuando ya hay acuerdo: «hagamos…».",ex:[["ロビーで会[あ]いましょう。","Quedemos en el vestíbulo."]]}]},
-{l:7,t:"Dar y recibir: あげます・もらいます",p:[
-{t:"herramienta で V",e:"で también marca el instrumento o medio con que se hace algo.",ex:[["はしでご飯[はん]を食[た]べます。","Como el arroz con palillos."],["日本語[にほんご]でレポートを書[か]きます。","Escribo el informe en japonés."]]},
-{t:"persona に あげます",e:"あげます = dar (yo → otros). に marca el receptor.",ex:[["木村[きむら]さんに花[はな]をあげました。","Le di flores a la Sra. Kimura."]]},
-{t:"persona に／から もらいます",e:"もらいます = recibir. に o から marcan quién lo da.",ex:[["カリナさんにチョコレートをもらいました。","Recibí chocolate de Karina."]]},
-{t:"もう V ました",e:"もう = «ya». Se responde negativamente con まだです (todavía no).",ex:[["もう昼[ひる]ご飯[はん]を食[た]べましたか。…いいえ、まだです。","¿Ya has comido? …No, todavía no."]]}]},
-{l:8,t:"Adjetivos: い-adj y な-adj",p:[
-{t:"S は い-adj です",e:"Los adjetivos い terminan en い y no cambian ante です. Negativo: 〜くないです (いい → よくないです).",ex:[["富士山[ふじさん]は高[たか]いです。","El monte Fuji es alto."],["この本[ほん]は面白[おもしろ]くないです。","Este libro no es interesante."]]},
-{t:"S は な-adj です",e:"Los adjetivos な se comportan como nombres con です. Negativo: じゃありません.",ex:[["ここは静[しず]かです。","Aquí es tranquilo."],["あの人[ひと]は親切[しんせつ]じゃありません。","Aquella persona no es amable."]]},
-{t:"い-adj + S ／ な-adj な + S",e:"Delante de un nombre, el adjetivo な recupera la な.",ex:[["新[あたら]しい車[くるま]です。","Es un coche nuevo."],["きれいな町[まち]です。","Es una ciudad bonita."]]},
-{t:"とても／あまり",e:"とても = muy (afirmativo). あまり = no mucho (siempre con negación).",ex:[["日本[にほん]はとてもにぎやかです。","Japón es muy animado."],["あまり有名[ゆうめい]じゃありません。","No es muy famoso."]]},
-{t:"S はどうですか／どんな S",e:"どうですか pide una impresión; どんな + nombre pide una descripción.",ex:[["日本[にほん]の生活[せいかつ]はどうですか。…楽[たの]しいです。","¿Qué tal la vida en Japón? …Divertida."],["大阪[おおさか]はどんな町[まち]ですか。","¿Qué tipo de ciudad es Osaka?"]]},
-{t:"〜が、〜",e:"が une dos frases con sentido adversativo: «pero».",ex:[["日本[にほん]の食[た]べ物[もの]はおいしいですが、高[たか]いです。","La comida japonesa está buena, pero es cara."]]}]},
-{l:9,t:"Gustos y habilidades: が好[す]きです",p:[
-{t:"S が 好[す]きです／嫌[きら]いです",e:"Con 好[す]き, 嫌[きら]い, 上手[じょうず], 下手[へた] y わかります el objeto se marca con が, no con を.",ex:[["わたしは音楽[おんがく]が好[す]きです。","Me gusta la música."],["ミラーさんは日本語[にほんご]が上手[じょうず]です。","El Sr. Miller habla bien japonés."]]},
-{t:"S が わかります",e:"«Entender» también usa が.",ex:[["わたしはひらがなが わかります。","Entiendo el hiragana."]]},
-{t:"よく／だいたい／少[すこ]し／あまり／全然[ぜんぜん]",e:"Adverbios de grado, de más a menos. あまり y 全然[ぜんぜん] exigen negación.",ex:[["英語[えいご]が少[すこ]しわかります。","Entiendo un poco de inglés."],["漢字[かんじ]が全然[ぜんぜん]わかりません。","No entiendo nada los kanji."]]},
-{t:"どうして／〜から",e:"どうして pregunta la razón; から al final de la frase la da.",ex:[["どうして朝[あさ]ご飯[はん]を食[た]べませんか。…時間[じかん]がありませんから。","¿Por qué no desayunas? …Porque no tengo tiempo."]]}]},
-{l:10,t:"Existencia: あります・います",p:[
-{t:"S が あります／います",e:"あります = existir cosas; います = existir personas y animales.",ex:[["机[つくえ]の上[うえ]に写真[しゃしん]があります。","Encima de la mesa hay una foto."],["公園[こうえん]に子[こ]どもがいます。","En el parque hay niños."]]},
-{t:"place に S が あります／います",e:"に marca el lugar de existencia. Orden: lugar に cosa が verbo.",ex:[["受付[うけつけ]に電話[でんわ]があります。","En recepción hay un teléfono."]]},
-{t:"S は place に あります／います",e:"Cuando lo conocido es la cosa, se convierte en tema con は: «X está en…».",ex:[["ミラーさんは事務所[じむしょ]にいます。","El Sr. Miller está en la oficina."],["東京[とうきょう]ディズニーランドは千葉県[ちばけん]にあります。","Tokio Disneyland está en la prefectura de Chiba."]]},
-{t:"S1（posición）の S2",e:"Palabras de posición: 上[うえ]・下[した]・前[まえ]・後[うし]ろ・右[みぎ]・左[ひだり]・中[なか]・外[そと]・隣[となり]・近[ちか]く・間[あいだ].",ex:[["郵便局[ゆうびんきょく]は銀行[ぎんこう]の隣[となり]にあります。","Correos está al lado del banco."],["いすの下[した]に猫[ねこ]がいます。","Debajo de la silla hay un gato."]]},
-{t:"S1 や S2（など）",e:"や enumera sin ser exhaustivo (a diferencia de と). など = «etcétera».",ex:[["箱[はこ]の中[なか]に手紙[てがみ]や写真[しゃしん]などがあります。","En la caja hay cartas, fotos, etc."]]}]},
-{l:11,t:"Contadores y cantidades",p:[
-{t:"Numerales + contador",e:"La cantidad va normalmente detrás del nombre + partícula, sin partícula propia: S を 数[かず] V.",ex:[["りんごを 4つ買[か]いました。","Compré cuatro manzanas."],["切手[きって]を 3枚[まい]ください。","Deme tres sellos, por favor."]]},
-{t:"期間[きかん]（〜時間[じかん]・〜日[にち]・〜週間[しゅうかん]…）",e:"Duración: 〜分[ふん], 〜時間[じかん], 〜日[にち], 〜週間[しゅうかん], 〜か月[げつ], 〜年[ねん]. No lleva に.",ex:[["毎日[まいにち] 7時間[じかん]働[はたら]きます。","Trabajo siete horas al día."],["日本[にほん]に 1年[ねん]います。","Estaré un año en Japón."]]},
-{t:"どのくらい",e:"Pregunta duración o cantidad de tiempo.",ex:[["どのくらい日本語[にほんご]を勉強[べんきょう]しましたか。…3か月[げつ]勉強[べんきょう]しました。","¿Cuánto tiempo has estudiado japonés? …Tres meses."]]},
-{t:"〜回[かい]",e:"Contador de veces: 1回[かい], 2回[かい]… + 期間[きかん]に〜回[かい] (frecuencia).",ex:[["月[つき]に 2回[かい]映画[えいが]を見[み]ます。","Veo cine dos veces al mes."]]},
-{t:"〜だけ",e:"«Solo, solamente». Sustituye o acompaña a la partícula.",ex:[["休[やす]みは日曜日[にちようび]だけです。","Solo libro los domingos."]]}]},
-{l:12,t:"Pasado de adjetivos y comparaciones",p:[
-{t:"Pasado de S y な-adj",e:"でした / じゃありませんでした.",ex:[["きのうは雨[あめ]でした。","Ayer llovió (estuvo lluvioso)."],["パーティーはにぎやかじゃありませんでした。","La fiesta no estuvo animada."]]},
-{t:"Pasado de い-adj",e:"〜かったです / 〜くなかったです. いい → よかった／よくなかった.",ex:[["旅行[りょこう]は楽[たの]しかったです。","El viaje fue divertido."],["天気[てんき]はよくなかったです。","El tiempo no fue bueno."]]},
-{t:"S1 は S2 より 〜",e:"Comparativo: «S1 es más… que S2».",ex:[["飛行機[ひこうき]は新幹線[しんかんせん]より速[はや]いです。","El avión es más rápido que el tren bala."]]},
-{t:"S1 と S2 と どちらが〜",e:"Elegir entre dos. Se responde con 〜のほうが.",ex:[["サッカーと野球[やきゅう]とどちらが面白[おもしろ]いですか。…サッカーのほうが面白[おもしろ]いです。","¿Qué es más interesante, el fútbol o el béisbol? …El fútbol."]]},
-{t:"S（の中[なか]）で 何[なに]が いちばん〜",e:"Superlativo dentro de un grupo.",ex:[["日本料理[にほんりょうり]で何[なに]がいちばんおいしいですか。…てんぷらがいちばんおいしいです。","De la comida japonesa, ¿qué es lo más rico? …La tempura."]]}]},
-{l:13,t:"Deseos: 〜が欲[ほ]しい・〜たい",p:[
-{t:"S が 欲[ほ]しいです",e:"«Quiero (una cosa)». El objeto lleva が.",ex:[["わたしは車[くるま]が欲[ほ]しいです。","Quiero un coche."]]},
-{t:"V たいです",e:"«Quiero + verbo»: raíz de ます + たい. Se conjuga como adjetivo い. El objeto puede llevar を o が.",ex:[["沖縄[おきなわ]へ行[い]きたいです。","Quiero ir a Okinawa."],["てんぷらを食[た]べたいです。","Quiero comer tempura."]]},
-{t:"place へ V（raíz ます）に 行[い]きます",e:"«Ir a + lugar + a hacer algo»: el propósito con に.",ex:[["神戸[こうべ]へインド料理[りょうり]を食[た]べに行[い]きます。","Voy a Kobe a comer comida india."],["日本[にほん]へ経済[けいざい]の勉強[べんきょう]に来[き]ました。","Vine a Japón a estudiar economía."]]},
-{t:"何[なに]か／どこか",e:"«Algo» / «algún sitio». Las partículas へ/が se pueden omitir tras ellos.",ex:[["何[なに]か食[た]べましたか。","¿Has comido algo?"],["どこか行[い]きたいです。","Quiero ir a algún sitio."]]}]},
-{l:14,t:"La forma て: 〜てください・〜ています",p:[
-{t:"Forma て",e:"Grupo I: う・つ・る→って／む・ぶ・ぬ→んで／く→いて／ぐ→いで／す→して (行[い]く→行[い]って ★). Grupo II: る→て. Grupo III: して・きて.",ex:[["書[か]く→書[か]いて、飲[の]む→飲[の]んで、買[か]う→買[か]って","escribir → escribiendo, beber → bebiendo, comprar → comprando"]]},
-{t:"V てください",e:"Petición cortés: «haga…, por favor».",ex:[["ちょっと待[ま]ってください。","Espere un momento, por favor."],["ここに住所[じゅうしょ]を書[か]いてください。","Escriba aquí su dirección, por favor."]]},
-{t:"V ています (acción en curso)",e:"Acción que está ocurriendo ahora.",ex:[["ミラーさんは今[いま]電話[でんわ]をかけています。","El Sr. Miller está llamando por teléfono ahora."],["雨[あめ]が降[ふ]っています。","Está lloviendo."]]},
-{t:"V ましょうか",e:"Ofrecerse a hacer algo por el otro.",ex:[["荷物[にもつ]を持[も]ちましょうか。…ありがとうございます。","¿Le llevo el equipaje? …Gracias."]]}]},
-{l:15,t:"Permiso y prohibición: 〜てもいい・〜てはいけない",p:[
-{t:"V てもいいです",e:"Dar o pedir permiso: «se puede…».",ex:[["写真[しゃしん]を撮[と]ってもいいですか。…ええ、いいですよ。","¿Puedo hacer fotos? …Sí, claro."]]},
-{t:"V てはいけません",e:"Prohibición: «no se puede…».",ex:[["ここでたばこを吸[す]ってはいけません。","Aquí no se puede fumar."]]},
-{t:"V ています (estado)",e:"Con ciertos verbos indica estado resultante: 住[す]んでいます (vivo en), 知[し]っています (conozco), 結婚[けっこん]しています (estoy casado), 持[も]っています (tengo).",ex:[["大阪[おおさか]に住[す]んでいます。","Vivo en Osaka."],["ミラーさんを知[し]っていますか。…いいえ、知[し]りません。","¿Conoces al Sr. Miller? …No, no lo conozco."]]},
-{t:"V ています (hábito/profesión)",e:"También describe ocupación o hábito.",ex:[["IMC で働[はたら]いています。","Trabajo en IMC."],["大学[だいがく]で日本語[にほんご]を教[おし]えています。","Enseño japonés en la universidad."]]}]},
-{l:16,t:"Encadenar frases: 〜て、〜",p:[
-{t:"V1 て、V2",e:"La forma て une acciones en orden temporal.",ex:[["朝[あさ] 6時[じ]に起[お]きて、シャワーを浴[あ]びて、会社[かいしゃ]へ行[い]きます。","Me levanto a las seis, me ducho y voy a la empresa."]]},
-{t:"い-adj → 〜くて／な-adj・S → 〜で",e:"Para encadenar adjetivos o nombres.",ex:[["ミラーさんは若[わか]くて、元気[げんき]です。","El Sr. Miller es joven y enérgico."],["奈良[なら]は静[しず]かで、きれいな町[まち]です。","Nara es una ciudad tranquila y bonita."]]},
-{t:"V1 てから、V2",e:"«Después de V1, V2». Marca claramente el orden.",ex:[["仕事[しごと]が終[お]わってから、飲[の]みに行[い]きます。","Después de acabar el trabajo, voy a tomar algo."]]},
-{t:"S1 は S2 が adj",e:"Describir una característica de una parte: «X tiene Y …».",ex:[["カリナさんは髪[かみ]が長[なが]いです。","Karina tiene el pelo largo."],["大阪[おおさか]は食[た]べ物[もの]がおいしいです。","En Osaka la comida está rica."]]},
-{t:"どうやって",e:"Preguntar el modo o el camino.",ex:[["大学[だいがく]までどうやって行[い]きますか。…16番[ばん]のバスに乗[の]って、大学前[だいがくまえ]で降[お]ります。","¿Cómo se va a la universidad? …Se coge el bus 16 y se baja en Daigaku-mae."]]}]},
-{l:17,t:"La forma ない: 〜ないでください・〜なければなりません",p:[
-{t:"Forma ない",e:"Grupo I: cambia u→a + ない (買[か]う→買[か]わない ★). Grupo II: る→ない. Grupo III: しない・こない. ある → ない.",ex:[["行[い]く→行[い]かない、食[た]べる→食[た]べない","ir → no ir, comer → no comer"]]},
-{t:"V ないでください",e:"Petición negativa: «no haga…, por favor».",ex:[["ここで写真[しゃしん]を撮[と]らないでください。","No haga fotos aquí, por favor."]]},
-{t:"V なければなりません",e:"Obligación: «hay que, tener que». (= V ないform sin ない + なければなりません).",ex:[["薬[くすり]を飲[の]まなければなりません。","Tengo que tomar la medicina."]]},
-{t:"V なくてもいいです",e:"Ausencia de obligación: «no hace falta que…».",ex:[["あした来[こ]なくてもいいです。","Mañana no hace falta que vengas."]]},
-{t:"S までに",e:"Plazo límite: «antes de, para». Distinto de まで (hasta).",ex:[["土曜日[どようび]までに本[ほん]を返[かえ]さなければなりません。","Tengo que devolver el libro antes del sábado."]]}]},
-{l:18,t:"Forma diccionario: 〜ことができます",p:[
-{t:"Forma diccionario",e:"Grupo I: cambia i→u desde la raíz ます (かきます→かく). Grupo II: raíz + る (たべます→たべる). Grupo III: する・くる.",ex:[["飲[の]みます→飲[の]む、見[み]ます→見[み]る、します→する","beber, ver, hacer (forma diccionario)"]]},
-{t:"S／V る ことが できます",e:"Capacidad o posibilidad: «poder, saber hacer».",ex:[["ミラーさんは日本語[にほんご]を話[はな]すことができます。","El Sr. Miller sabe hablar japonés."],["ここで切符[きっぷ]を買[か]うことができます。","Aquí se pueden comprar billetes."]]},
-{t:"わたしの趣味[しゅみ]は V る ことです",e:"Describir el hobby con verbo nominalizado.",ex:[["わたしの趣味[しゅみ]は映画[えいが]を見[み]ることです。","Mi hobby es ver películas."]]},
-{t:"V る／S の まえに",e:"«Antes de…». Con verbo siempre en forma diccionario, aunque la frase sea pasada.",ex:[["寝[ね]るまえに、本[ほん]を読[よ]みます。","Antes de dormir, leo."],["食事[しょくじ]のまえに、手[て]を洗[あら]います。","Antes de comer, me lavo las manos."]]}]},
-{l:19,t:"Forma た: 〜たことがあります・〜たり",p:[
-{t:"Forma た",e:"Idéntica a la forma て pero con た/だ: 飲[の]んで→飲[の]んだ, 書[か]いて→書[か]いた.",ex:[["行[い]く→行[い]った、食[た]べる→食[た]べた","ir → fui, comer → comí"]]},
-{t:"V たことが あります",e:"Experiencia vital: «alguna vez he…».",ex:[["馬[うま]に乗[の]ったことがあります。","He montado a caballo alguna vez."],["すき焼[や]きを食[た]べたことがありますか。…いいえ、一度[いちど]もありません。","¿Has comido sukiyaki? …No, ni una vez."]]},
-{t:"V たり、V たりします",e:"Enumeración no exhaustiva de acciones, sin orden.",ex:[["日曜日[にちようび]はテニスをしたり、映画[えいが]を見[み]たりします。","Los domingos juego al tenis, veo películas y cosas así."]]},
-{t:"〜く／〜に なります",e:"Cambio de estado: い-adj → 〜くなります; な-adj/S → 〜になります.",ex:[["寒[さむ]くなりました。","Ha empezado a hacer frío."],["日本語[にほんご]が上手[じょうず]になりました。","Has mejorado en japonés."]]}]},
-{l:20,t:"Estilo informal: hablar sin ます・です",p:[
-{t:"Estilo cortés ↔ estilo informal",e:"Con amigos y familia se habla sin ます ni です, usando las formas de la tabla de verbos: ます→forma de diccionario, ません→forma ない, ました→forma た, です→だ. Estas mismas formas se usan dentro de varias estructuras gramaticales (L21, L22, L23).",ex:[["行[い]きます→行[い]く／行[い]きません→行[い]かない／行[い]きました→行[い]った","voy / no voy / fui (informal)"]]},
-{t:"Adjetivos y nombres en estilo informal",e:"い-adj: igual (高[たか]い). な-adj y S: だ／じゃない／だった／じゃなかった.",ex:[["きれいです→きれいだ、雨[あめ]でした→雨[あめ]だった","es bonito / llovió (informal)"]]},
-{t:"Preguntas en estilo informal",e:"En conversación informal la pregunta se hace con entonación, sin か. El だ final se omite.",ex:[["コーヒーを飲[の]む？…うん、飲[の]む。","¿Tomas café? …Sí."],["今晩[こんばん]暇[ひま]？…ううん、暇[ひま]じゃない。","¿Estás libre esta noche? …No, no lo estoy."]]}]},
-{l:21,t:"Opinión y cita: 〜と思[おも]います・〜と言[い]います",p:[
-{t:"〜と思[おも]います",e:"«Creo que…». Lo que se piensa va SIN ます: forma de diccionario (presente), forma ない (negativo) o forma た (pasado).",ex:[["あした雨[あめ]が降[ふ]ると思[おも]います。","Creo que mañana lloverá."],["日本[にほん]は物価[ぶっか]が高[たか]いと思[おも]います。","Creo que en Japón la vida es cara."]]},
-{t:"「〜」と言[い]いました",e:"Citar palabras: cita directa con comillas, o indirecta con el verbo sin ます (forma de diccionario, ない o た) + と.",ex:[["ミラーさんは「来週[らいしゅう]東京[とうきょう]へ出張[しゅっちょう]します」と言[い]いました。","El Sr. Miller dijo: «La semana que viene voy de viaje de trabajo a Tokio»."]]},
-{t:"〜でしょう？",e:"Buscar confirmación del oyente: «¿verdad?».",ex:[["あしたパーティーに行[い]くでしょう？…ええ、行[い]きます。","Vas a la fiesta mañana, ¿verdad? …Sí, voy."]]},
-{t:"S（場所[ばしょ]）で〜が あります",e:"«Tener lugar un evento» con あります.",ex:[["東京[とうきょう]でサッカーの試合[しあい]があります。","Hay un partido de fútbol en Tokio."]]}]},
-{l:22,t:"Oraciones de relativo",p:[
-{t:"V + S (oración de relativo)",e:"Un verbo en forma de diccionario, ない o た delante de un nombre lo modifica, como una oración de relativo. En japonés va siempre delante: 作ったケーキ = «la tarta que hice».",ex:[["これはミラーさんが作[つく]ったケーキです。","Esta es la tarta que hizo el Sr. Miller."],["京都[きょうと]へ行[い]く人[ひと]はだれですか。","¿Quién es la persona que va a Kioto?"]]},
-{t:"El sujeto interno lleva が",e:"Dentro de la oración modificadora, el sujeto se marca con が (o の), nunca con は.",ex:[["わたしが住[す]んでいる町[まち]は小[ちい]さいです。","La ciudad en la que vivo es pequeña."]]},
-{t:"時間[じかん]／約束[やくそく]／用事[ようじ]が あります",e:"あります también para tener tiempo, citas o asuntos.",ex:[["今日[きょう]は時間[じかん]がありません。","Hoy no tengo tiempo."],["友達[ともだち]と約束[やくそく]があります。","Tengo una cita con un amigo."]]}]},
-{l:23,t:"Cuándo y condiciones: 〜とき・〜と",p:[
-{t:"V／adj／S の とき、〜",e:"«Cuando…». El tiempo del verbo antes de とき indica si la acción está acabada (た) o no (diccionario).",ex:[["図書館[としょかん]で本[ほん]を借[か]りるとき、カードが要[い]ります。","Cuando pides un libro en la biblioteca, hace falta el carné."],["国[くに]へ帰[かえ]ったとき、この時計[とけい]を買[か]いました。","Cuando volví a mi país, compré este reloj."]]},
-{t:"V る と、〜",e:"Condición natural o automática: «si/cuando A, siempre B». Típico de máquinas e indicaciones.",ex:[["このボタンを押[お]すと、お釣[つ]りが出[で]ます。","Si pulsas este botón, sale el cambio."],["まっすぐ行[い]くと、駅[えき]があります。","Si sigues recto, está la estación."]]},
-{t:"S が adj／V",e:"が marca fenómenos que se perciben o sujetos de descripción.",ex:[["音[おと]がします。","Se oye un ruido."],["気分[きぶん]が悪[わる]いです。","Me encuentro mal."]]}]},
-{l:24,t:"Dar y recibir favores: くれます・〜てあげます",p:[
-{t:"くれます",e:"«Dar(me)»: alguien me da algo a mí o a mi familia. El receptor (yo) suele omitirse.",ex:[["姉[あね]はわたしにセーターをくれました。","Mi hermana me dio un jersey."]]},
-{t:"V てあげます",e:"Hacer un favor a otro. Cuidado: puede sonar condescendiente con superiores.",ex:[["わたしは木村[きむら]さんに本[ほん]を貸[か]してあげました。","Le presté un libro a la Sra. Kimura."]]},
-{t:"V てもらいます",e:"Recibir un favor: «alguien hace algo por mí».",ex:[["わたしは山田[やまだ]さんに図書館[としょかん]の電話[でんわ]番号[ばんごう]を教[おし]えてもらいました。","El Sr. Yamada me dijo el teléfono de la biblioteca."]]},
-{t:"V てくれます",e:"Alguien hace algo por mí (con matiz de agradecimiento; el sujeto es el otro).",ex:[["母[はは]はわたしにお弁当[べんとう]を作[つく]ってくれました。","Mi madre me preparó un bento."]]}]},
-{l:25,t:"Condicional: 〜たら・〜ても",p:[
-{t:"V たら、〜",e:"Condicional: «si…, entonces…». Forma た + ら. También con adjetivos y nombres (だったら).",ex:[["お金[かね]があったら、旅行[りょこう]します。","Si tuviera dinero, viajaría."],["雨[あめ]が降[ふ]ったら、出[で]かけません。","Si llueve, no salgo."]]},
-{t:"V たら (cuando)",e:"Con acciones futuras seguras equivale a «cuando acabe X».",ex:[["10時[じ]になったら、出[で]かけましょう。","Cuando sean las diez, salgamos."],["国[くに]へ帰[かえ]ったら、父[ちち]の会社[かいしゃ]で働[はたら]きます。","Cuando vuelva a mi país, trabajaré en la empresa de mi padre."]]},
-{t:"V ても、〜",e:"Concesivo: «aunque…». También 〜くても (い-adj), 〜でも (な-adj/S).",ex:[["雨[あめ]が降[ふ]っても、洗濯[せんたく]します。","Aunque llueva, haré la colada."],["安[やす]くても、買[か]いません。","Aunque sea barato, no lo compro."]]}]},
-/*G_END*/];
-const VERBS=[
-["あう 会う",1,"あいます","あって","あった","あわない","encontrarse con"],
-["あそぶ 遊ぶ",1,"あそびます","あそんで","あそんだ","あそばない","jugar, divertirse"],
-["あらう 洗う",1,"あらいます","あらって","あらった","あらわない","lavar"],
-["ある",1,"あります","あって","あった","ない ★","haber, existir (cosas)"],
-["あるく 歩く",1,"あるきます","あるいて","あるいた","あるかない","andar"],
-["いう 言う",1,"いいます","いって","いった","いわない","decir"],
-["いく 行く",1,"いきます","いって ★","いった ★","いかない","ir"],
-["いそぐ 急ぐ",1,"いそぎます","いそいで","いそいだ","いそがない","darse prisa"],
-["うたう 歌う",1,"うたいます","うたって","うたった","うたわない","cantar"],
-["うる 売る",1,"うります","うって","うった","うらない","vender"],
-["おく 置く",1,"おきます","おいて","おいた","おかない","poner, colocar"],
-["おくる 送る",1,"おくります","おくって","おくった","おくらない","enviar"],
-["おす 押す",1,"おします","おして","おした","おさない","pulsar, empujar"],
-["おもう 思う",1,"おもいます","おもって","おもった","おもわない","pensar, creer"],
-["およぐ 泳ぐ",1,"およぎます","およいで","およいだ","およがない","nadar"],
-["おわる 終わる",1,"おわります","おわって","おわった","おわらない","terminar"],
-["かう 買う",1,"かいます","かって","かった","かわない","comprar"],
-["かえす 返す",1,"かえします","かえして","かえした","かえさない","devolver"],
-["かえる 帰る ★",1,"かえります","かえって","かえった","かえらない","volver (a casa) — parece G-II pero es G-I"],
-["かかる",1,"かかります","かかって","かかった","かからない","costar (tiempo, dinero)"],
-["かく 書く",1,"かきます","かいて","かいた","かかない","escribir"],
-["かす 貸す",1,"かします","かして","かした","かさない","prestar"],
-["かつ 勝つ",1,"かちます","かって","かった","かたない","ganar"],
-["がんばる 頑張る",1,"がんばります","がんばって","がんばった","がんばらない","esforzarse"],
-["きく 聞く",1,"ききます","きいて","きいた","きかない","escuchar; preguntar"],
-["きる 切る ★",1,"きります","きって","きった","きらない","cortar — parece G-II pero es G-I"],
-["けす 消す",1,"けします","けして","けした","けさない","apagar; borrar"],
-["さく 咲く",1,"さきます","さいて","さいた","さかない","florecer"],
-["しぬ 死ぬ",1,"しにます","しんで","しんだ","しなない","morir"],
-["しる 知る ★",1,"しります","しって","しった","しらない","saber, conocer — G-I"],
-["すう 吸う",1,"すいます","すって","すった","すわない","fumar; aspirar"],
-["すむ 住む",1,"すみます","すんで","すんだ","すまない","vivir, residir"],
-["たつ 立つ",1,"たちます","たって","たった","たたない","ponerse de pie"],
-["だす 出す",1,"だします","だして","だした","ださない","sacar; enviar (carta)"],
-["つかう 使う",1,"つかいます","つかって","つかった","つかわない","usar"],
-["つく 着く",1,"つきます","ついて","ついた","つかない","llegar"],
-["つくる 作る",1,"つくります","つくって","つくった","つくらない","hacer, fabricar"],
-["てつだう 手伝う",1,"てつだいます","てつだって","てつだった","てつだわない","ayudar"],
-["とまる 泊まる",1,"とまります","とまって","とまった","とまらない","alojarse"],
-["とる 撮る",1,"とります","とって","とった","とらない","hacer (fotos)"],
-["とる 取る",1,"とります","とって","とった","とらない","coger, tomar"],
-["なくす",1,"なくします","なくして","なくした","なくさない","perder (objetos)"],
-["ならう 習う",1,"ならいます","ならって","ならった","ならわない","aprender (con profesor)"],
-["なる",1,"なります","なって","なった","ならない","convertirse en, hacerse"],
-["ぬぐ 脱ぐ",1,"ぬぎます","ぬいで","ぬいだ","ぬがない","quitarse (ropa, zapatos)"],
-["のぼる 登る",1,"のぼります","のぼって","のぼった","のぼらない","subir, escalar"],
-["のむ 飲む",1,"のみます","のんで","のんだ","のまない","beber; tomar (medicina)"],
-["のる 乗る",1,"のります","のって","のった","のらない","subirse a"],
-["はいる 入る ★",1,"はいります","はいって","はいった","はいらない","entrar — parece G-II pero es G-I"],
-["はく 履く",1,"はきます","はいて","はいた","はかない","ponerse (de cintura para abajo: zapatos, pantalones, falda, calcetines, botas)"],
-["はしる 走る ★",1,"はしります","はしって","はしった","はしらない","correr — G-I"],
-["はたらく 働く",1,"はたらきます","はたらいて","はたらいた","はたらかない","trabajar"],
-["はなす 話す",1,"はなします","はなして","はなした","はなさない","hablar"],
-["はらう 払う",1,"はらいます","はらって","はらった","はらわない","pagar"],
-["ひく 弾く",1,"ひきます","ひいて","ひいた","ひかない","tocar (piano, guitarra)"],
-["ふる 降る",1,"ふります","ふって","ふった","ふらない","llover, nevar"],
-["まがる 曲がる",1,"まがります","まがって","まがった","まがらない","girar, torcer"],
-["まつ 待つ",1,"まちます","まって","まった","またない","esperar"],
-["もつ 持つ",1,"もちます","もって","もった","もたない","tener, llevar (en la mano)"],
-["もらう",1,"もらいます","もらって","もらった","もらわない","recibir"],
-["やすむ 休む",1,"やすみます","やすんで","やすんだ","やすまない","descansar; faltar (al trabajo)"],
-["よぶ 呼ぶ",1,"よびます","よんで","よんだ","よばない","llamar"],
-["よむ 読む",1,"よみます","よんで","よんだ","よまない","leer"],
-["わかる",1,"わかります","わかって","わかった","わからない","entender"],
-["わたる 渡る",1,"わたります","わたって","わたった","わたらない","cruzar"],
-["あける 開ける",2,"あけます","あけて","あけた","あけない","abrir"],
-["あげる",2,"あげます","あげて","あげた","あげない","dar (a otros)"],
-["あびる 浴びる",2,"あびます","あびて","あびた","あびない","ducharse"],
-["いる",2,"います","いて","いた","いない","estar, haber (personas, animales)"],
-["いれる 入れる",2,"いれます","いれて","いれた","いれない","meter, poner dentro"],
-["うまれる 生まれる",2,"うまれます","うまれて","うまれた","うまれない","nacer"],
-["おきる 起きる",2,"おきます","おきて","おきた","おきない","levantarse, despertarse"],
-["おしえる 教える",2,"おしえます","おしえて","おしえた","おしえない","enseñar; decir (dato)"],
-["おぼえる 覚える",2,"おぼえます","おぼえて","おぼえた","おぼえない","memorizar, aprender"],
-["おりる 降りる",2,"おります","おりて","おりた","おりない","bajarse de"],
-["かける",2,"かけます","かけて","かけた","かけない","ponerse (gafas); llamar por teléfono"],
-["かりる 借りる",2,"かります","かりて","かりた","かりない","pedir prestado"],
-["きる 着る",2,"きます","きて","きた","きない","ponerse (en el torso: camisa, chaqueta, abrigo, jersey, vestido, traje, kimono)"],
-["くれる",2,"くれます","くれて","くれた","くれない","darme (a mí)"],
-["しめる 閉める",2,"しめます","しめて","しめた","しめない","cerrar"],
-["たべる 食べる",2,"たべます","たべて","たべた","たべない","comer"],
-["つかれる 疲れる",2,"つかれます","つかれて","つかれた","つかれない","cansarse"],
-["つける",2,"つけます","つけて","つけた","つけない","encender"],
-["つとめる 勤める",2,"つとめます","つとめて","つとめた","つとめない","trabajar en"],
-["でかける 出かける",2,"でかけます","でかけて","でかけた","でかけない","salir (de casa)"],
-["できる",2,"できます","できて","できた","できない","poder, saber hacer"],
-["でる 出る",2,"でます","でて","でた","でない","salir de"],
-["とめる 止める",2,"とめます","とめて","とめた","とめない","parar; aparcar"],
-["ねる 寝る",2,"ねます","ねて","ねた","ねない","dormir, acostarse"],
-["みせる 見せる",2,"みせます","みせて","みせた","みせない","mostrar, enseñar"],
-["みる 見る",2,"みます","みて","みた","みない","ver, mirar"],
-["わすれる 忘れる",2,"わすれます","わすれて","わすれた","わすれない","olvidar"],
-["する",3,"します","して","した","しない","hacer; ponerse (accesorios: corbata, reloj, bufanda)"],
-["くる 来る",3,"きます","きて","きた","こない ★","venir"],
-["べんきょうする 勉強する",3,"べんきょうします","べんきょうして","べんきょうした","べんきょうしない","estudiar"],
-["けっこんする 結婚する",3,"けっこんします","けっこんして","けっこんした","けっこんしない","casarse"],
-["かいものする 買い物する",3,"かいものします","かいものして","かいものした","かいものしない","hacer la compra"],
-["しょくじする 食事する",3,"しょくじします","しょくじして","しょくじした","しょくじしない","comer (una comida)"],
-["さんぽする 散歩する",3,"さんぽします","さんぽして","さんぽした","さんぽしない","pasear"],
-["ざんぎょうする 残業する",3,"ざんぎょうします","ざんぎょうして","ざんぎょうした","ざんぎょうしない","hacer horas extra"],
-["しゅっちょうする 出張する",3,"しゅっちょうします","しゅっちょうして","しゅっちょうした","しゅっちょうしない","viajar por trabajo"],
-["でんわする 電話する",3,"でんわします","でんわして","でんわした","でんわしない","telefonear"],
-["あんないする 案内する",3,"あんないします","あんないして","あんないした","あんないしない","guiar, enseñar (un lugar)"],
-["せつめいする 説明する",3,"せつめいします","せつめいして","せつめいした","せつめいしない","explicar"],
-["しょうかいする 紹介する",3,"しょうかいします","しょうかいして","しょうかいした","しょうかいしない","presentar (a alguien)"],
-["しんぱいする 心配する",3,"しんぱいします","しんぱいして","しんぱいした","しんぱいしない","preocuparse"],
-["コピーする",3,"コピーします","コピーして","コピーした","コピーしない","fotocopiar"],
-["すわる 座る",1,"すわります","すわって","すわった","すわらない","sentarse"],
-["おもいだす 思い出す",1,"おもいだします","おもいだして","おもいだした","おもいださない","recordar, acordarse de"],
-["いる 要る",1,"いります","いって","いった","いらない","necesitar — G-I"],
-["なおす 直す",1,"なおします","なおして","なおした","なおさない","reparar, corregir"],
-["かぶる",1,"かぶります","かぶって","かぶった","かぶらない","ponerse (en la cabeza: sombrero, gorro, casco)"],
-["まわす 回す",1,"まわします","まわして","まわした","まわさない","girar (algo)"],
-["さわる 触る",1,"さわります","さわって","さわった","さわらない","tocar"],
-["うごく 動く",1,"うごきます","うごいて","うごいた","うごかない","moverse, funcionar"],
-["ひく 引く",1,"ひきます","ひいて","ひいた","ひかない","tirar de, jalar"],
-["つれていく 連れて行く",1,"つれていきます","つれていって","つれていった","つれていかない","llevar (a alguien)"],
-["もっていく 持って行く",1,"もっていきます","もっていって","もっていった","もっていかない","llevar (algo)"],
-["むかえる 迎える",2,"むかえます","むかえて","むかえた","むかえない","ir a recibir (a alguien)"],
-["はじめる 始める",2,"はじめます","はじめて","はじめた","はじめない","empezar (algo)"],
-["のりかえる 乗り換える",2,"のりかえます","のりかえて","のりかえた","のりかえない","hacer transbordo"],
-["やめる 辞める",2,"やめます","やめて","やめた","やめない","dimitir, dejar (la empresa)"],
-["あつめる 集める",2,"あつめます","あつめて","あつめた","あつめない","coleccionar, reunir"],
-["すてる 捨てる",2,"すてます","すてて","すてた","すてない","tirar (a la basura)"],
-["かえる 換える",2,"かえます","かえて","かえた","かえない","cambiar, reemplazar"],
-["しらべる 調べる",2,"しらべます","しらべて","しらべた","しらべない","consultar, investigar"],
-["たりる 足りる",2,"たります","たりて","たりた","たりない","ser suficiente"],
-["まける 負ける",2,"まけます","まけて","まけた","まけない","perder (un partido)"],
-["きをつける 気をつける",2,"きをつけます","きをつけて","きをつけた","きをつけない","tener cuidado"],
-["かんがえる 考える",2,"かんがえます","かんがえて","かんがえた","かんがえない","pensar, considerar"],
-["けんきゅうする 研究する",3,"けんきゅうします","けんきゅうして","けんきゅうした","けんきゅうしない","investigar"],
-["うんてんする 運転する",3,"うんてんします","うんてんして","うんてんした","うんてんしない","conducir"],
-["よやくする 予約する",3,"よやくします","よやくして","よやくした","よやくしない","reservar"],
-["けんがくする 見学する",3,"けんがくします","けんがくして","けんがくした","けんがくしない","visitar (para aprender)"],
-["そうじする 掃除する",3,"そうじします","そうじして","そうじした","そうじしない","limpiar"],
-["せんたくする 洗濯する",3,"せんたくします","せんたくして","せんたくした","せんたくしない","lavar la ropa"],
-["れんしゅうする 練習する",3,"れんしゅうします","れんしゅうして","れんしゅうした","れんしゅうしない","practicar"],
-["しゅうりする 修理する",3,"しゅうりします","しゅうりして","しゅうりした","しゅうりしない","reparar (aparatos)"],
-["ひっこしする 引っ越しする",3,"ひっこしします","ひっこしして","ひっこしした","ひっこししない","mudarse de casa"],
-["つれてくる 連れて来る",3,"つれてきます","つれてきて","つれてきた","つれてこない","traer (a alguien)"],
-["もってくる 持って来る",3,"もってきます","もってきて","もってきた","もってこない","traer (algo)"],
-["とぶ 飛ぶ",1,"とびます","とんで","とんだ","とばない","volar; saltar"],
-["なげる 投げる",2,"なげます","なげて","なげた","なげない","lanzar, tirar"],
-/*VB_END*/];
-const KANJI=[
-["一","uno","イチ","ひと・つ",[["一つ","ひとつ","uno (objeto)"],["一人","ひとり","una persona"],["一月","いちがつ","enero"]]],
-["二","dos","ニ","ふた・つ",[["二つ","ふたつ","dos (objetos)"],["二人","ふたり","dos personas"]]],
-["三","tres","サン","みっ・つ",[["三つ","みっつ","tres (objetos)"],["三月","さんがつ","marzo"]]],
-["四","cuatro","シ","よん・よっ・つ",[["四つ","よっつ","cuatro (objetos)"],["四時","よじ","las cuatro"]]],
-["五","cinco","ゴ","いつ・つ",[["五つ","いつつ","cinco (objetos)"],["五百","ごひゃく","quinientos"]]],
-["六","seis","ロク","むっ・つ",[["六つ","むっつ","seis (objetos)"],["六百","ろっぴゃく","seiscientos"]]],
-["七","siete","シチ","なな・つ",[["七つ","ななつ","siete (objetos)"],["七時","しちじ","las siete"]]],
-["八","ocho","ハチ","やっ・つ",[["八つ","やっつ","ocho (objetos)"],["八百","はっぴゃく","ochocientos"]]],
-["九","nueve","キュウ・ク","ここの・つ",[["九つ","ここのつ","nueve (objetos)"],["九時","くじ","las nueve"]]],
-["十","diez","ジュウ","とお",[["十日","とおか","día 10; diez días"],["十分","じゅっぷん","diez minutos"]]],
-["百","cien","ヒャク","",[["三百","さんびゃく","trescientos"],["百円","ひゃくえん","cien yenes"]]],
-["千","mil","セン","ち",[["三千","さんぜん","tres mil"],["千円","せんえん","mil yenes"]]],
-["万","diez mil","マン","",[["一万","いちまん","diez mil"],["十万","じゅうまん","cien mil"]]],
-["円","yen; círculo","エン","",[["百円","ひゃくえん","cien yenes"],["円い","まるい","redondo"]]],
-["日","día; sol","ニチ・ジツ","ひ・か",[["日曜日","にちようび","domingo"],["毎日","まいにち","cada día"],["三日","みっか","día 3; tres días"]]],
-["月","mes; luna","ゲツ・ガツ","つき",[["月曜日","げつようび","lunes"],["一月","いちがつ","enero"],["月","つき","luna"]]],
-["火","fuego","カ","ひ",[["火曜日","かようび","martes"],["火","ひ","fuego"]]],
-["水","agua","スイ","みず",[["水曜日","すいようび","miércoles"],["水","みず","agua"]]],
-["木","árbol, madera","モク","き",[["木曜日","もくようび","jueves"],["木","き","árbol"]]],
-["金","oro; dinero","キン","かね",[["金曜日","きんようび","viernes"],["お金","おかね","dinero"]]],
-["土","tierra","ド","つち",[["土曜日","どようび","sábado"],["土","つち","tierra"]]],
-["年","año","ネン","とし",[["今年","ことし","este año"],["来年","らいねん","el año que viene"],["一年","いちねん","un año"]]],
-["時","hora; tiempo","ジ","とき",[["三時","さんじ","las tres"],["時間","じかん","tiempo, hora"],["時々","ときどき","a veces"]]],
-["分","minuto; entender","フン・プン","わ・かる",[["五分","ごふん","cinco minutos"],["分かります","わかります","entender"]]],
-["半","mitad","ハン","",[["二時半","にじはん","las dos y media"],["半分","はんぶん","la mitad"]]],
-["間","intervalo; entre","カン","あいだ",[["時間","じかん","tiempo"],["一週間","いっしゅうかん","una semana"],["間","あいだ","entre"]]],
-["今","ahora","コン","いま",[["今","いま","ahora"],["今日","きょう","hoy"],["今晩","こんばん","esta noche"]]],
-["午","mediodía","ゴ","",[["午前","ごぜん","a.m."],["午後","ごご","p.m."]]],
-["前","delante; antes","ゼン","まえ",[["名前","なまえ","nombre"],["駅の前","えきのまえ","delante de la estación"],["午前","ごぜん","a.m."]]],
-["後","detrás; después","ゴ・コウ","うし・ろ、あと",[["午後","ごご","p.m."],["後ろ","うしろ","detrás"],["後で","あとで","después"]]],
-["毎","cada","マイ","",[["毎日","まいにち","cada día"],["毎朝","まいあさ","cada mañana"],["毎週","まいしゅう","cada semana"]]],
-["週","semana","シュウ","",[["先週","せんしゅう","la semana pasada"],["来週","らいしゅう","la semana que viene"]]],
-["人","persona","ジン・ニン","ひと",[["人","ひと","persona"],["日本人","にほんじん","japonés (persona)"],["三人","さんにん","tres personas"]]],
-["子","niño","シ","こ",[["子ども","こども","niño"],["男の子","おとこのこ","chico"]]],
-["女","mujer","ジョ","おんな",[["女","おんな","mujer"],["女の人","おんなのひと","(una) mujer"]]],
-["男","hombre","ダン","おとこ",[["男","おとこ","hombre"],["男の人","おとこのひと","(un) hombre"]]],
-["母","madre","ボ","はは",[["母","はは","mi madre"],["お母さん","おかあさん","madre (de otro)"]]],
-["父","padre","フ","ちち",[["父","ちち","mi padre"],["お父さん","おとうさん","padre (de otro)"]]],
-["友","amigo","ユウ","とも",[["友達","ともだち","amigo"]]],
-["名","nombre","メイ","な",[["名前","なまえ","nombre"],["有名","ゆうめい","famoso"]]],
-["先","antes; punta","セン","さき",[["先生","せんせい","profesor"],["先週","せんしゅう","semana pasada"],["先に","さきに","antes, primero"]]],
-["生","vida; nacer","セイ","い・きる、う・まれる",[["学生","がくせい","estudiante"],["先生","せんせい","profesor"],["生まれます","うまれます","nacer"]]],
-["目","ojo","モク","め",[["目","め","ojo"],["一つ目","ひとつめ","el primero"]]],
-["耳","oreja","ジ","みみ",[["耳","みみ","oreja, oído"]]],
-["口","boca","コウ","くち",[["口","くち","boca"],["出口","でぐち","salida"],["入口","いりぐち","entrada"]]],
-["手","mano","シュ","て",[["手","て","mano"],["手紙","てがみ","carta"],["切手","きって","sello"]]],
-["足","pie, pierna","ソク","あし",[["足","あし","pie, pierna"],["足ります","たります","ser suficiente"]]],
-["気","espíritu, energía","キ","",[["元気","げんき","sano, animado"],["天気","てんき","tiempo (clima)"],["気分","きぶん","estado de ánimo"]]],
-["山","montaña","サン","やま",[["山","やま","montaña"],["富士山","ふじさん","monte Fuji"]]],
-["川","río","セン","かわ",[["川","かわ","río"]]],
-["天","cielo","テン","",[["天気","てんき","tiempo (clima)"],["天ぷら","てんぷら","tempura"]]],
-["空","cielo; vacío","クウ","そら",[["空","そら","cielo"],["空港","くうこう","aeropuerto"]]],
-["雨","lluvia","ウ","あめ",[["雨","あめ","lluvia"],["雨が降ります","あめがふります","llueve"]]],
-["花","flor","カ","はな",[["花","はな","flor"],["花見","はなみ","ver los cerezos"]]],
-["魚","pez, pescado","ギョ","さかな",[["魚","さかな","pescado"]]],
-["白","blanco","ハク","しろ・い",[["白い","しろい","blanco"]]],
-["上","arriba","ジョウ","うえ、のぼ・る",[["机の上","つくえのうえ","encima de la mesa"],["上手","じょうず","hábil"]]],
-["下","abajo","カ・ゲ","した",[["机の下","つくえのした","debajo de la mesa"],["地下鉄","ちかてつ","metro"],["下手","へた","torpe"]]],
-["中","dentro; medio","チュウ","なか",[["中","なか","dentro"],["中国","ちゅうごく","China"],["一日中","いちにちじゅう","todo el día"]]],
-["外","fuera","ガイ","そと",[["外","そと","fuera"],["外国","がいこく","extranjero"],["外国人","がいこくじん","extranjero (persona)"]]],
-["右","derecha","ウ","みぎ",[["右","みぎ","derecha"],["右へ曲がります","みぎへまがります","girar a la derecha"]]],
-["左","izquierda","サ","ひだり",[["左","ひだり","izquierda"]]],
-["北","norte","ホク","きた",[["北","きた","norte"],["北海道","ほっかいどう","Hokkaidō"]]],
-["南","sur","ナン","みなみ",[["南","みなみ","sur"]]],
-["東","este","トウ","ひがし",[["東","ひがし","este"],["東京","とうきょう","Tokio"]]],
-["西","oeste","セイ・サイ","にし",[["西","にし","oeste"],["関西","かんさい","Kansai"]]],
-["国","país","コク","くに",[["国","くに","país"],["外国","がいこく","extranjero"],["中国","ちゅうごく","China"]]],
-["校","escuela","コウ","",[["学校","がっこう","escuela"],["高校","こうこう","instituto"]]],
-["店","tienda","テン","みせ",[["店","みせ","tienda"],["喫茶店","きっさてん","cafetería"]]],
-["駅","estación","エキ","",[["駅","えき","estación"],["駅前","えきまえ","frente a la estación"]]],
-["道","camino","ドウ","みち",[["道","みち","camino, calle"],["北海道","ほっかいどう","Hokkaidō"]]],
-["車","coche","シャ","くるま",[["車","くるま","coche"],["電車","でんしゃ","tren"],["自転車","じてんしゃ","bicicleta"]]],
-["電","electricidad","デン","",[["電気","でんき","luz, electricidad"],["電話","でんわ","teléfono"],["電車","でんしゃ","tren"]]],
-["本","libro; origen","ホン","もと",[["本","ほん","libro"],["日本","にほん","Japón"],["三本","さんぼん","tres (alargados)"]]],
-["学","estudiar","ガク","まな・ぶ",[["学生","がくせい","estudiante"],["大学","だいがく","universidad"],["学校","がっこう","escuela"]]],
-["語","idioma; palabra","ゴ","",[["日本語","にほんご","japonés"],["スペイン語","スペインご","español"],["英語","えいご","inglés"]]],
-["言","decir","ゲン","い・う",[["言います","いいます","decir"],["言葉","ことば","palabra"]]],
-["話","hablar","ワ","はな・す、はなし",[["話します","はなします","hablar"],["電話","でんわ","teléfono"],["話","はなし","charla"]]],
-["読","leer","ドク","よ・む",[["読みます","よみます","leer"],["読書","どくしょ","lectura"]]],
-["書","escribir","ショ","か・く",[["書きます","かきます","escribir"],["辞書","じしょ","diccionario"],["図書館","としょかん","biblioteca"]]],
-["聞","oír; preguntar","ブン","き・く",[["聞きます","ききます","escuchar"],["新聞","しんぶん","periódico"]]],
-["見","ver","ケン","み・る",[["見ます","みます","ver"],["見せます","みせます","mostrar"],["花見","はなみ","ver los cerezos"]]],
-["行","ir","コウ・ギョウ","い・く",[["行きます","いきます","ir"],["銀行","ぎんこう","banco"],["旅行","りょこう","viaje"]]],
-["来","venir","ライ","く・る、き・ます",[["来ます","きます","venir"],["来週","らいしゅう","semana que viene"],["来年","らいねん","año que viene"]]],
-["出","salir; sacar","シュツ","で・る、だ・す",[["出ます","でます","salir"],["出口","でぐち","salida"],["出します","だします","sacar, enviar"]]],
-["入","entrar; meter","ニュウ","はい・る、い・れる",[["入ります","はいります","entrar"],["入口","いりぐち","entrada"],["入れます","いれます","meter"]]],
-["立","estar de pie","リツ","た・つ",[["立ちます","たちます","ponerse de pie"],["役に立ちます","やくにたちます","ser útil"]]],
-["休","descansar","キュウ","やす・む",[["休みます","やすみます","descansar"],["休み","やすみ","descanso, vacaciones"],["昼休み","ひるやすみ","descanso de mediodía"]]],
-["食","comer","ショク","た・べる",[["食べます","たべます","comer"],["食堂","しょくどう","comedor"],["食事","しょくじ","comida"]]],
-["飲","beber","イン","の・む",[["飲みます","のみます","beber"],["飲み物","のみもの","bebida"]]],
-["買","comprar","バイ","か・う",[["買います","かいます","comprar"],["買い物","かいもの","la compra"]]],
-["会","reunirse; asociación","カイ","あ・う",[["会います","あいます","encontrarse con"],["会社","かいしゃ","empresa"],["会議","かいぎ","reunión"]]],
-["大","grande","ダイ・タイ","おお・きい",[["大きい","おおきい","grande"],["大学","だいがく","universidad"],["大丈夫","だいじょうぶ","estar bien"]]],
-["小","pequeño","ショウ","ちい・さい",[["小さい","ちいさい","pequeño"],["小学校","しょうがっこう","escuela primaria"]]],
-["高","alto; caro","コウ","たか・い",[["高い","たかい","alto, caro"],["高校","こうこう","instituto"]]],
-["安","barato; tranquilo","アン","やす・い",[["安い","やすい","barato"],["安全","あんぜん","seguridad"]]],
-["新","nuevo","シン","あたら・しい",[["新しい","あたらしい","nuevo"],["新聞","しんぶん","periódico"],["新幹線","しんかんせん","tren bala"]]],
-["古","viejo","コ","ふる・い",[["古い","ふるい","viejo"]]],
-["長","largo; jefe","チョウ","なが・い",[["長い","ながい","largo"],["社長","しゃちょう","director de empresa"]]],
-["多","mucho","タ","おお・い",[["多い","おおい","muchos, abundante"],["多分","たぶん","quizá"]]],
-["少","poco","ショウ","すく・ない、すこ・し",[["少ない","すくない","pocos"],["少し","すこし","un poco"]]],
-["何","qué","カ","なに・なん",[["何","なに","qué"],["何時","なんじ","qué hora"],["何人","なんにん","cuántas personas"]]],
-/*K_END*/];
-const REF=[
-{k:"助",t:"Partículas",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<tr><td class="jpcell jp"><b>は</b></td><td>tema de la frase (se lee «wa»)　<span class="muted">わたしは学生[がくせい]です。</span></td></tr>
-<tr><td class="jpcell jp"><b>が</b></td><td>sujeto; objeto de 好[す]き・上手[じょうず]・わかります・あります　<span class="muted">音楽[おんがく]が好[す]きです。</span></td></tr>
-<tr><td class="jpcell jp"><b>を</b></td><td>objeto directo　<span class="muted">パンを食[た]べます。</span></td></tr>
-<tr><td class="jpcell jp"><b>に</b></td><td>hora exacta; lugar de existencia; destino de あげる/もらう　<span class="muted">7時[じ]に起[お]きます。駅[えき]にいます。</span></td></tr>
-<tr><td class="jpcell jp"><b>へ</b></td><td>dirección (se lee «e»)　<span class="muted">日本[にほん]へ行[い]きます。</span></td></tr>
-<tr><td class="jpcell jp"><b>で</b></td><td>lugar de acción; medio o instrumento　<span class="muted">駅[えき]で買[か]います。バスで行[い]きます。</span></td></tr>
-<tr><td class="jpcell jp"><b>と</b></td><td>«y» (lista completa); «con» alguien　<span class="muted">パンと卵[たまご]。友達[ともだち]と行[い]きます。</span></td></tr>
-<tr><td class="jpcell jp"><b>や</b></td><td>«y» (lista incompleta), a menudo con など　<span class="muted">本[ほん]や雑誌[ざっし]など。</span></td></tr>
-<tr><td class="jpcell jp"><b>の</b></td><td>posesión, pertenencia, origen　<span class="muted">わたしの本[ほん]。日本[にほん]の車[くるま]。</span></td></tr>
-<tr><td class="jpcell jp"><b>から・まで</b></td><td>desde / hasta　<span class="muted">9時[じ]から5時[じ]まで。</span></td></tr>
-<tr><td class="jpcell jp"><b>より</b></td><td>que (comparación)　<span class="muted">飛行機[ひこうき]は船[ふね]より速[はや]いです。</span></td></tr>
-<tr><td class="jpcell jp"><b>も</b></td><td>también; con negación = tampoco/ninguno　<span class="muted">わたしも。どこも行[い]きません。</span></td></tr>
-<tr><td class="jpcell jp"><b>か</b></td><td>pregunta; «o» entre opciones　<span class="muted">学生[がくせい]ですか。</span></td></tr>
-<tr><td class="jpcell jp"><b>ね／よ</b></td><td>ね busca acuerdo («¿verdad?»); よ da información nueva　<span class="muted">いい天気[てんき]ですね。</span></td></tr>
-</table></div>`},
-{k:"数",t:"Contadores",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<thead><tr><th></th><th>Objetos<br>〜つ</th><th>Personas<br>〜人[ひと]</th><th>Planos<br>〜枚[まい]</th><th>Alargados<br>〜本[ほん]</th><th>Máquinas<br>〜台[だい]</th><th>Libros<br>〜冊[さつ]</th></tr></thead>
-<tbody>
-<tr><td class="num">1</td><td class="jpcell">ひとつ</td><td class="jpcell">ひとり</td><td class="jpcell">いちまい</td><td class="jpcell">いっぽん</td><td class="jpcell">いちだい</td><td class="jpcell">いっさつ</td></tr>
-<tr><td class="num">2</td><td class="jpcell">ふたつ</td><td class="jpcell">ふたり</td><td class="jpcell">にまい</td><td class="jpcell">にほん</td><td class="jpcell">にだい</td><td class="jpcell">にさつ</td></tr>
-<tr><td class="num">3</td><td class="jpcell">みっつ</td><td class="jpcell">さんにん</td><td class="jpcell">さんまい</td><td class="jpcell">さんぼん</td><td class="jpcell">さんだい</td><td class="jpcell">さんさつ</td></tr>
-<tr><td class="num">4</td><td class="jpcell">よっつ</td><td class="jpcell">よにん</td><td class="jpcell">よんまい</td><td class="jpcell">よんほん</td><td class="jpcell">よんだい</td><td class="jpcell">よんさつ</td></tr>
-<tr><td class="num">5</td><td class="jpcell">いつつ</td><td class="jpcell">ごにん</td><td class="jpcell">ごまい</td><td class="jpcell">ごほん</td><td class="jpcell">ごだい</td><td class="jpcell">ごさつ</td></tr>
-<tr><td class="num">6</td><td class="jpcell">むっつ</td><td class="jpcell">ろくにん</td><td class="jpcell">ろくまい</td><td class="jpcell">ろっぽん</td><td class="jpcell">ろくだい</td><td class="jpcell">ろくさつ</td></tr>
-<tr><td class="num">7</td><td class="jpcell">ななつ</td><td class="jpcell">しちにん</td><td class="jpcell">ななまい</td><td class="jpcell">ななほん</td><td class="jpcell">ななだい</td><td class="jpcell">ななさつ</td></tr>
-<tr><td class="num">8</td><td class="jpcell">やっつ</td><td class="jpcell">はちにん</td><td class="jpcell">はちまい</td><td class="jpcell">はっぽん</td><td class="jpcell">はちだい</td><td class="jpcell">はっさつ</td></tr>
-<tr><td class="num">9</td><td class="jpcell">ここのつ</td><td class="jpcell">きゅうにん</td><td class="jpcell">きゅうまい</td><td class="jpcell">きゅうほん</td><td class="jpcell">きゅうだい</td><td class="jpcell">きゅうさつ</td></tr>
-<tr><td class="num">10</td><td class="jpcell">とお</td><td class="jpcell">じゅうにん</td><td class="jpcell">じゅうまい</td><td class="jpcell">じゅっぽん</td><td class="jpcell">じゅうだい</td><td class="jpcell">じゅっさつ</td></tr>
-<tr><td class="num">?</td><td class="jpcell">いくつ</td><td class="jpcell">なんにん</td><td class="jpcell">なんまい</td><td class="jpcell">なんぼん</td><td class="jpcell">なんだい</td><td class="jpcell">なんさつ</td></tr>
-</tbody></table></div>`},
-{k:"時",t:"Horas y minutos",html:`<p>Horas irregulares: <b class="jp">4時[じ] よじ・7時[じ] しちじ・9時[じ] くじ</b>.</p>
-<div class="tablewrap" style="box-shadow:none"><table>
-<tr><td class="jpcell jp">1分[ふん] いっぷん</td><td class="jpcell jp">2分[ふん] にふん</td><td class="jpcell jp">3分[ふん] さんぷん</td></tr>
-<tr><td class="jpcell jp">4分[ふん] よんぷん</td><td class="jpcell jp">5分[ふん] ごふん</td><td class="jpcell jp">6分[ふん] ろっぷん</td></tr>
-<tr><td class="jpcell jp">7分[ふん] ななふん</td><td class="jpcell jp">8分[ふん] はっぷん</td><td class="jpcell jp">9分[ふん] きゅうふん</td></tr>
-<tr><td class="jpcell jp">10分[ふん] じゅっぷん</td><td class="jpcell jp">30分[ふん] さんじゅっぷん（＝半[はん]）</td><td class="jpcell jp">何[なに]分[ふん] なんぷん</td></tr>
-</table></div>
-<p class="muted">Regla: ふん tras 2・5・7・9; ぷん tras 1・3・4・6・8・10 (con cambio de sonido).</p>`},
-{k:"日",t:"Días del mes",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<tr><td class="jpcell jp">1日[にち] ついたち ★</td><td class="jpcell jp">2日[にち] ふつか</td><td class="jpcell jp">3日[にち] みっか</td></tr>
-<tr><td class="jpcell jp">4日[にち] よっか</td><td class="jpcell jp">5日[にち] いつか</td><td class="jpcell jp">6日[にち] むいか</td></tr>
-<tr><td class="jpcell jp">7日[にち] なのか</td><td class="jpcell jp">8日[にち] ようか</td><td class="jpcell jp">9日[にち] ここのか</td></tr>
-<tr><td class="jpcell jp">10日[にち] とおか</td><td class="jpcell jp">14日[にち] じゅうよっか</td><td class="jpcell jp">20日[にち] はつか ★</td></tr>
-<tr><td class="jpcell jp">24日[にち] にじゅうよっか</td><td class="jpcell jp">resto: número + にち</td><td class="jpcell jp">何[なに]日[にち] なんにち</td></tr>
-</table></div>
-<p class="muted">Meses: número + がつ. Ojo: 4月[がつ] しがつ・7月[がつ] しちがつ・9月[がつ] くがつ.</p>`},
-{k:"疑",t:"Interrogativos",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<tr><td class="jpcell jp"><b>なに／なん</b></td><td>qué</td><td class="jpcell jp"><b>だれ／どなた</b></td><td>quién (formal)</td></tr>
-<tr><td class="jpcell jp"><b>どこ／どちら</b></td><td>dónde (formal)</td><td class="jpcell jp"><b>いつ</b></td><td>cuándo</td></tr>
-<tr><td class="jpcell jp"><b>どう／いかが</b></td><td>cómo, qué tal</td><td class="jpcell jp"><b>どうして／なぜ</b></td><td>por qué</td></tr>
-<tr><td class="jpcell jp"><b>いくら</b></td><td>cuánto (precio)</td><td class="jpcell jp"><b>いくつ</b></td><td>cuántos; qué edad</td></tr>
-<tr><td class="jpcell jp"><b>どんな＋N</b></td><td>qué tipo de</td><td class="jpcell jp"><b>どの＋N／どれ</b></td><td>cuál (de 3+)</td></tr>
-<tr><td class="jpcell jp"><b>どちら</b></td><td>cuál (de 2)</td><td class="jpcell jp"><b>どのくらい</b></td><td>cuánto tiempo</td></tr>
-</table></div>`},
-{k:"指",t:"Demostrativos (こそあど)",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<thead><tr><th></th><th>こ〜 (yo)</th><th>そ〜 (tú)</th><th>あ〜 (lejos)</th><th>ど〜 (?)</th></tr></thead>
-<tbody>
-<tr><td>cosa</td><td class="jpcell">これ</td><td class="jpcell">それ</td><td class="jpcell">あれ</td><td class="jpcell">どれ</td></tr>
-<tr><td>+ nombre</td><td class="jpcell">この本[ほん]</td><td class="jpcell">その本[ほん]</td><td class="jpcell">あの本[ほん]</td><td class="jpcell">どの本[ほん]</td></tr>
-<tr><td>lugar</td><td class="jpcell">ここ</td><td class="jpcell">そこ</td><td class="jpcell">あそこ</td><td class="jpcell">どこ</td></tr>
-<tr><td>dirección (formal)</td><td class="jpcell">こちら</td><td class="jpcell">そちら</td><td class="jpcell">あちら</td><td class="jpcell">どちら</td></tr>
-<tr><td>tipo</td><td class="jpcell">こんな</td><td class="jpcell">そんな</td><td class="jpcell">あんな</td><td class="jpcell">どんな</td></tr>
-</tbody></table></div>`},
-{k:"百",t:"Números con cambio de sonido",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<tr><td class="jpcell jp">100 ひゃく</td><td class="jpcell jp">300 さんびゃく ★</td><td class="jpcell jp">600 ろっぴゃく ★</td></tr>
-<tr><td class="jpcell jp">800 はっぴゃく ★</td><td class="jpcell jp">1000 せん</td><td class="jpcell jp">3000 さんぜん ★</td></tr>
-<tr><td class="jpcell jp">8000 はっせん ★</td><td class="jpcell jp">10000 いちまん</td><td class="jpcell jp">?円[えん] いくら</td></tr>
-</table></div>
-<p class="muted">Ej.: 3.600円[えん] = さんぜんろっぴゃくえん.</p>`},
-{k:"家",t:"Familia: la mía y la de otros",html:`<div class="tablewrap" style="box-shadow:none"><table>
-<thead><tr><th></th><th>Mi familia</th><th>La de otros</th></tr></thead>
-<tbody>
-<tr><td>padre</td><td class="jpcell">父[ちち]</td><td class="jpcell">おとうさん</td></tr>
-<tr><td>madre</td><td class="jpcell">母[はは]</td><td class="jpcell">おかあさん</td></tr>
-<tr><td>hermano mayor</td><td class="jpcell">兄[あに]</td><td class="jpcell">おにいさん</td></tr>
-<tr><td>hermana mayor</td><td class="jpcell">姉[あね]</td><td class="jpcell">おねえさん</td></tr>
-<tr><td>hermano menor</td><td class="jpcell">弟[おとうと]</td><td class="jpcell">おとうとさん</td></tr>
-<tr><td>hermana menor</td><td class="jpcell">妹[いもうと]</td><td class="jpcell">いもうとさん</td></tr>
-<tr><td>esposo</td><td class="jpcell">夫[おっと]</td><td class="jpcell">ごしゅじん</td></tr>
-<tr><td>esposa</td><td class="jpcell">妻[つま]</td><td class="jpcell">おくさん</td></tr>
-<tr><td>abuelo</td><td class="jpcell">祖父[そふ]</td><td class="jpcell">おじいさん</td></tr>
-<tr><td>abuela</td><td class="jpcell">祖母[そぼ]</td><td class="jpcell">おばあさん</td></tr>
-<tr><td>hijo</td><td class="jpcell">息子[むすこ]</td><td class="jpcell">息子[むすこ]さん</td></tr>
-<tr><td>hija</td><td class="jpcell">娘[むすめ]</td><td class="jpcell">娘[むすめ]さん</td></tr>
-<tr><td>hijos, niños</td><td class="jpcell">子[こ]ども</td><td class="jpcell">おこさん</td></tr>
-<tr><td>padres</td><td class="jpcell">両親[りょうしん]</td><td class="jpcell">ごりょうしん</td></tr>
-<tr><td>matrimonio</td><td class="jpcell">夫婦[ふうふ]</td><td class="jpcell">ごふうふ</td></tr>
-</tbody></table></div>`}
-];
-const DRILLS=[
-{tag:"Partículas",q:"わたしは毎朝[まいあさ]パン（　）食[た]べます。",a:"を",w:"パン es el objeto directo de 食[た]べます, y el objeto directo se marca con を."},
-{tag:"Partículas",q:"日曜日[にちようび]に友達[ともだち]（　）テニスをします。",a:"と",w:"と marca con quién se hace la acción: «juego al tenis con un amigo»."},
-{tag:"Partículas",q:"わたしは音楽[おんがく]（　）好[す]きです。",a:"が",w:"Con 好[す]き, 嫌[きら]い, 上手[じょうず], 下手[へた] y わかります el objeto se marca con が, no con を."},
-{tag:"Partículas",q:"バス（　）会社[かいしゃ]へ行[い]きます。",a:"で",w:"で marca el medio de transporte. Excepción: 歩[ある]いて (sin partícula)."},
-{tag:"Partículas",q:"机[つくえ]の上[うえ]（　）写真[しゃしん]があります。",a:"に",w:"に marca el lugar donde existe algo con あります／います."},
-{tag:"Partículas",q:"図書館[としょかん]（　）本[ほん]を読[よ]みます。",a:"で",w:"で marca el lugar donde ocurre una acción. Compara: 図書館[としょかん]に本[ほん]があります (existencia, に)."},
-{tag:"Partículas",q:"7時[じ]（　）起[お]きます。",a:"に",w:"Las horas exactas llevan に. Palabras como きょう o 毎朝[まいあさ] no lo llevan."},
-{tag:"Partículas",q:"きのう、どこ（　）行[い]きませんでした。",a:"も",w:"Interrogativo + も + verbo negativo = negación total: «no fui a ningún sitio»."},
-{tag:"Partículas",q:"すみません、この手紙[てがみ]をスペイン（　）送[おく]ってください。",a:"へ（＝に）",w:"へ marca la dirección o destino del envío."},
-{tag:"Partículas",q:"わたしは木村[きむら]さん（　）花[はな]をもらいました。",a:"に（＝から）",w:"Con もらいます, quien da se marca con に o から."},
-{tag:"Partículas",q:"次[つぎ]の駅[えき]で電車[でんしゃ]（　）降[お]りて、地下鉄[ちかてつ]（　）乗[の]ります。",a:"を／に",w:"Pareja clásica de examen: se BAJA de algo con を (電車を降ります) y se SUBE a algo con に (電車に乗ります). Nunca で."},
-{tag:"Partículas",q:"毎朝[まいあさ]公園[こうえん]（　）散歩[さんぽ]して、会社[かいしゃ]（　）働[はたら]きます。",a:"を／で",w:"を marca el lugar que se recorre (公園を散歩します); で marca el lugar donde ocurre la acción (会社で働きます)."},
-{tag:"Conjugación",q:"Forma て de 「買[か]います」",a:"買[か]って（かって）",w:"Grupo I terminado en い→う: う・つ・る → って."},
-{tag:"Conjugación",q:"Forma て de 「飲[の]みます」",a:"飲[の]んで（のんで）",w:"Grupo I: む・ぶ・ぬ → んで."},
-{tag:"Conjugación",q:"Forma て de 「行[い]きます」",a:"行[い]って（いって）★",w:"Excepción: aunque termina en き, 行[い]く hace 行[い]って (no 行いて)."},
-{tag:"Conjugación",q:"Forma ない de 「吸[す]います」",a:"吸[す]わない（すわない）",w:"Grupo I: la う cambia a わ (no a あ): 買[か]う→買[か]わない, 吸[す]う→吸[す]わない."},
-{tag:"Conjugación",q:"Forma ない de 「来[き]ます」",a:"来[こ]ない（こない）",w:"Grupo III irregular: きます→こない. する→しない."},
-{tag:"Conjugación",q:"Forma た de 「泳[およ]ぎます」",a:"泳[およ]いだ（およいだ）",w:"Grupo I: ぐ → いで／いだ (con dakuten): 泳[およ]ぐ→泳[およ]いで→泳[およ]いだ."},
-{tag:"Conjugación",q:"「見[み]ます」→ forma diccionario",a:"見[み]る（みる）",w:"Grupo II: raíz + る. Los del grupo II mantienen la raíz siempre igual."},
-{tag:"Conjugación",q:"「帰[かえ]ります」es ¿grupo I o II? Forma て:",a:"Grupo I → 帰[かえ]って（かえって）",w:"帰[かえ]る parece grupo II (termina en える/いる) pero es del grupo I, como 入[はい]る, 切[き]る, 知[し]る, 走[はし]る."},
-{tag:"Gramática",q:"部屋[へや]で写真[しゃしん]を（　）もいいですか。 ― 撮[と]ります",a:"撮[と]って",w:"Permiso: forma て + もいいですか = «¿puedo…?»."},
-{tag:"Gramática",q:"あした学校[がっこう]へ（　）なければなりません。 ― 行[い]きます",a:"行[い]か",w:"Obligación: forma ない sin ない + なければなりません: 行[い]かない→行[い]かなければなりません."},
-{tag:"Gramática",q:"すしを（　）ことがありますか。 ― 食[た]べます",a:"食[た]べた",w:"Experiencia: forma た + ことがあります = «alguna vez he…»."},
-{tag:"Gramática",q:"わたしはピアノを（　）ことができます。 ― 弾[ひ]きます",a:"弾[ひ]く",w:"Capacidad: forma diccionario + ことができます."},
-{tag:"Gramática",q:"日曜日[にちようび]は掃除[そうじ]を（　）り、買[か]い物[もの]を（　）りします。 ― します",a:"した／した",w:"Enumeración de acciones: forma た + り…たりします."},
-{tag:"Gramática",q:"寒[さむ]く（　）ましたね。もう冬[ふゆ]ですね。",a:"なり",w:"Cambio de estado con い-adj: 寒[さむ]い→寒[さむ]くなります «ha empezado a hacer frío»."},
-{tag:"Gramática",q:"あした雨[あめ]が（　）と思[おも]います。 ― 降[ふ]ります",a:"降[ふ]る",w:"Antes de と思[おも]います el verbo va en forma de diccionario: 降[ふ]る."},
-{tag:"Gramática",q:"お金[かね]が（　）ら、旅行[りょこう]したいです。 ― あります",a:"あった",w:"Condicional たら: forma た + ら. あります→あった→あったら."},
-{tag:"Gramática",q:"En estilo informal (sin ます): 「きのう映画[えいが]を見[み]ました」→",a:"きのう映画[えいが]を見[み]た。",w:"ました → forma た. En estilo informal, el pasado se dice con la forma た de la tabla de verbos."},
-{tag:"Gramática",q:"これはミラーさん（　）作[つく]ったケーキです。",a:"が",w:"Dentro de una oración de relativo el sujeto lleva が, nunca は."},
-{tag:"Contadores",q:"りんごを（　）買[か]いました。(4)",a:"よっつ（四[よっ]つ）",w:"Objetos genéricos con la serie japonesa: ひとつ、ふたつ、みっつ、よっつ…"},
-{tag:"Contadores",q:"ビールを（　）ください。(2 botellas)",a:"にほん（2本[ほん]）",w:"Objetos alargados (botellas, lápices, paraguas): 〜本[ほん]. 1本[ほん] いっぽん, 2本[ほん] にほん, 3本[ほん] さんぼん."},
-{tag:"Contadores",q:"教室[きょうしつ]に学生[がくせい]が（　）います。(4 personas)",a:"よにん（4人[にん]）",w:"Personas: 〜人[ひと]. Irregulares: 1人[ひと] ひとり, 2人[ひと] ふたり, 4人[にん] よにん."},
-{tag:"Contadores",q:"切手[きって]を（　）ください。(3 sellos)",a:"さんまい（3枚[まい]）",w:"Objetos planos (sellos, papeles, camisas): 〜枚[まい]."},
-{tag:"Vocabulario",q:"「あさって」significa…",a:"pasado mañana",w:"Serie: おととい (anteayer), きのう, きょう, あした, あさって."},
-{tag:"Vocabulario",q:"¿Frío al tacto (una bebida)? ¿さむい o つめたい?",a:"つめたい",w:"さむい = frío ambiental (clima); つめたい = frío al tacto. Igual que あつい 暑[あつ]い (clima) / 熱[あつ]い (objeto)."},
-{tag:"Vocabulario",q:"El antónimo de 「にぎやか」es…",a:"しずか（静[しず]か）",w:"にぎやか = animado, bullicioso; しずか = tranquilo. Ambos son adjetivos な."},
-{tag:"Vocabulario",q:"¿Cómo se dice «mi madre» hablando con otros?",a:"はは（母[はは]）",w:"La propia familia sin honorífico: 母[はは], 父[ちち], 兄[あに], 姉[あね]. La de otros con honorífico: お母[かあ]さん, お父[とう]さん…"},
-{tag:"Vocabulario",q:"Elige el verbo: シャツを（　）・くつを（　）・ぼうしを（　）・めがねを（　）・ネクタイを（　）",a:"きます・はきます・かぶります・かけます・します",w:"Cada zona del cuerpo tiene su verbo de «ponerse»: 着[き]ます (torso), 履[は]きます (de cintura para abajo), かぶります (cabeza), かけます (gafas), します (accesorios: corbata, reloj, bufanda)."},
-{tag:"Kanji",q:"Lectura de 「一人」",a:"ひとり",w:"Lectura irregular: 一人 ひとり, 二人 ふたり; a partir de 3 es regular (三人 さんにん)."},
-{tag:"Kanji",q:"Lectura de 「今日」",a:"きょう",w:"Lectura especial que hay que memorizar entera; igual que 今朝 (けさ) y 明日 (あした)."},
-{tag:"Kanji",q:"Lectura de 「上手」",a:"じょうず",w:"Palabra con lectura especial: 上手 (hábil) y su antónimo 下手 (へた)."},
-{tag:"Kanji",q:"Lectura de 「4月14日」",a:"しがつ じゅうよっか",w:"4月 es しがつ (no よんがつ) y 14日 es じゅうよっか (no じゅうよんにち)."},
-{tag:"Kanji",q:"¿Qué kanji es «comprar»: 買 o 貸?",a:"買（かいます）",w:"買う = comprar (lleva 貝, concha = dinero antiguo). 貸す = prestar. No confundir."},
-/*D_END*/];
-
-/* ===== APP ===== */
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-/* convierte 漢字[かんじ] en <ruby>漢字<rt>かんじ</rt></ruby> para el furigana */
-const ruby=s=>String(s).replace(/([一-鿿々〇]+)\[([ぁ-ゖァ-ヺー]+)\]/g,"<ruby>$1<rt>$2</rt></ruby>");
-
-/* tema */
-$("#themeBtn").addEventListener("click",()=>{
-  const r=document.documentElement;
-  const dark=r.dataset.theme? r.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  r.dataset.theme=dark?"light":"dark";
-});
-
-/* pestañas */
-$("#tabs").addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b)return;
-  $$("#tabs button").forEach(x=>x.classList.toggle("active",x===b));
-  $$("section.panel").forEach(p=>p.classList.toggle("active",p.id==="p-"+b.dataset.t));
-  window.scrollTo({top:0});
-});
-function goTab(t){ $$("#tabs button").forEach(b=>{if(b.dataset.t===t)b.click();}); }
-
-/* --- vocabulario --- */
-// romaji por moras: cada mora japonesa (あ, か, きゃ, っ+consonante, ー…) se
-// convierte a UN bloque de romaji. La búsqueda solo casa cortando entre
-// bloques, nunca a media mora — así "arimasu" no encuentra かかります solo
-// porque su romaji plano contenga esas letras seguidas (ka-ka-ri-ma-su: la
-// "a" de la primera mora no es una mora suelta, es parte de "ka").
-const YOON={"きゃ":"kya","きゅ":"kyu","きょ":"kyo","しゃ":"sha","しゅ":"shu","しょ":"sho","ちゃ":"cha","ちゅ":"chu","ちょ":"cho","にゃ":"nya","にゅ":"nyu","にょ":"nyo","ひゃ":"hya","ひゅ":"hyu","ひょ":"hyo","みゃ":"mya","みゅ":"myu","みょ":"myo","りゃ":"rya","りゅ":"ryu","りょ":"ryo","ぎゃ":"gya","ぎゅ":"gyu","ぎょ":"gyo","じゃ":"ja","じゅ":"ju","じょ":"jo","びゃ":"bya","びゅ":"byu","びょ":"byo","ぴゃ":"pya","ぴゅ":"pyu","ぴょ":"pyo",
-"てぃ":"ti","でぃ":"di","でゅ":"dyu","ふぁ":"fa","ふぃ":"fi","ふぇ":"fe","ふぉ":"fo","うぃ":"wi","うぇ":"we","うぉ":"wo","しぇ":"she","ちぇ":"che","じぇ":"je","つぁ":"tsa","つぇ":"tse","つぉ":"tso","とぅ":"tu","どぅ":"du"};
-const KANA_BASE={"ゔ":"vu","ぁ":"a","ぃ":"i","ぅ":"u","ぇ":"e","ぉ":"o",
-"あ":"a","い":"i","う":"u","え":"e","お":"o","か":"ka","き":"ki","く":"ku","け":"ke","こ":"ko","さ":"sa","し":"shi","す":"su","せ":"se","そ":"so","た":"ta","ち":"chi","つ":"tsu","て":"te","と":"to","な":"na","に":"ni","ぬ":"nu","ね":"ne","の":"no","は":"ha","ひ":"hi","ふ":"fu","へ":"he","ほ":"ho","ま":"ma","み":"mi","む":"mu","め":"me","も":"mo","や":"ya","ゆ":"yu","よ":"yo","ら":"ra","り":"ri","る":"ru","れ":"re","ろ":"ro","わ":"wa","を":"o","ん":"n","が":"ga","ぎ":"gi","ぐ":"gu","げ":"ge","ご":"go","ざ":"za","じ":"ji","ず":"zu","ぜ":"ze","ぞ":"zo","だ":"da","ぢ":"ji","づ":"zu","で":"de","ど":"do","ば":"ba","び":"bi","ぶ":"bu","べ":"be","ぼ":"bo","ぱ":"pa","ぴ":"pi","ぷ":"pu","ぺ":"pe","ぽ":"po"};
-function moraChunks(kana){
-  kana=String(kana).replace(/[\[\]]/g,""); // quita corchetes de prefijo opcional, p.ej. "[お]てら"
-  const hira=[...kana].map(c=>{const o=c.codePointAt(0);return (o>=0x30A1&&o<=0x30F6)?String.fromCodePoint(o-0x60):c;}).join("");
-  const chunks=[]; let i=0, dbl=false;
-  while(i<hira.length){
-    const c=hira[i];
-    if(c==="っ"){dbl=true;i++;continue;} // せ゚ん: dobla la consonante de la mora siguiente
-    if(c==="ー"){ // alargador: extiende la vocal de la mora anterior (コート → koo+to)
-      const prev=chunks[chunks.length-1];
-      if(prev){const v=prev[prev.length-1]; if("aeiou".includes(v))chunks[chunks.length-1]=prev+v;}
-      i++;continue;
-    }
-    const two=hira.slice(i,i+2);
-    let piece,adv;
-    if(YOON[two]){piece=YOON[two];adv=2;}
-    else{piece=KANA_BASE[c]??c;adv=1;}
-    if(dbl){piece=piece[0]+piece;dbl=false;}
-    chunks.push(piece);i+=adv;
-  }
-  return chunks;
-}
-const romaji=kana=>moraChunks(kana).join("");
-// ¿aparece q como una secuencia de moras completas (o un prefijo de la
-// última) dentro de kana? Nunca casa a mitad de una mora.
-function moraMatch(kana,q){
-  if(!q)return true;
-  const chunks=moraChunks(kana);
-  for(let s=0;s<chunks.length;s++){
-    let acc="";
-    for(let e=s;e<chunks.length;e++){
-      acc+=chunks[e];
-      if(acc===q)return true;
-      if(acc.length>q.length){ if(acc.startsWith(q))return true; break; } // q a medias de la última mora (tecleando)
-      if(!q.startsWith(acc))break;
-    }
-  }
-  return false;
-}
-
-function renderVocab(){
-  const q=$("#vSearch").value.trim().toLowerCase().replace(/([aeiou])-/g,"$1$1");
-  const les=$("#vLesson").value;
-  const tb=$("#vTable tbody");
-  let rows="",n=0;
-  for(const [kana,kj,es,l] of VOCAB){
-    if(les!=="all"&&String(l)!==les)continue;
-    const kanaN=kana.replace(/[\[\]]/g,""), kjN=kj.replace(/[\[\]]/g,"");
-    if(q&&!(kanaN.includes(q)||kjN.includes(q)||es.toLowerCase().includes(q)||moraMatch(kana,q)))continue;
-    n++;
-    rows+=`<tr><td class="jpcell jp">${esc(kana)}</td><td class="kanjicell">${esc(kj)||"—"}</td><td>${esc(es)}</td><td class="num">${l}</td></tr>`;
-  }
-  tb.innerHTML=rows||`<tr><td colspan="4" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
-  $("#vCount").textContent=n+" palabras";
-}
-function initVocab(){
-  const lessons=[...new Set(VOCAB.map(v=>v[3]))].sort((a,b)=>a-b);
-  $("#vLesson").innerHTML=`<option value="all">Todas las lecciones</option>`+lessons.map(l=>`<option value="${l}">Lección ${l}</option>`).join("");
-  $("#vSearch").addEventListener("input",renderVocab);
-  $("#vLesson").addEventListener("change",renderVocab);
-  renderVocab();
-}
-
-/* --- gramática --- */
-function initGrammar(){
-  $("#gList").innerHTML=GRAMMAR.map(L=>`
-    <details class="lesson-block">
-      <summary><span class="lnum">第${L.l}課</span><span class="ltitle">${ruby(esc(L.t))}</span></summary>
-      <div class="lesson-body">${L.p.map(p=>`
-        <div class="gpoint">
-          <h4><span class="pat jp">${ruby(esc(p.t))}</span></h4>
-          <p>${ruby(p.e)}</p>
-          ${p.ex.map(x=>`<div class="ex"><span class="j jp">${ruby(esc(x[0]))}</span><span class="s">${esc(x[1])}</span></div>`).join("")}
-        </div>`).join("")}
-      </div>
-    </details>`).join("");
-  $("#gOpenAll").addEventListener("click",()=>$$("#gList details").forEach(d=>d.open=true));
-  $("#gCloseAll").addEventListener("click",()=>$$("#gList details").forEach(d=>d.open=false));
-}
-
-/* --- partículas que exige cada verbo --- */
-/* [patrón, ejemplo, ¿trampa de examen?] — clave: forma de diccionario tal cual */
-const PART={
-"あう 会う":["〜に","友達[ともだち]に会[あ]います",1],
-"あそぶ 遊ぶ":["〜と／〜で","友達[ともだち]と遊[あそ]びます",0],
-"あらう 洗う":["〜を","手[て]を洗[あら]います",0],
-"ある":["〜が","机[つくえ]の上[うえ]に本[ほん]があります",1],
-"あるく 歩く":["〜を","道[みち]を歩[ある]きます",1],
-"いう 言う":["〜と／〜を","「はい」と言[い]います",0],
-"いく 行く":["〜へ／〜に","京都[きょうと]へ行[い]きます",0],
-"いそぐ 急ぐ":["—","急[いそ]いでください",0],
-"うたう 歌う":["〜を","歌[うた]を歌[うた]います",0],
-"うる 売る":["〜を","切符[きっぷ]を売[う]ります",0],
-"おく 置く":["〜を／〜に","かばんをここに置[お]きます",0],
-"おくる 送る":["〜を／〜に","手紙[てがみ]を母[はは]に送[おく]ります",0],
-"おす 押す":["〜を","ボタンを押[お]します",0],
-"おもう 思う":["〜と","いいと思[おも]います",1],
-"およぐ 泳ぐ":["〜を／〜で","海[うみ]で泳[およ]ぎます",0],
-"おわる 終わる":["〜が","会議[かいぎ]が終[お]わります",1],
-"かう 買う":["〜を","本[ほん]を買[か]います",0],
-"かえす 返す":["〜を／〜に","本[ほん]を図書館[としょかん]に返[かえ]します",0],
-"かえる 帰る ★":["〜へ／〜に","うちへ帰[かえ]ります",0],
-"かかる":["〜が","時間[じかん]がかかります",1],
-"かく 書く":["〜を","名前[なまえ]を書[か]きます",0],
-"かす 貸す":["〜を／〜に","友達[ともだち]に本[ほん]を貸[か]します",0],
-"かつ 勝つ":["〜に","試合[しあい]に勝[か]ちます",1],
-"がんばる 頑張る":["—","頑張[がんば]ります",0],
-"きく 聞く":["〜を／〜に","先生[せんせい]に聞[き]きます",1],
-"きる 切る ★":["〜を","紙[かみ]を切[き]ります",0],
-"けす 消す":["〜を","電気[でんき]を消[け]します",0],
-"さく 咲く":["〜が","桜[さくら]が咲[さ]きます",1],
-"しぬ 死ぬ":["〜が","",0],
-"しる 知る ★":["〜を","ミラーさんを知[し]っています",1],
-"すう 吸う":["〜を","たばこを吸[す]います",0],
-"すむ 住む":["〜に","大阪[おおさか]に住[す]んでいます",1],
-"たつ 立つ":["—","立[た]ってください",0],
-"だす 出す":["〜を","手紙[てがみ]を出[だ]します",0],
-"つかう 使う":["〜を","はしを使[つか]います",0],
-"つく 着く":["〜に","駅[えき]に着[つ]きます",1],
-"つくる 作る":["〜を","ケーキを作[つく]ります",0],
-"てつだう 手伝う":["〜を","仕事[しごと]を手伝[てつだ]います",0],
-"とまる 泊まる":["〜に","ホテルに泊[と]まります",1],
-"とる 撮る":["〜を","写真[しゃしん]を撮[と]ります",0],
-"とる 取る":["〜を","塩[しお]を取[と]ってください",0],
-"なくす":["〜を","かぎをなくしました",0],
-"ならう 習う":["〜を／〜に","先生[せんせい]に日本語[にほんご]を習[なら]います",0],
-"なる":["〜に／〜く","医者[いしゃ]になります",1],
-"ぬぐ 脱ぐ":["〜を","くつを脱[ぬ]ぎます",0],
-"のぼる 登る":["〜に／〜を","山[やま]に登[のぼ]ります",1],
-"のむ 飲む":["〜を","水[みず]を飲[の]みます",0],
-"のる 乗る":["〜に","電車[でんしゃ]に乗[の]ります",1],
-"はいる 入る ★":["〜に","大学[だいがく]に入[はい]ります",1],
-"はく 履く":["〜を","くつを履[は]きます",0],
-"はしる 走る ★":["〜を","道[みち]を走[はし]ります",1],
-"はたらく 働く":["〜で","会社[かいしゃ]で働[はたら]きます",1],
-"はなす 話す":["〜と／〜を","友達[ともだち]と話[はな]します",0],
-"はらう 払う":["〜を","お金[かね]を払[はら]います",0],
-"ひく 弾く":["〜を","ピアノを弾[ひ]きます",0],
-"ふる 降る":["〜が","雨[あめ]が降[ふ]ります",1],
-"まがる 曲がる":["〜を／〜へ","角[かど]を右[みぎ]へ曲[ま]がります",1],
-"まつ 待つ":["〜を","友達[ともだち]を待[ま]ちます",0],
-"もつ 持つ":["〜を","荷物[にもつ]を持[も]ちます",0],
-"もらう":["〜を／〜に","母[はは]に本[ほん]をもらいます",0],
-"やすむ 休む":["〜を","会社[かいしゃ]を休[やす]みます",1],
-"よぶ 呼ぶ":["〜を","タクシーを呼[よ]びます",0],
-"よむ 読む":["〜を","本[ほん]を読[よ]みます",0],
-"わかる":["〜が","日本語[にほんご]がわかります",1],
-"わたる 渡る":["〜を","橋[はし]を渡[わた]ります",1],
-"あける 開ける":["〜を","窓[まど]を開[あ]けます",0],
-"あげる":["〜を／〜に","友達[ともだち]に花[はな]をあげます",0],
-"あびる 浴びる":["〜を","シャワーを浴[あ]びます",1],
-"いる":["〜が","部屋[へや]に人[ひと]がいます",1],
-"いれる 入れる":["〜を／〜に","かばんに入[い]れます",0],
-"うまれる 生まれる":["〜が／〜で","子[こ]どもが生[う]まれます",0],
-"おきる 起きる":["—","6時[じ]に起[お]きます",0],
-"おしえる 教える":["〜を／〜に","学生[がくせい]に日本語[にほんご]を教[おし]えます",0],
-"おぼえる 覚える":["〜を","漢字[かんじ]を覚[おぼ]えます",0],
-"おりる 降りる":["〜を","電車[でんしゃ]を降[お]ります",1],
-"かける":["〜を／〜に","友達[ともだち]に電話[でんわ]をかけます",0],
-"かりる 借りる":["〜を／〜に","銀行[ぎんこう]にお金[かね]を借[か]ります",0],
-"きる 着る":["〜を","シャツを着[き]ます",0],
-"くれる":["〜を","姉[あね]がセーターをくれます",0],
-"しめる 閉める":["〜を","ドアを閉[し]めます",0],
-"たべる 食べる":["〜を","ご飯[はん]を食[た]べます",0],
-"つかれる 疲れる":["—","疲[つか]れました",0],
-"つける":["〜を","エアコンをつけます",0],
-"つとめる 勤める":["〜に","銀行[ぎんこう]に勤[つと]めています",1],
-"でかける 出かける":["〜へ／〜に","町[まち]へ出[で]かけます",0],
-"できる":["〜が","日本語[にほんご]ができます",1],
-"でる 出る":["〜を","うちを出[で]ます",1],
-"とめる 止める":["〜を","車[くるま]を止[と]めます",0],
-"ねる 寝る":["—","11時[じ]に寝[ね]ます",0],
-"みせる 見せる":["〜を／〜に","パスポートを見[み]せます",0],
-"みる 見る":["〜を","映画[えいが]を見[み]ます",0],
-"わすれる 忘れる":["〜を","かさを忘[わす]れました",0],
-"する":["〜を","宿題[しゅくだい]をします",0],
-"くる 来る":["〜へ／〜に","日本[にほん]へ来[き]ます",0],
-"べんきょうする 勉強する":["〜を","日本語[にほんご]を勉強[べんきょう]します",0],
-"けっこんする 結婚する":["〜と","彼[かれ]と結婚[けっこん]します",1],
-"かいものする 買い物する":["—","スーパーで買[か]い物[もの]します",0],
-"しょくじする 食事する":["—","レストランで食事[しょくじ]します",0],
-"さんぽする 散歩する":["〜を","公園[こうえん]を散歩[さんぽ]します",1],
-"ざんぎょうする 残業する":["—","今日[きょう]は残業[ざんぎょう]します",0],
-"しゅっちょうする 出張する":["〜へ／〜に","東京[とうきょう]へ出張[しゅっちょう]します",0],
-"でんわする 電話する":["〜に","友達[ともだち]に電話[でんわ]します",1],
-"あんないする 案内する":["〜を／〜に","町[まち]を案内[あんない]します",0],
-"せつめいする 説明する":["〜を","使[つか]い方[かた]を説明[せつめい]します",0],
-"しょうかいする 紹介する":["〜を／〜に","友達[ともだち]を紹介[しょうかい]します",0],
-"しんぱいする 心配する":["〜を","試験[しけん]を心配[しんぱい]します",0],
-"コピーする":["〜を","資料[しりょう]をコピーします",0],
-"すわる 座る":["〜に","いすに座[すわ]ります",1],
-"おもいだす 思い出す":["〜を","名前[なまえ]を思[おも]い出[だ]します",0],
-"いる 要る":["〜が","ビザが要[い]ります",1],
-"なおす 直す":["〜を","時計[とけい]を直[なお]します",0],
-"かぶる":["〜を","ぼうしをかぶります",0],
-"まわす 回す":["〜を","つまみを回[まわ]します",0],
-"さわる 触る":["〜に","ドアに触[さわ]ります",1],
-"うごく 動く":["〜が","時計[とけい]が動[うご]きます",1],
-"ひく 引く":["〜を","ドアを引[ひ]きます",0],
-"つれていく 連れて行く":["〜を／〜へ","子[こ]どもを病院[びょういん]へ連[つ]れて行[い]きます",0],
-"もっていく 持って行く":["〜を／〜へ","かさを持[も]って行[い]きます",0],
-"むかえる 迎える":["〜を","友達[ともだち]を迎[むか]えます",0],
-"はじめる 始める":["〜を","勉強[べんきょう]を始[はじ]めます",0],
-"のりかえる 乗り換える":["〜に","バスに乗[の]り換[か]えます",1],
-"やめる 辞める":["〜を","会社[かいしゃ]を辞[や]めます",1],
-"あつめる 集める":["〜を","切手[きって]を集[あつ]めます",0],
-"すてる 捨てる":["〜を","ごみを捨[す]てます",0],
-"かえる 換える":["〜を","お金[かね]を換[か]えます",0],
-"しらべる 調べる":["〜を","意味[いみ]を調[しら]べます",0],
-"たりる 足りる":["〜が","お金[かね]が足[た]ります",1],
-"まける 負ける":["〜に","試合[しあい]に負[ま]けます",1],
-"きをつける 気をつける":["〜に","車[くるま]に気[き]をつけます",1],
-"かんがえる 考える":["〜を／〜について","将来[しょうらい]を考[かんが]えます",0],
-"けんきゅうする 研究する":["〜を","経済[けいざい]を研究[けんきゅう]します",0],
-"うんてんする 運転する":["〜を","車[くるま]を運転[うんてん]します",0],
-"よやくする 予約する":["〜を","ホテルを予約[よやく]します",0],
-"けんがくする 見学する":["〜を","工場[こうじょう]を見学[けんがく]します",0],
-"そうじする 掃除する":["〜を","部屋[へや]を掃除[そうじ]します",0],
-"せんたくする 洗濯する":["〜を","服[ふく]を洗濯[せんたく]します",0],
-"れんしゅうする 練習する":["〜を","漢字[かんじ]を練習[れんしゅう]します",0],
-"しゅうりする 修理する":["〜を","車[くるま]を修理[しゅうり]します",0],
-"ひっこしする 引っ越しする":["〜へ／〜に","大阪[おおさか]へ引[ひ]っ越[こ]しします",0],
-"つれてくる 連れて来る":["〜を","友達[ともだち]を連[つ]れて来[き]ます",0],
-"もってくる 持って来る":["〜を","本[ほん]を持[も]って来[き]ます",0],
-"とぶ 飛ぶ":["〜を","空[そら]を飛[と]びます",0],
-"なげる 投げる":["〜を","ボールを投[な]げます",0]
-};
-
-/* --- verbos --- */
-let vbGroup="all";
-function renderVerbs(){
-  const q=$("#vbSearch").value.trim().toLowerCase().replace(/([aeiou])-/g,"$1$1");
-  let rows="",n=0;
-  for(const [dic,g,masu,te,ta,nai,es] of VERBS){
-    if(vbGroup!=="all"&&String(g)!==vbGroup)continue;
-    if(q){
-      const clean=x=>x.replace(/\s*★$/,"");
-      const dicKana=dic.split(" ")[0];
-      const match=dic.includes(q)||es.toLowerCase().includes(q)||
-        [dicKana,masu,te,ta,nai].map(clean).some(x=>moraMatch(x,q));
-      if(!match)continue;
-    }
-    n++;
-    const p=PART[dic];
-    const badge=p&&p[0]!=="—"?`<span class="pbadge${p[2]?" hot":""}">${esc(p[0])}</span>`:"";
-    const ej=p&&p[1]?`<span class="vej jp">${ruby(esc(p[1]))}</span>`:"";
-    rows+=`<tr><td class="jpcell jp"><b>${esc(dic)}</b>${badge}</td><td class="num">${g==="3"||g===3?"III":g==="2"||g===2?"II":"I"}</td><td class="jpcell">${esc(masu)}</td><td class="jpcell">${esc(te)}</td><td class="jpcell">${esc(ta)}</td><td class="jpcell">${esc(nai)}</td><td>${esc(es)}${ej}</td></tr>`;
-  }
-  $("#vbTable tbody").innerHTML=rows||`<tr><td colspan="7" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
-  $("#vbCount").textContent=n+" verbos";
-}
-function initVerbs(){
-  $("#vbSearch").addEventListener("input",renderVerbs);
-  $("#vbGroups").addEventListener("click",e=>{
-    const b=e.target.closest("button");if(!b)return;
-    vbGroup=b.dataset.g;
-    $$("#vbGroups button").forEach(x=>x.classList.toggle("on",x===b));
-    renderVerbs();
-  });
-  renderVerbs();
-}
-
-/* --- kanji --- */
-function renderKanji(){
-  const q=$("#kSearch").value.trim().toLowerCase().replace(/([aeiou])-/g,"$1$1");
-  let html="",n=0;
-  for(const k of KANJI){
-    const[glyph,mean,on,kun,exs]=k;
-    if(q&&!(glyph.includes(q)||mean.toLowerCase().includes(q)||on.includes(q)||kun.includes(q)||moraMatch(on,q)||moraMatch(kun,q)))continue;
-    n++;
-    html+=`<div class="kcard" tabindex="0" role="button" aria-expanded="false">
-      <span class="glyph">${glyph}</span>
-      <div class="kmean">${esc(mean)}</div>
-      <div class="kread">${on?`<b>ON</b> ${esc(on)}`:""}${on&&kun?" · ":""}${kun?`<b>kun</b> ${esc(kun)}`:""}</div>
-      <div class="kex">${exs.map(x=>`<div><span class="jp">${esc(x[0])}</span> <span class="muted">${esc(x[1])}</span> — ${esc(x[2])}</div>`).join("")}</div>
-    </div>`;
-  }
-  $("#kGrid").innerHTML=html||`<p class="muted">Sin resultados</p>`;
-  $("#kCount").textContent=n+" kanji";
-}
-function initKanji(){
-  $("#kSearch").addEventListener("input",renderKanji);
-  $("#kGrid").addEventListener("click",e=>{
-    const c=e.target.closest(".kcard");if(!c)return;
-    c.classList.toggle("open");
-    c.setAttribute("aria-expanded",c.classList.contains("open"));
-  });
-  $("#kGrid").addEventListener("keydown",e=>{
-    if(e.key==="Enter"||e.key===" "){const c=e.target.closest(".kcard");if(c){e.preventDefault();c.click();}}
-  });
-  renderKanji();
-}
-
-/* --- ejercicios --- */
-let dTag="all";
-function renderDrills(){
-  let html="";
-  for(const d of DRILLS){
-    if(dTag!=="all"&&d.tag!==dTag)continue;
-    html+=`<div class="exercise">
-      <span class="etag">${esc(d.tag)}</span>
-      <p class="eq jp">${ruby(d.q)}</p>
-      <button class="toggle" type="button">Ver respuesta</button>
-      <div class="ans"><div class="a jp">${ruby(esc(d.a))}</div><div class="why">${ruby(d.w)}</div></div>
-    </div>`;
-  }
-  $("#dList").innerHTML=html;
-}
-function initDrills(){
-  const tags=[...new Set(DRILLS.map(d=>d.tag))];
-  $("#dTags").innerHTML=`<button data-tag="all" class="on">Todos</button>`+tags.map(t=>`<button data-tag="${esc(t)}">${esc(t)}</button>`).join("");
-  $("#dTags").addEventListener("click",e=>{
-    const b=e.target.closest("button");if(!b)return;
-    dTag=b.dataset.tag;
-    $$("#dTags button").forEach(x=>x.classList.toggle("on",x===b));
-    renderDrills();
-  });
-  $("#dList").addEventListener("click",e=>{
-    const b=e.target.closest(".toggle");if(!b)return;
-    const ex=b.closest(".exercise");
-    ex.classList.toggle("open");
-    b.textContent=ex.classList.contains("open")?"Ocultar respuesta":"Ver respuesta";
-  });
-  renderDrills();
-}
-
-/* --- tablas de kana (se generan y se añaden a Referencia) --- */
-const KANA_ROWS=[["あ","い","う","え","お"],["か","き","く","け","こ"],["さ","し","す","せ","そ"],["た","ち","つ","て","と"],["な","に","ぬ","ね","の"],["は","ひ","ふ","へ","ほ"],["ま","み","む","め","も"],["や","","ゆ","","よ"],["ら","り","る","れ","ろ"],["わ","","","","を"],["ん","","","",""]];
-const KANA_DAK=[["が","ぎ","ぐ","げ","ご"],["ざ","じ","ず","ぜ","ぞ"],["だ","ぢ","づ","で","ど"],["ば","び","ぶ","べ","ぼ"],["ぱ","ぴ","ぷ","ぺ","ぽ"]];
-const KANA_YO=[["きゃ","きゅ","きょ"],["しゃ","しゅ","しょ"],["ちゃ","ちゅ","ちょ"],["にゃ","にゅ","にょ"],["ひゃ","ひゅ","ひょ"],["みゃ","みゅ","みょ"],["りゃ","りゅ","りょ"],["ぎゃ","ぎゅ","ぎょ"],["じゃ","じゅ","じょ"],["びゃ","びゅ","びょ"],["ぴゃ","ぴゅ","ぴょ"]];
-const toKata=s=>[...s].map(c=>String.fromCodePoint(c.codePointAt(0)+0x60)).join("");
-function kanaTable(rows,kata){
-  return `<div class="tablewrap" style="box-shadow:none;border:none"><table class="kanatable"><tbody>`+
-    rows.map(r=>`<tr>`+r.map(c=>{
-      if(!c)return `<td class="kanacell"></td>`;
-      const k=kata?toKata(c):c;
-      return `<td class="kanacell"><span class="jp">${k}</span><span class="r">${romaji(c)}</span></td>`;
-    }).join("")+`</tr>`).join("")+`</tbody></table></div>`;
-}
-function kanaCard(kata){
-  const note=kata
-    ?`<p class="muted" style="margin:8px 0 0">La vocal larga se escribe con ー: コーヒー (kōhī). Se usa para palabras extranjeras y nombres.</p>`
-    :`<p class="muted" style="margin:8px 0 0">っ pequeño dobla la consonante siguiente: きって (kitte). Las partículas は・へ・を se leen wa・e・o.</p>`;
-  return `<h4 style="margin:10px 0 4px">Básicos (五十音)</h4>${kanaTable(KANA_ROWS,kata)}
-  <h4 style="margin:14px 0 4px">Con ゛y ゜(dakuten)</h4>${kanaTable(KANA_DAK,kata)}
-  <h4 style="margin:14px 0 4px">Combinaciones (拗音[ようおん])</h4>${kanaTable(KANA_YO,kata)}${note}`;
-}
-REF.unshift(
-  {k:"あ",t:"Hiragana",html:kanaCard(false)},
-  {k:"ア",t:"Katakana",html:kanaCard(true)}
-);
-
-/* --- referencia --- */
-function initRef(){
-  $("#refGrid").innerHTML=REF.map(c=>`
-    <div class="refcard">
-      <h3><span class="k jp">${c.k}</span>${esc(c.t)}</h3>
-      ${ruby(c.html)}
-    </div>`).join("");
-}
-
-/* --- inicio --- */
-function initHome(){
-  const s=[["vocab",VOCAB.length,"palabras"],["grammar",GRAMMAR.reduce((a,l)=>a+l.p.length,0),"puntos de gramática"],["verbs",VERBS.length,"verbos"],["kanji",KANJI.length,"kanji"],["drill",DRILLS.length,"ejercicios"]];
-  $("#statrow").innerHTML=s.map(([t,n,l])=>`<div class="stat" data-t="${t}" tabindex="0" role="button"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
-  $("#statrow").addEventListener("click",e=>{const c=e.target.closest(".stat");if(c)goTab(c.dataset.t);});
-}
-
-initVocab();initGrammar();initVerbs();initKanji();initRef();initDrills();initHome();
-</script>
+<!-- utilidades -->
+<script defer src="scripts/dom.js"></script>
+<script defer src="scripts/romaji.js"></script>
+<script defer src="scripts/router.js"></script>
+<!-- datos (JSON puro con una línea de envoltura; ver README) -->
+<script defer src="data/vocab.js"></script>
+<script defer src="data/grammar.js"></script>
+<script defer src="data/verbs.js"></script>
+<script defer src="data/kanji.js"></script>
+<script defer src="data/reference.js"></script>
+<script defer src="data/drills.js"></script>
+<script defer src="data/kana.js"></script>
+<!-- secciones -->
+<script defer src="scripts/sections/home.js"></script>
+<script defer src="scripts/sections/vocab.js"></script>
+<script defer src="scripts/sections/grammar.js"></script>
+<script defer src="scripts/sections/verbs.js"></script>
+<script defer src="scripts/sections/kanji.js"></script>
+<script defer src="scripts/sections/reference.js"></script>
+<script defer src="scripts/sections/drills.js"></script>
+<script defer src="scripts/sections/quiz.js"></script>
+<!-- búsqueda global y arranque -->
+<script defer src="scripts/search.js"></script>
+<script defer src="scripts/app.js"></script>
+</body>
+</html>

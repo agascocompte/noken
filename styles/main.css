@@ -1,0 +1,325 @@
+/* ============================================================
+   Nōken 5 — Guía de estudio · hoja de estilos
+   Tokens de tema (claro/oscuro) + componentes.
+   ============================================================ */
+
+:root{
+  --paper:#f6f4ef; --card:#fffefb; --ink:#26282e; --ink2:#63666e; --line:#e4e0d5;
+  --accent:#31548a; --accent-soft:#e8edf5; --beni:#b8432f; --beni-soft:#f6e9e5;
+  --ok:#4f6f45; --ok-soft:#e9efe4; --bad:#a03d2e; --bad-soft:#f4e2de; --chip:#efece3;
+  --shadow:0 1px 2px rgba(38,40,46,.06);
+  --shadow-lg:0 8px 28px rgba(38,40,46,.13);
+  --radius:10px;
+  --font-jp:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --font-ui:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#15171c; --card:#1d2027; --ink:#e9e7df; --ink2:#9a9da6; --line:#2d313b;
+    --accent:#8db0dd; --accent-soft:#232c3a; --beni:#e08a76; --beni-soft:#392626;
+    --ok:#9ab887; --ok-soft:#242c20; --bad:#d98a76; --bad-soft:#3a2a26; --chip:#262a33;
+    --shadow:0 1px 2px rgba(0,0,0,.35);
+    --shadow-lg:0 8px 28px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15171c; --card:#1d2027; --ink:#e9e7df; --ink2:#9a9da6; --line:#2d313b;
+  --accent:#8db0dd; --accent-soft:#232c3a; --beni:#e08a76; --beni-soft:#392626;
+  --ok:#9ab887; --ok-soft:#242c20; --bad:#d98a76; --bad-soft:#3a2a26; --chip:#262a33;
+  --shadow:0 1px 2px rgba(0,0,0,.35);
+  --shadow-lg:0 8px 28px rgba(0,0,0,.5);
+}
+:root[data-theme="light"]{
+  --paper:#f6f4ef; --card:#fffefb; --ink:#26282e; --ink2:#63666e; --line:#e4e0d5;
+  --accent:#31548a; --accent-soft:#e8edf5; --beni:#b8432f; --beni-soft:#f6e9e5;
+  --ok:#4f6f45; --ok-soft:#e9efe4; --bad:#a03d2e; --bad-soft:#f4e2de; --chip:#efece3;
+  --shadow:0 1px 2px rgba(38,40,46,.06);
+  --shadow-lg:0 8px 28px rgba(38,40,46,.13);
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-ui);
+  font-size:16px; line-height:1.6;
+}
+.jp{font-family:var(--font-jp)}
+a{color:var(--accent)}
+button{font-family:inherit}
+ruby{ruby-align:center}
+ruby rt{font-size:.55em; color:var(--ink2); letter-spacing:0; font-weight:400}
+body.no-furigana rt{visibility:hidden}   /* interruptor de furigana */
+.muted{color:var(--ink2)}
+
+/* ---------- cabecera ---------- */
+header.site{
+  border-bottom:1px solid var(--line); background:var(--card);
+  position:sticky; top:0; z-index:50;
+}
+.brand-row{
+  max-width:1300px; margin:0 auto; padding:10px 20px 6px;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+}
+.brand{font-family:var(--font-jp); font-size:1.25rem; font-weight:600; letter-spacing:.02em; white-space:nowrap}
+.brand .go{color:var(--beni)}
+.brand-sub{color:var(--ink2); font-size:.8rem}
+.hbtn{
+  background:none; border:1px solid var(--line); border-radius:7px;
+  color:var(--ink2); padding:4px 10px; cursor:pointer; font-size:.8rem;
+}
+.hbtn:hover{color:var(--ink); border-color:var(--ink2)}
+.hbtn.on{background:var(--accent-soft); color:var(--accent); border-color:var(--accent)}
+.hbtn:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+
+/* búsqueda global */
+.gsearch{position:relative; margin-left:auto; flex:1; max-width:380px; min-width:220px}
+.gsearch input{
+  width:100%; background:var(--paper); color:var(--ink);
+  border:1px solid var(--line); border-radius:8px; padding:6px 30px 6px 12px;
+  font-size:.9rem; font-family:inherit;
+}
+.gsearch input:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.gsearch .slash{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  font-size:.72rem; color:var(--ink2); border:1px solid var(--line);
+  border-radius:4px; padding:0 5px; pointer-events:none; background:var(--card);
+}
+.gresults{
+  position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:60;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow-lg); max-height:70vh; overflow-y:auto; display:none;
+}
+.gresults.open{display:block}
+.gresults .ggroup{
+  font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink2);
+  padding:8px 14px 2px; font-weight:600;
+}
+.gresults .gitem{
+  display:block; width:100%; text-align:left; background:none; border:none;
+  padding:6px 14px; cursor:pointer; font-size:.92rem; color:var(--ink);
+  border-radius:0;
+}
+.gresults .gitem:hover,.gresults .gitem.sel{background:var(--accent-soft)}
+.gresults .gitem .gja{font-family:var(--font-jp); margin-right:8px}
+.gresults .gitem .ges{color:var(--ink2); font-size:.85rem}
+.gresults .gnone{padding:12px 14px; color:var(--ink2); font-size:.88rem}
+
+/* pestañas */
+nav.tabs{
+  max-width:1300px; margin:0 auto; padding:0 12px;
+  display:flex; gap:2px; overflow-x:auto;
+}
+nav.tabs button{
+  appearance:none; background:none; border:none; cursor:pointer;
+  padding:9px 13px 11px; font-size:.93rem; color:var(--ink2);
+  border-bottom:3px solid transparent; white-space:nowrap;
+}
+nav.tabs button .k{font-family:var(--font-jp); margin-right:6px; color:var(--beni)}
+nav.tabs button.active{color:var(--ink); border-bottom-color:var(--beni); font-weight:600}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs button:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+
+/* ---------- estructura ---------- */
+main{max-width:1300px; margin:0 auto; padding:28px 20px 90px}
+section.panel{display:none}
+section.panel.active{display:block}
+h2{font-family:var(--font-jp); font-weight:600; font-size:1.45rem; margin:.2em 0 .35em; text-wrap:balance}
+.lead{color:var(--ink2); max-width:65ch; margin:0 0 22px}
+
+.toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:0 0 16px}
+input[type=search], select{
+  background:var(--card); color:var(--ink); border:1px solid var(--line);
+  border-radius:8px; padding:8px 12px; font-size:.95rem; font-family:inherit;
+}
+input[type=search]{min-width:260px; flex:1; max-width:420px}
+input[type=search]:focus-visible, select:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.count{color:var(--ink2); font-size:.85rem; margin-left:auto; font-variant-numeric:tabular-nums}
+
+.chips{display:flex; gap:6px; flex-wrap:wrap}
+.chips button{
+  background:var(--chip); border:1px solid transparent; border-radius:999px;
+  padding:3px 12px; font-size:.82rem; color:var(--ink2); cursor:pointer;
+}
+.chips button:hover{color:var(--ink)}
+.chips button.on{background:var(--accent-soft); color:var(--accent); border-color:var(--accent); font-weight:600}
+.chips button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+
+/* control segmentado (Por lección / Por tema) */
+.seg{display:inline-flex; border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.seg button{
+  background:var(--card); border:none; padding:6px 14px; font-size:.88rem;
+  color:var(--ink2); cursor:pointer;
+}
+.seg button.on{background:var(--accent-soft); color:var(--accent); font-weight:600}
+.seg button+button{border-left:1px solid var(--line)}
+
+.btn{
+  background:var(--accent-soft); color:var(--accent); border:none; border-radius:7px;
+  padding:6px 14px; font-size:.88rem; cursor:pointer; font-weight:600;
+}
+.btn.secondary{background:var(--chip); color:var(--ink2)}
+.btn:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+
+/* ---------- tablas ---------- */
+.tablewrap{overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; font-size:.95rem}
+th{
+  text-align:left; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink2); font-weight:600; padding:10px 14px; border-bottom:1px solid var(--line);
+  position:sticky; top:0; background:var(--card);
+}
+td{padding:8px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.jpcell{font-size:1.05rem}
+td.kanjicell{font-family:var(--font-jp); font-size:1.05rem; color:var(--beni)}
+td.num{color:var(--ink2); font-variant-numeric:tabular-nums; text-align:right}
+
+/* etiqueta de partícula y ejemplo en la tabla de verbos */
+.pbadge{
+  display:inline-block; margin-left:8px; padding:1px 8px; border-radius:999px;
+  font-size:.78rem; font-weight:600; background:var(--chip); color:var(--ink2);
+  font-family:var(--font-ui); vertical-align:middle;
+}
+.pbadge.hot{background:var(--beni-soft); color:var(--beni)}
+.vej{display:block; font-size:.82rem; color:var(--ink2); margin-top:3px; line-height:1.9}
+
+/* ---------- bloques plegables (lecciones, chuletas) ---------- */
+.lesson-block{margin:0 0 12px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+.lesson-block > summary{
+  cursor:pointer; padding:12px 16px; font-weight:600; list-style:none;
+  display:flex; align-items:baseline; gap:10px;
+}
+.lesson-block > summary::-webkit-details-marker{display:none}
+.lesson-block > summary::before{content:"▸"; color:var(--beni); font-size:.8em}
+.lesson-block[open] > summary::before{content:"▾"}
+.lesson-block > summary .lnum{
+  font-family:var(--font-jp); color:var(--beni); font-size:.85rem; min-width:70px;
+}
+.lesson-block > summary .ltitle{flex:1}
+.lesson-body{padding:0 16px 8px; border-top:1px solid var(--line)}
+
+.gpoint{padding:14px 0; border-bottom:1px dashed var(--line)}
+.gpoint:last-child{border-bottom:none}
+.gpoint h4{margin:0 0 4px; font-size:1.05rem}
+.gpoint h4 .pat{font-family:var(--font-jp); color:var(--accent)}
+.gpoint p{margin:4px 0; max-width:70ch}
+.gpoint .gtags{margin-top:6px; display:flex; gap:5px; flex-wrap:wrap}
+.gpoint .gtags button{
+  background:none; border:none; padding:0; cursor:pointer;
+  font-size:.72rem; color:var(--ink2); text-decoration:underline dotted; text-underline-offset:3px;
+}
+.gpoint .gtags button:hover{color:var(--accent)}
+.gpoint.flash{animation:flash 1.6s ease-out 1}
+@keyframes flash{0%{background:var(--accent-soft)}100%{background:transparent}}
+
+.ex{margin:8px 0 0; padding:8px 14px; background:var(--accent-soft); border-radius:8px}
+.ex .j{font-size:1.02rem; display:block; line-height:2}
+.ex .s{color:var(--ink2); font-size:.88rem; display:block}
+
+/* referencia a lección dentro de la vista por tema */
+.gsrc{font-size:.78rem; color:var(--ink2)}
+.gsrc a{color:var(--accent); text-decoration:none}
+.gsrc a:hover{text-decoration:underline}
+
+/* ---------- kanji ---------- */
+.kanji-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.kcard{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px 16px; box-shadow:var(--shadow); cursor:pointer;
+}
+.kcard .glyph{
+  font-family:var(--font-jp); font-size:2.6rem; line-height:1.15;
+  color:var(--beni); float:right; margin-left:8px;
+}
+.kcard .kmean{font-weight:600}
+.kcard .kread{font-size:.85rem; color:var(--ink2); margin-top:2px}
+.kcard .kread b{color:var(--ink); font-weight:600}
+.kcard .kex{display:none; margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); font-size:.88rem}
+.kcard.open .kex{display:block}
+.kcard .kex div{margin:2px 0}
+.kcard .kex .jp{color:var(--accent)}
+
+/* ---------- referencia ---------- */
+.refcard{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 20px; margin:0 0 18px}
+.refcard h3{margin:0 0 8px; font-family:var(--font-jp); font-size:1.15rem}
+.refcard h3 .k{color:var(--beni); margin-right:8px}
+.refcard h4{font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; color:var(--ink2); font-weight:600}
+.refgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; align-items:start}
+
+.kanatable{table-layout:fixed}
+.kanacell{text-align:center; padding:5px 4px !important}
+.kanacell .jp{font-size:1.2rem; display:block; line-height:1.3}
+.kanacell .r{display:block; font-size:.68rem; color:var(--ink2)}
+
+.formcell{font-weight:700; color:var(--beni); font-family:var(--font-jp); font-size:1.05rem; vertical-align:top}
+.formcell .muted{font-weight:400; font-size:.8rem; font-family:inherit}
+
+/* ---------- ejercicios ---------- */
+.exercise{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px 18px; margin:0 0 12px}
+.exercise .etag{
+  display:inline-block; font-size:.72rem; text-transform:uppercase; letter-spacing:.07em;
+  background:var(--chip); color:var(--ink2); border-radius:999px; padding:1px 10px; margin-bottom:6px;
+}
+.exercise .eq{font-size:1.02rem; margin:0 0 8px; line-height:2}
+.exercise .ans{display:none; border-top:1px dashed var(--line); padding-top:8px; margin-top:4px}
+.exercise.open .ans{display:block}
+.exercise .ans .a{color:var(--ok); font-weight:600; font-size:1.02rem; line-height:2}
+.exercise .ans .why{font-size:.88rem; color:var(--ink2); margin-top:2px; max-width:70ch}
+.exercise .toggle{
+  background:var(--ok-soft); color:var(--ok); border:none; border-radius:6px;
+  padding:4px 12px; font-size:.82rem; cursor:pointer; font-weight:600;
+}
+.exercise.open .toggle{background:var(--chip); color:var(--ink2)}
+
+/* ---------- autoevaluación ---------- */
+.quiz-config{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px 24px; max-width:560px}
+.quiz-config .qrow{margin:0 0 14px}
+.quiz-config .qlabel{font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; color:var(--ink2); font-weight:600; display:block; margin-bottom:6px}
+.quiz-config label.qcheck{display:inline-flex; align-items:center; gap:6px; margin-right:14px; font-size:.92rem; cursor:pointer}
+.quiz-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px 24px; max-width:640px}
+.quiz-progress{font-size:.8rem; color:var(--ink2); font-variant-numeric:tabular-nums; margin-bottom:10px}
+.quiz-q{font-size:1.1rem; margin:0 0 16px; line-height:2}
+.qopts{display:grid; gap:8px}
+.qopt{
+  text-align:left; background:var(--paper); border:1px solid var(--line); border-radius:8px;
+  padding:10px 14px; font-size:1rem; cursor:pointer; color:var(--ink); line-height:1.9;
+}
+.qopt:hover{border-color:var(--accent)}
+.qopt.correct{background:var(--ok-soft); border-color:var(--ok); color:var(--ok); font-weight:600}
+.qopt.wrong{background:var(--bad-soft); border-color:var(--bad); color:var(--bad)}
+.qopt:disabled{cursor:default; opacity:.9}
+.quiz-next{margin-top:16px}
+.quiz-result .score{font-size:2.2rem; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums}
+.quiz-review{margin-top:14px; border-top:1px dashed var(--line); padding-top:12px}
+.quiz-review .item{margin:0 0 10px; font-size:.92rem; line-height:1.9}
+.quiz-review .item .ok{color:var(--ok); font-weight:600}
+
+/* ---------- portada ---------- */
+.home-hero{padding:22px 0 8px}
+.home-hero .big{
+  font-family:var(--font-jp); font-size:clamp(1.8rem,5vw,2.8rem);
+  line-height:1.25; margin:0 0 10px; text-wrap:balance;
+}
+.home-hero .big .r{color:var(--beni)}
+.quickgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; margin:22px 0 8px}
+.qcard{
+  display:block; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:14px 18px; text-decoration:none; color:var(--ink);
+}
+.qcard .qk{font-family:var(--font-jp); color:var(--beni); font-size:1.3rem; margin-right:8px}
+.qcard .qt{font-weight:600}
+.qcard .qd{display:block; font-size:.82rem; color:var(--ink2); margin-top:3px}
+.qcard .qn{float:right; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700}
+.home-notes{max-width:70ch}
+.home-notes li{margin:6px 0}
+h3.hsub{font-family:var(--font-jp); font-size:1.1rem; margin:26px 0 8px}
+
+@media (prefers-reduced-motion: no-preference){
+  .kcard,.qcard{transition:transform .12s ease, box-shadow .12s ease}
+  .kcard:hover,.qcard:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+}
+@media (prefers-reduced-motion: reduce){
+  .gpoint.flash{animation:none}
+}
