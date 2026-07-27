@@ -1989,5 +1989,1295 @@ N5.data.kanji=
     "es": "cuántas personas"
    }
   ]
+ },
+ {
+  "kanji": "心",
+  "significado": "corazón, alma",
+  "on": "シン",
+  "kun": "こころ",
+  "ejemplos": [
+   {
+    "palabra": "心",
+    "lectura": "こころ",
+    "es": "corazón, espíritu"
+   },
+   {
+    "palabra": "心配",
+    "lectura": "しんぱい",
+    "es": "preocupación"
+   },
+   {
+    "palabra": "中心",
+    "lectura": "ちゅうしん",
+    "es": "centro"
+   }
+  ]
+ },
+ {
+  "kanji": "兄",
+  "significado": "hermano mayor",
+  "on": "ケイ・キョウ",
+  "kun": "あに",
+  "ejemplos": [
+   {
+    "palabra": "兄",
+    "lectura": "あに",
+    "es": "mi hermano mayor"
+   },
+   {
+    "palabra": "お兄さん",
+    "lectura": "おにいさん",
+    "es": "hermano mayor (de otro)"
+   },
+   {
+    "palabra": "兄弟",
+    "lectura": "きょうだい",
+    "es": "hermanos"
+   }
+  ]
+ },
+ {
+  "kanji": "弟",
+  "significado": "hermano menor",
+  "on": "ダイ・テイ",
+  "kun": "おとうと",
+  "ejemplos": [
+   {
+    "palabra": "弟",
+    "lectura": "おとうと",
+    "es": "hermano menor"
+   },
+   {
+    "palabra": "兄弟",
+    "lectura": "きょうだい",
+    "es": "hermanos"
+   }
+  ]
+ },
+ {
+  "kanji": "姉",
+  "significado": "hermana mayor",
+  "on": "シ",
+  "kun": "あね",
+  "ejemplos": [
+   {
+    "palabra": "姉",
+    "lectura": "あね",
+    "es": "mi hermana mayor"
+   },
+   {
+    "palabra": "お姉さん",
+    "lectura": "おねえさん",
+    "es": "hermana mayor (de otra persona)"
+   },
+   {
+    "palabra": "姉妹",
+    "lectura": "しまい",
+    "es": "hermanas"
+   }
+  ]
+ },
+ {
+  "kanji": "妹",
+  "significado": "hermana menor",
+  "on": "マイ",
+  "kun": "いもうと",
+  "ejemplos": [
+   {
+    "palabra": "妹",
+    "lectura": "いもうと",
+    "es": "hermana menor"
+   },
+   {
+    "palabra": "姉妹",
+    "lectura": "しまい",
+    "es": "hermanas"
+   }
+  ]
+ },
+ {
+  "kanji": "田",
+  "significado": "arrozal",
+  "on": "デン",
+  "kun": "た",
+  "ejemplos": [
+   {
+    "palabra": "田んぼ",
+    "lectura": "たんぼ",
+    "es": "arrozal"
+   },
+   {
+    "palabra": "田中",
+    "lectura": "たなか",
+    "es": "Tanaka (apellido)"
+   },
+   {
+    "palabra": "山田",
+    "lectura": "やまだ",
+    "es": "Yamada (apellido)"
+   }
+  ]
+ },
+ {
+  "kanji": "石",
+  "significado": "piedra, roca",
+  "on": "セキ",
+  "kun": "いし",
+  "ejemplos": [
+   {
+    "palabra": "石",
+    "lectura": "いし",
+    "es": "piedra"
+   },
+   {
+    "palabra": "石油",
+    "lectura": "せきゆ",
+    "es": "petróleo"
+   }
+  ]
+ },
+ {
+  "kanji": "朝",
+  "significado": "mañana",
+  "on": "チョウ",
+  "kun": "あさ",
+  "ejemplos": [
+   {
+    "palabra": "朝",
+    "lectura": "あさ",
+    "es": "mañana"
+   },
+   {
+    "palabra": "今朝",
+    "lectura": "けさ",
+    "es": "esta mañana"
+   },
+   {
+    "palabra": "朝ごはん",
+    "lectura": "あさごはん",
+    "es": "desayuno"
+   }
+  ]
+ },
+ {
+  "kanji": "昼",
+  "significado": "mediodía",
+  "on": "チュウ",
+  "kun": "ひる",
+  "ejemplos": [
+   {
+    "palabra": "昼",
+    "lectura": "ひる",
+    "es": "mediodía"
+   },
+   {
+    "palabra": "昼ごはん",
+    "lectura": "ひるごはん",
+    "es": "almuerzo"
+   },
+   {
+    "palabra": "昼休み",
+    "lectura": "ひるやすみ",
+    "es": "descanso de mediodía"
+   }
+  ]
+ },
+ {
+  "kanji": "夜",
+  "significado": "noche",
+  "on": "ヤ",
+  "kun": "よる",
+  "ejemplos": [
+   {
+    "palabra": "夜",
+    "lectura": "よる",
+    "es": "noche"
+   },
+   {
+    "palabra": "今夜",
+    "lectura": "こんや",
+    "es": "esta noche"
+   }
+  ]
+ },
+ {
+  "kanji": "方",
+  "significado": "dirección, manera, persona",
+  "on": "ホウ",
+  "kun": "かた",
+  "ejemplos": [
+   {
+    "palabra": "読み方",
+    "lectura": "よみかた",
+    "es": "manera de leer"
+   },
+   {
+    "palabra": "あの方",
+    "lectura": "あのかた",
+    "es": "aquella persona (respetuoso)"
+   },
+   {
+    "palabra": "夕方",
+    "lectura": "ゆうがた",
+    "es": "atardecer"
+   }
+  ]
+ },
+ {
+  "kanji": "元",
+  "significado": "origen",
+  "on": "ゲン・ガン",
+  "kun": "もと",
+  "ejemplos": [
+   {
+    "palabra": "元気",
+    "lectura": "げんき",
+    "es": "saludable, con energía"
+   },
+   {
+    "palabra": "元日",
+    "lectura": "がんじつ",
+    "es": "día de Año Nuevo"
+   }
+  ]
+ },
+ {
+  "kanji": "文",
+  "significado": "letra, escritura",
+  "on": "ブン・モ",
+  "kun": "",
+  "ejemplos": [
+   {
+    "palabra": "文",
+    "lectura": "ぶん",
+    "es": "frase"
+   },
+   {
+    "palabra": "文学",
+    "lectura": "ぶんがく",
+    "es": "literatura"
+   },
+   {
+    "palabra": "文字",
+    "lectura": "もじ",
+    "es": "letra, carácter"
+   }
+  ]
+ },
+ {
+  "kanji": "赤",
+  "significado": "rojo",
+  "on": "セキ",
+  "kun": "あか・い",
+  "ejemplos": [
+   {
+    "palabra": "赤い",
+    "lectura": "あかい",
+    "es": "rojo"
+   },
+   {
+    "palabra": "赤ちゃん",
+    "lectura": "あかちゃん",
+    "es": "bebé"
+   }
+  ]
+ },
+ {
+  "kanji": "青",
+  "significado": "azul, verde",
+  "on": "セイ",
+  "kun": "あお・い",
+  "ejemplos": [
+   {
+    "palabra": "青い",
+    "lectura": "あおい",
+    "es": "azul"
+   },
+   {
+    "palabra": "青空",
+    "lectura": "あおぞら",
+    "es": "cielo azul"
+   },
+   {
+    "palabra": "青信号",
+    "lectura": "あおしんごう",
+    "es": "semáforo en verde"
+   }
+  ]
+ },
+ {
+  "kanji": "社",
+  "significado": "empresa, santuario",
+  "on": "シャ",
+  "kun": "",
+  "ejemplos": [
+   {
+    "palabra": "会社",
+    "lectura": "かいしゃ",
+    "es": "empresa"
+   },
+   {
+    "palabra": "社長",
+    "lectura": "しゃちょう",
+    "es": "presidente de la empresa"
+   },
+   {
+    "palabra": "神社",
+    "lectura": "じんじゃ",
+    "es": "santuario sintoísta"
+   }
+  ]
+ },
+ {
+  "kanji": "私",
+  "significado": "yo, privado",
+  "on": "シ",
+  "kun": "わたし",
+  "ejemplos": [
+   {
+    "palabra": "私",
+    "lectura": "わたし",
+    "es": "yo"
+   },
+   {
+    "palabra": "私立",
+    "lectura": "しりつ",
+    "es": "privado (escuela, etc.)"
+   }
+  ]
+ },
+ {
+  "kanji": "太",
+  "significado": "grueso, gordo",
+  "on": "タイ",
+  "kun": "ふと・い",
+  "ejemplos": [
+   {
+    "palabra": "太い",
+    "lectura": "ふとい",
+    "es": "grueso"
+   },
+   {
+    "palabra": "太る",
+    "lectura": "ふとる",
+    "es": "engordar"
+   },
+   {
+    "palabra": "太陽",
+    "lectura": "たいよう",
+    "es": "sol"
+   }
+  ]
+ },
+ {
+  "kanji": "春",
+  "significado": "primavera",
+  "on": "シュン",
+  "kun": "はる",
+  "ejemplos": [
+   {
+    "palabra": "春",
+    "lectura": "はる",
+    "es": "primavera"
+   },
+   {
+    "palabra": "春休み",
+    "lectura": "はるやすみ",
+    "es": "vacaciones de primavera"
+   }
+  ]
+ },
+ {
+  "kanji": "夏",
+  "significado": "verano",
+  "on": "カ",
+  "kun": "なつ",
+  "ejemplos": [
+   {
+    "palabra": "夏",
+    "lectura": "なつ",
+    "es": "verano"
+   },
+   {
+    "palabra": "夏休み",
+    "lectura": "なつやすみ",
+    "es": "vacaciones de verano"
+   }
+  ]
+ },
+ {
+  "kanji": "秋",
+  "significado": "otoño",
+  "on": "シュウ",
+  "kun": "あき",
+  "ejemplos": [
+   {
+    "palabra": "秋",
+    "lectura": "あき",
+    "es": "otoño"
+   },
+   {
+    "palabra": "秋風",
+    "lectura": "あきかぜ",
+    "es": "viento de otoño"
+   }
+  ]
+ },
+ {
+  "kanji": "冬",
+  "significado": "invierno",
+  "on": "トウ",
+  "kun": "ふゆ",
+  "ejemplos": [
+   {
+    "palabra": "冬",
+    "lectura": "ふゆ",
+    "es": "invierno"
+   },
+   {
+    "palabra": "冬休み",
+    "lectura": "ふゆやすみ",
+    "es": "vacaciones de invierno"
+   }
+  ]
+ },
+ {
+  "kanji": "自",
+  "significado": "uno mismo",
+  "on": "ジ・シ",
+  "kun": "みずか・ら",
+  "ejemplos": [
+   {
+    "palabra": "自分",
+    "lectura": "じぶん",
+    "es": "uno mismo"
+   },
+   {
+    "palabra": "自転車",
+    "lectura": "じてんしゃ",
+    "es": "bicicleta"
+   },
+   {
+    "palabra": "自由",
+    "lectura": "じゆう",
+    "es": "libertad"
+   }
+  ]
+ },
+ {
+  "kanji": "動",
+  "significado": "moverse",
+  "on": "ドウ",
+  "kun": "うご・く",
+  "ejemplos": [
+   {
+    "palabra": "動く",
+    "lectura": "うごく",
+    "es": "moverse, funcionar"
+   },
+   {
+    "palabra": "動物",
+    "lectura": "どうぶつ",
+    "es": "animal"
+   },
+   {
+    "palabra": "自動車",
+    "lectura": "じどうしゃ",
+    "es": "automóvil"
+   }
+  ]
+ },
+ {
+  "kanji": "近",
+  "significado": "cerca, reciente",
+  "on": "キン",
+  "kun": "ちか・い",
+  "ejemplos": [
+   {
+    "palabra": "近い",
+    "lectura": "ちかい",
+    "es": "cercano"
+   },
+   {
+    "palabra": "近く",
+    "lectura": "ちかく",
+    "es": "cerca"
+   },
+   {
+    "palabra": "最近",
+    "lectura": "さいきん",
+    "es": "últimamente"
+   }
+  ]
+ },
+ {
+  "kanji": "遠",
+  "significado": "lejos",
+  "on": "エン",
+  "kun": "とお・い",
+  "ejemplos": [
+   {
+    "palabra": "遠い",
+    "lectura": "とおい",
+    "es": "lejano"
+   },
+   {
+    "palabra": "遠足",
+    "lectura": "えんそく",
+    "es": "excursión"
+   }
+  ]
+ },
+ {
+  "kanji": "暑",
+  "significado": "caluroso",
+  "on": "ショ",
+  "kun": "あつ・い",
+  "ejemplos": [
+   {
+    "palabra": "暑い",
+    "lectura": "あつい",
+    "es": "caluroso"
+   },
+   {
+    "palabra": "暑さ",
+    "lectura": "あつさ",
+    "es": "calor"
+   }
+  ]
+ },
+ {
+  "kanji": "寒",
+  "significado": "frío",
+  "on": "カン",
+  "kun": "さむ・い",
+  "ejemplos": [
+   {
+    "palabra": "寒い",
+    "lectura": "さむい",
+    "es": "frío"
+   },
+   {
+    "palabra": "寒気",
+    "lectura": "さむけ",
+    "es": "escalofríos"
+   }
+  ]
+ },
+ {
+  "kanji": "強",
+  "significado": "fuerte",
+  "on": "キョウ",
+  "kun": "つよ・い",
+  "ejemplos": [
+   {
+    "palabra": "強い",
+    "lectura": "つよい",
+    "es": "fuerte"
+   },
+   {
+    "palabra": "勉強",
+    "lectura": "べんきょう",
+    "es": "estudio"
+   }
+  ]
+ },
+ {
+  "kanji": "弱",
+  "significado": "débil",
+  "on": "ジャク",
+  "kun": "よわ・い",
+  "ejemplos": [
+   {
+    "palabra": "弱い",
+    "lectura": "よわい",
+    "es": "débil"
+   },
+   {
+    "palabra": "弱点",
+    "lectura": "じゃくてん",
+    "es": "punto débil"
+   }
+  ]
+ },
+ {
+  "kanji": "力",
+  "significado": "fuerza",
+  "on": "リョク・リキ",
+  "kun": "ちから",
+  "ejemplos": [
+   {
+    "palabra": "力",
+    "lectura": "ちから",
+    "es": "fuerza"
+   },
+   {
+    "palabra": "体力",
+    "lectura": "たいりょく",
+    "es": "fuerza física"
+   }
+  ]
+ },
+ {
+  "kanji": "若",
+  "significado": "joven",
+  "on": "ジャク",
+  "kun": "わか・い",
+  "ejemplos": [
+   {
+    "palabra": "若い",
+    "lectura": "わかい",
+    "es": "joven"
+   },
+   {
+    "palabra": "若者",
+    "lectura": "わかもの",
+    "es": "los jóvenes"
+   }
+  ]
+ },
+ {
+  "kanji": "広",
+  "significado": "ancho, amplio",
+  "on": "コウ",
+  "kun": "ひろ・い",
+  "ejemplos": [
+   {
+    "palabra": "広い",
+    "lectura": "ひろい",
+    "es": "amplio"
+   },
+   {
+    "palabra": "広島",
+    "lectura": "ひろしま",
+    "es": "Hiroshima"
+   }
+  ]
+ },
+ {
+  "kanji": "悪",
+  "significado": "malo",
+  "on": "アク",
+  "kun": "わる・い",
+  "ejemplos": [
+   {
+    "palabra": "悪い",
+    "lectura": "わるい",
+    "es": "malo"
+   },
+   {
+    "palabra": "悪口",
+    "lectura": "わるぐち",
+    "es": "hablar mal de alguien"
+   }
+  ]
+ },
+ {
+  "kanji": "重",
+  "significado": "pesado",
+  "on": "ジュウ",
+  "kun": "おも・い",
+  "ejemplos": [
+   {
+    "palabra": "重い",
+    "lectura": "おもい",
+    "es": "pesado"
+   },
+   {
+    "palabra": "重要",
+    "lectura": "じゅうよう",
+    "es": "importante"
+   }
+  ]
+ },
+ {
+  "kanji": "早",
+  "significado": "temprano, rápido",
+  "on": "ソウ",
+  "kun": "はや・い",
+  "ejemplos": [
+   {
+    "palabra": "早い",
+    "lectura": "はやい",
+    "es": "temprano"
+   },
+   {
+    "palabra": "早く",
+    "lectura": "はやく",
+    "es": "pronto, temprano"
+   }
+  ]
+ },
+ {
+  "kanji": "持",
+  "significado": "tener, llevar",
+  "on": "ジ",
+  "kun": "も・つ",
+  "ejemplos": [
+   {
+    "palabra": "持つ",
+    "lectura": "もつ",
+    "es": "tener, llevar"
+   },
+   {
+    "palabra": "気持ち",
+    "lectura": "きもち",
+    "es": "sentimiento, sensación"
+   },
+   {
+    "palabra": "金持ち",
+    "lectura": "かねもち",
+    "es": "rico"
+   }
+  ]
+ },
+ {
+  "kanji": "待",
+  "significado": "esperar",
+  "on": "タイ",
+  "kun": "ま・つ",
+  "ejemplos": [
+   {
+    "palabra": "待つ",
+    "lectura": "まつ",
+    "es": "esperar"
+   },
+   {
+    "palabra": "招待",
+    "lectura": "しょうたい",
+    "es": "invitación"
+   }
+  ]
+ },
+ {
+  "kanji": "売",
+  "significado": "vender",
+  "on": "バイ",
+  "kun": "う・る",
+  "ejemplos": [
+   {
+    "palabra": "売る",
+    "lectura": "うる",
+    "es": "vender"
+   },
+   {
+    "palabra": "売り場",
+    "lectura": "うりば",
+    "es": "sección de ventas"
+   }
+  ]
+ },
+ {
+  "kanji": "開",
+  "significado": "abrir",
+  "on": "カイ",
+  "kun": "あ・ける、ひら・く",
+  "ejemplos": [
+   {
+    "palabra": "開ける",
+    "lectura": "あける",
+    "es": "abrir"
+   },
+   {
+    "palabra": "開く",
+    "lectura": "ひらく",
+    "es": "abrirse"
+   }
+  ]
+ },
+ {
+  "kanji": "閉",
+  "significado": "cerrar",
+  "on": "ヘイ",
+  "kun": "し・める、と・じる",
+  "ejemplos": [
+   {
+    "palabra": "閉める",
+    "lectura": "しめる",
+    "es": "cerrar"
+   },
+   {
+    "palabra": "閉じる",
+    "lectura": "とじる",
+    "es": "cerrarse"
+   }
+  ]
+ },
+ {
+  "kanji": "始",
+  "significado": "empezar",
+  "on": "シ",
+  "kun": "はじ・める",
+  "ejemplos": [
+   {
+    "palabra": "始める",
+    "lectura": "はじめる",
+    "es": "empezar (algo)"
+   },
+   {
+    "palabra": "始まる",
+    "lectura": "はじまる",
+    "es": "comenzar"
+   }
+  ]
+ },
+ {
+  "kanji": "終",
+  "significado": "terminar",
+  "on": "シュウ",
+  "kun": "お・わる",
+  "ejemplos": [
+   {
+    "palabra": "終わる",
+    "lectura": "おわる",
+    "es": "terminar"
+   },
+   {
+    "palabra": "終点",
+    "lectura": "しゅうてん",
+    "es": "última parada"
+   }
+  ]
+ },
+ {
+  "kanji": "帰",
+  "significado": "volver",
+  "on": "キ",
+  "kun": "かえ・る",
+  "ejemplos": [
+   {
+    "palabra": "帰る",
+    "lectura": "かえる",
+    "es": "volver, regresar"
+   },
+   {
+    "palabra": "帰り",
+    "lectura": "かえり",
+    "es": "camino de vuelta"
+   }
+  ]
+ },
+ {
+  "kanji": "体",
+  "significado": "cuerpo",
+  "on": "タイ",
+  "kun": "からだ",
+  "ejemplos": [
+   {
+    "palabra": "体",
+    "lectura": "からだ",
+    "es": "cuerpo"
+   },
+   {
+    "palabra": "体育館",
+    "lectura": "たいいくかん",
+    "es": "gimnasio"
+   }
+  ]
+ },
+ {
+  "kanji": "思",
+  "significado": "pensar",
+  "on": "シ",
+  "kun": "おも・う",
+  "ejemplos": [
+   {
+    "palabra": "思う",
+    "lectura": "おもう",
+    "es": "pensar, creer"
+   },
+   {
+    "palabra": "思い出す",
+    "lectura": "おもいだす",
+    "es": "recordar"
+   }
+  ]
+ },
+ {
+  "kanji": "作",
+  "significado": "hacer, crear",
+  "on": "サク・サ",
+  "kun": "つく・る",
+  "ejemplos": [
+   {
+    "palabra": "作る",
+    "lectura": "つくる",
+    "es": "hacer, fabricar"
+   },
+   {
+    "palabra": "作文",
+    "lectura": "さくぶん",
+    "es": "redacción"
+   }
+  ]
+ },
+ {
+  "kanji": "教",
+  "significado": "enseñar",
+  "on": "キョウ",
+  "kun": "おし・える",
+  "ejemplos": [
+   {
+    "palabra": "教える",
+    "lectura": "おしえる",
+    "es": "enseñar"
+   },
+   {
+    "palabra": "教室",
+    "lectura": "きょうしつ",
+    "es": "aula"
+   },
+   {
+    "palabra": "教会",
+    "lectura": "きょうかい",
+    "es": "iglesia"
+   }
+  ]
+ },
+ {
+  "kanji": "習",
+  "significado": "aprender",
+  "on": "シュウ",
+  "kun": "なら・う",
+  "ejemplos": [
+   {
+    "palabra": "習う",
+    "lectura": "ならう",
+    "es": "aprender"
+   },
+   {
+    "palabra": "練習",
+    "lectura": "れんしゅう",
+    "es": "práctica"
+   }
+  ]
+ },
+ {
+  "kanji": "使",
+  "significado": "usar",
+  "on": "シ",
+  "kun": "つか・う",
+  "ejemplos": [
+   {
+    "palabra": "使う",
+    "lectura": "つかう",
+    "es": "usar"
+   },
+   {
+    "palabra": "大使館",
+    "lectura": "たいしかん",
+    "es": "embajada"
+   }
+  ]
+ },
+ {
+  "kanji": "知",
+  "significado": "saber, conocer",
+  "on": "チ",
+  "kun": "し・る",
+  "ejemplos": [
+   {
+    "palabra": "知る",
+    "lectura": "しる",
+    "es": "saber, conocer"
+   },
+   {
+    "palabra": "知らせ",
+    "lectura": "しらせ",
+    "es": "aviso"
+   }
+  ]
+ },
+ {
+  "kanji": "病",
+  "significado": "enfermedad",
+  "on": "ビョウ",
+  "kun": "やまい",
+  "ejemplos": [
+   {
+    "palabra": "病気",
+    "lectura": "びょうき",
+    "es": "enfermedad"
+   },
+   {
+    "palabra": "病院",
+    "lectura": "びょういん",
+    "es": "hospital"
+   }
+  ]
+ },
+ {
+  "kanji": "仕",
+  "significado": "servir, hacer",
+  "on": "シ",
+  "kun": "",
+  "ejemplos": [
+   {
+    "palabra": "仕事",
+    "lectura": "しごと",
+    "es": "trabajo"
+   },
+   {
+    "palabra": "仕方",
+    "lectura": "しかた",
+    "es": "manera de hacer"
+   }
+  ]
+ },
+ {
+  "kanji": "事",
+  "significado": "asunto, cosa (abstracta)",
+  "on": "ジ",
+  "kun": "こと",
+  "ejemplos": [
+   {
+    "palabra": "仕事",
+    "lectura": "しごと",
+    "es": "trabajo"
+   },
+   {
+    "palabra": "事",
+    "lectura": "こと",
+    "es": "cosa, asunto"
+   },
+   {
+    "palabra": "食事",
+    "lectura": "しょくじ",
+    "es": "comida"
+   }
+  ]
+ },
+ {
+  "kanji": "者",
+  "significado": "persona",
+  "on": "シャ",
+  "kun": "もの",
+  "ejemplos": [
+   {
+    "palabra": "医者",
+    "lectura": "いしゃ",
+    "es": "médico"
+   },
+   {
+    "palabra": "若者",
+    "lectura": "わかもの",
+    "es": "joven"
+   }
+  ]
+ },
+ {
+  "kanji": "地",
+  "significado": "tierra, sitio",
+  "on": "チ・ジ",
+  "kun": "",
+  "ejemplos": [
+   {
+    "palabra": "地下鉄",
+    "lectura": "ちかてつ",
+    "es": "metro"
+   },
+   {
+    "palabra": "地図",
+    "lectura": "ちず",
+    "es": "mapa"
+   },
+   {
+    "palabra": "地震",
+    "lectura": "じしん",
+    "es": "terremoto"
+   }
+  ]
+ },
+ {
+  "kanji": "所",
+  "significado": "lugar",
+  "on": "ショ",
+  "kun": "ところ",
+  "ejemplos": [
+   {
+    "palabra": "所",
+    "lectura": "ところ",
+    "es": "lugar, sitio"
+   },
+   {
+    "palabra": "台所",
+    "lectura": "だいどころ",
+    "es": "cocina"
+   },
+   {
+    "palabra": "住所",
+    "lectura": "じゅうしょ",
+    "es": "dirección"
+   }
+  ]
+ },
+ {
+  "kanji": "好",
+  "significado": "gustar",
+  "on": "コウ",
+  "kun": "す・き",
+  "ejemplos": [
+   {
+    "palabra": "好き",
+    "lectura": "すき",
+    "es": "gustar"
+   },
+   {
+    "palabra": "大好き",
+    "lectura": "だいすき",
+    "es": "encantar"
+   }
+  ]
+ },
+ {
+  "kanji": "変",
+  "significado": "cambiar, raro",
+  "on": "ヘン",
+  "kun": "か・わる",
+  "ejemplos": [
+   {
+    "palabra": "変な",
+    "lectura": "へんな",
+    "es": "raro, extraño"
+   },
+   {
+    "palabra": "変わる",
+    "lectura": "かわる",
+    "es": "cambiar"
+   },
+   {
+    "palabra": "大変",
+    "lectura": "たいへん",
+    "es": "duro, terrible"
+   }
+  ]
+ },
+ {
+  "kanji": "着",
+  "significado": "vestir, llegar",
+  "on": "チャク",
+  "kun": "き・る、つ・く",
+  "ejemplos": [
+   {
+    "palabra": "着る",
+    "lectura": "きる",
+    "es": "ponerse (ropa)"
+   },
+   {
+    "palabra": "着く",
+    "lectura": "つく",
+    "es": "llegar"
+   },
+   {
+    "palabra": "着物",
+    "lectura": "きもの",
+    "es": "kimono"
+   }
+  ]
+ },
+ {
+  "kanji": "物",
+  "significado": "cosa, objeto",
+  "on": "ブツ・モツ",
+  "kun": "もの",
+  "ejemplos": [
+   {
+    "palabra": "物",
+    "lectura": "もの",
+    "es": "cosa, objeto"
+   },
+   {
+    "palabra": "買い物",
+    "lectura": "かいもの",
+    "es": "compras"
+   },
+   {
+    "palabra": "動物",
+    "lectura": "どうぶつ",
+    "es": "animal"
+   }
+  ]
+ },
+ {
+  "kanji": "字",
+  "significado": "carácter, letra",
+  "on": "ジ",
+  "kun": "",
+  "ejemplos": [
+   {
+    "palabra": "字",
+    "lectura": "じ",
+    "es": "letra"
+   },
+   {
+    "palabra": "漢字",
+    "lectura": "かんじ",
+    "es": "kanji"
+   },
+   {
+    "palabra": "数字",
+    "lectura": "すうじ",
+    "es": "número, cifra"
+   }
+  ]
+ },
+ {
+  "kanji": "楽",
+  "significado": "divertido, música",
+  "on": "ガク・ラク",
+  "kun": "たの・しい",
+  "ejemplos": [
+   {
+    "palabra": "楽しい",
+    "lectura": "たのしい",
+    "es": "divertido"
+   },
+   {
+    "palabra": "音楽",
+    "lectura": "おんがく",
+    "es": "música"
+   }
+  ]
+ },
+ {
+  "kanji": "明",
+  "significado": "claro, brillante",
+  "on": "メイ",
+  "kun": "あか・るい",
+  "ejemplos": [
+   {
+    "palabra": "明るい",
+    "lectura": "あかるい",
+    "es": "claro, luminoso"
+   },
+   {
+    "palabra": "説明",
+    "lectura": "せつめい",
+    "es": "explicación"
+   }
+  ]
+ },
+ {
+  "kanji": "家",
+  "significado": "casa, familia",
+  "on": "カ・ケ",
+  "kun": "いえ、うち",
+  "ejemplos": [
+   {
+    "palabra": "家",
+    "lectura": "いえ",
+    "es": "casa"
+   },
+   {
+    "palabra": "家族",
+    "lectura": "かぞく",
+    "es": "familia"
+   },
+   {
+    "palabra": "家内",
+    "lectura": "かない",
+    "es": "mi esposa"
+   }
+  ]
  }
 ];
