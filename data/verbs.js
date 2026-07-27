@@ -358,6 +358,43 @@ N5.data.verbs=
   "ejemplo": "電気[でんき]を消[け]します"
  },
  {
+  "kana": "ける",
+  "kanji": "蹴る",
+  "grupo": 1,
+  "masu": "けります",
+  "te": "けって",
+  "ta": "けった",
+  "nai": "けらない",
+  "es": "patear, dar una patada",
+  "particula": "〜を",
+  "ejemplo": "ボールを蹴[け]ります",
+  "particulaDestacada": true
+ },
+ {
+  "kana": "ころぶ",
+  "kanji": "転ぶ",
+  "grupo": 1,
+  "masu": "ころびます",
+  "te": "ころんで",
+  "ta": "ころんだ",
+  "nai": "ころばない",
+  "es": "caerse, tropezar",
+  "particula": "—",
+  "ejemplo": "道[みち]で転[ころ]びます"
+ },
+ {
+  "kana": "さかだちする",
+  "kanji": "逆立ちする",
+  "grupo": 3,
+  "masu": "さかだちします",
+  "te": "さかだちして",
+  "ta": "さかだちした",
+  "nai": "さかだちしない",
+  "es": "hacer el pino",
+  "particula": "—",
+  "ejemplo": "子[こ]どもが逆立[さかだ]ちします"
+ },
+ {
   "kana": "さく",
   "kanji": "咲く",
   "grupo": 1,
@@ -420,6 +457,18 @@ N5.data.verbs=
   "particula": "〜に",
   "ejemplo": "大阪[おおさか]に住[す]んでいます",
   "particulaDestacada": true
+ },
+ {
+  "kana": "たたく",
+  "kanji": "",
+  "grupo": 1,
+  "masu": "たたきます",
+  "te": "たたいて",
+  "ta": "たたいた",
+  "nai": "たたかない",
+  "es": "golpear",
+  "particula": "〜を",
+  "ejemplo": "ドアをたたきます"
  },
  {
   "kana": "たつ",
@@ -493,6 +542,18 @@ N5.data.verbs=
   "es": "ayudar",
   "particula": "〜を",
   "ejemplo": "仕事[しごと]を手伝[てつだ]います"
+ },
+ {
+  "kana": "とびこむ",
+  "kanji": "飛び込む",
+  "grupo": 1,
+  "masu": "とびこみます",
+  "te": "とびこんで",
+  "ta": "とびこんだ",
+  "nai": "とびこまない",
+  "es": "zambullirse",
+  "particula": "〜に",
+  "ejemplo": "プールに飛[と]び込[こ]みます"
  },
  {
   "kana": "とまる",
@@ -581,6 +642,18 @@ N5.data.verbs=
   "ejemplo": "くつを脱[ぬ]ぎます"
  },
  {
+  "kana": "のばす",
+  "kanji": "伸ばす",
+  "grupo": 1,
+  "masu": "のばします",
+  "te": "のばして",
+  "ta": "のばした",
+  "nai": "のばさない",
+  "es": "extender, estirar",
+  "particula": "〜を",
+  "ejemplo": "手[て]を伸[の]ばします"
+ },
+ {
   "kana": "のぼる",
   "kanji": "登る",
   "grupo": 1,
@@ -631,6 +704,18 @@ N5.data.verbs=
   "ejemplo": "大学[だいがく]に入[はい]ります",
   "particulaDestacada": true,
   "grupoTrampa": true
+ },
+ {
+  "kana": "はう",
+  "kanji": "這う",
+  "grupo": 1,
+  "masu": "はいます",
+  "te": "はって",
+  "ta": "はった",
+  "nai": "はわない",
+  "es": "gatear, arrastrarse",
+  "particula": "—",
+  "ejemplo": "赤[あか]ちゃんが這[は]います"
  },
  {
   "kana": "はく",
@@ -708,6 +793,18 @@ N5.data.verbs=
   "ejemplo": "ピアノを弾[ひ]きます"
  },
  {
+  "kana": "ふりむく",
+  "kanji": "振り向く",
+  "grupo": 1,
+  "masu": "ふりむきます",
+  "te": "ふりむいて",
+  "ta": "ふりむいた",
+  "nai": "ふりむかない",
+  "es": "volverse, mirar atrás",
+  "particula": "—",
+  "ejemplo": "後[うし]ろを振[ふ]り向[む]きます"
+ },
+ {
   "kana": "ふる",
   "kanji": "降る",
   "grupo": 1,
@@ -734,6 +831,18 @@ N5.data.verbs=
   "particulaDestacada": true
  },
  {
+  "kana": "まげる",
+  "kanji": "曲げる",
+  "grupo": 2,
+  "masu": "まげます",
+  "te": "まげて",
+  "ta": "まげた",
+  "nai": "まげない",
+  "es": "doblar, flexionar",
+  "particula": "〜を",
+  "ejemplo": "ひざを曲[ま]げます"
+ },
+ {
   "kana": "まつ",
   "kanji": "待つ",
   "grupo": 1,
@@ -744,6 +853,30 @@ N5.data.verbs=
   "es": "esperar",
   "particula": "〜を",
   "ejemplo": "友達[ともだち]を待[ま]ちます"
+ },
+ {
+  "kana": "もぐる",
+  "kanji": "潜る",
+  "grupo": 1,
+  "masu": "もぐります",
+  "te": "もぐって",
+  "ta": "もぐった",
+  "nai": "もぐらない",
+  "es": "bucear, sumergirse",
+  "particula": "〜に",
+  "ejemplo": "海[うみ]に潜[もぐ]ります"
+ },
+ {
+  "kana": "もちあげる",
+  "kanji": "持ち上げる",
+  "grupo": 2,
+  "masu": "もちあげます",
+  "te": "もちあげて",
+  "ta": "もちあげた",
+  "nai": "もちあげない",
+  "es": "levantar (en alto)",
+  "particula": "〜を",
+  "ejemplo": "荷物[にもつ]を持[も]ち上[あ]げます"
  },
  {
   "kana": "もつ",

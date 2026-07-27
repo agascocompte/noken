@@ -4535,6 +4535,12 @@ N5.data.vocab=
   "leccion": 18
  },
  {
+  "kana": "なかなか",
+  "kanji": "",
+  "es": "no tan (fácilmente) (con negativa)",
+  "leccion": 18
+ },
+ {
   "kana": "ねむい",
   "kanji": "眠い",
   "es": "tener sueño",
@@ -4817,6 +4823,12 @@ N5.data.vocab=
   "leccion": 24
  },
  {
+  "kana": "おとしだま",
+  "kanji": "お年玉",
+  "es": "aguinaldo de Año Nuevo (para niños)",
+  "leccion": 24
+ },
+ {
   "kana": "たいしかん",
   "kanji": "大使館",
   "es": "embajada",
@@ -4898,6 +4910,132 @@ N5.data.vocab=
   "kana": "ポルトガルご",
   "kanji": "ポルトガル語",
   "es": "portugués (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "イタリア",
+  "kanji": "",
+  "es": "Italia",
+  "leccion": 1
+ },
+ {
+  "kana": "イラン",
+  "kanji": "",
+  "es": "Irán",
+  "leccion": 1
+ },
+ {
+  "kana": "エジプト",
+  "kanji": "",
+  "es": "Egipto",
+  "leccion": 1
+ },
+ {
+  "kana": "オーストラリア",
+  "kanji": "",
+  "es": "Australia",
+  "leccion": 1
+ },
+ {
+  "kana": "サウジアラビア",
+  "kanji": "",
+  "es": "Arabia Saudí",
+  "leccion": 1
+ },
+ {
+  "kana": "シンガポール",
+  "kanji": "",
+  "es": "Singapur",
+  "leccion": 1
+ },
+ {
+  "kana": "フィリピン",
+  "kanji": "",
+  "es": "Filipinas",
+  "leccion": 1
+ },
+ {
+  "kana": "ベトナム",
+  "kanji": "",
+  "es": "Vietnam",
+  "leccion": 1
+ },
+ {
+  "kana": "マレーシア",
+  "kanji": "",
+  "es": "Malasia",
+  "leccion": 1
+ },
+ {
+  "kana": "メキシコ",
+  "kanji": "",
+  "es": "México",
+  "leccion": 1
+ },
+ {
+  "kana": "ロシア",
+  "kanji": "",
+  "es": "Rusia",
+  "leccion": 1
+ },
+ {
+  "kana": "ペルシアご",
+  "kanji": "ペルシア語",
+  "es": "persa (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "ヒンディーご",
+  "kanji": "ヒンディー語",
+  "es": "hindi (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "アラビアご",
+  "kanji": "アラビア語",
+  "es": "árabe (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "インドネシアご",
+  "kanji": "インドネシア語",
+  "es": "indonesio (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "タイご",
+  "kanji": "タイ語",
+  "es": "tailandés (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "ドイツご",
+  "kanji": "ドイツ語",
+  "es": "alemán (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "フィリピノご",
+  "kanji": "フィリピノ語",
+  "es": "filipino (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "ベトナムご",
+  "kanji": "ベトナム語",
+  "es": "vietnamita (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "マレーご",
+  "kanji": "マレー語",
+  "es": "malayo (idioma)",
+  "leccion": 1
+ },
+ {
+  "kana": "ロシアご",
+  "kanji": "ロシア語",
+  "es": "ruso (idioma)",
   "leccion": 1
  },
  {
@@ -5147,6 +5285,48 @@ N5.data.vocab=
   "leccion": 6
  },
  {
+  "kana": "あじ",
+  "kanji": "",
+  "es": "jurel",
+  "leccion": 6
+ },
+ {
+  "kana": "いわし",
+  "kanji": "",
+  "es": "sardina",
+  "leccion": 6
+ },
+ {
+  "kana": "さば",
+  "kanji": "",
+  "es": "caballa",
+  "leccion": 6
+ },
+ {
+  "kana": "さんま",
+  "kanji": "",
+  "es": "paparda (pez)",
+  "leccion": 6
+ },
+ {
+  "kana": "たい",
+  "kanji": "",
+  "es": "besugo",
+  "leccion": 6
+ },
+ {
+  "kana": "たら",
+  "kanji": "",
+  "es": "bacalao",
+  "leccion": 6
+ },
+ {
+  "kana": "かい",
+  "kanji": "",
+  "es": "moluscos, marisco de concha",
+  "leccion": 6
+ },
+ {
   "kana": "そふ",
   "kanji": "祖父",
   "es": "mi abuelo",
@@ -5273,6 +5453,12 @@ N5.data.vocab=
   "leccion": 8
  },
  {
+  "kana": "ベージュ",
+  "kanji": "",
+  "es": "beige",
+  "leccion": 8
+ },
+ {
   "kana": "ポップス",
   "kanji": "",
   "es": "música pop",
@@ -5381,6 +5567,54 @@ N5.data.vocab=
   "leccion": 9
  },
  {
+  "kana": "みんよう",
+  "kanji": "民謡",
+  "es": "música folclórica japonesa",
+  "leccion": 9
+ },
+ {
+  "kana": "えんか",
+  "kanji": "演歌",
+  "es": "enka (canción popular japonesa)",
+  "leccion": 9
+ },
+ {
+  "kana": "れんあい",
+  "kanji": "恋愛",
+  "es": "(cine) romántico; amor",
+  "leccion": 9
+ },
+ {
+  "kana": "せんそう",
+  "kanji": "戦争",
+  "es": "(cine) bélico; guerra",
+  "leccion": 9
+ },
+ {
+  "kana": "きげき",
+  "kanji": "喜劇",
+  "es": "comedia",
+  "leccion": 9
+ },
+ {
+  "kana": "ソフトボール",
+  "kanji": "",
+  "es": "sóftbol",
+  "leccion": 9
+ },
+ {
+  "kana": "ボウリング",
+  "kanji": "",
+  "es": "bolos",
+  "leccion": 9
+ },
+ {
+  "kana": "けんどう",
+  "kanji": "剣道",
+  "es": "kendo (esgrima japonesa)",
+  "leccion": 9
+ },
+ {
   "kana": "げんかん",
   "kanji": "玄関",
   "es": "recibidor, entrada",
@@ -5444,6 +5678,18 @@ N5.data.vocab=
   "kana": "ぞう",
   "kanji": "象",
   "es": "elefante",
+  "leccion": 10
+ },
+ {
+  "kana": "けん",
+  "kanji": "県",
+  "es": "prefectura",
+  "leccion": 10
+ },
+ {
+  "kana": "コーナー",
+  "kanji": "",
+  "es": "sección (de una tienda)",
   "leccion": 10
  },
  {
@@ -5549,6 +5795,78 @@ N5.data.vocab=
   "leccion": 11
  },
  {
+  "kana": "ランチ",
+  "kanji": "",
+  "es": "menú del día, almuerzo",
+  "leccion": 11
+ },
+ {
+  "kana": "てんどん",
+  "kanji": "天丼",
+  "es": "tendon (arroz con tempura)",
+  "leccion": 11
+ },
+ {
+  "kana": "おやこどん",
+  "kanji": "親子丼",
+  "es": "oyakodon (arroz con pollo y huevo)",
+  "leccion": 11
+ },
+ {
+  "kana": "やさいいため",
+  "kanji": "野菜炒め",
+  "es": "sofrito de verduras",
+  "leccion": 11
+ },
+ {
+  "kana": "つけもの",
+  "kanji": "漬物",
+  "es": "encurtidos japoneses",
+  "leccion": 11
+ },
+ {
+  "kana": "カレーライス",
+  "kanji": "",
+  "es": "arroz con curry",
+  "leccion": 11
+ },
+ {
+  "kana": "スパゲッティ",
+  "kanji": "",
+  "es": "espaguetis",
+  "leccion": 11
+ },
+ {
+  "kana": "トースト",
+  "kanji": "",
+  "es": "tostadas",
+  "leccion": 11
+ },
+ {
+  "kana": "ハンバーグ",
+  "kanji": "",
+  "es": "hamburguesa (plato, sin pan)",
+  "leccion": 11
+ },
+ {
+  "kana": "コロッケ",
+  "kanji": "",
+  "es": "croqueta",
+  "leccion": 11
+ },
+ {
+  "kana": "えびフライ",
+  "kanji": "",
+  "es": "langostinos rebozados",
+  "leccion": 11
+ },
+ {
+  "kana": "フライドチキン",
+  "kanji": "",
+  "es": "pollo frito",
+  "leccion": 11
+ },
+ {
   "kana": "はくぶつかん",
   "kanji": "博物館",
   "es": "museo",
@@ -5639,6 +5957,30 @@ N5.data.vocab=
   "leccion": 13
  },
  {
+  "kana": "モスク",
+  "kanji": "",
+  "es": "mezquita",
+  "leccion": 13
+ },
+ {
+  "kana": "けいさつしょ",
+  "kanji": "警察署",
+  "es": "comisaría de policía",
+  "leccion": 13
+ },
+ {
+  "kana": "しょうぼうしょ",
+  "kanji": "消防署",
+  "es": "parque de bomberos",
+  "leccion": 13
+ },
+ {
+  "kana": "さかや",
+  "kanji": "酒屋",
+  "es": "licorería, tienda de bebidas",
+  "leccion": 13
+ },
+ {
   "kana": "きっぷうりば",
   "kanji": "切符売り場",
   "es": "taquilla de billetes",
@@ -5702,6 +6044,30 @@ N5.data.vocab=
   "kana": "〜ゆき",
   "kanji": "〜行き",
   "es": "con destino a…",
+  "leccion": 14
+ },
+ {
+  "kana": "かいそく",
+  "kanji": "快速",
+  "es": "tren rápido",
+  "leccion": 14
+ },
+ {
+  "kana": "じゅんきゅう",
+  "kanji": "準急",
+  "es": "tren semiexprés",
+  "leccion": 14
+ },
+ {
+  "kana": "ていきけん",
+  "kanji": "定期券",
+  "es": "abono de transporte",
+  "leccion": 14
+ },
+ {
+  "kana": "かいすうけん",
+  "kanji": "回数券",
+  "es": "bono de varios viajes",
   "leccion": 14
  },
  {
@@ -5804,6 +6170,36 @@ N5.data.vocab=
   "kana": "でんしじしょ",
   "kanji": "電子辞書",
   "es": "diccionario electrónico",
+  "leccion": 15
+ },
+ {
+  "kana": "えきいん",
+  "kanji": "駅員",
+  "es": "empleado de estación",
+  "leccion": 15
+ },
+ {
+  "kana": "ちょうりし",
+  "kanji": "調理師",
+  "es": "cocinero (profesional)",
+  "leccion": 15
+ },
+ {
+  "kana": "りようし",
+  "kanji": "理容師",
+  "es": "barbero",
+  "leccion": 15
+ },
+ {
+  "kana": "びようし",
+  "kanji": "美容師",
+  "es": "peluquero, estilista",
+  "leccion": 15
+ },
+ {
+  "kana": "がいこうかん",
+  "kanji": "外交官",
+  "es": "diplomático",
   "leccion": 15
  },
  {
@@ -5921,6 +6317,78 @@ N5.data.vocab=
   "leccion": 17
  },
  {
+  "kana": "ち",
+  "kanji": "血",
+  "es": "sangre (血が出ます)",
+  "leccion": 17
+ },
+ {
+  "kana": "さむけ",
+  "kanji": "寒気",
+  "es": "escalofríos (寒気がします)",
+  "leccion": 17
+ },
+ {
+  "kana": "めまい",
+  "kanji": "",
+  "es": "mareo, vértigo (めまいがします)",
+  "leccion": 17
+ },
+ {
+  "kana": "げり",
+  "kanji": "下痢",
+  "es": "diarrea",
+  "leccion": 17
+ },
+ {
+  "kana": "べんぴ",
+  "kanji": "便秘",
+  "es": "estreñimiento",
+  "leccion": 17
+ },
+ {
+  "kana": "しょくよく",
+  "kanji": "食欲",
+  "es": "apetito",
+  "leccion": 17
+ },
+ {
+  "kana": "だるい",
+  "kanji": "",
+  "es": "sentirse sin fuerzas (体がだるい)",
+  "leccion": 17
+ },
+ {
+  "kana": "あご",
+  "kanji": "",
+  "es": "mandíbula, barbilla",
+  "leccion": 17
+ },
+ {
+  "kana": "もうちょう",
+  "kanji": "盲腸",
+  "es": "apendicitis",
+  "leccion": 17
+ },
+ {
+  "kana": "ねんざ",
+  "kanji": "",
+  "es": "esguince",
+  "leccion": 17
+ },
+ {
+  "kana": "こっせつ",
+  "kanji": "骨折",
+  "es": "fractura",
+  "leccion": 17
+ },
+ {
+  "kana": "ふつかよい",
+  "kanji": "二日酔い",
+  "es": "resaca",
+  "leccion": 17
+ },
+ {
   "kana": "しょどう",
   "kanji": "書道",
   "es": "caligrafía japonesa",
@@ -5930,6 +6398,60 @@ N5.data.vocab=
   "kana": "さどう",
   "kanji": "茶道",
   "es": "ceremonia del té",
+  "leccion": 19
+ },
+ {
+  "kana": "かどう",
+  "kanji": "華道",
+  "es": "arreglo floral (arte)",
+  "leccion": 19
+ },
+ {
+  "kana": "のう",
+  "kanji": "能",
+  "es": "teatro noh",
+  "leccion": 19
+ },
+ {
+  "kana": "ぶんらく",
+  "kanji": "文楽",
+  "es": "bunraku (teatro de marionetas)",
+  "leccion": 19
+ },
+ {
+  "kana": "まんざい",
+  "kanji": "漫才",
+  "es": "manzai (dúo cómico)",
+  "leccion": 19
+ },
+ {
+  "kana": "らくご",
+  "kanji": "落語",
+  "es": "rakugo (monólogo cómico)",
+  "leccion": 19
+ },
+ {
+  "kana": "いご",
+  "kanji": "囲碁",
+  "es": "go (juego de mesa)",
+  "leccion": 19
+ },
+ {
+  "kana": "しょうぎ",
+  "kanji": "将棋",
+  "es": "shogi (ajedrez japonés)",
+  "leccion": 19
+ },
+ {
+  "kana": "ぼんおどり",
+  "kanji": "盆踊り",
+  "es": "baile del festival Bon",
+  "leccion": 19
+ },
+ {
+  "kana": "いちども",
+  "kanji": "一度も",
+  "es": "nunca, ni una vez (con negativa)",
   "leccion": 19
  },
  {
@@ -6083,6 +6605,42 @@ N5.data.vocab=
   "leccion": 22
  },
  {
+  "kana": "パンツ",
+  "kanji": "",
+  "es": "pantalones",
+  "leccion": 22
+ },
+ {
+  "kana": "おび",
+  "kanji": "帯",
+  "es": "obi (cinturón del quimono)",
+  "leccion": 22
+ },
+ {
+  "kana": "ストッキング",
+  "kanji": "",
+  "es": "medias",
+  "leccion": 22
+ },
+ {
+  "kana": "ぞうり",
+  "kanji": "",
+  "es": "zori (sandalias japonesas)",
+  "leccion": 22
+ },
+ {
+  "kana": "たび",
+  "kanji": "足袋",
+  "es": "tabi (calcetines japoneses)",
+  "leccion": 22
+ },
+ {
+  "kana": "オーバー",
+  "kanji": "",
+  "es": "abrigo, sobretodo",
+  "leccion": 22
+ },
+ {
   "kana": "ほどう",
   "kanji": "歩道",
   "es": "acera",
@@ -6116,6 +6674,24 @@ N5.data.vocab=
   "kana": "[お]ゆ",
   "kanji": "[お]湯",
   "es": "agua caliente",
+  "leccion": 23
+ },
+ {
+  "kana": "しゃどう",
+  "kanji": "車道",
+  "es": "calzada, carril",
+  "leccion": 23
+ },
+ {
+  "kana": "ほどうきょう",
+  "kanji": "歩道橋",
+  "es": "pasarela peatonal",
+  "leccion": 23
+ },
+ {
+  "kana": "ふみきり",
+  "kanji": "踏切",
+  "es": "paso a nivel",
   "leccion": 23
  },
  {
