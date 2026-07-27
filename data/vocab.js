@@ -3635,6 +3635,12 @@ N5.data.vocab=
   "leccion": 2
  },
  {
+  "kana": "CD",
+  "kanji": "",
+  "es": "CD, disco compacto",
+  "leccion": 2
+ },
+ {
   "kana": "エスカレーター",
   "kanji": "",
   "es": "escalera mecánica",
@@ -4187,6 +4193,12 @@ N5.data.vocab=
   "leccion": 12
  },
  {
+  "kana": "レモン",
+  "kanji": "",
+  "es": "limón",
+  "leccion": 12
+ },
+ {
   "kana": "たいへん（な）",
   "kanji": "大変",
   "es": "duro, terrible",
@@ -4517,6 +4529,12 @@ N5.data.vocab=
   "leccion": 18
  },
  {
+  "kana": "インターネット",
+  "kanji": "",
+  "es": "internet",
+  "leccion": 18
+ },
+ {
   "kana": "ねむい",
   "kanji": "眠い",
   "es": "tener sueño",
@@ -4790,6 +4808,12 @@ N5.data.vocab=
   "kana": "ははのひ",
   "kanji": "母の日",
   "es": "Día de la Madre",
+  "leccion": 24
+ },
+ {
+  "kana": "ホームステイ",
+  "kanji": "",
+  "es": "hospedaje en casa de una familia",
   "leccion": 24
  },
  {
@@ -5171,6 +5195,18 @@ N5.data.vocab=
   "leccion": 7
  },
  {
+  "kana": "ケータイ",
+  "kanji": "携帯",
+  "es": "teléfono móvil",
+  "leccion": 7
+ },
+ {
+  "kana": "ねんがじょう",
+  "kanji": "年賀状",
+  "es": "tarjeta de Año Nuevo",
+  "leccion": 7
+ },
+ {
   "kana": "きいろい",
   "kanji": "黄色い",
   "es": "amarillo",
@@ -5393,6 +5429,24 @@ N5.data.vocab=
   "leccion": 10
  },
  {
+  "kana": "ATM",
+  "kanji": "",
+  "es": "cajero automático",
+  "leccion": 10
+ },
+ {
+  "kana": "パンダ",
+  "kanji": "",
+  "es": "oso panda",
+  "leccion": 10
+ },
+ {
+  "kana": "ぞう",
+  "kanji": "象",
+  "es": "elefante",
+  "leccion": 10
+ },
+ {
   "kana": "おにぎり",
   "kanji": "",
   "es": "bola de arroz",
@@ -5480,6 +5534,18 @@ N5.data.vocab=
   "kana": "ココア",
   "kanji": "",
   "es": "cacao (bebida)",
+  "leccion": 11
+ },
+ {
+  "kana": "クラス",
+  "kanji": "",
+  "es": "clase, curso",
+  "leccion": 11
+ },
+ {
+  "kana": "いってきます",
+  "kanji": "行ってきます",
+  "es": "hasta luego (me voy y vuelvo)",
   "leccion": 11
  },
  {
@@ -5657,9 +5723,9 @@ N5.data.vocab=
   "leccion": 15
  },
  {
-  "kana": "かんごふ",
-  "kanji": "看護婦",
-  "es": "enfermera",
+  "kana": "かんごし",
+  "kanji": "看護師",
+  "es": "enfermero/a",
   "leccion": 15
  },
  {
@@ -5732,6 +5798,12 @@ N5.data.vocab=
   "kana": "スポーツせんしゅ",
   "kanji": "スポーツ選手",
   "es": "deportista",
+  "leccion": 15
+ },
+ {
+  "kana": "でんしじしょ",
+  "kanji": "電子辞書",
+  "es": "diccionario electrónico",
   "leccion": 15
  },
  {
@@ -5897,6 +5969,48 @@ N5.data.vocab=
   "leccion": 21
  },
  {
+  "kana": "ほうそう",
+  "kanji": "放送",
+  "es": "transmisión, emisión",
+  "leccion": 21
+ },
+ {
+  "kana": "マンガ",
+  "kanji": "漫画",
+  "es": "cómic, manga",
+  "leccion": 21
+ },
+ {
+  "kana": "ゆめ",
+  "kanji": "夢",
+  "es": "sueño (aspiración)",
+  "leccion": 21
+ },
+ {
+  "kana": "てんさい",
+  "kanji": "天才",
+  "es": "genio",
+  "leccion": 21
+ },
+ {
+  "kana": "うそ",
+  "kanji": "",
+  "es": "mentira",
+  "leccion": 21
+ },
+ {
+  "kana": "ほんとう",
+  "kanji": "本当",
+  "es": "verdad",
+  "leccion": 21
+ },
+ {
+  "kana": "ひさしぶりですね",
+  "kanji": "久しぶりですね",
+  "es": "¡cuánto tiempo (sin vernos)!",
+  "leccion": 21
+ },
+ {
   "kana": "ワンピース",
   "kanji": "",
   "es": "vestido",
@@ -5957,6 +6071,18 @@ N5.data.vocab=
   "leccion": 22
  },
  {
+  "kana": "ロボット",
+  "kanji": "",
+  "es": "robot",
+  "leccion": 22
+ },
+ {
+  "kana": "つごう",
+  "kanji": "都合",
+  "es": "conveniencia, circunstancias",
+  "leccion": 22
+ },
+ {
   "kana": "ほどう",
   "kanji": "歩道",
   "es": "acera",
@@ -5984,6 +6110,12 @@ N5.data.vocab=
   "kana": "さか",
   "kanji": "坂",
   "es": "cuesta, pendiente",
+  "leccion": 23
+ },
+ {
+  "kana": "[お]ゆ",
+  "kanji": "[お]湯",
+  "es": "agua caliente",
   "leccion": 23
  },
  {

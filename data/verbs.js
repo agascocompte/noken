@@ -196,6 +196,18 @@ N5.data.verbs=
   "ejemplo": "海[うみ]で泳[およ]ぎます"
  },
  {
+  "kana": "おろす",
+  "kanji": "下ろす",
+  "grupo": 1,
+  "masu": "おろします",
+  "te": "おろして",
+  "ta": "おろした",
+  "nai": "おろさない",
+  "es": "retirar, sacar (dinero del banco)",
+  "particula": "〜を",
+  "ejemplo": "銀行[ぎんこう]でお金[かね]を下[お]ろします"
+ },
+ {
   "kana": "おわる",
   "kanji": "終わる",
   "grupo": 1,
