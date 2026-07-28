@@ -12,9 +12,9 @@
       if (les !== "all" && String(w.leccion) !== les) continue;
       if (q && !(w.kana.includes(q) || w.kanji.includes(q) || w.es.toLowerCase().includes(q) || moraMatch(w.kana, q))) continue;
       n++;
-      rows += `<tr><td class="jpcell jp">${esc(w.kana)}</td><td class="kanjicell">${esc(w.kanji) || "—"}</td><td>${esc(w.es)}</td><td class="num"><a href="#/vocabulario?leccion=${w.leccion}" class="muted" style="text-decoration:none">${w.leccion}</a></td></tr>`;
+      rows += `<tr><td class="selcell">${N5.selBox(N5.selId.vocab(w))}</td><td class="jpcell jp">${esc(w.kana)}</td><td class="kanjicell">${esc(w.kanji) || "—"}</td><td>${esc(w.es)}</td><td class="num"><a href="#/vocabulario?leccion=${w.leccion}" class="muted" style="text-decoration:none">${w.leccion}</a></td></tr>`;
     }
-    $("#vTable tbody").innerHTML = rows || `<tr><td colspan="4" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
+    $("#vTable tbody").innerHTML = rows || `<tr><td colspan="5" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
     $("#vCount").textContent = n + " palabras";
   }
 

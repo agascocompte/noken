@@ -24,13 +24,14 @@
       const badge = v.particula !== "—"
         ? `<span class="pbadge${v.particulaDestacada ? " hot" : ""}">${esc(v.particula)}</span>` : "";
       const ej = v.ejemplo ? `<span class="vej jp">${rubyEsc(v.ejemplo)}</span>` : "";
-      rows += `<tr><td class="jpcell jp"><b>${esc(dicLabel(v))}</b>${badge}</td>` +
+      rows += `<tr><td class="selcell">${N5.selBox(N5.selId.verbo(v))}</td>` +
+        `<td class="jpcell jp"><b>${esc(dicLabel(v))}</b>${badge}</td>` +
         `<td class="num">${v.grupo === 3 ? "III" : v.grupo === 2 ? "II" : "I"}</td>` +
         `<td class="jpcell">${cell(v, "masu")}</td><td class="jpcell">${cell(v, "te")}</td>` +
         `<td class="jpcell">${cell(v, "ta")}</td><td class="jpcell">${cell(v, "nai")}</td>` +
         `<td>${esc(v.es)}${ej}</td></tr>`;
     }
-    $("#vbTable tbody").innerHTML = rows || `<tr><td colspan="7" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
+    $("#vbTable tbody").innerHTML = rows || `<tr><td colspan="8" class="muted" style="text-align:center;padding:24px">Sin resultados</td></tr>`;
     $("#vbCount").textContent = n + " verbos";
   }
 

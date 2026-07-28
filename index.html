@@ -58,11 +58,12 @@
     <div class="toolbar">
       <input type="search" id="vSearch" placeholder="Buscar： わたし・私・yo…" aria-label="Buscar vocabulario">
       <select id="vLesson" aria-label="Filtrar por lección"></select>
+      <button class="btn secondary selmode-btn" type="button">Seleccionar</button>
       <span class="count" id="vCount"></span>
     </div>
     <div class="tablewrap">
       <table id="vTable">
-        <thead><tr><th>Kana</th><th>Kanji</th><th>Español</th><th>Lección</th></tr></thead>
+        <thead><tr><th class="selcell"></th><th>Kana</th><th>Kanji</th><th>Español</th><th>Lección</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -94,11 +95,12 @@
         <button data-g="2">Grupo II</button>
         <button data-g="3">Grupo III</button>
       </div>
+      <button class="btn secondary selmode-btn" type="button">Seleccionar</button>
       <span class="count" id="vbCount"></span>
     </div>
     <div class="tablewrap">
       <table id="vbTable">
-        <thead><tr><th>Diccionario</th><th>Grupo</th><th>ます</th><th>て</th><th>た</th><th>ない</th><th>Español</th></tr></thead>
+        <thead><tr><th class="selcell"></th><th>Diccionario</th><th>Grupo</th><th>ます</th><th>て</th><th>た</th><th>ない</th><th>Español</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -184,6 +186,7 @@
     <p class="lead">Los kanji oficiales del nivel N5. Toca una ficha para ver palabras de ejemplo. Lecturas: <b>ON</b> en katakana, <b>kun</b> en hiragana.</p>
     <div class="toolbar">
       <input type="search" id="kSearch" placeholder="Buscar： 日・にち・día…" aria-label="Buscar kanji">
+      <button class="btn secondary selmode-btn" type="button">Seleccionar</button>
       <span class="count" id="kCount"></span>
     </div>
     <div class="kanji-grid" id="kGrid"></div>
@@ -228,6 +231,14 @@
   </section>
 </main>
 
+<!-- barra de exportación: aparece al entrar en modo selección o si hay algo marcado -->
+<div class="selbar" id="selBar" hidden>
+  <span class="selcount" id="selCount"></span>
+  <button class="btn secondary" type="button" id="selAll">Marcar lo visible</button>
+  <button class="btn secondary" type="button" id="selNone">Vaciar</button>
+  <button class="btn" type="button" id="selCsv">Exportar CSV</button>
+</div>
+
 <!-- utilidades -->
 <script defer src="scripts/dom.js"></script>
 <script defer src="scripts/romaji.js"></script>
@@ -250,6 +261,7 @@
 <script defer src="scripts/sections/drills.js"></script>
 <script defer src="scripts/sections/quiz.js"></script>
 <!-- búsqueda global y arranque -->
+<script defer src="scripts/export.js"></script>
 <script defer src="scripts/search.js"></script>
 <script defer src="scripts/app.js"></script>
 </body>

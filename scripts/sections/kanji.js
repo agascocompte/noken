@@ -12,6 +12,7 @@
                  k.on.includes(q) || k.kun.includes(q) || moraMatch(k.on, q) || moraMatch(k.kun, q))) continue;
       n++;
       html += `<div class="kcard" tabindex="0" role="button" aria-expanded="false">
+        <span class="selcell">${N5.selBox(N5.selId.kanji(k))}</span>
         <span class="glyph">${k.kanji}</span>
         <div class="kmean">${esc(k.significado)}</div>
         <div class="kread">${k.on ? `<b>ON</b> ${esc(k.on)}` : ""}${k.on && k.kun ? " · " : ""}${k.kun ? `<b>kun</b> ${esc(k.kun)}` : ""}</div>
@@ -27,6 +28,7 @@
     init() {
       $("#kSearch").addEventListener("input", render);
       $("#kGrid").addEventListener("click", e => {
+        if (e.target.closest(".selcell")) return;   // marcar no despliega la ficha
         const c = e.target.closest(".kcard"); if (!c) return;
         c.classList.toggle("open");
         c.setAttribute("aria-expanded", c.classList.contains("open"));

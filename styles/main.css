@@ -323,3 +323,32 @@ h3.hsub{font-family:var(--font-jp); font-size:1.1rem; margin:26px 0 8px}
 @media (prefers-reduced-motion: reduce){
   .gpoint.flash{animation:none}
 }
+
+/* ---------- selección y exportación a CSV ---------- */
+.selcell{display:none}
+body.selmode .selcell{display:table-cell}
+td.selcell,th.selcell{width:1px; padding-right:0; text-align:center}
+.selbox{width:16px; height:16px; accent-color:var(--accent); cursor:pointer; vertical-align:middle}
+.kcard .selcell{position:absolute; top:8px; right:8px}
+body.selmode .kcard .selcell{display:block}
+body.selmode .kcard{position:relative; padding-right:32px}
+
+.selbar{
+  position:fixed; left:50%; transform:translateX(-50%); bottom:16px; z-index:40;
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;
+  max-width:calc(100vw - 24px);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:8px 10px 8px 18px; box-shadow:var(--shadow-lg);
+}
+.selbar[hidden]{display:none}
+.selcount{font-size:.85rem; color:var(--ink2); font-variant-numeric:tabular-nums}
+.selbar .btn:disabled{opacity:.45; cursor:default}
+/* en el móvil, barra de lado a lado en vez de píldora centrada */
+@media (max-width:560px){
+  .selbar{
+    left:8px; right:8px; bottom:8px; transform:none; max-width:none;
+    border-radius:var(--radius); padding:8px 10px; gap:8px; justify-content:space-between;
+  }
+  .selcount{flex:1 0 100%; text-align:center}
+  .selbar .btn{flex:1; white-space:nowrap}
+}
