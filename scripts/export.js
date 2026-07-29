@@ -84,12 +84,34 @@
 
   function pinta() {
     const modo = document.body.classList.contains("selmode");
-    $("#selBar").hidden = !(modo || sel.size);
+    const visible = modo || sel.size > 0;
+    $("#selBar").hidden = !visible;
+    document.body.classList.toggle("con-selbar", visible);
     $("#selCount").textContent = mensaje ||
       (sel.size ? sel.size + (sel.size === 1 ? " marcado" : " marcados") : "Marca lo que quieras exportar");
     $("#selCsv").disabled = !sel.size;
-    $$(".selmode-btn").forEach(b => b.classList.toggle("on", modo));
+    const b = $("#selBtn");
+    b.classList.toggle("on", modo);
+    b.textContent = modo ? "✕ Salir de selección" : "☑ Seleccionar";
+    b.title = modo ? "Salir del modo selección" : "Marcar palabras, verbos y kanji para exportar o para el test";
+    N5.onSelChange?.();
   }
+
+  // El botón solo tiene sentido donde hay algo que marcar (vocabulario, verbos, kanji).
+  function refrescaContexto() {
+    const hay = !!$(".panel.active .selbox");
+    $("#selBtn").hidden = !hay;
+    if (!hay && !sel.size) document.body.classList.remove("selmode");
+    pinta();
+  }
+
+  // Lo marcado, ya resuelto a datos (lo usa el test para preguntar solo de eso).
+  N5.seleccion = () => ({
+    vocabulario: N5.data.vocab.filter(w => sel.has(N5.selId.vocab(w))),
+    verbos: N5.data.verbs.filter(v => sel.has(N5.selId.verbo(v))),
+    kanji: N5.data.kanji.filter(k => sel.has(N5.selId.kanji(k)))
+  });
+  N5.selTotal = () => sel.size;
 
   // Marca lo que la sección activa está mostrando: las secciones solo pintan
   // lo que pasa sus filtros, así que basta con mirar el DOM.
@@ -132,6 +154,8 @@
     $("#selAll").addEventListener("click", marcaVisible);
     $("#selNone").addEventListener("click", vaciar);
     $("#selCsv").addEventListener("click", descargar);
-    pinta();
+    // el router cambia de panel en su propio manejador: nos ponemos detrás
+    addEventListener("hashchange", () => setTimeout(refrescaContexto, 0));
+    refrescaContexto();
   };
 })();

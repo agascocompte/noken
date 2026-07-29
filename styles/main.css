@@ -9,6 +9,7 @@
   --ok:#4f6f45; --ok-soft:#e9efe4; --bad:#a03d2e; --bad-soft:#f4e2de; --chip:#efece3;
   --shadow:0 1px 2px rgba(38,40,46,.06);
   --shadow-lg:0 8px 28px rgba(38,40,46,.13);
+  --float:#ffffff; --float-line:#b9b3a2;
   --radius:10px;
   --font-jp:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
   --font-ui:"Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP",sans-serif;
@@ -20,6 +21,7 @@
     --ok:#9ab887; --ok-soft:#242c20; --bad:#d98a76; --bad-soft:#3a2a26; --chip:#262a33;
     --shadow:0 1px 2px rgba(0,0,0,.35);
     --shadow-lg:0 8px 28px rgba(0,0,0,.5);
+    --float:#2f3542; --float-line:#454d5e;
   }
 }
 :root[data-theme="dark"]{
@@ -28,6 +30,7 @@
   --ok:#9ab887; --ok-soft:#242c20; --bad:#d98a76; --bad-soft:#3a2a26; --chip:#262a33;
   --shadow:0 1px 2px rgba(0,0,0,.35);
   --shadow-lg:0 8px 28px rgba(0,0,0,.5);
+  --float:#2f3542; --float-line:#454d5e;
 }
 :root[data-theme="light"]{
   --paper:#f6f4ef; --card:#fffefb; --ink:#26282e; --ink2:#63666e; --line:#e4e0d5;
@@ -35,6 +38,7 @@
   --ok:#4f6f45; --ok-soft:#e9efe4; --bad:#a03d2e; --bad-soft:#f4e2de; --chip:#efece3;
   --shadow:0 1px 2px rgba(38,40,46,.06);
   --shadow-lg:0 8px 28px rgba(38,40,46,.13);
+  --float:#ffffff; --float-line:#b9b3a2;
 }
 
 /* ---------- base ---------- */
@@ -336,17 +340,20 @@ body.selmode .kcard{position:relative; padding-right:32px}
 .selbar{
   position:fixed; left:50%; transform:translateX(-50%); bottom:16px; z-index:40;
   display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;
-  max-width:calc(100vw - 24px);
-  background:var(--card); border:1px solid var(--line); border-radius:999px;
-  padding:8px 10px 8px 18px; box-shadow:var(--shadow-lg);
+  /* con left:50% el ancho disponible es media pantalla: sin esto parte en dos líneas */
+  width:max-content; max-width:calc(100vw - 24px);
+  background:var(--float); border:1px solid var(--float-line); border-radius:999px;
+  padding:8px 10px 8px 18px; box-shadow:0 6px 24px rgba(0,0,0,.28);
 }
 .selbar[hidden]{display:none}
-.selcount{font-size:.85rem; color:var(--ink2); font-variant-numeric:tabular-nums}
+/* la barra es fija: sin este hueco taparía el final de la página (p. ej. «Siguiente» del test) */
+body.con-selbar main{padding-bottom:150px}
+.selcount{font-size:.85rem; color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
 .selbar .btn:disabled{opacity:.45; cursor:default}
 /* en el móvil, barra de lado a lado en vez de píldora centrada */
 @media (max-width:560px){
   .selbar{
-    left:8px; right:8px; bottom:8px; transform:none; max-width:none;
+    left:8px; right:8px; bottom:8px; transform:none; width:auto; max-width:none;
     border-radius:var(--radius); padding:8px 10px; gap:8px; justify-content:space-between;
   }
   .selcount{flex:1 0 100%; text-align:center}

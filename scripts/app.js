@@ -45,8 +45,8 @@
     initFurigana();
     initTabs();
     for (const [, s] of N5.sections) s.init?.();
-    N5.initExport();
     N5.initSearch();
     N5.startRouter();
+    N5.initExport();   // después del router: necesita saber qué panel está activo
   });
 })();
