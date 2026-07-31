@@ -164,6 +164,24 @@ N5.data.grammar=
       "es": "Aquel bolso es el mío."
      }
     ]
+   },
+   {
+    "patron": "〜ね・〜よ",
+    "explicacion": "Partículas de final de frase: ね busca la complicidad del otro («¿verdad?») y よ aporta algo que el otro no sabe («te lo digo yo»).",
+    "ejemplos": [
+     {
+      "jp": "きょうは暑[あつ]いですね。",
+      "es": "Hace calor hoy, ¿verdad?"
+     },
+     {
+      "jp": "この店[みせ]はおいしいですよ。",
+      "es": "Este sitio está buenísimo, te lo digo yo."
+     }
+    ],
+    "temas": [
+     "particulas"
+    ],
+    "fuente": "soumatome"
    }
   ]
  },
@@ -1047,6 +1065,50 @@ N5.data.grammar=
       "es": "Quiero ir a algún sitio."
      }
     ]
+   },
+   {
+    "patron": "疑問詞 ＋ でも",
+    "explicacion": "«Cualquiera»: el interrogativo seguido de でも abre la opción a todos los casos. だれでも «cualquiera», 何[なん]でも «cualquier cosa», どこでも «en cualquier sitio», いつでも «cuando sea». No lo confundas con el でも de «pero».",
+    "ejemplos": [
+     {
+      "jp": "この仕事[しごと]はだれでもできます。",
+      "es": "Este trabajo lo puede hacer cualquiera."
+     },
+     {
+      "jp": "弟[おとうと]は何[なん]でも食[た]べます。",
+      "es": "Mi hermano come de todo."
+     },
+     {
+      "jp": "いつでも来[き]てください。",
+      "es": "Ven cuando quieras."
+     }
+    ],
+    "temas": [
+     "interrogativos"
+    ],
+    "fuente": "soumatome"
+   },
+   {
+    "patron": "疑問詞 ＋ も ＋ negativo",
+    "explicacion": "«Nadie, nada, a ningún sitio»: con el verbo en negativo, el interrogativo más も niega todos los casos. Es el reverso exacto de 〜でも.",
+    "ejemplos": [
+     {
+      "jp": "教室[きょうしつ]にはだれもいません。",
+      "es": "En el aula no hay nadie."
+     },
+     {
+      "jp": "今朝[けさ]は何[なに]も食[た]べませんでした。",
+      "es": "Esta mañana no comí nada."
+     },
+     {
+      "jp": "日曜日[にちようび]はどこへも行[い]きませんでした。",
+      "es": "El domingo no fui a ningún sitio."
+     }
+    ],
+    "temas": [
+     "interrogativos"
+    ],
+    "fuente": "soumatome"
    }
   ]
  },
@@ -1401,6 +1463,25 @@ N5.data.grammar=
       "es": "Antes de comer, me lavo las manos."
      }
     ]
+   },
+   {
+    "patron": "V た あとで",
+    "explicacion": "«Después de…»: forma た del verbo + あとで. Con sustantivo se usa 〜のあとで. Es la pareja de 〜まえに.",
+    "ejemplos": [
+     {
+      "jp": "ご飯[はん]を食[た]べたあとで、薬[くすり]を飲[の]みます。",
+      "es": "Después de comer me tomo la medicina."
+     },
+     {
+      "jp": "仕事[しごと]のあとで、映画[えいが]を見[み]ました。",
+      "es": "Después del trabajo vi una película."
+     }
+    ],
+    "temas": [
+     "tiempo",
+     "forma-ta"
+    ],
+    "fuente": "soumatome"
    }
   ]
  },
@@ -1467,6 +1548,24 @@ N5.data.grammar=
       "es": "Has mejorado en japonés."
      }
     ]
+   },
+   {
+    "patron": "けれど（も）・だから",
+    "explicacion": "Conectores de contraste y de causa: けれど（も） «pero» une dos frases y suena más suave que しかし; だから «por eso» introduce la consecuencia.",
+    "ejemplos": [
+     {
+      "jp": "高[たか]かったけれど、買[か]いました。",
+      "es": "Era caro, pero lo compré."
+     },
+     {
+      "jp": "雨[あめ]が降[ふ]っています。だから、行[い]きません。",
+      "es": "Está lloviendo, así que no voy."
+     }
+    ],
+    "temas": [
+     "conectores"
+    ],
+    "fuente": "soumatome"
    }
   ]
  },

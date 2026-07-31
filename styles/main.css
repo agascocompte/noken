@@ -359,3 +359,11 @@ body.con-selbar main{padding-bottom:150px}
   .selcount{flex:1 0 100%; text-align:center}
   .selbar .btn{flex:1; white-space:nowrap}
 }
+
+/* marca de procedencia: contenido que no viene del Minna no Nihongo */
+.fuente{
+  display:inline-block; font-family:var(--font-jp); font-size:.72rem; line-height:1.5;
+  background:var(--beni-soft); color:var(--beni); border-radius:5px;
+  padding:0 5px; text-decoration:none; vertical-align:middle;
+}
+a.fuente:hover{filter:brightness(.95)}

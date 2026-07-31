@@ -6705,5 +6705,355 @@ N5.data.vocab=
   "kanji": "老人",
   "es": "anciano",
   "leccion": 25
+ },
+ {
+  "kana": "いろ",
+  "kanji": "色",
+  "es": "color",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "あか",
+  "kanji": "赤",
+  "es": "rojo",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "あお",
+  "kanji": "青",
+  "es": "azul",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "しろ",
+  "kanji": "白",
+  "es": "blanco",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "くろ",
+  "kanji": "黒",
+  "es": "negro",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "きいろ",
+  "kanji": "黄色",
+  "es": "amarillo",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ちゃいろ",
+  "kanji": "茶色",
+  "es": "marrón",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "しゅじん",
+  "kanji": "主人",
+  "es": "mi marido",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "かない",
+  "kanji": "家内",
+  "es": "mi mujer",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "おば",
+  "kanji": "",
+  "es": "mi tía",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "おばさん",
+  "kanji": "",
+  "es": "tía (de otro); señora",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "おじさん",
+  "kanji": "",
+  "es": "tío (de otro); señor",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "まご",
+  "kanji": "孫",
+  "es": "mi nieto/a",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "おまごさん",
+  "kanji": "お孫さん",
+  "es": "nieto/a (de otro)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "めい",
+  "kanji": "",
+  "es": "mi sobrina",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "いとこ",
+  "kanji": "",
+  "es": "primo/a",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ごきょうだい",
+  "kanji": "ご兄弟",
+  "es": "hermanos (de otro)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ごりょうしん",
+  "kanji": "ご両親",
+  "es": "padres (de otro)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "オートバイ",
+  "kanji": "",
+  "es": "moto",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "[お]さら",
+  "kanji": "[お]皿",
+  "es": "plato",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "カップ",
+  "kanji": "",
+  "es": "taza",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "コップ",
+  "kanji": "",
+  "es": "vaso",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ちゃわん",
+  "kanji": "茶碗",
+  "es": "cuenco de arroz",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "スカーフ",
+  "kanji": "",
+  "es": "pañuelo (de cuello)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ポケット",
+  "kanji": "",
+  "es": "bolsillo",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "でんしレンジ",
+  "kanji": "電子レンジ",
+  "es": "microondas",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ほんだな",
+  "kanji": "本棚",
+  "es": "estantería",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "のりもの",
+  "kanji": "乗り物",
+  "es": "medio de transporte",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "だれでも",
+  "kanji": "",
+  "es": "cualquiera (persona)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "なんでも",
+  "kanji": "何でも",
+  "es": "cualquier cosa, de todo",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "どこでも",
+  "kanji": "",
+  "es": "en cualquier sitio",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "いつでも",
+  "kanji": "",
+  "es": "en cualquier momento",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "どれでも",
+  "kanji": "",
+  "es": "cualquiera (de ellos)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "だれか",
+  "kanji": "",
+  "es": "alguien",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "いつか",
+  "kanji": "",
+  "es": "algún día",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "だれも（＋neg.）",
+  "kanji": "",
+  "es": "nadie",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "なにも（＋neg.）",
+  "kanji": "何も",
+  "es": "nada",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "どこへも（＋neg.）",
+  "kanji": "",
+  "es": "a ningún sitio",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "けれど（も）",
+  "kanji": "",
+  "es": "pero, aunque",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "だから",
+  "kanji": "",
+  "es": "por eso, así que",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "さっき",
+  "kanji": "",
+  "es": "hace un rato",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "すぐに",
+  "kanji": "",
+  "es": "enseguida",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "ほとんど",
+  "kanji": "",
+  "es": "casi todo; casi nada (＋neg.)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "どうやって",
+  "kanji": "",
+  "es": "cómo, de qué manera",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "たいてい",
+  "kanji": "",
+  "es": "normalmente, casi siempre",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "もっと",
+  "kanji": "",
+  "es": "más",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "もういちど",
+  "kanji": "もう一度",
+  "es": "otra vez",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "もうひとつ",
+  "kanji": "もう一つ",
+  "es": "uno más",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "つまらない",
+  "kanji": "",
+  "es": "aburrido, sin interés",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "たいふう",
+  "kanji": "台風",
+  "es": "tifón",
+  "leccion": null,
+  "fuente": "soumatome"
  }
 ];

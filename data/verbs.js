@@ -18,6 +18,19 @@ N5.data.verbs=
   "particulaDestacada": true
  },
  {
+  "kana": "あく",
+  "kanji": "開く",
+  "grupo": 1,
+  "masu": "あきます",
+  "te": "あいて",
+  "ta": "あいた",
+  "nai": "あかない",
+  "es": "abrirse (algo)",
+  "particula": "〜が",
+  "ejemplo": "ドアが開[あ]きます",
+  "fuente": "soumatome"
+ },
+ {
   "kana": "あそぶ",
   "kanji": "遊ぶ",
   "grupo": 1,
@@ -308,6 +321,19 @@ N5.data.verbs=
   "particulaDestacada": true
  },
  {
+  "kana": "かわく",
+  "kanji": "渇く",
+  "grupo": 1,
+  "masu": "かわきます",
+  "te": "かわいて",
+  "ta": "かわいた",
+  "nai": "かわかない",
+  "es": "secarse; tener sed (のどが〜)",
+  "particula": "〜が",
+  "ejemplo": "のどが渇[かわ]きました",
+  "fuente": "soumatome"
+ },
+ {
   "kana": "がんばる",
   "kanji": "頑張る",
   "grupo": 1,
@@ -420,6 +446,19 @@ N5.data.verbs=
   "ejemplo": ""
  },
  {
+  "kana": "しまる",
+  "kanji": "閉まる",
+  "grupo": 1,
+  "masu": "しまります",
+  "te": "しまって",
+  "ta": "しまった",
+  "nai": "しまらない",
+  "es": "cerrarse (algo)",
+  "particula": "〜が",
+  "ejemplo": "ドアが閉[し]まります",
+  "fuente": "soumatome"
+ },
+ {
   "kana": "しる",
   "kanji": "知る",
   "grupo": 1,
@@ -444,6 +483,19 @@ N5.data.verbs=
   "es": "fumar; aspirar",
   "particula": "〜を",
   "ejemplo": "たばこを吸[す]います"
+ },
+ {
+  "kana": "すく",
+  "kanji": "空く",
+  "grupo": 1,
+  "masu": "すきます",
+  "te": "すいて",
+  "ta": "すいた",
+  "nai": "すかない",
+  "es": "vaciarse; tener hambre (おなかが〜)",
+  "particula": "〜が",
+  "ejemplo": "おなかが空[す]きました",
+  "fuente": "soumatome"
  },
  {
   "kana": "すむ",

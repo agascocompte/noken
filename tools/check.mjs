@@ -37,9 +37,15 @@ console.log("vocab");
     for (const c of ["kana", "kanji", "es", "leccion"]) if (!(c in w)) err(`campo ${c} ausente en ${JSON.stringify(w)}`);
     const k = w.kana + "|" + w.kanji;
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
-    if (typeof w.leccion !== "number" || w.leccion < 1 || w.leccion > 25) err("lección inválida: " + JSON.stringify(w));
+    // las del Minna llevan lección; las de otras fuentes (Sōmatome) van sin ella
+    if (w.fuente) {
+      if (w.leccion !== null) err(`${w.kana}: con fuente «${w.fuente}» la lección debe ser null`);
+    } else if (typeof w.leccion !== "number" || w.leccion < 1 || w.leccion > 25) {
+      err("lección inválida: " + JSON.stringify(w));
+    }
   }
-  ok(d.vocab.length + " palabras, sin duplicados");
+  const otras = d.vocab.filter(w => w.fuente).length;
+  ok(d.vocab.length + " palabras, sin duplicados" + (otras ? ` (${otras} de fuentes distintas del Minna)` : ""));
 }
 
 console.log("verbs");

@@ -68,7 +68,7 @@
     const qs = encodeURIComponent(q.trim());
     const grupos = [];
     if (r.vocab.length) grupos.push(`<div class="ggroup">Vocabulario</div>` + r.vocab.map(w =>
-      `<button class="gitem" data-go="#/vocabulario?q=${qs}"><span class="gja">${esc(w.kana)}${w.kanji ? " " + esc(w.kanji) : ""}</span><span class="ges">${esc(w.es)} · L${w.leccion}</span></button>`).join(""));
+      `<button class="gitem" data-go="#/vocabulario?q=${qs}"><span class="gja">${esc(w.kana)}${w.kanji ? " " + esc(w.kanji) : ""}</span><span class="ges">${esc(w.es)} · ${w.fuente ? "Sōmatome" : "L" + w.leccion}</span></button>`).join(""));
     if (r.verbos.length) grupos.push(`<div class="ggroup">Verbos</div>` + r.verbos.map(v =>
       `<button class="gitem" data-go="#/verbos?q=${qs}"><span class="gja">${esc(v.kana)}${v.kanji ? " " + esc(v.kanji) : ""}</span><span class="ges">${esc(v.es)}</span></button>`).join(""));
     if (r.kanji.length) grupos.push(`<div class="ggroup">Kanji</div>` + r.kanji.map(k =>
