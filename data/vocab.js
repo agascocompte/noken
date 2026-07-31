@@ -6770,6 +6770,13 @@ N5.data.vocab=
   "fuente": "soumatome"
  },
  {
+  "kana": "おじ",
+  "kanji": "",
+  "es": "mi tío",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
   "kana": "おば",
   "kanji": "",
   "es": "mi tía",
@@ -6801,6 +6808,13 @@ N5.data.vocab=
   "kana": "おまごさん",
   "kanji": "お孫さん",
   "es": "nieto/a (de otro)",
+  "leccion": null,
+  "fuente": "soumatome"
+ },
+ {
+  "kana": "おい",
+  "kanji": "",
+  "es": "mi sobrino",
   "leccion": null,
   "fuente": "soumatome"
  },
