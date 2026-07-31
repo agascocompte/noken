@@ -55,6 +55,13 @@
 
   const limpio = s => s.replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
 
+  // Primera frase de la explicación: el patrón por sí solo (「V てあげます」) no
+  // dice qué significa, así que en los resultados va acompañado de su glosa.
+  const glosa = s => {
+    const t = limpio(s).split(/(?<=\.)\s+/)[0].replace(/\s+$/, "");
+    return t.length > 68 ? t.slice(0, 67).trimEnd() + "…" : t;
+  };
+
   function pintar(r, q) {
     const box = $("#gResults");
     if (!r) { box.classList.remove("open"); box.innerHTML = ""; return; }
@@ -67,7 +74,7 @@
     if (r.kanji.length) grupos.push(`<div class="ggroup">Kanji</div>` + r.kanji.map(k =>
       `<button class="gitem" data-go="#/kanji?q=${qs}"><span class="gja">${k.kanji}</span><span class="ges">${esc(k.significado)}</span></button>`).join(""));
     if (r.gramatica.length) grupos.push(`<div class="ggroup">Gramática</div>` + r.gramatica.map(g =>
-      `<button class="gitem" data-go="#/gramatica/l${g.leccion}?p=${g.idx}"><span class="gja">${esc(limpio(g.p.patron))}</span><span class="ges">第${g.leccion}課</span></button>`).join(""));
+      `<button class="gitem" data-go="#/gramatica/l${g.leccion}?p=${g.idx}"><span class="gja">${esc(limpio(g.p.patron))}</span><span class="ges">${esc(glosa(g.p.explicacion))} · 第${g.leccion}課</span></button>`).join(""));
     box.innerHTML = grupos.length ? grupos.join("") : `<div class="gnone">Sin resultados para «${esc(q)}»</div>`;
     box.classList.add("open");
   }
