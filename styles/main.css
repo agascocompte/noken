@@ -208,7 +208,7 @@ td.num{color:var(--ink2); font-variant-numeric:tabular-nums; text-align:right}
 .gpoint:last-child{border-bottom:none}
 .gpoint h4{margin:0 0 4px; font-size:1.05rem}
 .gpoint h4 .pat{font-family:var(--font-jp); color:var(--accent)}
-.gpoint p{margin:4px 0; max-width:70ch}
+.gpoint p{margin:4px 0}
 .gpoint .gtags{margin-top:6px; display:flex; gap:5px; flex-wrap:wrap}
 .gpoint .gtags button{
   background:none; border:none; padding:0; cursor:pointer;
@@ -270,7 +270,7 @@ td.num{color:var(--ink2); font-variant-numeric:tabular-nums; text-align:right}
 .exercise .ans{display:none; border-top:1px dashed var(--line); padding-top:8px; margin-top:4px}
 .exercise.open .ans{display:block}
 .exercise .ans .a{color:var(--ok); font-weight:600; font-size:1.02rem; line-height:2}
-.exercise .ans .why{font-size:.88rem; color:var(--ink2); margin-top:2px; max-width:70ch}
+.exercise .ans .why{font-size:.88rem; color:var(--ink2); margin-top:2px}
 .exercise .toggle{
   background:var(--ok-soft); color:var(--ok); border:none; border-radius:6px;
   padding:4px 12px; font-size:.82rem; cursor:pointer; font-weight:600;
@@ -316,7 +316,7 @@ td.num{color:var(--ink2); font-variant-numeric:tabular-nums; text-align:right}
 .qcard .qt{font-weight:600}
 .qcard .qd{display:block; font-size:.82rem; color:var(--ink2); margin-top:3px}
 .qcard .qn{float:right; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700}
-.home-notes{max-width:70ch}
+
 .home-notes li{margin:6px 0}
 h3.hsub{font-family:var(--font-jp); font-size:1.1rem; margin:26px 0 8px}
 
