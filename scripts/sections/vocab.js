@@ -2,16 +2,26 @@
 "use strict";
 
 (() => {
-  const { $, esc, moraMatch, normQuery } = N5;
+  const { $, esc, normQuery } = N5;
 
   function render() {
     const q = normQuery($("#vSearch").value);
     const les = $("#vLesson").value;
-    let rows = "", n = 0;
+
+    // Sin búsqueda se respeta el orden por lección; con búsqueda manda la relevancia,
+    // para que «ki» dé 木 el primero y no en el puesto 41.
+    const lista = [];
     for (const w of N5.data.vocab) {
       if (les.startsWith("f:") ? w.fuente !== les.slice(2)
           : les !== "all" && (w.fuente || String(w.leccion) !== les)) continue;
-      if (q && !(w.kana.includes(q) || w.kanji.includes(q) || w.es.toLowerCase().includes(q) || moraMatch(w.kana, q))) continue;
+      if (!q) { lista.push(w); continue; }
+      const pts = N5.relevancia(q, [w.kana, w.kanji], w.es);
+      if (pts) lista.push({ pts, item: w });
+    }
+    const finales = q ? N5.porRelevancia(lista).map(x => x.item) : lista;
+
+    let rows = "", n = 0;
+    for (const w of finales) {
       n++;
       const f = N5.fuenteDe(w);
       const origen = f

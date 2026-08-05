@@ -11,35 +11,13 @@
   const lectura = s => s.replace(/([一-鿿々〇]+)\[([ぁ-ゖァ-ヺー]+)\]/g, "$2");
   const aHira = s => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 
-  // Relevancia. Sin esto «oto» no encuentra 音 (sonido): la coincidencia exacta
-  // quedaba la sexta, por detrás de おとうと y de «fotografía», y el corte es de 5.
-  const EXACTO = 100, EXACTO_ES = 90, EMPIEZA = 70, PALABRA_ES = 50, DENTRO = 40, DENTRO_ES = 30;
-  const escapa = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  // Puntúa contra las formas japonesas (kana, kanji, y su romaji).
-  function puntuaJa(q, formas) {
-    let mejor = 0;
-    for (const f of formas) {
-      if (!f) continue;
-      const r = N5.romaji(f);
-      if (f === q || r === q) return EXACTO;
-      if (f.startsWith(q) || r.startsWith(q)) mejor = Math.max(mejor, EMPIEZA);
-      else if (f.includes(q) || moraMatch(f, q)) mejor = Math.max(mejor, DENTRO);
-    }
-    return mejor;
-  }
-
-  // Puntúa contra el español. «otoño» empieza por «oto»; «fotografía» solo lo contiene.
-  function puntuaEs(q, es) {
-    if (!es) return 0;
-    const t = es.toLowerCase();
-    if (t === q || t.split(/[,;·]|\s+\(/).some(x => x.trim() === q)) return EXACTO_ES;
-    if (new RegExp("\\b" + escapa(q)).test(t)) return PALABRA_ES;
-    return t.includes(q) ? DENTRO_ES : 0;
-  }
+  // Puntuación en scripts/relevancia.js, compartida con los buscadores de sección.
+  const { relevancia, porRelevancia } = N5;
+  // Suelo: aparece en el texto de la explicación pero no en el patrón ni como palabra.
+  const COINCIDENCIA_DEBIL = 10;
 
   // Los mejores LIMIT, y a igualdad de puntos se respeta el orden de los datos.
-  const mejores = lista => lista.sort((a, b) => b.pts - a.pts).slice(0, LIMIT).map(x => x.item);
+  const mejores = lista => porRelevancia(lista).slice(0, LIMIT).map(x => x.item);
 
   function buscar(qRaw) {
     const q = normQuery(qRaw);
@@ -47,15 +25,15 @@
     const vocab = [], verbos = [], kanji = [], gramatica = [];
 
     for (const w of N5.data.vocab) {
-      const pts = Math.max(puntuaJa(q, [w.kana, w.kanji]), puntuaEs(q, w.es));
+      const pts = relevancia(q, [w.kana, w.kanji], w.es);
       if (pts) vocab.push({ pts, item: w });
     }
     for (const v of N5.data.verbs) {
-      const pts = Math.max(puntuaJa(q, [v.kana, v.kanji, v.masu, v.te, v.ta, v.nai]), puntuaEs(q, v.es));
+      const pts = relevancia(q, [v.kana, v.kanji, v.masu, v.te, v.ta, v.nai], v.es);
       if (pts) verbos.push({ pts, item: v });
     }
     for (const k of N5.data.kanji) {
-      const pts = Math.max(puntuaJa(q, [k.kanji, k.on, k.kun]), puntuaEs(q, k.significado));
+      const pts = relevancia(q, [k.kanji, k.on, k.kun], k.significado);
       if (pts) kanji.push({ pts, item: k });
     }
     const qJa = aHira(q.replace(/\s+/g, ""));  // «と おもいます» → «とおもいます»
@@ -65,9 +43,9 @@
         const texto = p.patron + " " + p.explicacion;
         const plano = texto.replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
         const kana = aHira(lectura(texto));
-        let pts = Math.max(puntuaJa(qJa, [limpio(p.patron)]), puntuaEs(q, p.explicacion));
+        let pts = Math.max(relevancia(qJa, [limpio(p.patron)], ""), relevancia(q, [], p.explicacion));
         if (!pts && (plano.toLowerCase().includes(q) || plano.includes(qRaw.trim()) ||
-                     kana.includes(qJa) || moraMatch(kana, qJa))) pts = DENTRO_ES;
+                     kana.includes(qJa) || moraMatch(kana, qJa))) pts = COINCIDENCIA_DEBIL;
         if (pts) gramatica.push({ pts, item: { leccion: L.leccion, idx: i, p } });
       }
     }

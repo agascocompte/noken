@@ -4,7 +4,7 @@
 "use strict";
 
 (() => {
-  const { $, $$, esc, rubyEsc, moraMatch, normQuery } = N5;
+  const { $, $$, esc, rubyEsc, normQuery } = N5;
   let group = "all", part = "all";
 
   // 32 verbos rigen dos partículas («おくる 〜を／〜に»): al filtrar por を
@@ -21,15 +21,20 @@
 
   function render() {
     const q = normQuery($("#vbSearch").value);
-    let rows = "", n = 0;
+
+    // Con búsqueda se ordena por relevancia; sin ella, orden alfabético de siempre.
+    const lista = [];
     for (const v of N5.data.verbs) {
       if (group !== "all" && String(v.grupo) !== group) continue;
       if (!cuadra(v)) continue;
-      if (q) {
-        const broad = dicLabel(v).includes(q) || v.es.toLowerCase().includes(q);
-        const exact = [v.kana, v.masu, v.te, v.ta, v.nai].some(x => moraMatch(x, q));
-        if (!broad && !exact) continue;
-      }
+      if (!q) { lista.push(v); continue; }
+      const pts = N5.relevancia(q, [v.kana, v.kanji, v.masu, v.te, v.ta, v.nai], v.es);
+      if (pts) lista.push({ pts, item: v });
+    }
+    const finales = q ? N5.porRelevancia(lista).map(x => x.item) : lista;
+
+    let rows = "", n = 0;
+    for (const v of finales) {
       n++;
       const badge = v.particula !== "—"
         ? `<span class="pbadge${v.particulaDestacada ? " hot" : ""}">${esc(v.particula)}</span>` : "";

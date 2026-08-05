@@ -2,14 +2,22 @@
 "use strict";
 
 (() => {
-  const { $, esc, moraMatch, normQuery } = N5;
+  const { $, esc, normQuery } = N5;
 
   function render() {
     const q = normQuery($("#kSearch").value);
-    let html = "", n = 0;
+
+    // Con búsqueda manda la relevancia; sin ella, el orden 1–160 del libro.
+    const lista = [];
     for (const k of N5.data.kanji) {
-      if (q && !(k.kanji.includes(q) || k.significado.toLowerCase().includes(q) ||
-                 k.on.includes(q) || k.kun.includes(q) || moraMatch(k.on, q) || moraMatch(k.kun, q))) continue;
+      if (!q) { lista.push(k); continue; }
+      const pts = N5.relevancia(q, [k.kanji, k.on, k.kun], k.significado);
+      if (pts) lista.push({ pts, item: k });
+    }
+    const finales = q ? N5.porRelevancia(lista).map(x => x.item) : lista;
+
+    let html = "", n = 0;
+    for (const k of finales) {
       n++;
       html += `<div class="kcard" tabindex="0" role="button" aria-expanded="false">
         <span class="selcell">${N5.selBox(N5.selId.kanji(k))}</span>
