@@ -27,6 +27,7 @@
     for (const b of N5.$$("#tabs button"))
       b.classList.toggle("active", b.dataset.t === def.id);
     def.onRoute?.(route);
+    N5.afterRoute?.(route, def);
     if (!route.params.toString() && !route.sub) window.scrollTo({ top: 0 });
     document.title = (def.id === "inicio" ? "" : def.titulo + " · ") + "Nōken 5 — Guía de estudio";
   }

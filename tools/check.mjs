@@ -1,23 +1,18 @@
 // Validación de los datos de la guía. Sin dependencias: `node tools/check.mjs`
 // Comprueba esquemas, duplicados, furigana bien formado y conteos.
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { cargaN5 } from "./datos.mjs";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const N5 = { data: {} };
-globalThis.window = { N5 };
-globalThis.N5 = N5;
-
-for (const f of ["vocab", "grammar", "verbs", "kanji", "reference", "drills", "kana"])
-  new Function("window", "N5", readFileSync(join(root, "data", f + ".js"), "utf8"))(globalThis.window, N5);
-
+const N5 = cargaN5();
 const d = N5.data;
-// mismas claves que N5.FUENTES en scripts/dom.js
-const FUENTES = ["soumatome", "extra"];
+const FUENTES = Object.keys(N5.FUENTES);
 let errores = 0;
 const err = m => { console.error("  ✗", m); errores++; };
 const ok = m => console.log("  ✓", m);
+
+// «fuente» marca contenido ajeno al Minna; existe en vocab, verbs y grammar
+const fuenteMal = (x, quien) => {
+  if (x.fuente && !FUENTES.includes(x.fuente)) err(`${quien}: fuente desconocida «${x.fuente}»`);
+};
 
 // furigana: corchetes de lectura siempre precedidos de kanji y bien cerrados
 const furiganaMal = s => {
@@ -40,8 +35,8 @@ console.log("vocab");
     const k = w.kana + "|" + w.kanji;
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
     // las del Minna llevan lección; las de otras fuentes van sin ella
+    fuenteMal(w, w.kana);
     if (w.fuente) {
-      if (!FUENTES.includes(w.fuente)) err(`${w.kana}: fuente desconocida «${w.fuente}»`);
       if (w.leccion !== null) err(`${w.kana}: con fuente «${w.fuente}» la lección debe ser null`);
     } else if (typeof w.leccion !== "number" || w.leccion < 1 || w.leccion > 25) {
       err("lección inválida: " + JSON.stringify(w));
@@ -60,6 +55,7 @@ console.log("verbs");
     const k = v.kana + "|" + v.kanji;
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
     if (![1, 2, 3].includes(v.grupo)) err("grupo inválido: " + v.kana);
+    fuenteMal(v, v.kana);
     const f = furiganaMal(v.ejemplo); if (f) err(v.kana + ": " + f);
   }
   ok(d.verbs.length + " verbos, sin duplicados");
@@ -72,6 +68,7 @@ console.log("grammar");
   for (const L of d.grammar) for (const p of L.puntos) {
     puntos++;
     if (!p.temas?.length) err(`L${L.leccion} «${p.patron}» sin temas`);
+    fuenteMal(p, `L${L.leccion} «${p.patron}»`);
     for (const e of p.ejemplos) {
       if (!e.jp || !e.es) err(`L${L.leccion} «${p.patron}» ejemplo incompleto`);
       const f = furiganaMal(e.jp); if (f) err(`L${L.leccion}: ${f}`);

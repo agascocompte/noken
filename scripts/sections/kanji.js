@@ -7,14 +7,7 @@
   function render() {
     const q = normQuery($("#kSearch").value);
 
-    // Con búsqueda manda la relevancia; sin ella, el orden 1–160 del libro.
-    const lista = [];
-    for (const k of N5.data.kanji) {
-      if (!q) { lista.push(k); continue; }
-      const pts = N5.relevancia(q, [k.kanji, k.on, k.kun], k.significado);
-      if (pts) lista.push({ pts, item: k });
-    }
-    const finales = q ? N5.porRelevancia(lista).map(x => x.item) : lista;
+    const finales = N5.rankea(N5.data.kanji, q, k => [k.kanji, k.on, k.kun], k => k.significado);
 
     let html = "", n = 0;
     for (const k of finales) {
@@ -32,7 +25,7 @@
   }
 
   N5.registerSection({
-    id: "kanji", glyph: "漢", titulo: "Kanji",
+    id: "kanji", seleccionable: true, titulo: "Kanji",
     init() {
       $("#kSearch").addEventListener("input", render);
       $("#kGrid").addEventListener("click", e => {

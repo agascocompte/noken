@@ -3,7 +3,7 @@
 "use strict";
 
 (() => {
-  const { $, $$ } = N5;
+  const { $ } = N5;
 
   function initTema() {
     const saved = localStorage.getItem("n5-theme");

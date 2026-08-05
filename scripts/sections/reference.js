@@ -27,7 +27,7 @@
   }
 
   N5.registerSection({
-    id: "referencia", glyph: "参", titulo: "Referencia",
+    id: "referencia", titulo: "Referencia",
     init() {
       const cards = [
         { icono: "あ", titulo: "Hiragana", html: kanaCard(false) },

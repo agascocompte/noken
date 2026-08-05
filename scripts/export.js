@@ -79,6 +79,7 @@
   }
 
   // ---------- barra ----------
+  const plural = (n, uno, varios) => n + " " + (n === 1 ? uno : varios);
   let mensaje = "";
   const aviso = m => { mensaje = m; pinta(); setTimeout(() => { mensaje = ""; pinta(); }, 3000); };
 
@@ -87,9 +88,10 @@
     const visible = modo || sel.size > 0;
     $("#selBar").hidden = !visible;
     document.body.classList.toggle("con-selbar", visible);
+    const n = N5.selTotal();
     $("#selCount").textContent = mensaje ||
-      (sel.size ? sel.size + (sel.size === 1 ? " marcado" : " marcados") : "Marca lo que quieras exportar");
-    $("#selCsv").disabled = !sel.size;
+      (n ? plural(n, "marcado", "marcados") : "Marca lo que quieras exportar");
+    $("#selCsv").disabled = !n;
     const b = $("#selBtn");
     b.classList.toggle("on", modo);
     b.textContent = modo ? "✕ Salir de selección" : "☑ Seleccionar";
@@ -97,9 +99,10 @@
     N5.onSelChange?.();
   }
 
-  // El botón solo tiene sentido donde hay algo que marcar (vocabulario, verbos, kanji).
-  function refrescaContexto() {
-    const hay = !!$(".panel.active .selbox");
+  // El botón solo tiene sentido en las secciones que declaran ser seleccionables;
+  // mirar si hay casillas pintadas fallaba cuando un filtro dejaba la tabla vacía.
+  function refrescaContexto(def) {
+    const hay = !!def?.seleccionable;
     $("#selBtn").hidden = !hay;
     if (!hay && !sel.size) document.body.classList.remove("selmode");
     pinta();
@@ -111,7 +114,12 @@
     verbos: N5.data.verbs.filter(v => sel.has(N5.selId.verbo(v))),
     kanji: N5.data.kanji.filter(k => sel.has(N5.selId.kanji(k)))
   });
-  N5.selTotal = () => sel.size;
+  // Cuenta sobre datos resueltos, no sobre los ids guardados: si una entrada se
+  // renombra en data/, su id queda huérfano y el contador mentiría.
+  N5.selTotal = () => {
+    const s = N5.seleccion();
+    return s.vocabulario.length + s.verbos.length + s.kanji.length;
+  };
 
   // Marca lo que la sección activa está mostrando: las secciones solo pintan
   // lo que pasa sus filtros, así que basta con mirar el DOM.
@@ -124,7 +132,6 @@
       c.checked = true;
     }
     guarda();
-    const plural = (n, s, p) => n + " " + (n === 1 ? s : p);
     aviso(!cajas.length ? "No hay nada visible" :
       plural(n, "añadido", "añadidos") +
       (saltadas ? ` · ${plural(saltadas, "omitido", "omitidos")} (partículas y siglas)` : ""));
@@ -137,10 +144,8 @@
   }
 
   N5.initExport = () => {
-    // el toggle vive en la barra de Vocabulario, Verbos y Kanji
-    document.addEventListener("click", e => {
-      const b = e.target.closest(".selmode-btn");
-      if (!b) return;
+    // un único botón en la cabecera enciende y apaga el modo
+    $("#selBtn").addEventListener("click", () => {
       document.body.classList.toggle("selmode");
       pinta();
     });
@@ -154,8 +159,8 @@
     $("#selAll").addEventListener("click", marcaVisible);
     $("#selNone").addEventListener("click", vaciar);
     $("#selCsv").addEventListener("click", descargar);
-    // el router cambia de panel en su propio manejador: nos ponemos detrás
-    addEventListener("hashchange", () => setTimeout(refrescaContexto, 0));
-    refrescaContexto();
+    N5.afterRoute = (_, def) => refrescaContexto(def);
+    // el router ya activó una ruta antes de esto: se arranca con la sección visible
+    refrescaContexto(N5.sections.get($(".panel.active")?.id.replace(/^p-/, "")));
   };
 })();

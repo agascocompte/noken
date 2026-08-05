@@ -5,7 +5,7 @@
   const { $ } = N5;
 
   N5.registerSection({
-    id: "inicio", glyph: "始", titulo: "Inicio",
+    id: "inicio", titulo: "Inicio",
     init() {
       const d = N5.data;
       const cards = [

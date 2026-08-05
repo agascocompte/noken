@@ -11,12 +11,24 @@
   const BASE = {"ゔ":"vu","ぁ":"a","ぃ":"i","ぅ":"u","ぇ":"e","ぉ":"o",
   "あ":"a","い":"i","う":"u","え":"e","お":"o","か":"ka","き":"ki","く":"ku","け":"ke","こ":"ko","さ":"sa","し":"shi","す":"su","せ":"se","そ":"so","た":"ta","ち":"chi","つ":"tsu","て":"te","と":"to","な":"na","に":"ni","ぬ":"nu","ね":"ne","の":"no","は":"ha","ひ":"hi","ふ":"fu","へ":"he","ほ":"ho","ま":"ma","み":"mi","む":"mu","め":"me","も":"mo","や":"ya","ゆ":"yu","よ":"yo","ら":"ra","り":"ri","る":"ru","れ":"re","ろ":"ro","わ":"wa","を":"o","ん":"n","が":"ga","ぎ":"gi","ぐ":"gu","げ":"ge","ご":"go","ざ":"za","じ":"ji","ず":"zu","ぜ":"ze","ぞ":"zo","だ":"da","ぢ":"ji","づ":"zu","で":"de","ど":"do","ば":"ba","び":"bi","ぶ":"bu","べ":"be","ぼ":"bo","ぱ":"pa","ぴ":"pi","ぷ":"pu","ぺ":"pe","ぽ":"po"};
 
+  // Katakana → hiragana, para poder comparar 「オユ」 con 「おゆ」.
+  N5.aHiragana = s => [...String(s)].map(c => {
+    const o = c.codePointAt(0);
+    return (o >= 0x30A1 && o <= 0x30F6) ? String.fromCodePoint(o - 0x60) : c;
+  }).join("");
+
+  // Los datos no cambian nunca, pero cada tecla del buscador vuelve a trocear las
+  // mismas cadenas: ~6600 tokenizaciones por pulsación. Se memoiza el resultado.
+  const memo = new Map();
   function moraChunks(kana) {
+    let hecho = memo.get(kana);
+    if (!hecho) memo.set(kana, hecho = troceaEnMoras(kana));
+    return hecho;
+  }
+
+  function troceaEnMoras(kana) {
     kana = String(kana).replace(/[\[\]]/g, ""); // corchetes de prefijo opcional: "[お]てら"
-    const hira = [...kana].map(c => {
-      const o = c.codePointAt(0);
-      return (o >= 0x30A1 && o <= 0x30F6) ? String.fromCodePoint(o - 0x60) : c;
-    }).join("");
+    const hira = N5.aHiragana(kana);
     const chunks = []; let i = 0, dbl = false;
     while (i < hira.length) {
       const c = hira[i];

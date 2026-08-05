@@ -9,17 +9,9 @@
 //   · nombres propios (東京, 木村, 富士山…): decisión deliberada, no se listan
 //   · la raíz de un verbo する que sí está definido (結婚 de けっこんする)
 //   · palabras que solo cambian por okurigana (面白 de 面白い)
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { cargaN5 } from "./datos.mjs";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const N5 = { data: {} };
-globalThis.window = { N5 };
-globalThis.N5 = N5;
-for (const f of ["vocab", "grammar", "verbs", "kanji", "reference", "drills", "kana"])
-  new Function("window", "N5", readFileSync(join(root, "data", f + ".js"), "utf8"))(globalThis.window, N5);
-
+const N5 = cargaN5();
 const d = N5.data;
 
 // Nombres propios: por criterio no son vocabulario de estudio (el JLPT no los pregunta).
@@ -34,11 +26,10 @@ for (const L of d.grammar) for (const p of L.puntos) {
 for (const v of d.verbs) textos.push(v.ejemplo);
 for (const x of d.drills) textos.push(x.pregunta, x.respuesta, x.explicacion);
 for (const c of d.reference) textos.push(c.html);
-for (const k of d.kanji) for (const e of k.ejemplos) textos.push(e.palabra);
 
-const usos = new Map();   // 漢字 → { veces, donde }
+const usos = new Map();   // 漢字 → { veces, lectura }
 for (const t of textos)
-  for (const m of String(t).matchAll(/([一-鿿々〇]+)\[([ぁ-ゖァ-ヺー]+)\]/g)) {
+  for (const m of String(t).matchAll(N5.FURIGANA)) {
     const v = usos.get(m[1]) || { veces: 0, lectura: m[2] };
     v.veces++; usos.set(m[1], v);
   }
@@ -57,7 +48,9 @@ for (const v of d.verbs) { registra(v.kanji); registra(v.kana); }
 for (const k of d.kanji) { registra(k.kanji); for (const e of k.ejemplos) registra(e.palabra); }
 
 // ¿Es el trozo en kanji de algo ya definido? (結婚 dentro de 結婚する, 面白 dentro de 面白い)
-const esParteDeAlgoDefinido = kanji => [...definido].some(x => x.length > kanji.length && x.startsWith(kanji));
+const prefijos = new Set();
+for (const x of definido) for (let i = 1; i < x.length; i++) prefijos.add(x.slice(0, i));
+const esParteDeAlgoDefinido = kanji => prefijos.has(kanji);
 // ¿Es la suma de dos palabras que ya están? (日本料理 = 日本 + 料理)
 const esCompuesta = kanji => {
   for (let i = 1; i < kanji.length; i++)

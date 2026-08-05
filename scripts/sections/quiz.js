@@ -28,7 +28,6 @@
   }
 
   function qKanji(origen, todo, dir) {
-    if (!origen.length) return null;
     const k = sample(origen, 1)[0];
     if (dir === "es-ja") {
       const distr = sample(todo.filter(x => x.kanji !== k.kanji), 3).map(x => x.kanji);
@@ -44,7 +43,6 @@
   }
 
   function qVerbo(origen, todo, dir) {
-    if (!origen.length) return null;
     const v = sample(origen, 1)[0];
     if (dir === "ja-es") {
       const distr = sample(todo.filter(x => x.es !== v.es), 3).map(x => x.es);
@@ -75,31 +73,30 @@
     };
   }
 
-  function qGramatica(origen, todo) {
-    const D = origen;
-    if (!D.length) return null;
+  // La gramática no se puede marcar, así que aquí origen y temario son lo mismo.
+  function qGramatica(D) {
     const d = sample(D, 1)[0];
-    const mismos = todo.filter(x => x !== d && x.tema === d.tema).map(x => x.respuesta);
-    const otros = todo.filter(x => x !== d).map(x => x.respuesta);
+    const mismos = D.filter(x => x !== d && x.tema === d.tema).map(x => x.respuesta);
+    const otros = D.filter(x => x !== d).map(x => x.respuesta);
     const distr = [];
     for (const r of shuffle(mismos).concat(shuffle(otros)))
       if (r !== d.respuesta && !distr.includes(r) && distr.length < 3) distr.push(r);
-    return { q: rubyEsc(d.pregunta), esHTML: true, opciones: shuffle([d.respuesta, ...distr]), correcta: d.respuesta, nota: d.explicacion };
+    return { q: rubyEsc(d.pregunta), opciones: shuffle([d.respuesta, ...distr]), correcta: d.respuesta, nota: d.explicacion };
   }
 
   const GEN = { vocabulario: qVocab, kanji: qKanji, verbos: qVerbo, gramatica: qGramatica };
-  const TODO = () => ({
+  const TODO = {
     vocabulario: N5.data.vocab, kanji: N5.data.kanji,
     verbos: N5.data.verbs, gramatica: N5.data.drills
-  });
+  };
 
   // ---- estado del test ----
-  let preguntas = [], idx = 0, aciertos = 0, falladas = [], respondida = false;
+  let preguntas = [], idx = 0, aciertos = 0, falladas = [], respondida = false, faltan = 0;
 
   function empezar() {
     const soloSel = $("#quizSel").checked;
     const dir = $("#quizDir").value;
-    const todo = TODO();
+    const todo = TODO;
     // La gramática no se puede marcar, así que queda fuera al filtrar por selección.
     const origen = soloSel ? { ...N5.seleccion(), gramatica: [] } : todo;
     const tipos = [...N5.$$("#quizCfg input.qtipo:checked")]
@@ -120,6 +117,8 @@
     }
     preguntas = shuffle(preguntas);
     idx = 0; aciertos = 0; falladas = []; respondida = false;
+    // con una selección pequeña puede no haber material para las n pedidas
+    faltan = n - preguntas.length;
     pinta();
   }
 
@@ -128,8 +127,9 @@
     if (idx >= preguntas.length) return pintaResultado();
     const p = preguntas[idx];
     box.innerHTML = `<div class="quiz-card">
-      <div class="quiz-progress">Pregunta ${idx + 1} de ${preguntas.length}</div>
-      <p class="quiz-q jp">${p.esHTML ? p.q : p.q}</p>
+      <div class="quiz-progress">Pregunta ${idx + 1} de ${preguntas.length}${
+        faltan > 0 ? ` · pediste ${preguntas.length + faltan}, pero con lo marcado no da para más` : ""}</div>
+      <p class="quiz-q jp">${p.q}</p>
       <div class="qopts">${p.opciones.map(o => `<button class="qopt jp" data-v="${esc(o)}">${rubyEsc(o)}</button>`).join("")}</div>
       <button class="btn quiz-next" id="quizNext" hidden>Siguiente</button>
     </div>`;
@@ -142,27 +142,25 @@
       <div class="score">${aciertos} / ${preguntas.length}</div>
       <p class="muted">${aciertos === preguntas.length ? "Perfecto. 素晴らしい！" : "Las que fallaste, con su respuesta:"}</p>
       ${falladas.length ? `<div class="quiz-review">${falladas.map(f =>
-        `<div class="item"><span class="jp">${f.esHTML ? f.q : f.q}</span><br>→ <span class="ok jp">${rubyEsc(f.correcta)}</span>${f.nota ? `<br><span class="muted">${N5.ruby(f.nota)}</span>` : ""}</div>`).join("")}</div>` : ""}
+        `<div class="item"><span class="jp">${f.q}</span><br>→ <span class="ok jp">${rubyEsc(f.correcta)}</span>${f.nota ? `<br><span class="muted">${N5.ruby(f.nota)}</span>` : ""}</div>`).join("")}</div>` : ""}
       <button class="btn" id="quizAgain" style="margin-top:14px">Otro test</button>
     </div>`;
   }
 
-  // La etiqueta de «solo lo marcado» lleva la cuenta al día.
-  function refrescaSel() {
-    const n = N5.selTotal?.() || 0;
+  // La etiqueta de «solo lo marcado» lleva la cuenta al día. La llama export.js
+  // en cada cambio de selección, que es el único sitio donde puede cambiar.
+  N5.onSelChange = () => {
+    const n = N5.selTotal();
     const cb = $("#quizSel");
-    if (!cb) return;
     $("#quizSelN").textContent = n ? `(${n})` : "(nada marcado)";
     cb.disabled = !n;
     if (!n) cb.checked = false;
-  }
-  N5.onSelChange = refrescaSel;
+  };
 
   N5.registerSection({
-    id: "test", glyph: "試", titulo: "Test",
+    id: "test", titulo: "Test",
     init() {
       $("#quizStart").addEventListener("click", empezar);
-      refrescaSel();
       $("#quizBox").addEventListener("click", e => {
         if (e.target.id === "quizAgain") { $("#quizBox").innerHTML = ""; return; }
         if (e.target.id === "quizNext") { idx++; pinta(); return; }
@@ -180,7 +178,6 @@
         $("#quizNext").hidden = false;
         $("#quizNext").focus();
       });
-    },
-    onRoute() { refrescaSel(); }
+    }
   });
 })();

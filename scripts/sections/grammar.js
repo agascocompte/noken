@@ -38,7 +38,7 @@
 
   const puntoHTML = (p, extra = "") => `
     <div class="gpoint">
-      <h4><span class="pat jp">${rubyEsc(p.patron)}</span>${N5.fuenteDe(p) ? ` <span class="fuente" title="${esc(N5.fuenteDe(p).titulo)}">${N5.fuenteDe(p).sigla}</span>` : ""}${extra}</h4>
+      <h4><span class="pat jp">${rubyEsc(p.patron)}</span>${p.fuente ? " " + N5.fuenteHTML(p) : ""}${extra}</h4>
       <p>${ruby(p.explicacion)}</p>
       ${p.ejemplos.map(x => `<div class="ex"><span class="j jp">${rubyEsc(x.jp)}</span><span class="s">${esc(x.es)}</span></div>`).join("")}
       <div class="gtags">${p.temas.map(t => TEMAS[t] ? `<button data-tema="${t}">${TEMAS[t]}</button>` : "").join("")}</div>
@@ -99,7 +99,7 @@
   }
 
   N5.registerSection({
-    id: "gramatica", glyph: "文", titulo: "Gramática",
+    id: "gramatica", titulo: "Gramática",
     init() {
       renderAll();
       $("#gViewSeg").addEventListener("click", e => {
@@ -108,7 +108,6 @@
       });
       $("#gSubnav").addEventListener("click", e => {
         const b = e.target.closest("button"); if (!b) return;
-        if (b.dataset.l) return abrirLeccion(+b.dataset.l);
         if (b.dataset.tema) return N5.go("#/gramatica/tema/" + b.dataset.tema);
         if (b.id === "gOpenAll") $$("#gList details").forEach(d => d.open = true);
         if (b.id === "gCloseAll") $$("#gList details").forEach(d => d.open = false);

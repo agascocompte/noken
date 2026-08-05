@@ -23,19 +23,32 @@
     return mejor;
   }
 
+  // La misma consulta se compara contra cientos de significados: la expresión de
+  // «empieza palabra» se compila una vez por consulta, no una por candidato.
+  let ultimaQ = null, bordeDePalabra = null;
+
   // Contra el español. «otoño» empieza por «oto»; «fotografía» solo lo contiene.
   function puntuaEs(q, es) {
     if (!es) return 0;
     const t = String(es).toLowerCase();
+    if (!t.includes(q)) return 0;   // sin esto se parte y se compila para nada
     if (t === q || t.split(/[,;·]|\s+\(/).some(x => x.trim() === q)) return EXACTO_ES;
-    if (new RegExp("\\b" + escapa(q)).test(t)) return PALABRA_ES;
-    return t.includes(q) ? DENTRO_ES : 0;
+    if (q !== ultimaQ) { ultimaQ = q; bordeDePalabra = new RegExp("\\b" + escapa(q)); }
+    return bordeDePalabra.test(t) ? PALABRA_ES : DENTRO_ES;
   }
 
   // 0 = no coincide. Cuanto más alto, más arriba va.
   N5.relevancia = (q, formasJa, es) => Math.max(puntuaJa(q, formasJa), puntuaEs(q, es));
 
-  // Ordena de más a menos relevante. El orden original (lección, frecuencia…)
-  // se conserva entre empates porque Array.sort es estable.
-  N5.porRelevancia = lista => lista.sort((a, b) => b.pts - a.pts);
+  // De más a menos relevante. El orden original (lección, frecuencia, 1–160…) se
+  // conserva entre empates porque Array.sort es estable.
+  const porRelevancia = lista => lista.sort((a, b) => b.pts - a.pts).map(x => x.item);
+
+  // Filtra por relevancia y ordena. Sin consulta devuelve los items tal cual, que
+  // es como se navegan las tablas cuando no estás buscando nada.
+  N5.rankea = (items, q, formasDe, esDe) => q
+    ? porRelevancia(items
+        .map(x => ({ pts: N5.relevancia(q, formasDe(x), esDe(x)), item: x }))
+        .filter(r => r.pts))
+    : items;
 })();

@@ -20,7 +20,7 @@
   }
 
   N5.registerSection({
-    id: "ejercicios", glyph: "練", titulo: "Ejercicios",
+    id: "ejercicios", titulo: "Ejercicios",
     init() {
       const temas = [...new Set(N5.data.drills.map(d => d.tema))];
       $("#dTags").innerHTML = `<button data-tema="all" class="on">Todos</button>` +

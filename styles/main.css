@@ -105,7 +105,7 @@ header.site{
   padding:6px 14px; cursor:pointer; font-size:.92rem; color:var(--ink);
   border-radius:0;
 }
-.gresults .gitem:hover,.gresults .gitem.sel{background:var(--accent-soft)}
+.gresults .gitem:hover{background:var(--accent-soft)}
 .gresults .gitem .gja{font-family:var(--font-jp); margin-right:8px}
 .gresults .gitem .ges{color:var(--ink2); font-size:.85rem}
 .gresults .gnone{padding:12px 14px; color:var(--ink2); font-size:.88rem}
