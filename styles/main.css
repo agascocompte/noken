@@ -367,3 +367,11 @@ body.con-selbar main{padding-bottom:150px}
   padding:0 5px; text-decoration:none; vertical-align:middle;
 }
 a.fuente:hover{filter:brightness(.95)}
+
+/* etiqueta de una fila de filtros (p. ej. «Partícula» en Verbos) */
+.filtro-lbl{
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.07em;
+  color:var(--ink2); font-weight:600;
+}
+.chips button .muted{font-size:.75rem; font-variant-numeric:tabular-nums}
+.chips button.on .muted{color:inherit; opacity:.7}

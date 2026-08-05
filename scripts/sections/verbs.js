@@ -5,7 +5,12 @@
 
 (() => {
   const { $, $$, esc, rubyEsc, moraMatch, normQuery } = N5;
-  let group = "all";
+  let group = "all", part = "all";
+
+  // 32 verbos rigen dos partículas («おくる 〜を／〜に»): al filtrar por を
+  // tienen que salir también, así que se compara contra cada una por separado.
+  const particulasDe = v => v.particula === "—" ? [] : v.particula.split("／").map(p => p.replace(/^〜/, "").trim());
+  const cuadra = v => part === "all" || (part === "sin" ? v.particula === "—" : particulasDe(v).includes(part));
 
   const dicLabel = v => v.kana + (v.kanji ? " " + v.kanji : "") + (v.grupoTrampa ? " ★" : "");
   const marcaFuente = v => v.fuente ? ` <span class="fuente" title="Del Sōmatome, no del Minna">総</span>` : "";
@@ -16,6 +21,7 @@
     let rows = "", n = 0;
     for (const v of N5.data.verbs) {
       if (group !== "all" && String(v.grupo) !== group) continue;
+      if (!cuadra(v)) continue;
       if (q) {
         const broad = dicLabel(v).includes(q) || v.es.toLowerCase().includes(q);
         const exact = [v.kana, v.masu, v.te, v.ta, v.nai].some(x => moraMatch(x, q));
@@ -39,6 +45,17 @@
   N5.registerSection({
     id: "verbos", glyph: "動", titulo: "Verbos",
     init() {
+      // Las pastillas salen de los datos, ordenadas por frecuencia; las partículas
+      // de un solo verbo (〜く de なる, 〜について de かんがえる) no merecen filtro.
+      const cuenta = new Map();
+      for (const v of N5.data.verbs) for (const p of particulasDe(v)) cuenta.set(p, (cuenta.get(p) || 0) + 1);
+      const sinParticula = N5.data.verbs.filter(v => v.particula === "—").length;
+      $("#vbParticles").innerHTML =
+        `<button data-p="all" class="on">Todas</button>` +
+        [...cuenta].filter(([, n]) => n > 1).sort((a, b) => b[1] - a[1])
+          .map(([p, n]) => `<button data-p="${esc(p)}" class="jp">〜${esc(p)} <span class="muted">${n}</span></button>`).join("") +
+        (sinParticula ? `<button data-p="sin">Sin partícula <span class="muted">${sinParticula}</span></button>` : "");
+
       $("#vbSearch").addEventListener("input", render);
       $("#vbGroups").addEventListener("click", e => {
         const b = e.target.closest("button"); if (!b) return;
@@ -46,10 +63,21 @@
         $$("#vbGroups button").forEach(x => x.classList.toggle("on", x === b));
         render();
       });
+      $("#vbParticles").addEventListener("click", e => {
+        const b = e.target.closest("button"); if (!b) return;
+        part = b.dataset.p;
+        $$("#vbParticles button").forEach(x => x.classList.toggle("on", x === b));
+        render();
+      });
       render();
     },
     onRoute({ params }) {
-      if (params.has("q")) { $("#vbSearch").value = params.get("q"); render(); }
+      if (params.has("particula")) {
+        part = params.get("particula");
+        $$("#vbParticles button").forEach(x => x.classList.toggle("on", x.dataset.p === part));
+      }
+      if (params.has("q")) $("#vbSearch").value = params.get("q");
+      if (params.has("q") || params.has("particula")) render();
     }
   });
 })();
