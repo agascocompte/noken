@@ -130,7 +130,7 @@ main{max-width:1300px; margin:0 auto; padding:28px 20px 90px}
 section.panel{display:none}
 section.panel.active{display:block}
 h2{font-family:var(--font-jp); font-weight:600; font-size:1.45rem; margin:.2em 0 .35em; text-wrap:balance}
-.lead{color:var(--ink2); max-width:65ch; margin:0 0 22px}
+.lead{color:var(--ink2); margin:0 0 22px}
 
 .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:0 0 16px}
 input[type=search], select{
