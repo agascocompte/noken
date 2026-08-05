@@ -38,7 +38,7 @@
 
   const puntoHTML = (p, extra = "") => `
     <div class="gpoint">
-      <h4><span class="pat jp">${rubyEsc(p.patron)}</span>${p.fuente ? ` <span class="fuente" title="Del Sōmatome, no del Minna">総</span>` : ""}${extra}</h4>
+      <h4><span class="pat jp">${rubyEsc(p.patron)}</span>${N5.fuenteDe(p) ? ` <span class="fuente" title="${esc(N5.fuenteDe(p).titulo)}">${N5.fuenteDe(p).sigla}</span>` : ""}${extra}</h4>
       <p>${ruby(p.explicacion)}</p>
       ${p.ejemplos.map(x => `<div class="ex"><span class="j jp">${rubyEsc(x.jp)}</span><span class="s">${esc(x.es)}</span></div>`).join("")}
       <div class="gtags">${p.temas.map(t => TEMAS[t] ? `<button data-tema="${t}">${TEMAS[t]}</button>` : "").join("")}</div>

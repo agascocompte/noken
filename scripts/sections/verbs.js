@@ -13,7 +13,10 @@
   const cuadra = v => part === "all" || (part === "sin" ? v.particula === "—" : particulasDe(v).includes(part));
 
   const dicLabel = v => v.kana + (v.kanji ? " " + v.kanji : "") + (v.grupoTrampa ? " ★" : "");
-  const marcaFuente = v => v.fuente ? ` <span class="fuente" title="Del Sōmatome, no del Minna">総</span>` : "";
+  const marcaFuente = v => {
+    const f = N5.fuenteDe(v);
+    return f ? ` <span class="fuente" title="${esc(f.titulo)}">${f.sigla}</span>` : "";
+  };
   const cell = (v, forma) => esc(v[forma]) + ((v.irregularEn || []).includes(forma) ? " ★" : "");
 
   function render() {

@@ -7069,5 +7069,40 @@ N5.data.vocab=
   "es": "tifón",
   "leccion": null,
   "fuente": "soumatome"
+ },
+ {
+  "kana": "きかん",
+  "kanji": "期間",
+  "es": "periodo, plazo",
+  "leccion": null,
+  "fuente": "extra"
+ },
+ {
+  "kana": "ばしょ",
+  "kanji": "場所",
+  "es": "lugar, sitio",
+  "leccion": null,
+  "fuente": "extra"
+ },
+ {
+  "kana": "きぶん",
+  "kanji": "気分",
+  "es": "estado de ánimo (気分が悪いです: me encuentro mal)",
+  "leccion": null,
+  "fuente": "extra"
+ },
+ {
+  "kana": "しょうらい",
+  "kanji": "将来",
+  "es": "futuro",
+  "leccion": null,
+  "fuente": "extra"
+ },
+ {
+  "kana": "こうじょう",
+  "kanji": "工場",
+  "es": "fábrica",
+  "leccion": null,
+  "fuente": "extra"
  }
 ];

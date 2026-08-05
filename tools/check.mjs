@@ -13,6 +13,8 @@ for (const f of ["vocab", "grammar", "verbs", "kanji", "reference", "drills", "k
   new Function("window", "N5", readFileSync(join(root, "data", f + ".js"), "utf8"))(globalThis.window, N5);
 
 const d = N5.data;
+// mismas claves que N5.FUENTES en scripts/dom.js
+const FUENTES = ["soumatome", "extra"];
 let errores = 0;
 const err = m => { console.error("  ✗", m); errores++; };
 const ok = m => console.log("  ✓", m);
@@ -37,8 +39,9 @@ console.log("vocab");
     for (const c of ["kana", "kanji", "es", "leccion"]) if (!(c in w)) err(`campo ${c} ausente en ${JSON.stringify(w)}`);
     const k = w.kana + "|" + w.kanji;
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
-    // las del Minna llevan lección; las de otras fuentes (Sōmatome) van sin ella
+    // las del Minna llevan lección; las de otras fuentes van sin ella
     if (w.fuente) {
+      if (!FUENTES.includes(w.fuente)) err(`${w.kana}: fuente desconocida «${w.fuente}»`);
       if (w.leccion !== null) err(`${w.kana}: con fuente «${w.fuente}» la lección debe ser null`);
     } else if (typeof w.leccion !== "number" || w.leccion < 1 || w.leccion > 25) {
       err("lección inválida: " + JSON.stringify(w));
