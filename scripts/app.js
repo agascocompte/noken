@@ -48,5 +48,6 @@
     N5.initSearch();
     N5.startRouter();
     N5.initExport();   // después del router: necesita saber qué panel está activo
+    N5.initAudio();
   });
 })();

@@ -375,3 +375,15 @@ a.fuente:hover{filter:brightness(.95)}
 }
 .chips button .muted{font-size:.75rem; font-variant-numeric:tabular-nums}
 .chips button.on .muted{color:inherit; opacity:.7}
+
+/* la misma barra hace de selector y de reproductor */
+.play-only{display:none}
+.selbar.tocando .sel-only{display:none}
+.selbar.tocando .play-only{display:inline-block}
+.playnow{
+  display:none; font-size:.9rem; color:var(--ink);
+  max-width:min(46ch, 60vw); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.selbar.tocando .playnow{display:inline-block}
+.selbar.tocando .selcount{display:none}
+.selbar select{padding:4px 8px; font-size:.85rem}

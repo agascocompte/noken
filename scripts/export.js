@@ -32,9 +32,8 @@
   // ---------- de dato a fila ----------
   const esKana   = c => /[ぁ-ゖァ-ヺー]/.test(c);
   const soloKata = s => /^[ァ-ヶー]+$/.test(s.replace(/[・\s]/g, ""));
-  const limpia   = s => String(s).replace(/[\[\]（）]/g, "");
   // Romaji de la primera lectura: 「あ・ける、ひら・く」 → akeru
-  const romaji   = s => (s ? N5.romaji(limpia(s).replace(/・/g, "").split("、")[0]) : "");
+  const romaji   = s => (s ? N5.romaji(N5.limpiaEntrada(s).replace(/・/g, "").split("、")[0]) : "");
 
   // Forma ます en kanji: se cambia la cola kana del diccionario por la de ます.
   // 会う+あう+あいます → 会います.  Se corta por longitud, así 来る+くる+きます → 来ます.
@@ -50,8 +49,8 @@
   function filas() {
     const out = [];
     for (const w of N5.data.vocab) if (sel.has(N5.selId.vocab(w))) {
-      const k = limpia(w.kana), kata = soloKata(k);
-      out.push([w.es, romaji(k), kata ? "" : k, kata ? k : "", limpia(w.kanji)]);
+      const k = N5.limpiaEntrada(w.kana), kata = soloKata(k);
+      out.push([w.es, romaji(k), kata ? "" : k, kata ? k : "", N5.limpiaEntrada(w.kanji)]);
     }
     for (const v of N5.data.verbs) if (sel.has(N5.selId.verbo(v)))
       out.push([v.es, romaji(v.masu), v.masu, "", masuKanji(v)]);

@@ -3,7 +3,8 @@
     "allow": [
       "Skill(artifact-design)",
       "Skill(artifact-design:*)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(say -v '?')"
     ]
   }
 }

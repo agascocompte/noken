@@ -36,6 +36,9 @@ N5.lectura = s => String(s).replace(N5.FURIGANA, "$2");
 // 漢字[かんじ] → 漢字 (quita la lectura y deja el texto corrido)
 N5.sinFurigana = s => String(s).replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
 
+// Quita los adornos de opcionalidad de una entrada: [お]てら → おてら, きれい（な） → きれいな
+N5.limpiaEntrada = s => String(s).replace(/[\[\]（）]/g, "");
+
 // Texto ruby ya escapado (atajo habitual al renderizar datos).
 N5.rubyEsc = s => N5.ruby(N5.esc(s));
 
