@@ -66,8 +66,13 @@
       const u = new SpeechSynthesisUtterance(texto);
       if (voz) { u.voice = voz; u.lang = voz.lang; }
       u.rate = rate;
-      u.onend = resolver;
-      u.onerror = resolver;   // si una falla, seguimos con la siguiente
+      let listo = false;
+      const fin = () => { if (!listo) { listo = true; clearTimeout(reloj); resolver(); } };
+      u.onend = fin;
+      u.onerror = fin;   // si una falla, seguimos con la siguiente
+      // Red de seguridad: si el navegador se traga el «he terminado», el bucle se
+      // quedaría colgado para siempre. Se calcula un techo generoso y se sigue.
+      const reloj = setTimeout(fin, 1500 + texto.length * 260 / rate);
       speechSynthesis.speak(u);
     });
   }
@@ -104,15 +109,19 @@
     }
   }
 
-  async function arranca() {
+  function arranca() {
     lista = N5.shuffle(cola());
     if (!lista.length) return;
     i = 0; sonando = true;
-    await pideWakeLock();
     // algunos navegadores dejan la síntesis en pausa tras un rato: esto la despierta
     ping = setInterval(() => speechSynthesis.resume(), 8000);
     pinta();
+    // En iOS (y por tanto en cualquier navegador del iPhone, que por dentro son
+    // WebKit) la primera locución solo suena si sale dentro del gesto que la pidió.
+    // Por eso el bucle arranca aquí, sin ningún await por delante…
     bucle();
+    // …y el bloqueo de pantalla se pide después, sin esperarlo.
+    pideWakeLock();
   }
 
   function para() {
