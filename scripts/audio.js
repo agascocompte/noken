@@ -2,9 +2,13 @@
 // que intentes recordarlo, y dice el español. Al terminar la vuelta baraja y
 // vuelve a empezar, sin límite.
 //
-// Usa la voz del navegador (SpeechSynthesis). Los navegadores la suspenden al
-// bloquear la pantalla, así que mientras suena se pide un Wake Lock para que el
-// móvil no se apague: la idea es dejarlo boca abajo, como con un vídeo.
+// Usa la voz del navegador (SpeechSynthesis), que los móviles suspenden al
+// bloquear la pantalla. Para que aguante toda la noche hacen falta DOS cosas, y
+// cada una resuelve un problema distinto:
+//   · un Wake Lock, que evita que la pantalla se apague sola
+//   · un audio en silencio en bucle, que hace que iOS trate la página como un
+//     reproductor y siga hablando aunque bloquees el móvil a mano
+// Ver los comentarios de pideWakeLock() y mantenVivo() antes de tocar ninguna.
 "use strict";
 
 (() => {
@@ -92,9 +96,12 @@
     pinta();
   }
 
-  // Un audio en silencio en bucle: mientras algo se reproduce de verdad, el móvil
-  // mantiene viva la página. Es lo único que queda por intentar donde no hay
-  // bloqueo de pantalla; no garantiza nada, pero no estorba.
+  // ⚠ NO QUITAR: parece un truco inútil y es lo que sostiene el caso de uso.
+  // Un audio en silencio en bucle hace que iOS trate la página como un
+  // reproductor de verdad, y entonces la voz SIGUE SONANDO con el móvil
+  // bloqueado. Sin esto, iOS suspende la síntesis en cuanto se apaga la
+  // pantalla, y escuchar la lista en la cama deja de funcionar.
+  // (Comprobado en un iPhone real; en escritorio no se nota nada.)
   function wavSilencioso() {
     const sr = 8000, n = sr;                       // un segundo
     const buf = new ArrayBuffer(44 + n * 2), v = new DataView(buf);
