@@ -57,6 +57,7 @@
     rapido:  { rate: 1.1,  huecoJa: 600,  huecoEs: 400 }
   };
   let lista = [], i = 0, sonando = false, wakeLock = null, ping = null;
+  let silencio = null, sinBloqueo = false;
 
   const espera = ms => new Promise(r => setTimeout(r, ms));
   const ritmo = () => RITMOS[$("#playRitmo").value] || RITMOS.normal;
@@ -78,8 +79,37 @@
   }
 
   // El móvil apaga la pantalla y con ella la voz; esto lo evita mientras suena.
+  // No está en todas partes: Chrome del iPhone (que por dentro es WKWebView) no
+  // lo trae. Si no se consigue hay que decirlo, no callárselo.
   async function pideWakeLock() {
-    try { wakeLock = await navigator.wakeLock?.request("screen") ?? null; } catch { wakeLock = null; }
+    try {
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener?.("release", () => { wakeLock = null; });
+      sinBloqueo = false;
+    } catch {
+      wakeLock = null; sinBloqueo = true;
+    }
+    pinta();
+  }
+
+  // Un audio en silencio en bucle: mientras algo se reproduce de verdad, el móvil
+  // mantiene viva la página. Es lo único que queda por intentar donde no hay
+  // bloqueo de pantalla; no garantiza nada, pero no estorba.
+  function wavSilencioso() {
+    const sr = 8000, n = sr;                       // un segundo
+    const buf = new ArrayBuffer(44 + n * 2), v = new DataView(buf);
+    const txt = (off, s) => [...s].forEach((c, i) => v.setUint8(off + i, c.charCodeAt(0)));
+    txt(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); txt(8, "WAVEfmt ");
+    v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true);
+    v.setUint16(34, 16, true); txt(36, "data"); v.setUint32(40, n * 2, true);
+    return URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+  }
+  function mantenVivo(si) {
+    if (si) {
+      if (!silencio) { silencio = new Audio(wavSilencioso()); silencio.loop = true; }
+      silencio.play().catch(() => {});
+    } else silencio?.pause();
   }
   // Al volver de segundo plano el bloqueo se pierde: se vuelve a pedir.
   document.addEventListener("visibilitychange", () => {
@@ -90,6 +120,7 @@
     $("#selBar").classList.toggle("tocando", sonando);
     $("#playNow").textContent = sonando && lista[i]
       ? `${lista[i].ja} — ${lista[i].es}` : "";
+    $("#playWarn").hidden = !(sonando && sinBloqueo);
   }
 
   async function bucle() {
@@ -120,6 +151,7 @@
     // WebKit) la primera locución solo suena si sale dentro del gesto que la pidió.
     // Por eso el bucle arranca aquí, sin ningún await por delante…
     bucle();
+    mantenVivo(true);
     // …y el bloqueo de pantalla se pide después, sin esperarlo.
     pideWakeLock();
   }
@@ -128,7 +160,9 @@
     sonando = false;
     speechSynthesis.cancel();
     clearInterval(ping); ping = null;
+    mantenVivo(false);
     wakeLock?.release?.().catch(() => {}); wakeLock = null;
+    sinBloqueo = false;
     pinta();
   }
 

@@ -387,3 +387,5 @@ a.fuente:hover{filter:brightness(.95)}
 .selbar.tocando .playnow{display:inline-block}
 .selbar.tocando .selcount{display:none}
 .selbar select{padding:4px 8px; font-size:.85rem}
+.playwarn{font-size:.8rem; color:var(--beni)}
+.selbar.tocando .playwarn[hidden]{display:none}
