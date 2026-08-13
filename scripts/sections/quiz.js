@@ -3,15 +3,36 @@
 // ves tu nota y las falladas. Nada más.
 //
 // Se puede preguntar solo de lo que tengas marcado (la misma selección que
-// exporta a CSV) y elegir la dirección. Ojo: aunque las preguntas salgan de
-// una selección de 13 kanji, los distractores salen del temario completo; si
-// no, se acertaría por descarte en vez de por saberlo.
+// exporta a CSV) y elegir la dirección.
+//
+// Los distractores salen del MISMO sitio que la pregunta. Si estás repasando
+// solo los verbos del grupo III y las otras opciones son de otros grupos, se
+// descartan de un vistazo sin saberte nada. Solo cuando lo marcado no da para
+// tres opciones distintas se completa con el temario entero.
 "use strict";
 
 (() => {
   const { $, esc, rubyEsc, shuffle, sample } = N5;
 
-  // ---- generadores (origen = de dónde sale la pregunta, todo = de dónde los distractores) ----
+  // ---- generadores ----
+  // origen = de dónde sale la pregunta y, a ser posible, también los distractores.
+  // todo = temario completo, solo como relleno si el origen se queda corto.
+  function distractores(origen, todo, n, valor, correcta) {
+    const vistos = new Set([correcta]);
+    const saca = lista => {
+      const out = [];
+      for (const x of shuffle(lista)) {
+        const v = valor(x);
+        if (!v || vistos.has(v)) continue;
+        vistos.add(v); out.push(v);
+        if (out.length === n) break;
+      }
+      return out;
+    };
+    const d = saca(origen);
+    return d.length === n ? d : d.concat(saca(todo)).slice(0, n);
+  }
+
 
   function qVocab(origen, todo, dir) {
     const V = origen.filter(w => !w.kana.includes("〜"));
@@ -20,46 +41,42 @@
     const label = w.kana + (w.kanji ? "（" + w.kanji + "）" : "");
     const haciaEs = dir === "ja-es" || (dir === "azar" && Math.random() < 0.5);
     if (haciaEs) {
-      const distr = sample(todo.filter(x => x.es !== w.es), 3).map(x => x.es);
+      const distr = distractores(origen, todo, 3, x => x.es, w.es);
       return { q: `¿Qué significa 「${esc(label)}」?`, opciones: shuffle([w.es, ...distr]), correcta: w.es };
     }
-    const distr = sample(todo.filter(x => x.kana !== w.kana), 3).map(x => x.kana);
+    const distr = distractores(origen, todo, 3, x => x.kana, w.kana);
     return { q: `¿Cómo se dice «${esc(w.es)}»?`, opciones: shuffle([w.kana, ...distr]), correcta: w.kana };
   }
 
   function qKanji(origen, todo, dir) {
     const k = sample(origen, 1)[0];
     if (dir === "es-ja") {
-      const distr = sample(todo.filter(x => x.kanji !== k.kanji), 3).map(x => x.kanji);
+      const distr = distractores(origen, todo, 3, x => x.kanji, k.kanji);
       return { q: `¿Qué kanji es «${esc(k.significado)}»?`, opciones: shuffle([k.kanji, ...distr]), correcta: k.kanji };
     }
     // en «al azar» se cuelan también preguntas de lectura kun
     if (dir === "ja-es" || !k.kun || Math.random() < 0.5) {
-      const distr = sample(todo.filter(x => x.significado !== k.significado), 3).map(x => x.significado);
+      const distr = distractores(origen, todo, 3, x => x.significado, k.significado);
       return { q: `¿Qué significa 「${k.kanji}」?`, opciones: shuffle([k.significado, ...distr]), correcta: k.significado };
     }
-    const distr = sample(todo.filter(x => x.kun && x.kun !== k.kun), 3).map(x => x.kun);
+    const distr = distractores(origen, todo, 3, x => x.kun, k.kun);
     return { q: `¿Cuál es la lectura kun de 「${k.kanji}」 (${esc(k.significado)})?`, opciones: shuffle([k.kun, ...distr]), correcta: k.kun };
   }
 
   function qVerbo(origen, todo, dir) {
     const v = sample(origen, 1)[0];
     if (dir === "ja-es") {
-      const distr = sample(todo.filter(x => x.es !== v.es), 3).map(x => x.es);
+      const distr = distractores(origen, todo, 3, x => x.es, v.es);
       return { q: `¿Qué significa 「${esc(v.masu)}」?`, opciones: shuffle([v.es, ...distr]), correcta: v.es };
     }
     if (dir === "es-ja") {
-      const distr = sample(todo.filter(x => x.masu !== v.masu), 3).map(x => x.masu);
+      const distr = distractores(origen, todo, 3, x => x.masu, v.masu);
       return { q: `¿Cómo se dice «${esc(v.es)}»?`, opciones: shuffle([v.masu, ...distr]), correcta: v.masu };
     }
     if (Math.random() < 0.6) {   // conjugación
       const forma = sample(["te", "ta", "nai"], 1)[0];
       const nombre = { te: "て", ta: "た", nai: "ない" }[forma];
-      const distr = [];
-      for (const o of shuffle(todo)) {
-        if (o[forma] !== v[forma] && !distr.includes(o[forma])) distr.push(o[forma]);
-        if (distr.length === 3) break;
-      }
+      const distr = distractores(origen, todo, 3, o => o[forma], v[forma]);
       return { q: `¿Cuál es la forma ${nombre} de 「${esc(v.masu)}」 (${esc(v.es)})?`, opciones: shuffle([v[forma], ...distr]), correcta: v[forma] };
     }
     // partícula regida
