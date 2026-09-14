@@ -25,7 +25,8 @@ N5.data.kanji=
     "lectura": "いちがつ",
     "es": "enero"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "二",
@@ -43,7 +44,8 @@ N5.data.kanji=
     "lectura": "ふたり",
     "es": "dos personas"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "三",
@@ -61,7 +63,8 @@ N5.data.kanji=
     "lectura": "さんがつ",
     "es": "marzo"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "四",
@@ -79,7 +82,8 @@ N5.data.kanji=
     "lectura": "よじ",
     "es": "las cuatro"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "五",
@@ -97,7 +101,8 @@ N5.data.kanji=
     "lectura": "ごひゃく",
     "es": "quinientos"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "六",
@@ -115,7 +120,8 @@ N5.data.kanji=
     "lectura": "ろっぴゃく",
     "es": "seiscientos"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "七",
@@ -133,7 +139,8 @@ N5.data.kanji=
     "lectura": "しちじ",
     "es": "las siete"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "八",
@@ -151,7 +158,8 @@ N5.data.kanji=
     "lectura": "はっぴゃく",
     "es": "ochocientos"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "九",
@@ -169,7 +177,8 @@ N5.data.kanji=
     "lectura": "くじ",
     "es": "las nueve"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "十",
@@ -187,7 +196,8 @@ N5.data.kanji=
     "lectura": "じゅっぷん",
     "es": "diez minutos"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "百",
@@ -205,7 +215,8 @@ N5.data.kanji=
     "lectura": "ひゃくえん",
     "es": "cien yenes"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "千",
@@ -223,7 +234,8 @@ N5.data.kanji=
     "lectura": "せんえん",
     "es": "mil yenes"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "万",
@@ -241,7 +253,8 @@ N5.data.kanji=
     "lectura": "じゅうまん",
     "es": "cien mil"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "円",
@@ -259,7 +272,8 @@ N5.data.kanji=
     "lectura": "まるい",
     "es": "redondo"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "人",
@@ -282,7 +296,8 @@ N5.data.kanji=
     "lectura": "さんにん",
     "es": "tres personas"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "日",
@@ -305,7 +320,8 @@ N5.data.kanji=
     "lectura": "みっか",
     "es": "día 3; tres días"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "月",
@@ -328,7 +344,8 @@ N5.data.kanji=
     "lectura": "つき",
     "es": "luna"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "火",
@@ -346,7 +363,8 @@ N5.data.kanji=
     "lectura": "ひ",
     "es": "fuego"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "水",
@@ -364,7 +382,8 @@ N5.data.kanji=
     "lectura": "みず",
     "es": "agua"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "木",
@@ -382,7 +401,8 @@ N5.data.kanji=
     "lectura": "き",
     "es": "árbol"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "金",
@@ -400,7 +420,8 @@ N5.data.kanji=
     "lectura": "おかね",
     "es": "dinero"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "土",
@@ -418,7 +439,8 @@ N5.data.kanji=
     "lectura": "つち",
     "es": "tierra"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "口",
@@ -441,7 +463,8 @@ N5.data.kanji=
     "lectura": "いりぐち",
     "es": "entrada"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "目",
@@ -459,7 +482,8 @@ N5.data.kanji=
     "lectura": "ひとつめ",
     "es": "el primero"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "手",
@@ -482,7 +506,8 @@ N5.data.kanji=
     "lectura": "きって",
     "es": "sello"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "足",
@@ -500,7 +525,8 @@ N5.data.kanji=
     "lectura": "たります",
     "es": "ser suficiente"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "心",
@@ -536,7 +562,8 @@ N5.data.kanji=
     "lectura": "みみ",
     "es": "oreja, oído"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "東",
@@ -554,7 +581,8 @@ N5.data.kanji=
     "lectura": "とうきょう",
     "es": "Tokio"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "西",
@@ -572,7 +600,8 @@ N5.data.kanji=
     "lectura": "かんさい",
     "es": "Kansai"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "南",
@@ -585,7 +614,8 @@ N5.data.kanji=
     "lectura": "みなみ",
     "es": "sur"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "北",
@@ -603,7 +633,8 @@ N5.data.kanji=
     "lectura": "ほっかいどう",
     "es": "Hokkaidō"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "男",
@@ -621,7 +652,8 @@ N5.data.kanji=
     "lectura": "おとこのひと",
     "es": "(un) hombre"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "女",
@@ -639,7 +671,8 @@ N5.data.kanji=
     "lectura": "おんなのひと",
     "es": "(una) mujer"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "子",
@@ -657,7 +690,8 @@ N5.data.kanji=
     "lectura": "おとこのこ",
     "es": "chico"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "父",
@@ -675,7 +709,8 @@ N5.data.kanji=
     "lectura": "おとうさん",
     "es": "padre (de otro)"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "母",
@@ -693,7 +728,8 @@ N5.data.kanji=
     "lectura": "おかあさん",
     "es": "madre (de otro)"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "弟",
@@ -793,7 +829,8 @@ N5.data.kanji=
     "lectura": "ふじさん",
     "es": "monte Fuji"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "川",
@@ -806,7 +843,8 @@ N5.data.kanji=
     "lectura": "かわ",
     "es": "río"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "田",
@@ -934,7 +972,8 @@ N5.data.kanji=
     "lectura": "だいじょうぶ",
     "es": "estar bien"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "小",
@@ -952,7 +991,8 @@ N5.data.kanji=
     "lectura": "しょうがっこう",
     "es": "escuela primaria"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "多",
@@ -970,7 +1010,8 @@ N5.data.kanji=
     "lectura": "たぶん",
     "es": "quizá"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "少",
@@ -988,7 +1029,8 @@ N5.data.kanji=
     "lectura": "すこし",
     "es": "un poco"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "分",
@@ -1006,7 +1048,8 @@ N5.data.kanji=
     "lectura": "わかります",
     "es": "entender"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "年",
@@ -1029,7 +1072,8 @@ N5.data.kanji=
     "lectura": "いちねん",
     "es": "un año"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "前",
@@ -1052,7 +1096,8 @@ N5.data.kanji=
     "lectura": "ごぜん",
     "es": "a.m."
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "後",
@@ -1075,7 +1120,8 @@ N5.data.kanji=
     "lectura": "あとで",
     "es": "después"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "今",
@@ -1098,7 +1144,8 @@ N5.data.kanji=
     "lectura": "こんばん",
     "es": "esta noche"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "午",
@@ -1116,7 +1163,8 @@ N5.data.kanji=
     "lectura": "ごご",
     "es": "p.m."
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "時",
@@ -1139,7 +1187,8 @@ N5.data.kanji=
     "lectura": "ときどき",
     "es": "a veces"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "上",
@@ -1157,7 +1206,8 @@ N5.data.kanji=
     "lectura": "じょうず",
     "es": "hábil"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "下",
@@ -1180,7 +1230,8 @@ N5.data.kanji=
     "lectura": "へた",
     "es": "torpe"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "右",
@@ -1198,7 +1249,8 @@ N5.data.kanji=
     "lectura": "みぎへまがります",
     "es": "girar a la derecha"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "左",
@@ -1211,7 +1263,8 @@ N5.data.kanji=
     "lectura": "ひだり",
     "es": "izquierda"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "中",
@@ -1234,7 +1287,8 @@ N5.data.kanji=
     "lectura": "いちにちじゅう",
     "es": "todo el día"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "方",
@@ -1298,7 +1352,8 @@ N5.data.kanji=
     "lectura": "きぶん",
     "es": "estado de ánimo"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "文",
@@ -1344,7 +1399,8 @@ N5.data.kanji=
     "lectura": "だします",
     "es": "sacar, enviar"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "入",
@@ -1367,7 +1423,8 @@ N5.data.kanji=
     "lectura": "いれます",
     "es": "meter"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "白",
@@ -1380,7 +1437,8 @@ N5.data.kanji=
     "lectura": "しろい",
     "es": "blanco"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "赤",
@@ -1444,7 +1502,8 @@ N5.data.kanji=
     "lectura": "さんぼん",
     "es": "tres (alargados)"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "店",
@@ -1462,7 +1521,8 @@ N5.data.kanji=
     "lectura": "きっさてん",
     "es": "cafetería"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "学",
@@ -1485,7 +1545,8 @@ N5.data.kanji=
     "lectura": "がっこう",
     "es": "escuela"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "校",
@@ -1503,7 +1564,8 @@ N5.data.kanji=
     "lectura": "こうこう",
     "es": "instituto"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "先",
@@ -1526,7 +1588,8 @@ N5.data.kanji=
     "lectura": "さきに",
     "es": "antes, primero"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "生",
@@ -1549,7 +1612,8 @@ N5.data.kanji=
     "lectura": "うまれます",
     "es": "nacer"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "会",
@@ -1572,7 +1636,8 @@ N5.data.kanji=
     "lectura": "かいぎ",
     "es": "reunión"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "社",
@@ -1595,7 +1660,8 @@ N5.data.kanji=
     "lectura": "じんじゃ",
     "es": "santuario sintoísta"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "私",
@@ -1631,7 +1697,8 @@ N5.data.kanji=
     "lectura": "こうこう",
     "es": "instituto"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "安",
@@ -1649,7 +1716,8 @@ N5.data.kanji=
     "lectura": "あんぜん",
     "es": "seguridad"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "太",
@@ -1762,7 +1830,8 @@ N5.data.kanji=
     "lectura": "はんぶん",
     "es": "la mitad"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "間",
@@ -1785,7 +1854,8 @@ N5.data.kanji=
     "lectura": "あいだ",
     "es": "entre"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "道",
@@ -1803,7 +1873,8 @@ N5.data.kanji=
     "lectura": "ほっかいどう",
     "es": "Hokkaidō"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "車",
@@ -1826,7 +1897,8 @@ N5.data.kanji=
     "lectura": "じてんしゃ",
     "es": "bicicleta"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "自",
@@ -1972,7 +2044,8 @@ N5.data.kanji=
     "lectura": "りょこう",
     "es": "viaje"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "来",
@@ -1995,7 +2068,8 @@ N5.data.kanji=
     "lectura": "らいねん",
     "es": "año que viene"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "名",
@@ -2013,7 +2087,8 @@ N5.data.kanji=
     "lectura": "ゆうめい",
     "es": "famoso"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "友",
@@ -2026,7 +2101,8 @@ N5.data.kanji=
     "lectura": "ともだち",
     "es": "amigo"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "新",
@@ -2049,7 +2125,8 @@ N5.data.kanji=
     "lectura": "しんかんせん",
     "es": "tren bala"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "古",
@@ -2062,7 +2139,8 @@ N5.data.kanji=
     "lectura": "ふるい",
     "es": "viejo"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "強",
@@ -2134,7 +2212,8 @@ N5.data.kanji=
     "lectura": "やくにたちます",
     "es": "ser útil"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "若",
@@ -2283,7 +2362,8 @@ N5.data.kanji=
     "lectura": "かいもの",
     "es": "la compra"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "売",
@@ -2414,7 +2494,8 @@ N5.data.kanji=
     "lectura": "ひるやすみ",
     "es": "descanso de mediodía"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "体",
@@ -2450,7 +2531,8 @@ N5.data.kanji=
     "lectura": "ことば",
     "es": "palabra"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "話",
@@ -2473,7 +2555,8 @@ N5.data.kanji=
     "lectura": "はなし",
     "es": "charla"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "聞",
@@ -2491,7 +2574,8 @@ N5.data.kanji=
     "lectura": "しんぶん",
     "es": "periódico"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "書",
@@ -2514,7 +2598,8 @@ N5.data.kanji=
     "lectura": "としょかん",
     "es": "biblioteca"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "読",
@@ -2532,7 +2617,8 @@ N5.data.kanji=
     "lectura": "どくしょ",
     "es": "lectura"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "見",
@@ -2555,7 +2641,8 @@ N5.data.kanji=
     "lectura": "はなみ",
     "es": "ver los cerezos"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "思",
@@ -2686,7 +2773,8 @@ N5.data.kanji=
     "lectura": "あめがふります",
     "es": "llueve"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "病",
@@ -2832,7 +2920,8 @@ N5.data.kanji=
     "lectura": "がいこくじん",
     "es": "extranjero (persona)"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "好",
@@ -2942,7 +3031,8 @@ N5.data.kanji=
     "lectura": "しょくじ",
     "es": "comida"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "飲",
@@ -2960,7 +3050,8 @@ N5.data.kanji=
     "lectura": "のみもの",
     "es": "bebida"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "国",
@@ -2983,7 +3074,8 @@ N5.data.kanji=
     "lectura": "ちゅうごく",
     "es": "China"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "語",
@@ -3006,7 +3098,8 @@ N5.data.kanji=
     "lectura": "えいご",
     "es": "inglés"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "空",
@@ -3024,7 +3117,8 @@ N5.data.kanji=
     "lectura": "くうこう",
     "es": "aeropuerto"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "花",
@@ -3042,7 +3136,8 @@ N5.data.kanji=
     "lectura": "はなみ",
     "es": "ver los cerezos"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "字",
@@ -3106,7 +3201,8 @@ N5.data.kanji=
     "lectura": "でんしゃ",
     "es": "tren"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "明",
@@ -3170,7 +3266,8 @@ N5.data.kanji=
     "lectura": "まいしゅう",
     "es": "cada semana"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "週",
@@ -3188,7 +3285,8 @@ N5.data.kanji=
     "lectura": "らいしゅう",
     "es": "la semana que viene"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "天",
@@ -3206,7 +3304,8 @@ N5.data.kanji=
     "lectura": "てんぷら",
     "es": "tempura"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "魚",
@@ -3219,7 +3318,8 @@ N5.data.kanji=
     "lectura": "さかな",
     "es": "pescado"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "駅",
@@ -3237,7 +3337,8 @@ N5.data.kanji=
     "lectura": "えきまえ",
     "es": "frente a la estación"
    }
-  ]
+  ],
+  "n5": "posible"
  },
  {
   "kanji": "長",
@@ -3255,7 +3356,8 @@ N5.data.kanji=
     "lectura": "しゃちょう",
     "es": "director de empresa"
    }
-  ]
+  ],
+  "n5": "seguro"
  },
  {
   "kanji": "何",
@@ -3278,6 +3380,7 @@ N5.data.kanji=
     "lectura": "なんにん",
     "es": "cuántas personas"
    }
-  ]
+  ],
+  "n5": "seguro"
  }
 ];

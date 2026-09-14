@@ -55,11 +55,19 @@
   <!-- ========== Vocabulario ========== -->
   <section class="panel" id="p-vocabulario">
     <h2>Vocabulario</h2>
-    <p class="lead">Palabras del Minna no Nihongo I por lección. Busca en kana, kanji, romaji o español. Los verbos tienen su propia pestaña con todas las conjugaciones. Las marcadas con <span class="fuente">総</span> vienen del Sōmatome N5 y las marcadas con <span class="fuente">＋</span> las usa la guía en sus ejemplos; ninguna de las dos sale en el Minna, así que al filtrar por lección no aparecen.</p>
+    <p class="lead">Palabras del Minna no Nihongo I por lección. Busca en kana, kanji, romaji o español. Con «Sección» separas la lista de vocabulario de cada lección de su hoja de «Palabras e informaciones de referencia» (marcadas con <span class="reftag">ref</span>). Los verbos tienen su propia pestaña con todas las conjugaciones. Las marcadas con <span class="fuente">総</span> vienen del Sōmatome N5 y las marcadas con <span class="fuente">＋</span> las usa la guía en sus ejemplos; ninguna de las dos sale en el Minna, así que al filtrar por lección no aparecen.</p>
     <div class="toolbar">
       <input type="search" id="vSearch" placeholder="Buscar： わたし・私・yo…" aria-label="Buscar vocabulario">
       <select id="vLesson" aria-label="Filtrar por lección"></select>
       <span class="count" id="vCount"></span>
+    </div>
+    <div class="toolbar" id="vSecciones">
+      <span class="filtro-lbl">Sección</span>
+      <div class="chips">
+        <button data-s="todo" class="on">Todo <span class="muted"></span></button>
+        <button data-s="vocabulario">Vocabulario <span class="muted"></span></button>
+        <button data-s="referencia">Referencia <span class="muted"></span></button>
+      </div>
     </div>
     <div class="tablewrap">
       <table id="vTable">
@@ -185,11 +193,15 @@
 
   <!-- ========== Kanji ========== -->
   <section class="panel" id="p-kanji">
-    <h2>Kanji del N5</h2>
-    <p class="lead">Los kanji oficiales del nivel N5. Toca una ficha para ver palabras de ejemplo. Lecturas: <b>ON</b> en katakana, <b>kun</b> en hiragana.</p>
+    <h2>Kanji</h2>
+    <p class="lead">Los 160 kanji de Japonés en viñetas I, en su orden, más algunos del N5. Toca una ficha para ver palabras de ejemplo. Lecturas: <b>ON</b> en katakana, <b>kun</b> en hiragana. Como el N5 no tiene lista oficial, <span class="n5tag seguro">N5</span> marca los que coinciden en dar por N5 las listas consultadas y <span class="n5tag posible">N5?</span> los que solo aparecen en la lista antigua de 103.</p>
     <div class="toolbar">
       <input type="search" id="kSearch" placeholder="Buscar： 日・にち・día…" aria-label="Buscar kanji">
       <span class="count" id="kCount"></span>
+    </div>
+    <div class="toolbar">
+      <span class="filtro-lbl">Nivel</span>
+      <div class="chips" id="kNiveles"></div>
     </div>
     <div class="kanji-grid" id="kGrid"></div>
   </section>

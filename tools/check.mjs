@@ -36,6 +36,9 @@ console.log("vocab");
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
     // las del Minna llevan lección; las de otras fuentes van sin ella
     fuenteMal(w, w.kana);
+    // «seccion» solo tiene sentido en palabras del Minna: la hoja de referencia de la lección
+    if (w.seccion !== undefined && (w.seccion !== "referencia" || w.fuente))
+      err(`${w.kana}: seccion inválida «${w.seccion}»${w.fuente ? " (no es del Minna)" : ""}`);
     if (w.fuente) {
       if (w.leccion !== null) err(`${w.kana}: con fuente «${w.fuente}» la lección debe ser null`);
     } else if (typeof w.leccion !== "number" || w.leccion < 1 || w.leccion > 25) {
@@ -43,7 +46,9 @@ console.log("vocab");
     }
   }
   const otras = d.vocab.filter(w => w.fuente).length;
+  const ref = d.vocab.filter(w => w.seccion === "referencia").length;
   ok(d.vocab.length + " palabras, sin duplicados" + (otras ? ` (${otras} de fuentes distintas del Minna)` : ""));
+  ok(`del Minna: ${d.vocab.length - otras - ref} de vocabulario y ${ref} de las hojas de referencia`);
 }
 
 console.log("verbs");
@@ -85,8 +90,10 @@ console.log("kanji");
   for (const k of d.kanji) {
     if (seen.has(k.kanji)) err("duplicado: " + k.kanji); else seen.add(k.kanji);
     if (!k.ejemplos?.length) err(k.kanji + " sin ejemplos");
+    if (k.n5 !== undefined && !["seguro", "posible"].includes(k.n5)) err(`${k.kanji}: n5 inválido «${k.n5}»`);
   }
-  ok(d.kanji.length + " kanji, sin duplicados");
+  const n5 = t => d.kanji.filter(k => k.n5 === t).length;
+  ok(d.kanji.length + ` kanji, sin duplicados (N5: ${n5("seguro")} seguros y ${n5("posible")} posibles)`);
 }
 
 console.log("reference / drills / kana");

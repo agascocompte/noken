@@ -2093,9 +2093,9 @@ N5.data.vocab=
   "leccion": 11
  },
  {
-  "kana": "カレー",
+  "kana": "カレー[ライス]",
   "kanji": "",
-  "es": "curry",
+  "es": "curry (con arroz)",
   "leccion": 11
  },
  {
@@ -2867,12 +2867,6 @@ N5.data.vocab=
   "leccion": 17
  },
  {
-  "kana": "おなか",
-  "kanji": "",
-  "es": "barriga, estómago",
-  "leccion": 17
- },
- {
   "kana": "いたい",
   "kanji": "痛い",
   "es": "doler, que duele",
@@ -3221,16 +3215,11 @@ N5.data.vocab=
   "leccion": 21
  },
  {
-  "kana": "うわぎ",
-  "kanji": "上着",
-  "es": "chaqueta",
-  "leccion": 22
- },
- {
   "kana": "ワイシャツ",
   "kanji": "",
   "es": "camisa (de vestir)",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ぼうし",
@@ -3266,19 +3255,22 @@ N5.data.vocab=
   "kana": "くつした",
   "kanji": "靴下",
   "es": "calcetines",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "スカート",
   "kanji": "",
   "es": "falda",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ズボン",
   "kanji": "",
   "es": "pantalones",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "サイズ",
@@ -3344,7 +3336,8 @@ N5.data.vocab=
   "kana": "ガソリンスタンド",
   "kanji": "",
   "es": "gasolinera",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "こうばん",
@@ -4199,6 +4192,12 @@ N5.data.vocab=
   "leccion": 12
  },
  {
+  "kana": "シンガポール",
+  "kanji": "",
+  "es": "Singapur",
+  "leccion": 12
+ },
+ {
   "kana": "たいへん（な）",
   "kanji": "大変",
   "es": "duro, terrible",
@@ -4412,6 +4411,18 @@ N5.data.vocab=
   "kana": "[いいえ、]まだまだです",
   "kanji": "",
   "es": "¡qué va!, aún me falta mucho",
+  "leccion": 16
+ },
+ {
+  "kana": "ベトナム",
+  "kanji": "",
+  "es": "Vietnam",
+  "leccion": 16
+ },
+ {
+  "kana": "おなか",
+  "kanji": "",
+  "es": "barriga, estómago",
   "leccion": 16
  },
  {
@@ -4826,7 +4837,8 @@ N5.data.vocab=
   "kana": "おとしだま",
   "kanji": "お年玉",
   "es": "aguinaldo de Año Nuevo (para niños)",
-  "leccion": 24
+  "leccion": 24,
+  "seccion": "referencia"
  },
  {
   "kana": "たいしかん",
@@ -4874,505 +4886,559 @@ N5.data.vocab=
   "kana": "カナダ",
   "kanji": "",
   "es": "Canadá",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "スペインご",
   "kanji": "スペイン語",
   "es": "español (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "フランスご",
   "kanji": "フランス語",
   "es": "francés (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "イタリアご",
   "kanji": "イタリア語",
   "es": "italiano (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ちゅうごくご",
   "kanji": "中国語",
   "es": "chino (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "かんこくご",
   "kanji": "韓国語",
   "es": "coreano (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ポルトガルご",
   "kanji": "ポルトガル語",
   "es": "portugués (idioma)",
-  "leccion": 1
- },
- {
-  "kana": "イタリア",
-  "kanji": "",
-  "es": "Italia",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "イラン",
   "kanji": "",
   "es": "Irán",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "エジプト",
   "kanji": "",
   "es": "Egipto",
-  "leccion": 1
- },
- {
-  "kana": "オーストラリア",
-  "kanji": "",
-  "es": "Australia",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "サウジアラビア",
   "kanji": "",
   "es": "Arabia Saudí",
-  "leccion": 1
- },
- {
-  "kana": "シンガポール",
-  "kanji": "",
-  "es": "Singapur",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "フィリピン",
   "kanji": "",
   "es": "Filipinas",
-  "leccion": 1
- },
- {
-  "kana": "ベトナム",
-  "kanji": "",
-  "es": "Vietnam",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "マレーシア",
   "kanji": "",
   "es": "Malasia",
-  "leccion": 1
- },
- {
-  "kana": "メキシコ",
-  "kanji": "",
-  "es": "México",
-  "leccion": 1
- },
- {
-  "kana": "ロシア",
-  "kanji": "",
-  "es": "Rusia",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ペルシアご",
   "kanji": "ペルシア語",
   "es": "persa (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ヒンディーご",
   "kanji": "ヒンディー語",
   "es": "hindi (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "アラビアご",
   "kanji": "アラビア語",
   "es": "árabe (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "インドネシアご",
   "kanji": "インドネシア語",
   "es": "indonesio (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "タイご",
   "kanji": "タイ語",
   "es": "tailandés (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ドイツご",
   "kanji": "ドイツ語",
   "es": "alemán (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "フィリピノご",
   "kanji": "フィリピノ語",
   "es": "filipino (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ベトナムご",
   "kanji": "ベトナム語",
   "es": "vietnamita (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "マレーご",
   "kanji": "マレー語",
   "es": "malayo (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "ロシアご",
   "kanji": "ロシア語",
   "es": "ruso (idioma)",
-  "leccion": 1
+  "leccion": 1,
+  "seccion": "referencia"
  },
  {
   "kana": "おくじょう",
   "kanji": "屋上",
   "es": "azotea",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "おもちゃ",
   "kanji": "",
   "es": "juguete",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "ぶんぼうぐ",
   "kanji": "文房具",
   "es": "artículos de papelería",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "かぐ",
   "kanji": "家具",
   "es": "muebles",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "しょっき",
   "kanji": "食器",
   "es": "vajilla",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "でんきせいひん",
   "kanji": "電気製品",
   "es": "electrodomésticos",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "アクセサリー",
   "kanji": "",
   "es": "accesorios, bisutería",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "けしょうひん",
   "kanji": "化粧品",
   "es": "cosméticos",
-  "leccion": 3
+  "leccion": 3,
+  "seccion": "referencia"
  },
  {
   "kana": "しょくりょうひん",
   "kanji": "食料品",
   "es": "alimentación (sección)",
+  "leccion": 3,
+  "seccion": "referencia"
+ },
+ {
+  "kana": "イタリア",
+  "kanji": "",
+  "es": "Italia",
   "leccion": 3
  },
  {
   "kana": "きゅうり",
   "kanji": "",
   "es": "pepino",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "トマト",
   "kanji": "",
   "es": "tomate",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "なす",
   "kanji": "",
   "es": "berenjena",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "まめ",
   "kanji": "豆",
   "es": "legumbres",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "キャベツ",
   "kanji": "",
   "es": "col, repollo",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ねぎ",
   "kanji": "",
   "es": "cebolleta",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "はくさい",
   "kanji": "白菜",
   "es": "col china",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ほうれんそう",
   "kanji": "",
   "es": "espinacas",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "レタス",
   "kanji": "",
   "es": "lechuga",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "じゃがいも",
   "kanji": "",
   "es": "patata",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "だいこん",
   "kanji": "大根",
   "es": "nabo japonés",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "たまねぎ",
   "kanji": "",
   "es": "cebolla",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "にんじん",
   "kanji": "",
   "es": "zanahoria",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "いちご",
   "kanji": "",
   "es": "fresa",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "もも",
   "kanji": "",
   "es": "melocotón",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "すいか",
   "kanji": "",
   "es": "sandía",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ぶどう",
   "kanji": "",
   "es": "uvas",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "なし",
   "kanji": "",
   "es": "pera japonesa",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "かき",
   "kanji": "柿",
   "es": "caqui",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "バナナ",
   "kanji": "",
   "es": "plátano",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ぎゅうにく",
   "kanji": "牛肉",
   "es": "carne de ternera",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "とりにく",
   "kanji": "とり肉",
   "es": "pollo (carne)",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ぶたにく",
   "kanji": "豚肉",
   "es": "carne de cerdo",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ソーセージ",
   "kanji": "",
   "es": "salchicha",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "ハム",
   "kanji": "",
   "es": "jamón",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "さけ",
   "kanji": "",
   "es": "salmón",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "まぐろ",
   "kanji": "",
   "es": "atún",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "えび",
   "kanji": "",
   "es": "gamba, langostino",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "かに",
   "kanji": "",
   "es": "cangrejo",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "いか",
   "kanji": "",
   "es": "calamar",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "たこ",
   "kanji": "",
   "es": "pulpo",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "こめ",
   "kanji": "米",
   "es": "arroz (sin cocer)",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "あじ",
   "kanji": "",
   "es": "jurel",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "いわし",
   "kanji": "",
   "es": "sardina",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "さば",
   "kanji": "",
   "es": "caballa",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "さんま",
   "kanji": "",
   "es": "paparda (pez)",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "たい",
   "kanji": "",
   "es": "besugo",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "たら",
   "kanji": "",
   "es": "bacalao",
-  "leccion": 6
+  "leccion": 6,
+  "seccion": "referencia"
  },
  {
   "kana": "かい",
   "kanji": "",
   "es": "moluscos, marisco de concha",
+  "leccion": 6,
+  "seccion": "referencia"
+ },
+ {
+  "kana": "メキシコ",
+  "kanji": "",
+  "es": "México",
   "leccion": 6
  },
  {
   "kana": "そふ",
   "kanji": "祖父",
   "es": "mi abuelo",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "そぼ",
   "kanji": "祖母",
   "es": "mi abuela",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "むすこ",
   "kanji": "息子",
   "es": "mi hijo",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "むすめ",
   "kanji": "娘",
   "es": "mi hija",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "むすこさん",
   "kanji": "息子さん",
   "es": "hijo (de otro)",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "むすめさん",
   "kanji": "娘さん",
   "es": "hija (de otro)",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "おこさん",
   "kanji": "お子さん",
   "es": "hijo/a (de otro)",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "ふうふ",
   "kanji": "夫婦",
   "es": "matrimonio (pareja)",
-  "leccion": 7
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "ケータイ",
@@ -5390,277 +5456,316 @@ N5.data.vocab=
   "kana": "きいろい",
   "kanji": "黄色い",
   "es": "amarillo",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "ちゃいろい",
   "kanji": "茶色い",
   "es": "marrón",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "むらさき",
   "kanji": "紫",
   "es": "morado, violeta",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "ピンク",
   "kanji": "",
   "es": "rosa (color)",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "オレンジ",
   "kanji": "",
   "es": "naranja (color)",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "グレー",
   "kanji": "",
   "es": "gris",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "にがい",
   "kanji": "苦い",
   "es": "amargo",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "しおからい",
   "kanji": "塩辛い",
   "es": "salado",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "すっぱい",
   "kanji": "酸っぱい",
   "es": "ácido",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "こい",
   "kanji": "濃い",
   "es": "fuerte, cargado (sabor, color)",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "うすい",
   "kanji": "薄い",
   "es": "suave, poco cargado; fino",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "ベージュ",
   "kanji": "",
   "es": "beige",
-  "leccion": 8
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "ポップス",
   "kanji": "",
   "es": "música pop",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ロック",
   "kanji": "",
   "es": "rock",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ラテン",
   "kanji": "",
   "es": "música latina",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "オペラ",
   "kanji": "",
   "es": "ópera",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ミュージカル",
   "kanji": "",
   "es": "musical (teatro)",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "アニメ",
   "kanji": "",
   "es": "anime, dibujos animados",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ホラー",
   "kanji": "",
   "es": "cine de terror",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "アクション",
   "kanji": "",
   "es": "cine de acción",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ドキュメンタリー",
   "kanji": "",
   "es": "documental",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ミステリー",
   "kanji": "",
   "es": "cine de misterio",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "バレーボール",
   "kanji": "",
   "es": "voleibol",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "バスケットボール",
   "kanji": "",
   "es": "baloncesto",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ラグビー",
   "kanji": "",
   "es": "rugby",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "たっきゅう",
   "kanji": "卓球",
   "es": "tenis de mesa",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "じゅうどう",
   "kanji": "柔道",
   "es": "judo",
-  "leccion": 9
- },
- {
-  "kana": "からて",
-  "kanji": "空手",
-  "es": "kárate",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "すいえい",
   "kanji": "水泳",
   "es": "natación",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "スケート",
   "kanji": "",
   "es": "patinaje",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "みんよう",
   "kanji": "民謡",
   "es": "música folclórica japonesa",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "えんか",
   "kanji": "演歌",
   "es": "enka (canción popular japonesa)",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "れんあい",
   "kanji": "恋愛",
   "es": "(cine) romántico; amor",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "せんそう",
   "kanji": "戦争",
   "es": "(cine) bélico; guerra",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "きげき",
   "kanji": "喜劇",
   "es": "comedia",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ソフトボール",
   "kanji": "",
   "es": "sóftbol",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "ボウリング",
   "kanji": "",
   "es": "bolos",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "けんどう",
   "kanji": "剣道",
   "es": "kendo (esgrima japonesa)",
-  "leccion": 9
+  "leccion": 9,
+  "seccion": "referencia"
  },
  {
   "kana": "げんかん",
   "kanji": "玄関",
   "es": "recibidor, entrada",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "だいどころ",
   "kanji": "台所",
   "es": "cocina (de casa)",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "しんしつ",
   "kanji": "寝室",
   "es": "dormitorio",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "いま",
   "kanji": "居間",
   "es": "salón, sala de estar",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "ふろば",
   "kanji": "風呂場",
   "es": "cuarto de baño",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "せんめんじょ",
   "kanji": "洗面所",
   "es": "lavabo",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "ろうか",
   "kanji": "廊下",
   "es": "pasillo",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "ベランダ",
   "kanji": "",
   "es": "balcón, terraza",
-  "leccion": 10
+  "leccion": 10,
+  "seccion": "referencia"
  },
  {
   "kana": "ATM",
@@ -5696,91 +5801,106 @@ N5.data.vocab=
   "kana": "おにぎり",
   "kanji": "",
   "es": "bola de arroz",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "みそしる",
   "kanji": "みそ汁",
   "es": "sopa de miso",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "うどん",
   "kanji": "",
   "es": "udon (fideos de trigo)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "そば",
   "kanji": "",
   "es": "soba (fideos de alforfón)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "ラーメン",
   "kanji": "",
   "es": "ramen",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "やきそば",
   "kanji": "焼きそば",
   "es": "fideos fritos",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "おこのみやき",
   "kanji": "お好み焼き",
   "es": "okonomiyaki",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "やきにく",
   "kanji": "焼肉",
   "es": "carne a la parrilla",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "サラダ",
   "kanji": "",
   "es": "ensalada",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "スープ",
   "kanji": "",
   "es": "sopa, caldo",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "スパゲティー",
   "kanji": "",
   "es": "espaguetis",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "ピザ",
   "kanji": "",
   "es": "pizza",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "ハンバーガー",
   "kanji": "",
   "es": "hamburguesa (bocadillo)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "コーラ",
   "kanji": "",
   "es": "cola (refresco)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "ココア",
   "kanji": "",
   "es": "cacao (bebida)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "クラス",
@@ -5798,115 +5918,126 @@ N5.data.vocab=
   "kana": "ランチ",
   "kanji": "",
   "es": "menú del día, almuerzo",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "てんどん",
   "kanji": "天丼",
   "es": "tendon (arroz con tempura)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "おやこどん",
   "kanji": "親子丼",
   "es": "oyakodon (arroz con pollo y huevo)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "やさいいため",
   "kanji": "野菜炒め",
   "es": "sofrito de verduras",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "つけもの",
   "kanji": "漬物",
   "es": "encurtidos japoneses",
-  "leccion": 11
- },
- {
-  "kana": "カレーライス",
-  "kanji": "",
-  "es": "arroz con curry",
-  "leccion": 11
- },
- {
-  "kana": "スパゲッティ",
-  "kanji": "",
-  "es": "espaguetis",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "トースト",
   "kanji": "",
   "es": "tostadas",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "ハンバーグ",
   "kanji": "",
   "es": "hamburguesa (plato, sin pan)",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "コロッケ",
   "kanji": "",
   "es": "croqueta",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "えびフライ",
   "kanji": "",
   "es": "langostinos rebozados",
-  "leccion": 11
+  "leccion": 11,
+  "seccion": "referencia"
  },
  {
   "kana": "フライドチキン",
   "kanji": "",
   "es": "pollo frito",
+  "leccion": 11,
+  "seccion": "referencia"
+ },
+ {
+  "kana": "オーストラリア",
+  "kanji": "",
+  "es": "Australia",
   "leccion": 11
  },
  {
   "kana": "はくぶつかん",
   "kanji": "博物館",
   "es": "museo",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "えいがかん",
   "kanji": "映画館",
   "es": "cine (edificio)",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "どうぶつえん",
   "kanji": "動物園",
   "es": "zoo",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "しょくぶつえん",
   "kanji": "植物園",
   "es": "jardín botánico",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "ゆうえんち",
   "kanji": "遊園地",
   "es": "parque de atracciones",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "きょうかい",
   "kanji": "教会",
   "es": "iglesia",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "たいいくかん",
   "kanji": "体育館",
   "es": "gimnasio, polideportivo",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "けいさつ",
@@ -5918,127 +6049,154 @@ N5.data.vocab=
   "kana": "にくや",
   "kanji": "肉屋",
   "es": "carnicería",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "パンや",
   "kanji": "パン屋",
   "es": "panadería",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "さかなや",
   "kanji": "魚屋",
   "es": "pescadería",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "やおや",
   "kanji": "八百屋",
   "es": "verdulería",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "しょうがっこう",
   "kanji": "小学校",
   "es": "escuela primaria",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "ちゅうがっこう",
   "kanji": "中学校",
   "es": "instituto (secundaria)",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "ようちえん",
   "kanji": "幼稚園",
   "es": "parvulario, jardín de infancia",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "モスク",
   "kanji": "",
   "es": "mezquita",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "けいさつしょ",
   "kanji": "警察署",
   "es": "comisaría de policía",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "しょうぼうしょ",
   "kanji": "消防署",
   "es": "parque de bomberos",
-  "leccion": 13
+  "leccion": 13,
+  "seccion": "referencia"
  },
  {
   "kana": "さかや",
   "kanji": "酒屋",
   "es": "licorería, tienda de bebidas",
+  "leccion": 13,
+  "seccion": "referencia"
+ },
+ {
+  "kana": "ロシア",
+  "kanji": "",
+  "es": "Rusia",
   "leccion": 13
  },
  {
   "kana": "きっぷうりば",
   "kanji": "切符売り場",
   "es": "taquilla de billetes",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "でぐち",
   "kanji": "出口",
   "es": "salida",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "いりぐち",
   "kanji": "入口",
   "es": "entrada",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "かいさつぐち",
   "kanji": "改札口",
   "es": "torniquetes de acceso",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "ホーム",
   "kanji": "",
   "es": "andén",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "ばいてん",
   "kanji": "売店",
   "es": "quiosco",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "コインロッカー",
   "kanji": "",
   "es": "consigna automática",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "バスてい",
   "kanji": "バス停",
   "es": "parada de autobús",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "かたみち",
   "kanji": "片道",
   "es": "solo ida",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "おうふく",
   "kanji": "往復",
   "es": "ida y vuelta",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "〜ゆき",
@@ -6050,121 +6208,141 @@ N5.data.vocab=
   "kana": "かいそく",
   "kanji": "快速",
   "es": "tren rápido",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "じゅんきゅう",
   "kanji": "準急",
   "es": "tren semiexprés",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "ていきけん",
   "kanji": "定期券",
   "es": "abono de transporte",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "かいすうけん",
   "kanji": "回数券",
   "es": "bono de varios viajes",
-  "leccion": 14
+  "leccion": 14,
+  "seccion": "referencia"
  },
  {
   "kana": "てんいん",
   "kanji": "店員",
   "es": "dependiente",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "こうむいん",
   "kanji": "公務員",
   "es": "funcionario",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "べんごし",
   "kanji": "弁護士",
   "es": "abogado",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "かんごし",
   "kanji": "看護師",
   "es": "enfermero/a",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "うんてんしゅ",
   "kanji": "運転手",
   "es": "conductor, taxista",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "けいさつかん",
   "kanji": "警察官",
   "es": "agente de policía",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "せいじか",
   "kanji": "政治家",
   "es": "político",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "がか",
   "kanji": "画家",
   "es": "pintor (artista)",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "さっか",
   "kanji": "作家",
   "es": "escritor, novelista",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "おんがくか",
   "kanji": "音楽家",
   "es": "músico",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "けんちくか",
   "kanji": "建築家",
   "es": "arquitecto",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "デザイナー",
   "kanji": "",
   "es": "diseñador",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "ジャーナリスト",
   "kanji": "",
   "es": "periodista",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "かしゅ",
   "kanji": "歌手",
   "es": "cantante",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "はいゆう",
   "kanji": "俳優",
   "es": "actor, actriz",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "スポーツせんしゅ",
   "kanji": "スポーツ選手",
   "es": "deportista",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "でんしじしょ",
@@ -6176,277 +6354,329 @@ N5.data.vocab=
   "kana": "えきいん",
   "kanji": "駅員",
   "es": "empleado de estación",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "ちょうりし",
   "kanji": "調理師",
   "es": "cocinero (profesional)",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "りようし",
   "kanji": "理容師",
   "es": "barbero",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "びようし",
   "kanji": "美容師",
   "es": "peluquero, estilista",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "がいこうかん",
   "kanji": "外交官",
   "es": "diplomático",
-  "leccion": 15
+  "leccion": 15,
+  "seccion": "referencia"
  },
  {
   "kana": "はな",
   "kanji": "鼻",
   "es": "nariz",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "くび",
   "kanji": "首",
   "es": "cuello",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "かた",
   "kanji": "肩",
   "es": "hombro",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "むね",
   "kanji": "胸",
   "es": "pecho",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "せなか",
   "kanji": "背中",
   "es": "espalda",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "うで",
   "kanji": "腕",
   "es": "brazo",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ひじ",
   "kanji": "",
   "es": "codo",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ゆび",
   "kanji": "指",
   "es": "dedo",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "つめ",
   "kanji": "爪",
   "es": "uña",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ひざ",
   "kanji": "",
   "es": "rodilla",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "こし",
   "kanji": "腰",
   "es": "lumbares, cadera",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ほね",
   "kanji": "骨",
   "es": "hueso",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "せき",
   "kanji": "",
   "es": "tos (せきが出ます)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "はなみず",
   "kanji": "鼻水",
   "es": "mocos (鼻水が出ます)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "はきけ",
   "kanji": "吐き気",
   "es": "náuseas (吐き気がします)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "けが",
   "kanji": "",
   "es": "herida (けがをします)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "やけど",
   "kanji": "",
   "es": "quemadura (やけどをします)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "かゆい",
   "kanji": "",
   "es": "que pica",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "インフルエンザ",
   "kanji": "",
   "es": "gripe",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ち",
   "kanji": "血",
   "es": "sangre (血が出ます)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "さむけ",
   "kanji": "寒気",
   "es": "escalofríos (寒気がします)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "めまい",
   "kanji": "",
   "es": "mareo, vértigo (めまいがします)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "げり",
   "kanji": "下痢",
   "es": "diarrea",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "べんぴ",
   "kanji": "便秘",
   "es": "estreñimiento",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "しょくよく",
   "kanji": "食欲",
   "es": "apetito",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "だるい",
   "kanji": "",
   "es": "sentirse sin fuerzas (体がだるい)",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "あご",
   "kanji": "",
   "es": "mandíbula, barbilla",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "もうちょう",
   "kanji": "盲腸",
   "es": "apendicitis",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ねんざ",
   "kanji": "",
   "es": "esguince",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "こっせつ",
   "kanji": "骨折",
   "es": "fractura",
-  "leccion": 17
+  "leccion": 17,
+  "seccion": "referencia"
  },
  {
   "kana": "ふつかよい",
   "kanji": "二日酔い",
   "es": "resaca",
+  "leccion": 17,
+  "seccion": "referencia"
+ },
+ {
+  "kana": "うわぎ",
+  "kanji": "上着",
+  "es": "chaqueta",
   "leccion": 17
  },
  {
   "kana": "しょどう",
   "kanji": "書道",
   "es": "caligrafía japonesa",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "さどう",
   "kanji": "茶道",
   "es": "ceremonia del té",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "かどう",
   "kanji": "華道",
   "es": "arreglo floral (arte)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "のう",
   "kanji": "能",
   "es": "teatro noh",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "ぶんらく",
   "kanji": "文楽",
   "es": "bunraku (teatro de marionetas)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "まんざい",
   "kanji": "漫才",
   "es": "manzai (dúo cómico)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "らくご",
   "kanji": "落語",
   "es": "rakugo (monólogo cómico)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "いご",
   "kanji": "囲碁",
   "es": "go (juego de mesa)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "しょうぎ",
   "kanji": "将棋",
   "es": "shogi (ajedrez japonés)",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "ぼんおどり",
   "kanji": "盆踊り",
   "es": "baile del festival Bon",
-  "leccion": 19
+  "leccion": 19,
+  "seccion": "referencia"
  },
  {
   "kana": "いちども",
@@ -6455,40 +6685,53 @@ N5.data.vocab=
   "leccion": 19
  },
  {
+  "kana": "からて",
+  "kanji": "空手",
+  "es": "kárate",
+  "leccion": 19,
+  "seccion": "referencia"
+ },
+ {
   "kana": "ちじ",
   "kanji": "知事",
   "es": "gobernador (de prefectura)",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "しちょう",
   "kanji": "市長",
   "es": "alcalde",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "がくちょう",
   "kanji": "学長",
   "es": "rector (universidad)",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "こうちょう",
   "kanji": "校長",
   "es": "director (de escuela)",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "かいちょう",
   "kanji": "会長",
   "es": "presidente (del consejo)",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "えきちょう",
   "kanji": "駅長",
   "es": "jefe de estación",
-  "leccion": 21
+  "leccion": 21,
+  "seccion": "referencia"
  },
  {
   "kana": "ほうそう",
@@ -6536,61 +6779,71 @@ N5.data.vocab=
   "kana": "ワンピース",
   "kanji": "",
   "es": "vestido",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ジーンズ",
   "kanji": "",
   "es": "vaqueros",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ブラウス",
   "kanji": "",
   "es": "blusa",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "マフラー",
   "kanji": "",
   "es": "bufanda",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "てぶくろ",
   "kanji": "手袋",
   "es": "guantes",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ベルト",
   "kanji": "",
   "es": "cinturón",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "レインコート",
   "kanji": "",
   "es": "impermeable",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ハイヒール",
   "kanji": "",
   "es": "zapatos de tacón",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ブーツ",
   "kanji": "",
   "es": "botas",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "うんどうぐつ",
   "kanji": "運動靴",
   "es": "zapatillas de deporte",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ロボット",
@@ -6608,67 +6861,78 @@ N5.data.vocab=
   "kana": "パンツ",
   "kanji": "",
   "es": "pantalones",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "おび",
   "kanji": "帯",
   "es": "obi (cinturón del quimono)",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ストッキング",
   "kanji": "",
   "es": "medias",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ぞうり",
   "kanji": "",
   "es": "zori (sandalias japonesas)",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "たび",
   "kanji": "足袋",
   "es": "tabi (calcetines japoneses)",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "オーバー",
   "kanji": "",
   "es": "abrigo, sobretodo",
-  "leccion": 22
+  "leccion": 22,
+  "seccion": "referencia"
  },
  {
   "kana": "ほどう",
   "kanji": "歩道",
   "es": "acera",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "とおり",
   "kanji": "通り",
   "es": "calle, avenida",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "おうだんほどう",
   "kanji": "横断歩道",
   "es": "paso de cebra",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "こうそくどうろ",
   "kanji": "高速道路",
   "es": "autopista",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "さか",
   "kanji": "坂",
   "es": "cuesta, pendiente",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "[お]ゆ",
@@ -6680,80 +6944,85 @@ N5.data.vocab=
   "kana": "しゃどう",
   "kanji": "車道",
   "es": "calzada, carril",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "ほどうきょう",
   "kanji": "歩道橋",
   "es": "pasarela peatonal",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "ふみきり",
   "kanji": "踏切",
   "es": "paso a nivel",
-  "leccion": 23
+  "leccion": 23,
+  "seccion": "referencia"
  },
  {
   "kana": "あかちゃん",
   "kanji": "赤ちゃん",
   "es": "bebé",
-  "leccion": 25
+  "leccion": 25,
+  "seccion": "referencia"
  },
  {
   "kana": "ろうじん",
   "kanji": "老人",
   "es": "anciano",
-  "leccion": 25
+  "leccion": 25,
+  "seccion": "referencia"
  },
  {
   "kana": "いろ",
   "kanji": "色",
   "es": "color",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "あか",
   "kanji": "赤",
   "es": "rojo",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "あお",
   "kanji": "青",
   "es": "azul",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "しろ",
   "kanji": "白",
   "es": "blanco",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "くろ",
   "kanji": "黒",
   "es": "negro",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "きいろ",
   "kanji": "黄色",
   "es": "amarillo",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "ちゃいろ",
   "kanji": "茶色",
   "es": "marrón",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 8,
+  "seccion": "referencia"
  },
  {
   "kana": "しゅじん",
@@ -6836,15 +7105,15 @@ N5.data.vocab=
   "kana": "ごきょうだい",
   "kanji": "ご兄弟",
   "es": "hermanos (de otro)",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "ごりょうしん",
   "kanji": "ご両親",
   "es": "padres (de otro)",
-  "leccion": null,
-  "fuente": "soumatome"
+  "leccion": 7,
+  "seccion": "referencia"
  },
  {
   "kana": "オートバイ",

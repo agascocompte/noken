@@ -389,3 +389,21 @@ a.fuente:hover{filter:brightness(.95)}
 .selbar select{padding:4px 8px; font-size:.85rem}
 .playwarn{font-size:.8rem; color:var(--beni)}
 .selbar.tocando .playwarn[hidden]{display:none}
+
+/* filas de filtro que se ocultan (la regla display:flex de .toolbar gana a [hidden]) */
+.toolbar[hidden]{display:none}
+/* palabra de la hoja de referencia de la lección, no de su lista de vocabulario */
+.reftag{
+  display:inline-block; font-size:.68rem; line-height:1.5; letter-spacing:.03em;
+  background:var(--chip); color:var(--ink2); border-radius:5px;
+  padding:0 5px; text-decoration:none; vertical-align:middle;
+}
+a.reftag:hover{color:var(--ink)}
+
+/* nivel N5 de un kanji: seguro (en todas las listas) o posible (solo en la antigua de 103) */
+.n5tag{
+  display:inline-block; font-size:.66rem; line-height:1.5; font-weight:600; letter-spacing:.03em;
+  border-radius:5px; padding:0 5px; vertical-align:middle;
+}
+.n5tag.seguro{background:var(--ok-soft); color:var(--ok)}
+.n5tag.posible{background:var(--chip); color:var(--ink2)}
