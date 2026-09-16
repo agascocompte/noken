@@ -35,7 +35,7 @@
         ...N5.data.reference
       ];
       $("#refGrid").innerHTML = cards.map(c => `
-        <div class="refcard">
+        <div class="refcard${c.ancha ? " ancha" : ""}">
           <h3><span class="k jp">${c.icono}</span>${c.titulo}</h3>
           ${ruby(c.html)}
         </div>`).join("");

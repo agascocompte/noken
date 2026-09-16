@@ -416,3 +416,4 @@ a.reftag:hover{color:var(--ink)}
 }
 a.verbotag:hover{filter:brightness(1.1)}
 td.romaji{font-size:.85rem; letter-spacing:.01em}
+.refcard.ancha{grid-column:1 / -1}

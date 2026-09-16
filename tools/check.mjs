@@ -105,7 +105,10 @@ console.log("kanji");
 
 console.log("reference / drills / kana");
 {
-  for (const c of d.reference) if (!c.icono || !c.titulo || !c.html) err("tarjeta incompleta: " + c.titulo);
+  for (const c of d.reference) {
+    if (!c.icono || !c.titulo || !c.html) err("tarjeta incompleta: " + c.titulo);
+    if (c.ancha !== undefined && c.ancha !== true) err(`${c.titulo}: «ancha» solo puede ser true`);
+  }
   for (const x of d.drills) {
     for (const c of ["tema", "pregunta", "respuesta", "explicacion"]) if (!(c in x)) err("drill incompleto: " + x.pregunta);
     const f = furiganaMal(x.pregunta) || furiganaMal(x.respuesta) || furiganaMal(x.explicacion);
