@@ -61,9 +61,16 @@ console.log("verbs");
     if (seen.has(k)) err("duplicado: " + k); else seen.add(k);
     if (![1, 2, 3].includes(v.grupo)) err("grupo inválido: " + v.kana);
     fuenteMal(v, v.kana);
+    // «lecciones»: en qué listas de vocabulario del libro aparece el verbo
+    if (v.lecciones !== undefined && (!Array.isArray(v.lecciones) || !v.lecciones.length
+        || v.lecciones.some(l => !Number.isInteger(l) || l < 1 || l > 25)))
+      err(`${v.kana}: lecciones inválidas ${JSON.stringify(v.lecciones)}`);
+    if (v.seccion !== undefined && (v.seccion !== "referencia" || !v.lecciones))
+      err(`${v.kana}: seccion inválida «${v.seccion}»`);
     const f = furiganaMal(v.ejemplo); if (f) err(v.kana + ": " + f);
   }
-  ok(d.verbs.length + " verbos, sin duplicados");
+  const conL = d.verbs.filter(v => v.lecciones).length;
+  ok(d.verbs.length + ` verbos, sin duplicados (${conL} situados en su lección)`);
 }
 
 console.log("grammar");

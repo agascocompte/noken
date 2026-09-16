@@ -15,7 +15,10 @@ N5.data.verbs=
   "es": "encontrarse con",
   "particula": "〜に",
   "ejemplo": "友達[ともだち]に会[あ]います",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "あく",
@@ -40,7 +43,10 @@ N5.data.verbs=
   "nai": "あそばない",
   "es": "jugar, divertirse",
   "particula": "〜と／〜で",
-  "ejemplo": "友達[ともだち]と遊[あそ]びます"
+  "ejemplo": "友達[ともだち]と遊[あそ]びます",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "あらう",
@@ -52,7 +58,10 @@ N5.data.verbs=
   "nai": "あらわない",
   "es": "lavar",
   "particula": "〜を",
-  "ejemplo": "手[て]を洗[あら]います"
+  "ejemplo": "手[て]を洗[あら]います",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "ある",
@@ -68,6 +77,11 @@ N5.data.verbs=
   "particulaDestacada": true,
   "irregularEn": [
    "nai"
+  ],
+  "lecciones": [
+   9,
+   10,
+   21
   ]
  },
  {
@@ -81,7 +95,10 @@ N5.data.verbs=
   "es": "andar",
   "particula": "〜を",
   "ejemplo": "道[みち]を歩[ある]きます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "いう",
@@ -93,7 +110,10 @@ N5.data.verbs=
   "nai": "いわない",
   "es": "decir",
   "particula": "〜と／〜を",
-  "ejemplo": "「はい」と言[い]います"
+  "ejemplo": "「はい」と言[い]います",
+  "lecciones": [
+   21
+  ]
  },
  {
   "kana": "いく",
@@ -109,6 +129,9 @@ N5.data.verbs=
   "irregularEn": [
    "te",
    "ta"
+  ],
+  "lecciones": [
+   5
   ]
  },
  {
@@ -121,7 +144,10 @@ N5.data.verbs=
   "nai": "いそがない",
   "es": "darse prisa",
   "particula": "—",
-  "ejemplo": "急[いそ]いでください"
+  "ejemplo": "急[いそ]いでください",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "うたう",
@@ -133,7 +159,10 @@ N5.data.verbs=
   "nai": "うたわない",
   "es": "cantar",
   "particula": "〜を",
-  "ejemplo": "歌[うた]を歌[うた]います"
+  "ejemplo": "歌[うた]を歌[うた]います",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "うる",
@@ -145,7 +174,10 @@ N5.data.verbs=
   "nai": "うらない",
   "es": "vender",
   "particula": "〜を",
-  "ejemplo": "切符[きっぷ]を売[う]ります"
+  "ejemplo": "切符[きっぷ]を売[う]ります",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "おく",
@@ -157,7 +189,10 @@ N5.data.verbs=
   "nai": "おかない",
   "es": "poner, colocar",
   "particula": "〜を／〜に",
-  "ejemplo": "かばんをここに置[お]きます"
+  "ejemplo": "かばんをここに置[お]きます",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "おくる",
@@ -169,7 +204,11 @@ N5.data.verbs=
   "nai": "おくらない",
   "es": "enviar",
   "particula": "〜を／〜に",
-  "ejemplo": "手紙[てがみ]を母[はは]に送[おく]ります"
+  "ejemplo": "手紙[てがみ]を母[はは]に送[おく]ります",
+  "lecciones": [
+   7,
+   24
+  ]
  },
  {
   "kana": "おす",
@@ -181,7 +220,10 @@ N5.data.verbs=
   "nai": "おさない",
   "es": "pulsar, empujar",
   "particula": "〜を",
-  "ejemplo": "ボタンを押[お]します"
+  "ejemplo": "ボタンを押[お]します",
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "おもう",
@@ -194,7 +236,10 @@ N5.data.verbs=
   "es": "pensar, creer",
   "particula": "〜と",
   "ejemplo": "いいと思[おも]います",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   21
+  ]
  },
  {
   "kana": "およぐ",
@@ -206,7 +251,10 @@ N5.data.verbs=
   "nai": "およがない",
   "es": "nadar",
   "particula": "〜を／〜で",
-  "ejemplo": "海[うみ]で泳[およ]ぎます"
+  "ejemplo": "海[うみ]で泳[およ]ぎます",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "おろす",
@@ -218,7 +266,10 @@ N5.data.verbs=
   "nai": "おろさない",
   "es": "retirar, sacar (dinero del banco)",
   "particula": "〜を",
-  "ejemplo": "銀行[ぎんこう]でお金[かね]を下[お]ろします"
+  "ejemplo": "銀行[ぎんこう]でお金[かね]を下[お]ろします",
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "おわる",
@@ -231,7 +282,10 @@ N5.data.verbs=
   "es": "terminar",
   "particula": "〜が",
   "ejemplo": "会議[かいぎ]が終[お]わります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   4
+  ]
  },
  {
   "kana": "かう",
@@ -243,7 +297,10 @@ N5.data.verbs=
   "nai": "かわない",
   "es": "comprar",
   "particula": "〜を",
-  "ejemplo": "本[ほん]を買[か]います"
+  "ejemplo": "本[ほん]を買[か]います",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "かえす",
@@ -255,7 +312,10 @@ N5.data.verbs=
   "nai": "かえさない",
   "es": "devolver",
   "particula": "〜を／〜に",
-  "ejemplo": "本[ほん]を図書館[としょかん]に返[かえ]します"
+  "ejemplo": "本[ほん]を図書館[としょかん]に返[かえ]します",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "かえる",
@@ -268,7 +328,10 @@ N5.data.verbs=
   "es": "volver (a casa) — parece G-II pero es G-I",
   "particula": "〜へ／〜に",
   "ejemplo": "うちへ帰[かえ]ります",
-  "grupoTrampa": true
+  "grupoTrampa": true,
+  "lecciones": [
+   5
+  ]
  },
  {
   "kana": "かかる",
@@ -281,7 +344,10 @@ N5.data.verbs=
   "es": "costar (tiempo, dinero)",
   "particula": "〜が",
   "ejemplo": "時間[じかん]がかかります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   11
+  ]
  },
  {
   "kana": "かく",
@@ -293,7 +359,10 @@ N5.data.verbs=
   "nai": "かかない",
   "es": "escribir",
   "particula": "〜を",
-  "ejemplo": "名前[なまえ]を書[か]きます"
+  "ejemplo": "名前[なまえ]を書[か]きます",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "かす",
@@ -305,7 +374,10 @@ N5.data.verbs=
   "nai": "かさない",
   "es": "prestar",
   "particula": "〜を／〜に",
-  "ejemplo": "友達[ともだち]に本[ほん]を貸[か]します"
+  "ejemplo": "友達[ともだち]に本[ほん]を貸[か]します",
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "かつ",
@@ -318,7 +390,10 @@ N5.data.verbs=
   "es": "ganar",
   "particula": "〜に",
   "ejemplo": "試合[しあい]に勝[か]ちます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   21
+  ]
  },
  {
   "kana": "かわく",
@@ -343,7 +418,10 @@ N5.data.verbs=
   "nai": "がんばらない",
   "es": "esforzarse",
   "particula": "—",
-  "ejemplo": "頑張[がんば]ります"
+  "ejemplo": "頑張[がんば]ります",
+  "lecciones": [
+   25
+  ]
  },
  {
   "kana": "きく",
@@ -356,7 +434,11 @@ N5.data.verbs=
   "es": "escuchar; preguntar",
   "particula": "〜を／〜に",
   "ejemplo": "先生[せんせい]に聞[き]きます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   6,
+   23
+  ]
  },
  {
   "kana": "きる",
@@ -369,7 +451,10 @@ N5.data.verbs=
   "es": "cortar — parece G-II pero es G-I",
   "particula": "〜を",
   "ejemplo": "紙[かみ]を切[き]ります",
-  "grupoTrampa": true
+  "grupoTrampa": true,
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "けす",
@@ -381,7 +466,10 @@ N5.data.verbs=
   "nai": "けさない",
   "es": "apagar; borrar",
   "particula": "〜を",
-  "ejemplo": "電気[でんき]を消[け]します"
+  "ejemplo": "電気[でんき]を消[け]します",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "ける",
@@ -394,7 +482,11 @@ N5.data.verbs=
   "es": "patear, dar una patada",
   "particula": "〜を",
   "ejemplo": "ボールを蹴[け]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "ころぶ",
@@ -406,7 +498,11 @@ N5.data.verbs=
   "nai": "ころばない",
   "es": "caerse, tropezar",
   "particula": "—",
-  "ejemplo": "道[みち]で転[ころ]びます"
+  "ejemplo": "道[みち]で転[ころ]びます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "さかだちする",
@@ -418,7 +514,11 @@ N5.data.verbs=
   "nai": "さかだちしない",
   "es": "hacer el pino",
   "particula": "—",
-  "ejemplo": "子[こ]どもが逆立[さかだ]ちします"
+  "ejemplo": "子[こ]どもが逆立[さかだ]ちします",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "さく",
@@ -443,7 +543,11 @@ N5.data.verbs=
   "nai": "しなない",
   "es": "morir",
   "particula": "〜が",
-  "ejemplo": ""
+  "ejemplo": "",
+  "lecciones": [
+   25
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "しまる",
@@ -470,7 +574,10 @@ N5.data.verbs=
   "particula": "〜を",
   "ejemplo": "ミラーさんを知[し]っています",
   "particulaDestacada": true,
-  "grupoTrampa": true
+  "grupoTrampa": true,
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "すう",
@@ -482,7 +589,10 @@ N5.data.verbs=
   "nai": "すわない",
   "es": "fumar; aspirar",
   "particula": "〜を",
-  "ejemplo": "たばこを吸[す]います"
+  "ejemplo": "たばこを吸[す]います",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "すく",
@@ -508,7 +618,10 @@ N5.data.verbs=
   "es": "vivir, residir",
   "particula": "〜に",
   "ejemplo": "大阪[おおさか]に住[す]んでいます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "たたく",
@@ -520,7 +633,11 @@ N5.data.verbs=
   "nai": "たたかない",
   "es": "golpear",
   "particula": "〜を",
-  "ejemplo": "ドアをたたきます"
+  "ejemplo": "ドアをたたきます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "たつ",
@@ -532,7 +649,10 @@ N5.data.verbs=
   "nai": "たたない",
   "es": "ponerse de pie",
   "particula": "—",
-  "ejemplo": "立[た]ってください"
+  "ejemplo": "立[た]ってください",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "だす",
@@ -544,7 +664,12 @@ N5.data.verbs=
   "nai": "ださない",
   "es": "sacar; enviar (carta)",
   "particula": "〜を",
-  "ejemplo": "手紙[てがみ]を出[だ]します"
+  "ejemplo": "手紙[てがみ]を出[だ]します",
+  "lecciones": [
+   13,
+   16,
+   17
+  ]
  },
  {
   "kana": "つかう",
@@ -556,7 +681,11 @@ N5.data.verbs=
   "nai": "つかわない",
   "es": "usar",
   "particula": "〜を",
-  "ejemplo": "はしを使[つか]います"
+  "ejemplo": "はしを使[つか]います",
+  "lecciones": [
+   14,
+   15
+  ]
  },
  {
   "kana": "つく",
@@ -569,7 +698,10 @@ N5.data.verbs=
   "es": "llegar",
   "particula": "〜に",
   "ejemplo": "駅[えき]に着[つ]きます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   25
+  ]
  },
  {
   "kana": "つくる",
@@ -581,7 +713,10 @@ N5.data.verbs=
   "nai": "つくらない",
   "es": "hacer, fabricar",
   "particula": "〜を",
-  "ejemplo": "ケーキを作[つく]ります"
+  "ejemplo": "ケーキを作[つく]ります",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "てつだう",
@@ -593,7 +728,10 @@ N5.data.verbs=
   "nai": "てつだわない",
   "es": "ayudar",
   "particula": "〜を",
-  "ejemplo": "仕事[しごと]を手伝[てつだ]います"
+  "ejemplo": "仕事[しごと]を手伝[てつだ]います",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "とびこむ",
@@ -605,7 +743,11 @@ N5.data.verbs=
   "nai": "とびこまない",
   "es": "zambullirse",
   "particula": "〜に",
-  "ejemplo": "プールに飛[と]び込[こ]みます"
+  "ejemplo": "プールに飛[と]び込[こ]みます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "とまる",
@@ -618,7 +760,10 @@ N5.data.verbs=
   "es": "alojarse",
   "particula": "〜に",
   "ejemplo": "ホテルに泊[と]まります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "とる",
@@ -630,7 +775,10 @@ N5.data.verbs=
   "nai": "とらない",
   "es": "hacer (fotos)",
   "particula": "〜を",
-  "ejemplo": "写真[しゃしん]を撮[と]ります"
+  "ejemplo": "写真[しゃしん]を撮[と]ります",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "とる",
@@ -642,7 +790,11 @@ N5.data.verbs=
   "nai": "とらない",
   "es": "coger, tomar",
   "particula": "〜を",
-  "ejemplo": "塩[しお]を取[と]ってください"
+  "ejemplo": "塩[しお]を取[と]ってください",
+  "lecciones": [
+   14,
+   25
+  ]
  },
  {
   "kana": "なくす",
@@ -654,7 +806,10 @@ N5.data.verbs=
   "nai": "なくさない",
   "es": "perder (objetos)",
   "particula": "〜を",
-  "ejemplo": "かぎをなくしました"
+  "ejemplo": "かぎをなくしました",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "ならう",
@@ -666,7 +821,10 @@ N5.data.verbs=
   "nai": "ならわない",
   "es": "aprender (con profesor)",
   "particula": "〜を／〜に",
-  "ejemplo": "先生[せんせい]に日本語[にほんご]を習[なら]います"
+  "ejemplo": "先生[せんせい]に日本語[にほんご]を習[なら]います",
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "なる",
@@ -679,7 +837,10 @@ N5.data.verbs=
   "es": "convertirse en, hacerse",
   "particula": "〜に／〜く",
   "ejemplo": "医者[いしゃ]になります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "ぬぐ",
@@ -691,7 +852,10 @@ N5.data.verbs=
   "nai": "ぬがない",
   "es": "quitarse (ropa, zapatos)",
   "particula": "〜を",
-  "ejemplo": "くつを脱[ぬ]ぎます"
+  "ejemplo": "くつを脱[ぬ]ぎます",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "のばす",
@@ -703,7 +867,11 @@ N5.data.verbs=
   "nai": "のばさない",
   "es": "extender, estirar",
   "particula": "〜を",
-  "ejemplo": "手[て]を伸[の]ばします"
+  "ejemplo": "手[て]を伸[の]ばします",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "のぼる",
@@ -716,7 +884,10 @@ N5.data.verbs=
   "es": "subir, escalar",
   "particula": "〜に／〜を",
   "ejemplo": "山[やま]に登[のぼ]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "のむ",
@@ -728,7 +899,11 @@ N5.data.verbs=
   "nai": "のまない",
   "es": "beber; tomar (medicina)",
   "particula": "〜を",
-  "ejemplo": "水[みず]を飲[の]みます"
+  "ejemplo": "水[みず]を飲[の]みます",
+  "lecciones": [
+   6,
+   17
+  ]
  },
  {
   "kana": "のる",
@@ -741,7 +916,10 @@ N5.data.verbs=
   "es": "subirse a",
   "particula": "〜に",
   "ejemplo": "電車[でんしゃ]に乗[の]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "はいる",
@@ -755,7 +933,12 @@ N5.data.verbs=
   "particula": "〜に",
   "ejemplo": "大学[だいがく]に入[はい]ります",
   "particulaDestacada": true,
-  "grupoTrampa": true
+  "grupoTrampa": true,
+  "lecciones": [
+   13,
+   16,
+   17
+  ]
  },
  {
   "kana": "はう",
@@ -767,7 +950,11 @@ N5.data.verbs=
   "nai": "はわない",
   "es": "gatear, arrastrarse",
   "particula": "—",
-  "ejemplo": "赤[あか]ちゃんが這[は]います"
+  "ejemplo": "赤[あか]ちゃんが這[は]います",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "はく",
@@ -779,7 +966,10 @@ N5.data.verbs=
   "nai": "はかない",
   "es": "ponerse (de cintura para abajo: zapatos, pantalones, falda, calcetines, botas)",
   "particula": "〜を",
-  "ejemplo": "くつを履[は]きます"
+  "ejemplo": "くつを履[は]きます",
+  "lecciones": [
+   22
+  ]
  },
  {
   "kana": "はしる",
@@ -793,7 +983,11 @@ N5.data.verbs=
   "particula": "〜を",
   "ejemplo": "道[みち]を走[はし]ります",
   "particulaDestacada": true,
-  "grupoTrampa": true
+  "grupoTrampa": true,
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "はたらく",
@@ -806,7 +1000,10 @@ N5.data.verbs=
   "es": "trabajar",
   "particula": "〜で",
   "ejemplo": "会社[かいしゃ]で働[はたら]きます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   4
+  ]
  },
  {
   "kana": "はなす",
@@ -818,7 +1015,10 @@ N5.data.verbs=
   "nai": "はなさない",
   "es": "hablar",
   "particula": "〜と／〜を",
-  "ejemplo": "友達[ともだち]と話[はな]します"
+  "ejemplo": "友達[ともだち]と話[はな]します",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "はらう",
@@ -830,7 +1030,10 @@ N5.data.verbs=
   "nai": "はらわない",
   "es": "pagar",
   "particula": "〜を",
-  "ejemplo": "お金[かね]を払[はら]います"
+  "ejemplo": "お金[かね]を払[はら]います",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "ひく",
@@ -842,7 +1045,10 @@ N5.data.verbs=
   "nai": "ひかない",
   "es": "tocar (piano, guitarra)",
   "particula": "〜を",
-  "ejemplo": "ピアノを弾[ひ]きます"
+  "ejemplo": "ピアノを弾[ひ]きます",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "ふりむく",
@@ -854,7 +1060,11 @@ N5.data.verbs=
   "nai": "ふりむかない",
   "es": "volverse, mirar atrás",
   "particula": "—",
-  "ejemplo": "後[うし]ろを振[ふ]り向[む]きます"
+  "ejemplo": "後[うし]ろを振[ふ]り向[む]きます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "ふる",
@@ -867,7 +1077,10 @@ N5.data.verbs=
   "es": "llover, nevar",
   "particula": "〜が",
   "ejemplo": "雨[あめ]が降[ふ]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "まがる",
@@ -880,7 +1093,10 @@ N5.data.verbs=
   "es": "girar, torcer",
   "particula": "〜を／〜へ",
   "ejemplo": "角[かど]を右[みぎ]へ曲[ま]がります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "まげる",
@@ -892,7 +1108,11 @@ N5.data.verbs=
   "nai": "まげない",
   "es": "doblar, flexionar",
   "particula": "〜を",
-  "ejemplo": "ひざを曲[ま]げます"
+  "ejemplo": "ひざを曲[ま]げます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "まつ",
@@ -904,7 +1124,10 @@ N5.data.verbs=
   "nai": "またない",
   "es": "esperar",
   "particula": "〜を",
-  "ejemplo": "友達[ともだち]を待[ま]ちます"
+  "ejemplo": "友達[ともだち]を待[ま]ちます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "もぐる",
@@ -916,7 +1139,11 @@ N5.data.verbs=
   "nai": "もぐらない",
   "es": "bucear, sumergirse",
   "particula": "〜に",
-  "ejemplo": "海[うみ]に潜[もぐ]ります"
+  "ejemplo": "海[うみ]に潜[もぐ]ります",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "もちあげる",
@@ -928,7 +1155,11 @@ N5.data.verbs=
   "nai": "もちあげない",
   "es": "levantar (en alto)",
   "particula": "〜を",
-  "ejemplo": "荷物[にもつ]を持[も]ち上[あ]げます"
+  "ejemplo": "荷物[にもつ]を持[も]ち上[あ]げます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "もつ",
@@ -940,7 +1171,10 @@ N5.data.verbs=
   "nai": "もたない",
   "es": "tener, llevar (en la mano)",
   "particula": "〜を",
-  "ejemplo": "荷物[にもつ]を持[も]ちます"
+  "ejemplo": "荷物[にもつ]を持[も]ちます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "もらう",
@@ -952,7 +1186,10 @@ N5.data.verbs=
   "nai": "もらわない",
   "es": "recibir",
   "particula": "〜を／〜に",
-  "ejemplo": "母[はは]に本[ほん]をもらいます"
+  "ejemplo": "母[はは]に本[ほん]をもらいます",
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "やすむ",
@@ -965,7 +1202,11 @@ N5.data.verbs=
   "es": "descansar; faltar (al trabajo)",
   "particula": "〜を",
   "ejemplo": "会社[かいしゃ]を休[やす]みます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   4,
+   11
+  ]
  },
  {
   "kana": "よぶ",
@@ -977,7 +1218,10 @@ N5.data.verbs=
   "nai": "よばない",
   "es": "llamar",
   "particula": "〜を",
-  "ejemplo": "タクシーを呼[よ]びます"
+  "ejemplo": "タクシーを呼[よ]びます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "よむ",
@@ -989,7 +1233,10 @@ N5.data.verbs=
   "nai": "よまない",
   "es": "leer",
   "particula": "〜を",
-  "ejemplo": "本[ほん]を読[よ]みます"
+  "ejemplo": "本[ほん]を読[よ]みます",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "わかる",
@@ -1002,7 +1249,10 @@ N5.data.verbs=
   "es": "entender",
   "particula": "〜が",
   "ejemplo": "日本語[にほんご]がわかります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   9
+  ]
  },
  {
   "kana": "わたる",
@@ -1015,7 +1265,10 @@ N5.data.verbs=
   "es": "cruzar",
   "particula": "〜を",
   "ejemplo": "橋[はし]を渡[わた]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "あける",
@@ -1027,7 +1280,10 @@ N5.data.verbs=
   "nai": "あけない",
   "es": "abrir",
   "particula": "〜を",
-  "ejemplo": "窓[まど]を開[あ]けます"
+  "ejemplo": "窓[まど]を開[あ]けます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "あげる",
@@ -1039,7 +1295,10 @@ N5.data.verbs=
   "nai": "あげない",
   "es": "dar (a otros)",
   "particula": "〜を／〜に",
-  "ejemplo": "友達[ともだち]に花[はな]をあげます"
+  "ejemplo": "友達[ともだち]に花[はな]をあげます",
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "あびる",
@@ -1052,7 +1311,10 @@ N5.data.verbs=
   "es": "ducharse",
   "particula": "〜を",
   "ejemplo": "シャワーを浴[あ]びます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "いる",
@@ -1065,7 +1327,11 @@ N5.data.verbs=
   "es": "estar, haber (personas, animales)",
   "particula": "〜が",
   "ejemplo": "部屋[へや]に人[ひと]がいます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   10,
+   11
+  ]
  },
  {
   "kana": "いれる",
@@ -1077,7 +1343,11 @@ N5.data.verbs=
   "nai": "いれない",
   "es": "meter, poner dentro",
   "particula": "〜を／〜に",
-  "ejemplo": "かばんに入[い]れます"
+  "ejemplo": "かばんに入[い]れます",
+  "lecciones": [
+   16,
+   24
+  ]
  },
  {
   "kana": "うまれる",
@@ -1089,7 +1359,10 @@ N5.data.verbs=
   "nai": "うまれない",
   "es": "nacer",
   "particula": "〜が／〜で",
-  "ejemplo": "子[こ]どもが生[う]まれます"
+  "ejemplo": "子[こ]どもが生[う]まれます",
+  "lecciones": [
+   22
+  ]
  },
  {
   "kana": "おきる",
@@ -1101,7 +1374,10 @@ N5.data.verbs=
   "nai": "おきない",
   "es": "levantarse, despertarse",
   "particula": "—",
-  "ejemplo": "6時[じ]に起[お]きます"
+  "ejemplo": "6時[じ]に起[お]きます",
+  "lecciones": [
+   4
+  ]
  },
  {
   "kana": "おしえる",
@@ -1113,7 +1389,11 @@ N5.data.verbs=
   "nai": "おしえない",
   "es": "enseñar; decir (dato)",
   "particula": "〜を／〜に",
-  "ejemplo": "学生[がくせい]に日本語[にほんご]を教[おし]えます"
+  "ejemplo": "学生[がくせい]に日本語[にほんご]を教[おし]えます",
+  "lecciones": [
+   7,
+   14
+  ]
  },
  {
   "kana": "おぼえる",
@@ -1125,7 +1405,10 @@ N5.data.verbs=
   "nai": "おぼえない",
   "es": "memorizar, aprender",
   "particula": "〜を",
-  "ejemplo": "漢字[かんじ]を覚[おぼ]えます"
+  "ejemplo": "漢字[かんじ]を覚[おぼ]えます",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "おりる",
@@ -1138,7 +1421,10 @@ N5.data.verbs=
   "es": "bajarse de",
   "particula": "〜を",
   "ejemplo": "電車[でんしゃ]を降[お]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "かける",
@@ -1150,7 +1436,11 @@ N5.data.verbs=
   "nai": "かけない",
   "es": "ponerse (gafas); llamar por teléfono",
   "particula": "〜を／〜に",
-  "ejemplo": "友達[ともだち]に電話[でんわ]をかけます"
+  "ejemplo": "友達[ともだち]に電話[でんわ]をかけます",
+  "lecciones": [
+   7,
+   22
+  ]
  },
  {
   "kana": "かりる",
@@ -1162,7 +1452,10 @@ N5.data.verbs=
   "nai": "かりない",
   "es": "pedir prestado",
   "particula": "〜を／〜に",
-  "ejemplo": "銀行[ぎんこう]にお金[かね]を借[か]ります"
+  "ejemplo": "銀行[ぎんこう]にお金[かね]を借[か]ります",
+  "lecciones": [
+   7
+  ]
  },
  {
   "kana": "きる",
@@ -1174,7 +1467,10 @@ N5.data.verbs=
   "nai": "きない",
   "es": "ponerse (en el torso: camisa, chaqueta, abrigo, jersey, vestido, traje, kimono)",
   "particula": "〜を",
-  "ejemplo": "シャツを着[き]ます"
+  "ejemplo": "シャツを着[き]ます",
+  "lecciones": [
+   22
+  ]
  },
  {
   "kana": "くれる",
@@ -1186,7 +1482,10 @@ N5.data.verbs=
   "nai": "くれない",
   "es": "darme (a mí)",
   "particula": "〜を",
-  "ejemplo": "姉[あね]がセーターをくれます"
+  "ejemplo": "姉[あね]がセーターをくれます",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "しめる",
@@ -1198,7 +1497,10 @@ N5.data.verbs=
   "nai": "しめない",
   "es": "cerrar",
   "particula": "〜を",
-  "ejemplo": "ドアを閉[し]めます"
+  "ejemplo": "ドアを閉[し]めます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "たべる",
@@ -1210,7 +1512,10 @@ N5.data.verbs=
   "nai": "たべない",
   "es": "comer",
   "particula": "〜を",
-  "ejemplo": "ご飯[はん]を食[た]べます"
+  "ejemplo": "ご飯[はん]を食[た]べます",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "つかれる",
@@ -1222,7 +1527,10 @@ N5.data.verbs=
   "nai": "つかれない",
   "es": "cansarse",
   "particula": "—",
-  "ejemplo": "疲[つか]れました"
+  "ejemplo": "疲[つか]れました",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "つける",
@@ -1234,7 +1542,10 @@ N5.data.verbs=
   "nai": "つけない",
   "es": "encender",
   "particula": "〜を",
-  "ejemplo": "エアコンをつけます"
+  "ejemplo": "エアコンをつけます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "つとめる",
@@ -1259,7 +1570,10 @@ N5.data.verbs=
   "nai": "でかけない",
   "es": "salir (de casa)",
   "particula": "〜へ／〜に",
-  "ejemplo": "町[まち]へ出[で]かけます"
+  "ejemplo": "町[まち]へ出[で]かけます",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "できる",
@@ -1272,7 +1586,10 @@ N5.data.verbs=
   "es": "poder, saber hacer",
   "particula": "〜が",
   "ejemplo": "日本語[にほんご]ができます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "でる",
@@ -1285,7 +1602,12 @@ N5.data.verbs=
   "es": "salir de",
   "particula": "〜を",
   "ejemplo": "うちを出[で]ます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   13,
+   16,
+   23
+  ]
  },
  {
   "kana": "とめる",
@@ -1297,7 +1619,10 @@ N5.data.verbs=
   "nai": "とめない",
   "es": "parar; aparcar",
   "particula": "〜を",
-  "ejemplo": "車[くるま]を止[と]めます"
+  "ejemplo": "車[くるま]を止[と]めます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "ねる",
@@ -1309,7 +1634,10 @@ N5.data.verbs=
   "nai": "ねない",
   "es": "dormir, acostarse",
   "particula": "—",
-  "ejemplo": "11時[じ]に寝[ね]ます"
+  "ejemplo": "11時[じ]に寝[ね]ます",
+  "lecciones": [
+   4
+  ]
  },
  {
   "kana": "みせる",
@@ -1321,7 +1649,10 @@ N5.data.verbs=
   "nai": "みせない",
   "es": "mostrar, enseñar",
   "particula": "〜を／〜に",
-  "ejemplo": "パスポートを見[み]せます"
+  "ejemplo": "パスポートを見[み]せます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "みる",
@@ -1333,7 +1664,10 @@ N5.data.verbs=
   "nai": "みない",
   "es": "ver, mirar",
   "particula": "〜を",
-  "ejemplo": "映画[えいが]を見[み]ます"
+  "ejemplo": "映画[えいが]を見[み]ます",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "わすれる",
@@ -1345,7 +1679,10 @@ N5.data.verbs=
   "nai": "わすれない",
   "es": "olvidar",
   "particula": "〜を",
-  "ejemplo": "かさを忘[わす]れました"
+  "ejemplo": "かさを忘[わす]れました",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "する",
@@ -1357,7 +1694,10 @@ N5.data.verbs=
   "nai": "しない",
   "es": "hacer; ponerse (accesorios: corbata, reloj, bufanda)",
   "particula": "〜を",
-  "ejemplo": "宿題[しゅくだい]をします"
+  "ejemplo": "宿題[しゅくだい]をします",
+  "lecciones": [
+   6
+  ]
  },
  {
   "kana": "くる",
@@ -1372,6 +1712,9 @@ N5.data.verbs=
   "ejemplo": "日本[にほん]へ来[き]ます",
   "irregularEn": [
    "nai"
+  ],
+  "lecciones": [
+   5
   ]
  },
  {
@@ -1384,7 +1727,10 @@ N5.data.verbs=
   "nai": "べんきょうしない",
   "es": "estudiar",
   "particula": "〜を",
-  "ejemplo": "日本語[にほんご]を勉強[べんきょう]します"
+  "ejemplo": "日本語[にほんご]を勉強[べんきょう]します",
+  "lecciones": [
+   4
+  ]
  },
  {
   "kana": "けっこんする",
@@ -1397,7 +1743,10 @@ N5.data.verbs=
   "es": "casarse",
   "particula": "〜と",
   "ejemplo": "彼[かれ]と結婚[けっこん]します",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "かいものする",
@@ -1409,7 +1758,10 @@ N5.data.verbs=
   "nai": "かいものしない",
   "es": "hacer la compra",
   "particula": "—",
-  "ejemplo": "スーパーで買[か]い物[もの]します"
+  "ejemplo": "スーパーで買[か]い物[もの]します",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "しょくじする",
@@ -1421,7 +1773,10 @@ N5.data.verbs=
   "nai": "しょくじしない",
   "es": "comer (una comida)",
   "particula": "—",
-  "ejemplo": "レストランで食事[しょくじ]します"
+  "ejemplo": "レストランで食事[しょくじ]します",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "さんぽする",
@@ -1434,7 +1789,10 @@ N5.data.verbs=
   "es": "pasear",
   "particula": "〜を",
   "ejemplo": "公園[こうえん]を散歩[さんぽ]します",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "ざんぎょうする",
@@ -1446,7 +1804,10 @@ N5.data.verbs=
   "nai": "ざんぎょうしない",
   "es": "hacer horas extra",
   "particula": "—",
-  "ejemplo": "今日[きょう]は残業[ざんぎょう]します"
+  "ejemplo": "今日[きょう]は残業[ざんぎょう]します",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "しゅっちょうする",
@@ -1458,7 +1819,10 @@ N5.data.verbs=
   "nai": "しゅっちょうしない",
   "es": "viajar por trabajo",
   "particula": "〜へ／〜に",
-  "ejemplo": "東京[とうきょう]へ出張[しゅっちょう]します"
+  "ejemplo": "東京[とうきょう]へ出張[しゅっちょう]します",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "でんわする",
@@ -1471,7 +1835,10 @@ N5.data.verbs=
   "es": "telefonear",
   "particula": "〜に",
   "ejemplo": "友達[ともだち]に電話[でんわ]します",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   20
+  ]
  },
  {
   "kana": "あんないする",
@@ -1483,7 +1850,10 @@ N5.data.verbs=
   "nai": "あんないしない",
   "es": "guiar, enseñar (un lugar)",
   "particula": "〜を／〜に",
-  "ejemplo": "町[まち]を案内[あんない]します"
+  "ejemplo": "町[まち]を案内[あんない]します",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "せつめいする",
@@ -1495,7 +1865,10 @@ N5.data.verbs=
   "nai": "せつめいしない",
   "es": "explicar",
   "particula": "〜を",
-  "ejemplo": "使[つか]い方[かた]を説明[せつめい]します"
+  "ejemplo": "使[つか]い方[かた]を説明[せつめい]します",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "しょうかいする",
@@ -1507,7 +1880,10 @@ N5.data.verbs=
   "nai": "しょうかいしない",
   "es": "presentar (a alguien)",
   "particula": "〜を／〜に",
-  "ejemplo": "友達[ともだち]を紹介[しょうかい]します"
+  "ejemplo": "友達[ともだち]を紹介[しょうかい]します",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "しんぱいする",
@@ -1519,7 +1895,10 @@ N5.data.verbs=
   "nai": "しんぱいしない",
   "es": "preocuparse",
   "particula": "〜を",
-  "ejemplo": "試験[しけん]を心配[しんぱい]します"
+  "ejemplo": "試験[しけん]を心配[しんぱい]します",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "コピーする",
@@ -1531,7 +1910,10 @@ N5.data.verbs=
   "nai": "コピーしない",
   "es": "fotocopiar",
   "particula": "〜を",
-  "ejemplo": "資料[しりょう]をコピーします"
+  "ejemplo": "資料[しりょう]をコピーします",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "すわる",
@@ -1544,7 +1926,10 @@ N5.data.verbs=
   "es": "sentarse",
   "particula": "〜に",
   "ejemplo": "いすに座[すわ]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "おもいだす",
@@ -1556,7 +1941,10 @@ N5.data.verbs=
   "nai": "おもいださない",
   "es": "recordar, acordarse de",
   "particula": "〜を",
-  "ejemplo": "名前[なまえ]を思[おも]い出[だ]します"
+  "ejemplo": "名前[なまえ]を思[おも]い出[だ]します",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "いる",
@@ -1569,7 +1957,10 @@ N5.data.verbs=
   "es": "necesitar — G-I",
   "particula": "〜が",
   "ejemplo": "ビザが要[い]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   20
+  ]
  },
  {
   "kana": "なおす",
@@ -1581,7 +1972,10 @@ N5.data.verbs=
   "nai": "なおさない",
   "es": "reparar, corregir",
   "particula": "〜を",
-  "ejemplo": "時計[とけい]を直[なお]します"
+  "ejemplo": "時計[とけい]を直[なお]します",
+  "lecciones": [
+   20
+  ]
  },
  {
   "kana": "かぶる",
@@ -1593,7 +1987,10 @@ N5.data.verbs=
   "nai": "かぶらない",
   "es": "ponerse (en la cabeza: sombrero, gorro, casco)",
   "particula": "〜を",
-  "ejemplo": "ぼうしをかぶります"
+  "ejemplo": "ぼうしをかぶります",
+  "lecciones": [
+   22
+  ]
  },
  {
   "kana": "まわす",
@@ -1605,7 +2002,10 @@ N5.data.verbs=
   "nai": "まわさない",
   "es": "girar (algo)",
   "particula": "〜を",
-  "ejemplo": "つまみを回[まわ]します"
+  "ejemplo": "つまみを回[まわ]します",
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "さわる",
@@ -1618,7 +2018,10 @@ N5.data.verbs=
   "es": "tocar",
   "particula": "〜に",
   "ejemplo": "ドアに触[さわ]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "うごく",
@@ -1631,7 +2034,10 @@ N5.data.verbs=
   "es": "moverse, funcionar",
   "particula": "〜が",
   "ejemplo": "時計[とけい]が動[うご]きます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "ひく",
@@ -1643,7 +2049,10 @@ N5.data.verbs=
   "nai": "ひかない",
   "es": "tirar de, jalar",
   "particula": "〜を",
-  "ejemplo": "ドアを引[ひ]きます"
+  "ejemplo": "ドアを引[ひ]きます",
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "つれていく",
@@ -1655,7 +2064,10 @@ N5.data.verbs=
   "nai": "つれていかない",
   "es": "llevar (a alguien)",
   "particula": "〜を／〜へ",
-  "ejemplo": "子[こ]どもを病院[びょういん]へ連[つ]れて行[い]きます"
+  "ejemplo": "子[こ]どもを病院[びょういん]へ連[つ]れて行[い]きます",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "もっていく",
@@ -1667,7 +2079,10 @@ N5.data.verbs=
   "nai": "もっていかない",
   "es": "llevar (algo)",
   "particula": "〜を／〜へ",
-  "ejemplo": "かさを持[も]って行[い]きます"
+  "ejemplo": "かさを持[も]って行[い]きます",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "むかえる",
@@ -1679,7 +2094,10 @@ N5.data.verbs=
   "nai": "むかえない",
   "es": "ir a recibir (a alguien)",
   "particula": "〜を",
-  "ejemplo": "友達[ともだち]を迎[むか]えます"
+  "ejemplo": "友達[ともだち]を迎[むか]えます",
+  "lecciones": [
+   13
+  ]
  },
  {
   "kana": "はじめる",
@@ -1691,7 +2109,10 @@ N5.data.verbs=
   "nai": "はじめない",
   "es": "empezar (algo)",
   "particula": "〜を",
-  "ejemplo": "勉強[べんきょう]を始[はじ]めます"
+  "ejemplo": "勉強[べんきょう]を始[はじ]めます",
+  "lecciones": [
+   14
+  ]
  },
  {
   "kana": "のりかえる",
@@ -1704,7 +2125,10 @@ N5.data.verbs=
   "es": "hacer transbordo",
   "particula": "〜に",
   "ejemplo": "バスに乗[の]り換[か]えます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "やめる",
@@ -1717,7 +2141,10 @@ N5.data.verbs=
   "es": "dimitir, dejar (la empresa)",
   "particula": "〜を",
   "ejemplo": "会社[かいしゃ]を辞[や]めます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   16
+  ]
  },
  {
   "kana": "あつめる",
@@ -1729,7 +2156,10 @@ N5.data.verbs=
   "nai": "あつめない",
   "es": "coleccionar, reunir",
   "particula": "〜を",
-  "ejemplo": "切手[きって]を集[あつ]めます"
+  "ejemplo": "切手[きって]を集[あつ]めます",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "すてる",
@@ -1741,7 +2171,10 @@ N5.data.verbs=
   "nai": "すてない",
   "es": "tirar (a la basura)",
   "particula": "〜を",
-  "ejemplo": "ごみを捨[す]てます"
+  "ejemplo": "ごみを捨[す]てます",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "かえる",
@@ -1753,7 +2186,11 @@ N5.data.verbs=
   "nai": "かえない",
   "es": "cambiar, reemplazar",
   "particula": "〜を",
-  "ejemplo": "お金[かね]を換[か]えます"
+  "ejemplo": "お金[かね]を換[か]えます",
+  "lecciones": [
+   18,
+   23
+  ]
  },
  {
   "kana": "しらべる",
@@ -1765,7 +2202,10 @@ N5.data.verbs=
   "nai": "しらべない",
   "es": "consultar, investigar",
   "particula": "〜を",
-  "ejemplo": "意味[いみ]を調[しら]べます"
+  "ejemplo": "意味[いみ]を調[しら]べます",
+  "lecciones": [
+   20
+  ]
  },
  {
   "kana": "たりる",
@@ -1778,7 +2218,10 @@ N5.data.verbs=
   "es": "ser suficiente",
   "particula": "〜が",
   "ejemplo": "お金[かね]が足[た]ります",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   21
+  ]
  },
  {
   "kana": "まける",
@@ -1791,7 +2234,10 @@ N5.data.verbs=
   "es": "perder (un partido)",
   "particula": "〜に",
   "ejemplo": "試合[しあい]に負[ま]けます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   21
+  ]
  },
  {
   "kana": "きをつける",
@@ -1804,7 +2250,10 @@ N5.data.verbs=
   "es": "tener cuidado",
   "particula": "〜に",
   "ejemplo": "車[くるま]に気[き]をつけます",
-  "particulaDestacada": true
+  "particulaDestacada": true,
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "かんがえる",
@@ -1816,7 +2265,10 @@ N5.data.verbs=
   "nai": "かんがえない",
   "es": "pensar, considerar",
   "particula": "〜を／〜について",
-  "ejemplo": "将来[しょうらい]を考[かんが]えます"
+  "ejemplo": "将来[しょうらい]を考[かんが]えます",
+  "lecciones": [
+   25
+  ]
  },
  {
   "kana": "けんきゅうする",
@@ -1828,7 +2280,10 @@ N5.data.verbs=
   "nai": "けんきゅうしない",
   "es": "investigar",
   "particula": "〜を",
-  "ejemplo": "経済[けいざい]を研究[けんきゅう]します"
+  "ejemplo": "経済[けいざい]を研究[けんきゅう]します",
+  "lecciones": [
+   15
+  ]
  },
  {
   "kana": "うんてんする",
@@ -1840,7 +2295,10 @@ N5.data.verbs=
   "nai": "うんてんしない",
   "es": "conducir",
   "particula": "〜を",
-  "ejemplo": "車[くるま]を運転[うんてん]します"
+  "ejemplo": "車[くるま]を運転[うんてん]します",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "よやくする",
@@ -1852,7 +2310,10 @@ N5.data.verbs=
   "nai": "よやくしない",
   "es": "reservar",
   "particula": "〜を",
-  "ejemplo": "ホテルを予約[よやく]します"
+  "ejemplo": "ホテルを予約[よやく]します",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "けんがくする",
@@ -1864,7 +2325,10 @@ N5.data.verbs=
   "nai": "けんがくしない",
   "es": "visitar (para aprender)",
   "particula": "〜を",
-  "ejemplo": "工場[こうじょう]を見学[けんがく]します"
+  "ejemplo": "工場[こうじょう]を見学[けんがく]します",
+  "lecciones": [
+   18
+  ]
  },
  {
   "kana": "そうじする",
@@ -1876,7 +2340,10 @@ N5.data.verbs=
   "nai": "そうじしない",
   "es": "limpiar",
   "particula": "〜を",
-  "ejemplo": "部屋[へや]を掃除[そうじ]します"
+  "ejemplo": "部屋[へや]を掃除[そうじ]します",
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "せんたくする",
@@ -1888,7 +2355,10 @@ N5.data.verbs=
   "nai": "せんたくしない",
   "es": "lavar la ropa",
   "particula": "〜を",
-  "ejemplo": "服[ふく]を洗濯[せんたく]します"
+  "ejemplo": "服[ふく]を洗濯[せんたく]します",
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "れんしゅうする",
@@ -1900,7 +2370,10 @@ N5.data.verbs=
   "nai": "れんしゅうしない",
   "es": "practicar",
   "particula": "〜を",
-  "ejemplo": "漢字[かんじ]を練習[れんしゅう]します"
+  "ejemplo": "漢字[かんじ]を練習[れんしゅう]します",
+  "lecciones": [
+   19
+  ]
  },
  {
   "kana": "しゅうりする",
@@ -1912,7 +2385,10 @@ N5.data.verbs=
   "nai": "しゅうりしない",
   "es": "reparar (aparatos)",
   "particula": "〜を",
-  "ejemplo": "車[くるま]を修理[しゅうり]します"
+  "ejemplo": "車[くるま]を修理[しゅうり]します",
+  "lecciones": [
+   20
+  ]
  },
  {
   "kana": "ひっこしする",
@@ -1924,7 +2400,10 @@ N5.data.verbs=
   "nai": "ひっこししない",
   "es": "mudarse de casa",
   "particula": "〜へ／〜に",
-  "ejemplo": "大阪[おおさか]へ引[ひ]っ越[こ]しします"
+  "ejemplo": "大阪[おおさか]へ引[ひ]っ越[こ]しします",
+  "lecciones": [
+   23
+  ]
  },
  {
   "kana": "つれてくる",
@@ -1936,7 +2415,10 @@ N5.data.verbs=
   "nai": "つれてこない",
   "es": "traer (a alguien)",
   "particula": "〜を",
-  "ejemplo": "友達[ともだち]を連[つ]れて来[き]ます"
+  "ejemplo": "友達[ともだち]を連[つ]れて来[き]ます",
+  "lecciones": [
+   24
+  ]
  },
  {
   "kana": "もってくる",
@@ -1948,7 +2430,10 @@ N5.data.verbs=
   "nai": "もってこない",
   "es": "traer (algo)",
   "particula": "〜を",
-  "ejemplo": "本[ほん]を持[も]って来[き]ます"
+  "ejemplo": "本[ほん]を持[も]って来[き]ます",
+  "lecciones": [
+   17
+  ]
  },
  {
   "kana": "とぶ",
@@ -1960,7 +2445,11 @@ N5.data.verbs=
   "nai": "とばない",
   "es": "volar; saltar",
   "particula": "〜を",
-  "ejemplo": "空[そら]を飛[と]びます"
+  "ejemplo": "空[そら]を飛[と]びます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  },
  {
   "kana": "なげる",
@@ -1972,6 +2461,10 @@ N5.data.verbs=
   "nai": "なげない",
   "es": "lanzar, tirar",
   "particula": "〜を",
-  "ejemplo": "ボールを投[な]げます"
+  "ejemplo": "ボールを投[な]げます",
+  "lecciones": [
+   18
+  ],
+  "seccion": "referencia"
  }
 ];

@@ -30,21 +30,9 @@
   const esRuido = id => id.startsWith("v|") && (id.includes("〜") || /^v\|[A-Za-z]+\|/.test(id));
 
   // ---------- de dato a fila ----------
-  const esKana   = c => /[ぁ-ゖァ-ヺー]/.test(c);
   const soloKata = s => /^[ァ-ヶー]+$/.test(s.replace(/[・\s]/g, ""));
   // Romaji de la primera lectura: 「あ・ける、ひら・く」 → akeru
   const romaji   = s => (s ? N5.romaji(N5.limpiaEntrada(s).replace(/・/g, "").split("、")[0]) : "");
-
-  // Forma ます en kanji: se cambia la cola kana del diccionario por la de ます.
-  // 会う+あう+あいます → 会います.  Se corta por longitud, así 来る+くる+きます → 来ます.
-  function masuKanji(v) {
-    if (!v.kanji) return "";
-    let n = 0;
-    while (n < v.kanji.length && esKana(v.kanji[v.kanji.length - 1 - n])) n++;
-    if (!n || !v.kana.endsWith(v.kanji.slice(-n))) return "";
-    const corte = v.kana.length - n;
-    return v.masu.length > corte ? v.kanji.slice(0, -n) + v.masu.slice(corte) : "";
-  }
 
   function filas() {
     const out = [];
@@ -53,7 +41,7 @@
       out.push([w.es, romaji(k), kata ? "" : k, kata ? k : "", N5.limpiaEntrada(w.kanji)]);
     }
     for (const v of N5.data.verbs) if (sel.has(N5.selId.verbo(v)))
-      out.push([v.es, romaji(v.masu), v.masu, "", masuKanji(v)]);
+      out.push([v.es, romaji(v.masu), v.masu, "", N5.masuKanji(v)]);
     for (const k of N5.data.kanji) if (sel.has(N5.selId.kanji(k)))
       out.push([k.significado, romaji(k.kun || k.on), k.kun, k.on, k.kanji]);
     return out;
@@ -130,17 +118,17 @@
       if (!sel.has(c.dataset.id)) { sel.add(c.dataset.id); n++; }
       c.checked = true;
     }
-    guarda();
+    guarda(); sincroniza();
     aviso(!cajas.length ? "No hay nada visible" :
       plural(n, "añadido", "añadidos") +
       (saltadas ? ` · ${plural(saltadas, "omitido", "omitidos")} (partículas y siglas)` : ""));
   }
 
-  function vaciar() {
-    sel.clear(); guarda();
-    $$(".selbox").forEach(c => { c.checked = false; });
-    pinta();
-  }
+  function vaciar() { sel.clear(); guarda(); sincroniza(); pinta(); }
+
+  // Una misma entrada puede tener casilla en dos sitios: un verbo sale en Verbos y
+  // también en el vocabulario de su lección. Se mantienen las dos a la vez.
+  const sincroniza = () => $$(".selbox").forEach(c => { c.checked = sel.has(c.dataset.id); });
 
   N5.initExport = () => {
     // un único botón en la cabecera enciende y apaga el modo
@@ -153,7 +141,7 @@
       const c = e.target.closest(".selbox");
       if (!c) return;
       c.checked ? sel.add(c.dataset.id) : sel.delete(c.dataset.id);
-      guarda(); pinta();
+      guarda(); sincroniza(); pinta();
     });
     $("#selAll").addEventListener("click", marcaVisible);
     $("#selNone").addEventListener("click", vaciar);

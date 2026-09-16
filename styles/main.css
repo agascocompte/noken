@@ -407,3 +407,12 @@ a.reftag:hover{color:var(--ink)}
 }
 .n5tag.seguro{background:var(--ok-soft); color:var(--ok)}
 .n5tag.posible{background:var(--chip); color:var(--ink2)}
+
+/* palabra que además es verbo: enlaza con la pestaña de conjugaciones */
+.verbotag{
+  display:inline-block; font-family:var(--font-jp); font-size:.7rem; line-height:1.5;
+  background:var(--accent-soft); color:var(--accent); border-radius:5px;
+  padding:0 5px; text-decoration:none; vertical-align:middle; margin-left:6px;
+}
+a.verbotag:hover{filter:brightness(1.1)}
+td.romaji{font-size:.85rem; letter-spacing:.01em}

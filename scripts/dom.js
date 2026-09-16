@@ -39,6 +39,22 @@ N5.sinFurigana = s => String(s).replace(/\[[ぁ-ゖァ-ヺー]+\]/g, "");
 // Quita los adornos de opcionalidad de una entrada: [お]てら → おてら, きれい（な） → きれいな
 N5.limpiaEntrada = s => String(s).replace(/[\[\]（）]/g, "");
 
+// Romaji de una entrada, para mostrarlo en las tablas: 「[お]ゆ」 → oyu
+N5.romajiDe = s => N5.romaji(N5.limpiaEntrada(s).replace(/[〜～・]/g, ""));
+
+// Forma ます en kanji de un verbo: se cambia la cola kana del diccionario por la
+// de ます. 会う+あう+あいます → 会います. Se corta por longitud, así 来る+くる+きます
+// → 来ます aunque cambie la lectura.
+N5.masuKanji = v => {
+  if (!v.kanji) return "";
+  const esKana = c => /[ぁ-ゖァ-ヺー]/.test(c);
+  let n = 0;
+  while (n < v.kanji.length && esKana(v.kanji[v.kanji.length - 1 - n])) n++;
+  if (!n || !v.kana.endsWith(v.kanji.slice(-n))) return "";
+  const corte = v.kana.length - n;
+  return v.masu.length > corte ? v.kanji.slice(0, -n) + v.masu.slice(corte) : "";
+};
+
 // Texto ruby ya escapado (atajo habitual al renderizar datos).
 N5.rubyEsc = s => N5.ruby(N5.esc(s));
 
