@@ -47,6 +47,65 @@
     return out;
   }
 
+  // ---------- importar una selección ----------
+  // El CSV no lleva identificadores, así que cada fila se reconoce por las mismas
+  // columnas japonesas que escribió la exportación. El español se ignora, por si se
+  // ha retocado en una hoja de cálculo.
+  let indice = null;
+  const claveDe = campos => campos.map(x => N5.limpiaEntrada(x).trim()).join("|");
+  function indexa() {
+    if (indice) return indice;
+    indice = new Map();
+    for (const w of N5.data.vocab) {
+      const k = N5.limpiaEntrada(w.kana), kata = soloKata(k);
+      indice.set(claveDe([kata ? "" : k, kata ? k : "", w.kanji]), N5.selId.vocab(w));
+    }
+    for (const v of N5.data.verbs) indice.set(claveDe([v.masu, "", N5.masuKanji(v)]), N5.selId.verbo(v));
+    for (const k of N5.data.kanji) indice.set(claveDe([k.kun, k.on, k.kanji]), N5.selId.kanji(k));
+    return indice;
+  }
+
+  // Lector de CSV con comillas: los significados llevan comas («tú, usted»).
+  function leeCSV(texto) {
+    const filas = []; let fila = [], campo = "", entreComillas = false;
+    const t = texto.replace(/^\uFEFF/, "");
+    const finDeFila = () => { fila.push(campo); campo = ""; if (fila.some(x => x !== "")) filas.push(fila); fila = []; };
+    for (let i = 0; i < t.length; i++) {
+      const c = t[i];
+      if (entreComillas) {
+        if (c !== '"') campo += c;
+        else if (t[i + 1] === '"') { campo += '"'; i++; }
+        else entreComillas = false;
+      } else if (c === '"') entreComillas = true;
+      else if (c === ",") { fila.push(campo); campo = ""; }
+      else if (c === "\n" || c === "\r") { if (c === "\r" && t[i + 1] === "\n") i++; finDeFila(); }
+      else campo += c;
+    }
+    finDeFila();
+    return filas;
+  }
+
+  async function importa(fichero) {
+    let filas;
+    try { filas = leeCSV(await fichero.text()); } catch { filas = []; }
+    const idx = indexa();
+    let nuevas = 0, repetidas = 0, desconocidas = 0;
+    for (const f of filas) {
+      if (f[2] === "Hiragana") continue;                       // cabecera
+      if (f.length < 5) { desconocidas++; continue; }           // no tiene las 5 columnas
+      const id = idx.get(claveDe([f[2], f[3], f[4]]));
+      if (!id) desconocidas++;
+      else if (sel.has(id)) repetidas++;
+      else { sel.add(id); nuevas++; }
+    }
+    guarda(); sincroniza(); pinta();
+    if (!nuevas && !repetidas)
+      return aviso(desconocidas ? "No parece un CSV exportado de la guía" : "El archivo no tiene filas");
+    aviso(plural(nuevas, "añadida", "añadidas") +
+      (repetidas ? ` · ${repetidas} ya estaban` : "") +
+      (desconocidas ? ` · ${plural(desconocidas, "sin reconocer", "sin reconocer")}` : ""));
+  }
+
   // ---------- CSV ----------
   const CABECERA = ["Español", "Romaji", "Hiragana", "Katakana", "Kanji"];
   const campo = s => /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
@@ -75,6 +134,9 @@
     const visible = modo || sel.size > 0;
     $("#selBar").hidden = !visible;
     document.body.classList.toggle("con-selbar", visible);
+    // El hueco que se reserva abajo se mide de la barra: con los botones envueltos
+    // en varias filas del móvil, un valor fijo se quedaba corto y tapaba contenido.
+    document.body.style.setProperty("--alto-selbar", visible ? $("#selBar").offsetHeight + "px" : "0px");
     const n = N5.selTotal();
     $("#selCount").textContent = mensaje ||
       (n ? plural(n, "marcado", "marcados") : "Marca lo que quieras exportar");
@@ -146,6 +208,12 @@
     $("#selAll").addEventListener("click", marcaVisible);
     $("#selNone").addEventListener("click", vaciar);
     $("#selCsv").addEventListener("click", descargar);
+    $("#selImport").addEventListener("click", () => $("#selFile").click());
+    $("#selFile").addEventListener("change", e => {
+      const f = e.target.files[0];
+      if (f) importa(f);
+      e.target.value = "";   // así se puede volver a elegir el mismo archivo
+    });
     N5.afterRoute = (_, def) => refrescaContexto(def);
     // el router ya activó una ruta antes de esto: se arranca con la sección visible
     refrescaContexto(N5.sections.get($(".panel.active")?.id.replace(/^p-/, "")));

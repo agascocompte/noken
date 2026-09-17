@@ -3436,12 +3436,6 @@ N5.data.vocab=
   "leccion": 25
  },
  {
-  "kana": "がんばります",
-  "kanji": "頑張ります",
-  "es": "me esforzaré, ¡ánimo!",
-  "leccion": 25
- },
- {
   "kana": "どうぞおげんきで",
   "kanji": "どうぞお元気で",
   "es": "que le vaya bien",
@@ -4309,12 +4303,6 @@ N5.data.vocab=
   "kana": "プレイガイド",
   "kanji": "",
   "es": "agencia de venta de entradas",
-  "leccion": 15
- },
- {
-  "kana": "おもいだします",
-  "kanji": "思い出します",
-  "es": "recordar, acordarse",
   "leccion": 15
  },
  {

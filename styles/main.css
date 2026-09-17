@@ -347,7 +347,7 @@ body.selmode .kcard{position:relative; padding-right:32px}
 }
 .selbar[hidden]{display:none}
 /* la barra es fija: sin este hueco taparía el final de la página (p. ej. «Siguiente» del test) */
-body.con-selbar main{padding-bottom:150px}
+body.con-selbar main{padding-bottom:calc(40px + var(--alto-selbar, 150px))}
 .selcount{font-size:.85rem; color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums}
 .selbar .btn:disabled{opacity:.45; cursor:default}
 /* en el móvil, barra de lado a lado en vez de píldora centrada */
