@@ -144,7 +144,13 @@ console.log("examenes");
     const resto = String(t).replace(/([一-鿿々〇]+)\[[ぁ-ゖァ-ヺー]+\]/g, "");
     return [...new Set([...resto].filter(c => /[一-鿿々〇]/.test(c) && !N5SET.has(c)))];
   };
+  // Y en 読解 el examen imprime furigana encima de CADA kanji, también de los
+  // del nivel: los textos escritos a mano la tienen que traer toda.
+  const sinFurigana = t => [...new Set([...String(t).replace(/([一-鿿々〇]+)\[[ぁ-ゖァ-ヺー]+\]/g, "")]
+    .filter(c => /[一-鿿々〇]/.test(c)))];
   const revisa = (t, quien) => {
+    const sin = sinFurigana(t);
+    if (sin.length) err(`${quien}: ${sin.join("")} sin furigana`);
     const malos = fueraDelN5(t);
     if (malos.length) err(`${quien}: ${malos.join("")} no ${malos.length === 1 ? "es kanji" : "son kanji"} del N5 y va${malos.length === 1 ? "" : "n"} sin furigana`);
     const m = furiganaMal(t); if (m) err(`${quien}: ${m}`);

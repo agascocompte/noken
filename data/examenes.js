@@ -23,266 +23,266 @@ window.N5=window.N5||{data:{}};
 N5.data.examenes=
 {
  "frases": [
- {
-  "jp": "りんごを一[ひと]つ買[か]いました。",
-  "es": "Compré una manzana."
- },
- {
-  "jp": "子[こ]どもが二人[ふたり]います。",
-  "es": "Tengo dos hijos."
- },
- {
-  "jp": "みかんを三[みっ]つください。",
-  "es": "Tres mandarinas, por favor."
- },
- {
-  "jp": "四時[よじ]に駅[えき]で会[あ]いましょう。",
-  "es": "Quedamos a las cuatro en la estación."
- },
- {
-  "jp": "五[いつ]つで五百円[ごひゃくえん]です。",
-  "es": "Cinco salen por quinientos yenes."
- },
- {
-  "jp": "ケーキを六[むっ]つ買[か]いました。",
-  "es": "Compré seis pasteles."
- },
- {
-  "jp": "七時[しちじ]に朝[あさ]ごはんを食[た]べます。",
-  "es": "Desayuno a las siete."
- },
- {
-  "jp": "八百円[はっぴゃくえん]の本[ほん]を買[か]いました。",
-  "es": "Compré un libro de ochocientos yenes."
- },
- {
-  "jp": "九時[くじ]に会社[かいしゃ]へ行[い]きます。",
-  "es": "Voy a la empresa a las nueve."
- },
- {
-  "jp": "十日[とおか]に国[くに]へ帰[かえ]ります。",
-  "es": "Vuelvo a mi país el día diez."
- },
- {
-  "jp": "百円[ひゃくえん]のパンを買[か]いました。",
-  "es": "Compré un pan de cien yenes."
- },
- {
-  "jp": "千円[せんえん]貸[か]してください。",
-  "es": "Préstame mil yenes, por favor."
- },
- {
-  "jp": "一万円[いちまんえん]の時計[とけい]です。",
-  "es": "Es un reloj de diez mil yenes."
- },
- {
-  "jp": "火曜日[かようび]に友達[ともだち]と会[あ]います。",
-  "es": "El martes quedo con un amigo."
- },
- {
-  "jp": "木曜日[もくようび]は学校[がっこう]が休[やす]みです。",
-  "es": "El jueves no hay clase."
- },
- {
-  "jp": "土曜日[どようび]に川[かわ]へ行[い]きます。",
-  "es": "El sábado voy al río."
- },
- {
-  "jp": "出口[でぐち]はどこですか。",
-  "es": "¿Dónde está la salida?"
- },
- {
-  "jp": "けさから目[め]が悪[わる]いです。",
-  "es": "Desde esta mañana veo mal."
- },
- {
-  "jp": "あの犬[いぬ]は耳[みみ]が大[おお]きいです。",
-  "es": "Ese perro tiene las orejas grandes."
- },
- {
-  "jp": "駅[えき]は東[ひがし]にあります。",
-  "es": "La estación está al este."
- },
- {
-  "jp": "西[にし]へ行[い]く電車[でんしゃ]はどれですか。",
-  "es": "¿Cuál es el tren que va al oeste?"
- },
- {
-  "jp": "南[みなみ]の国[くに]へ旅行[りょこう]したいです。",
-  "es": "Quiero viajar a un país del sur."
- },
- {
-  "jp": "北[きた]の窓[まど]を開[あ]けてください。",
-  "es": "Abre la ventana del norte, por favor."
- },
- {
-  "jp": "男[おとこ]の人[ひと]が三人[さんにん]います。",
-  "es": "Hay tres hombres."
- },
- {
-  "jp": "女[おんな]の人[ひと]に道[みち]を聞[き]きました。",
-  "es": "Le pregunté el camino a una mujer."
- },
- {
-  "jp": "日本[にほん]は魚[さかな]が多[おお]いです。",
-  "es": "En Japón hay mucho pescado."
- },
- {
-  "jp": "今年[ことし]の夏[なつ]は暑[あつ]かったです。",
-  "es": "Este verano ha hecho calor."
- },
- {
-  "jp": "午前[ごぜん]九時[くじ]に始[はじ]まります。",
-  "es": "Empieza a las nueve de la mañana."
- },
- {
-  "jp": "午後[ごご]から雨[あめ]が降[ふ]ります。",
-  "es": "Va a llover por la tarde."
- },
- {
-  "jp": "左[ひだり]を見[み]てください。",
-  "es": "Mira a la izquierda, por favor."
- },
- {
-  "jp": "白[しろ]いシャツを買[か]いました。",
-  "es": "Me compré una camisa blanca."
- },
- {
-  "jp": "学校[がっこう]は駅[えき]の前[まえ]にあります。",
-  "es": "La escuela está delante de la estación."
- },
- {
-  "jp": "あの店[みせ]は安[やす]いです。",
-  "es": "Esa tienda es barata."
- },
- {
-  "jp": "二時半[にじはん]に出[で]かけます。",
-  "es": "Salgo a las dos y media."
- },
- {
-  "jp": "友達[ともだち]と映画[えいが]を見[み]ました。",
-  "es": "Vi una película con un amigo."
- },
- {
-  "jp": "わたしの家[うち]は古[ふる]いです。",
-  "es": "Mi casa es vieja."
- },
- {
-  "jp": "先生[せんせい]が前[まえ]に立[た]っています。",
-  "es": "El profesor está de pie delante."
- },
- {
-  "jp": "先生[せんせい]は何[なに]も言[い]いませんでした。",
-  "es": "El profesor no dijo nada."
- },
- {
-  "jp": "外[そと]はとても寒[さむ]いです。",
-  "es": "Fuera hace mucho frío."
- },
- {
-  "jp": "外国[がいこく]へ行[い]きたいです。",
-  "es": "Quiero ir al extranjero."
- },
- {
-  "jp": "飲[の]み物[もの]は何[なに]がいいですか。",
-  "es": "¿Qué quieres de beber?"
- },
- {
-  "jp": "毎日[まいにち]お茶[ちゃ]を飲[の]みます。",
-  "es": "Bebo té todos los días."
- },
- {
-  "jp": "来週[らいしゅう]国[くに]へ帰[かえ]ります。",
-  "es": "La semana que viene vuelvo a mi país."
- },
- {
-  "jp": "先週[せんしゅう]京都[きょうと]へ行[い]きました。",
-  "es": "La semana pasada fui a Kioto."
- },
- {
-  "jp": "きのう魚[さかな]を食[た]べました。",
-  "es": "Ayer comí pescado."
- },
- {
-  "jp": "りんごを四[よっ]つください。",
-  "es": "Cuatro manzanas, por favor."
- },
- {
-  "jp": "たまごを八[やっ]つ買[か]いました。",
-  "es": "Compré ocho huevos."
- },
- {
-  "jp": "たばこの火[ひ]を消[け]してください。",
-  "es": "Apaga el cigarrillo, por favor."
- },
- {
-  "jp": "にわに大[おお]きい木[き]があります。",
-  "es": "En el jardín hay un árbol grande."
- },
- {
-  "jp": "子[こ]どもが土[つち]で遊[あそ]んでいます。",
-  "es": "Los niños están jugando en la tierra."
- },
- {
-  "jp": "電車[でんしゃ]の中[なか]で立[た]ちます。",
-  "es": "En el tren voy de pie."
- },
- {
-  "jp": "日本語[にほんご]で何[なん]と言[い]いますか。",
-  "es": "¿Cómo se dice en japonés?"
- },
- {
-  "jp": "テレビを消[け]してください。",
-  "es": "Apaga la televisión, por favor."
- },
- {
-  "jp": "毎朝[まいあさ]コーヒーを飲[の]みます。",
-  "es": "Todas las mañanas tomo café."
- },
- {
-  "jp": "ラジオでニュースを聞[き]きます。",
-  "es": "Escucho las noticias por la radio."
- },
- {
-  "jp": "カメラを買[か]いたいです。",
-  "es": "Quiero comprar una cámara."
- },
- {
-  "jp": "ビールを二[ふた]つください。",
-  "es": "Dos cervezas, por favor."
- },
- {
-  "jp": "エレベーターは右[みぎ]にあります。",
-  "es": "El ascensor está a la derecha."
- },
- {
-  "jp": "デパートで買[か]い物[もの]をしました。",
-  "es": "Hice la compra en los grandes almacenes."
- },
- {
-  "jp": "ノートとペンを持[も]ってきてください。",
-  "es": "Trae un cuaderno y un bolígrafo, por favor."
- },
- {
-  "jp": "テーブルの上[うえ]に花[はな]があります。",
-  "es": "Encima de la mesa hay flores."
- },
- {
-  "jp": "スプーンで食[た]べます。",
-  "es": "Como con cuchara."
- },
- {
-  "jp": "バスで学校[がっこう]へ行[い]きます。",
-  "es": "Voy a la escuela en autobús."
- },
- {
-  "jp": "カレンダーを見[み]てください。",
-  "es": "Mira el calendario, por favor."
- },
- {
-  "jp": "ポケットに入[い]れました。",
-  "es": "Lo metí en el bolsillo."
- }
+  {
+   "jp": "りんごを一[ひと]つ買[か]いました。",
+   "es": "Compré una manzana."
+  },
+  {
+   "jp": "子[こ]どもが二人[ふたり]います。",
+   "es": "Tengo dos hijos."
+  },
+  {
+   "jp": "みかんを三[みっ]つください。",
+   "es": "Tres mandarinas, por favor."
+  },
+  {
+   "jp": "四時[よじ]に駅[えき]で会[あ]いましょう。",
+   "es": "Quedamos a las cuatro en la estación."
+  },
+  {
+   "jp": "五[いつ]つで五百円[ごひゃくえん]です。",
+   "es": "Cinco salen por quinientos yenes."
+  },
+  {
+   "jp": "ケーキを六[むっ]つ買[か]いました。",
+   "es": "Compré seis pasteles."
+  },
+  {
+   "jp": "七時[しちじ]に朝[あさ]ごはんを食[た]べます。",
+   "es": "Desayuno a las siete."
+  },
+  {
+   "jp": "八百円[はっぴゃくえん]の本[ほん]を買[か]いました。",
+   "es": "Compré un libro de ochocientos yenes."
+  },
+  {
+   "jp": "九時[くじ]に会社[かいしゃ]へ行[い]きます。",
+   "es": "Voy a la empresa a las nueve."
+  },
+  {
+   "jp": "十日[とおか]に国[くに]へ帰[かえ]ります。",
+   "es": "Vuelvo a mi país el día diez."
+  },
+  {
+   "jp": "百円[ひゃくえん]のパンを買[か]いました。",
+   "es": "Compré un pan de cien yenes."
+  },
+  {
+   "jp": "千円[せんえん]貸[か]してください。",
+   "es": "Préstame mil yenes, por favor."
+  },
+  {
+   "jp": "一万円[いちまんえん]の時計[とけい]です。",
+   "es": "Es un reloj de diez mil yenes."
+  },
+  {
+   "jp": "火曜日[かようび]に友達[ともだち]と会[あ]います。",
+   "es": "El martes quedo con un amigo."
+  },
+  {
+   "jp": "木曜日[もくようび]は学校[がっこう]が休[やす]みです。",
+   "es": "El jueves no hay clase."
+  },
+  {
+   "jp": "土曜日[どようび]に川[かわ]へ行[い]きます。",
+   "es": "El sábado voy al río."
+  },
+  {
+   "jp": "出口[でぐち]はどこですか。",
+   "es": "¿Dónde está la salida?"
+  },
+  {
+   "jp": "けさから目[め]が悪[わる]いです。",
+   "es": "Desde esta mañana veo mal."
+  },
+  {
+   "jp": "あの犬[いぬ]は耳[みみ]が大[おお]きいです。",
+   "es": "Ese perro tiene las orejas grandes."
+  },
+  {
+   "jp": "駅[えき]は東[ひがし]にあります。",
+   "es": "La estación está al este."
+  },
+  {
+   "jp": "西[にし]へ行[い]く電車[でんしゃ]はどれですか。",
+   "es": "¿Cuál es el tren que va al oeste?"
+  },
+  {
+   "jp": "南[みなみ]の国[くに]へ旅行[りょこう]したいです。",
+   "es": "Quiero viajar a un país del sur."
+  },
+  {
+   "jp": "北[きた]の窓[まど]を開[あ]けてください。",
+   "es": "Abre la ventana del norte, por favor."
+  },
+  {
+   "jp": "男[おとこ]の人[ひと]が三人[さんにん]います。",
+   "es": "Hay tres hombres."
+  },
+  {
+   "jp": "女[おんな]の人[ひと]に道[みち]を聞[き]きました。",
+   "es": "Le pregunté el camino a una mujer."
+  },
+  {
+   "jp": "日本[にほん]は魚[さかな]が多[おお]いです。",
+   "es": "En Japón hay mucho pescado."
+  },
+  {
+   "jp": "今年[ことし]の夏[なつ]は暑[あつ]かったです。",
+   "es": "Este verano ha hecho calor."
+  },
+  {
+   "jp": "午前[ごぜん]九時[くじ]に始[はじ]まります。",
+   "es": "Empieza a las nueve de la mañana."
+  },
+  {
+   "jp": "午後[ごご]から雨[あめ]が降[ふ]ります。",
+   "es": "Va a llover por la tarde."
+  },
+  {
+   "jp": "左[ひだり]を見[み]てください。",
+   "es": "Mira a la izquierda, por favor."
+  },
+  {
+   "jp": "白[しろ]いシャツを買[か]いました。",
+   "es": "Me compré una camisa blanca."
+  },
+  {
+   "jp": "学校[がっこう]は駅[えき]の前[まえ]にあります。",
+   "es": "La escuela está delante de la estación."
+  },
+  {
+   "jp": "あの店[みせ]は安[やす]いです。",
+   "es": "Esa tienda es barata."
+  },
+  {
+   "jp": "二時半[にじはん]に出[で]かけます。",
+   "es": "Salgo a las dos y media."
+  },
+  {
+   "jp": "友達[ともだち]と映画[えいが]を見[み]ました。",
+   "es": "Vi una película con un amigo."
+  },
+  {
+   "jp": "わたしの家[うち]は古[ふる]いです。",
+   "es": "Mi casa es vieja."
+  },
+  {
+   "jp": "先生[せんせい]が前[まえ]に立[た]っています。",
+   "es": "El profesor está de pie delante."
+  },
+  {
+   "jp": "先生[せんせい]は何[なに]も言[い]いませんでした。",
+   "es": "El profesor no dijo nada."
+  },
+  {
+   "jp": "外[そと]はとても寒[さむ]いです。",
+   "es": "Fuera hace mucho frío."
+  },
+  {
+   "jp": "外国[がいこく]へ行[い]きたいです。",
+   "es": "Quiero ir al extranjero."
+  },
+  {
+   "jp": "飲[の]み物[もの]は何[なに]がいいですか。",
+   "es": "¿Qué quieres de beber?"
+  },
+  {
+   "jp": "毎日[まいにち]お茶[ちゃ]を飲[の]みます。",
+   "es": "Bebo té todos los días."
+  },
+  {
+   "jp": "来週[らいしゅう]国[くに]へ帰[かえ]ります。",
+   "es": "La semana que viene vuelvo a mi país."
+  },
+  {
+   "jp": "先週[せんしゅう]京都[きょうと]へ行[い]きました。",
+   "es": "La semana pasada fui a Kioto."
+  },
+  {
+   "jp": "きのう魚[さかな]を食[た]べました。",
+   "es": "Ayer comí pescado."
+  },
+  {
+   "jp": "りんごを四[よっ]つください。",
+   "es": "Cuatro manzanas, por favor."
+  },
+  {
+   "jp": "たまごを八[やっ]つ買[か]いました。",
+   "es": "Compré ocho huevos."
+  },
+  {
+   "jp": "たばこの火[ひ]を消[け]してください。",
+   "es": "Apaga el cigarrillo, por favor."
+  },
+  {
+   "jp": "にわに大[おお]きい木[き]があります。",
+   "es": "En el jardín hay un árbol grande."
+  },
+  {
+   "jp": "子[こ]どもが土[つち]で遊[あそ]んでいます。",
+   "es": "Los niños están jugando en la tierra."
+  },
+  {
+   "jp": "電車[でんしゃ]の中[なか]で立[た]ちます。",
+   "es": "En el tren voy de pie."
+  },
+  {
+   "jp": "日本語[にほんご]で何[なん]と言[い]いますか。",
+   "es": "¿Cómo se dice en japonés?"
+  },
+  {
+   "jp": "テレビを消[け]してください。",
+   "es": "Apaga la televisión, por favor."
+  },
+  {
+   "jp": "毎朝[まいあさ]コーヒーを飲[の]みます。",
+   "es": "Todas las mañanas tomo café."
+  },
+  {
+   "jp": "ラジオでニュースを聞[き]きます。",
+   "es": "Escucho las noticias por la radio."
+  },
+  {
+   "jp": "カメラを買[か]いたいです。",
+   "es": "Quiero comprar una cámara."
+  },
+  {
+   "jp": "ビールを二[ふた]つください。",
+   "es": "Dos cervezas, por favor."
+  },
+  {
+   "jp": "エレベーターは右[みぎ]にあります。",
+   "es": "El ascensor está a la derecha."
+  },
+  {
+   "jp": "デパートで買[か]い物[もの]をしました。",
+   "es": "Hice la compra en los grandes almacenes."
+  },
+  {
+   "jp": "ノートとペンを持[も]ってきてください。",
+   "es": "Trae un cuaderno y un bolígrafo, por favor."
+  },
+  {
+   "jp": "テーブルの上[うえ]に花[はな]があります。",
+   "es": "Encima de la mesa hay flores."
+  },
+  {
+   "jp": "スプーンで食[た]べます。",
+   "es": "Como con cuchara."
+  },
+  {
+   "jp": "バスで学校[がっこう]へ行[い]きます。",
+   "es": "Voy a la escuela en autobús."
+  },
+  {
+   "jp": "カレンダーを見[み]てください。",
+   "es": "Mira el calendario, por favor."
+  },
+  {
+   "jp": "ポケットに入[い]れました。",
+   "es": "Lo metí en el bolsillo."
+  }
  ],
  "lecturas": {
   "cortas": [
@@ -294,7 +294,7 @@ N5.data.examenes=
      "シャワーを あびます。",
      "あさごはんを たべます。",
      "うちを でます。",
-     "三十分 はしります。"
+     "三十分[さんじゅっぷん] はしります。"
     ],
     "nota": "「走ったあとで シャワーを 浴びて、朝[あさ]ごはんを 食べます」: el orden es correr → ducha → desayuno."
    },
@@ -304,9 +304,9 @@ N5.data.examenes=
     "pregunta": "この 人[ひと]は きのうの 午後[ごご]、何[なに]を しましたか。",
     "opciones": [
      "こうえんを さんぽしました。",
-     "うちで 本を よみました。",
-     "かいものに 行きました。",
-     "一日中 ねて いました。"
+     "うちで 本[ほん]を よみました。",
+     "かいものに 行[い]きました。",
+     "一日中[いちにちじゅう] ねて いました。"
     ],
     "nota": "El libro fue por la mañana; 午後から… el paseo."
    },
@@ -315,10 +315,10 @@ N5.data.examenes=
     "es": "Sr. Yamada: la clase de mañana cambia de aula. No es la de siempre en la segunda planta, sino la 305 de la tercera. La hora es la misma de siempre, a las nueve. Tanaka.",
     "pregunta": "あしたの 授業[じゅぎょう]に ついて、正[ただ]しい ものは どれですか。",
     "opciones": [
-     "きょうしつは かわりますが、時間は かわりません。",
-     "きょうしつも 時間も かわります。",
-     "時間は かわりますが、きょうしつは かわりません。",
-     "きょうしつも 時間も かわりません。"
+     "きょうしつは かわりますが、時間[じかん]は かわりません。",
+     "きょうしつも 時間[じかん]も かわります。",
+     "時間[じかん]は かわりますが、きょうしつは かわりません。",
+     "きょうしつも 時間[じかん]も かわりません。"
     ],
     "nota": "「教室が 変わります」 pero 「時間は いつもと 同じ」."
    },
@@ -328,9 +328,9 @@ N5.data.examenes=
     "pregunta": "黒[くろ]い ねこは いつから うちに いますか。",
     "opciones": [
      "去年[きょねん]から。",
-     "十年まえから。",
-     "先週から。",
-     "子どもの ときから。"
+     "十年[じゅうねん]まえから。",
+     "先週[せんしゅう]から。",
+     "子[こ]どもの ときから。"
     ],
     "nota": "十年まえ es el gato blanco; el negro llegó 去年[きょねん]."
    },
@@ -339,9 +339,9 @@ N5.data.examenes=
     "es": "En este pueblo hay una biblioteca grande. Los libros se pueden llevar dos semanas. Pero los diccionarios y las revistas nuevas no; hay que leerlos dentro.",
     "pregunta": "図書館[としょかん]から 借[か]りることが できない ものは 何[なん]ですか。",
     "opciones": [
-     "じしょと 新しい ざっし",
-     "本と じしょ",
-     "本と 新しい ざっし",
+     "じしょと 新[あたら]しい ざっし",
+     "本[ほん]と じしょ",
+     "本[ほん]と 新[あたら]しい ざっし",
      "なにも かりられません"
     ],
     "nota": "Solo los libros se prestan; 辞書 y ざっし se leen dentro."
@@ -351,10 +351,10 @@ N5.data.examenes=
     "es": "Esta mañana perdí el bolso en la estación. Dentro llevaba la cartera y un libro. Pregunté al personal, pero todavía no ha aparecido. Mañana volveré a la estación.",
     "pregunta": "この 人[ひと]は あした 何[なに]を しますか。",
     "opciones": [
-     "もう 一度[いちど] えきへ 行きます。",
-     "新しい かばんを 買います。",
-     "えきの 人に 電話を します。",
-     "本を かりに 行きます。"
+     "もう 一度[いちど] えきへ 行[い]きます。",
+     "新[あたら]しい かばんを 買[か]います。",
+     "えきの 人[ひと]に 電話[でんわ]を します。",
+     "本[ほん]を かりに 行[い]きます。"
     ],
     "nota": "「あした もう 一度[いちど] 駅へ 行って みます」."
    },
@@ -364,8 +364,8 @@ N5.data.examenes=
     "pregunta": "この 人[ひと]は 今[いま]、何[なに]が むずかしいと 言[い]って いますか。",
     "opciones": [
      "かんじ",
-     "友だちと 話すこと",
-     "日本の りょうり",
+     "友[とも]だちと 話[はな]すこと",
+     "日本[にほん]の りょうり",
      "でんしゃに のること"
     ],
     "nota": "「漢字は まだ むずかしいです」."
@@ -387,10 +387,10 @@ N5.data.examenes=
     "es": "La fiesta de mañana es a las seis. Pero como tengo trabajo, iré sobre las siete. Empezad sin mí, por favor. Siento llegar tarde.",
     "pregunta": "この 人[ひと]は パーティーに 何時[なんじ]ごろ 行[い]きますか。",
     "opciones": [
-     "七時ごろ",
-     "六時ごろ",
-     "五時ごろ",
-     "八時ごろ"
+     "七時[しちじ]ごろ",
+     "六時[ろくじ]ごろ",
+     "五時[ごじ]ごろ",
+     "八時[はちじ]ごろ"
     ],
     "nota": "La fiesta empieza a las 6, pero esta persona llega a las 7."
    },
@@ -411,10 +411,10 @@ N5.data.examenes=
     "es": "El miércoles pasado me resfrié y falté a clase. El jueves también tenía fiebre y fui al hospital. Desde el viernes vuelvo a ir a clase.",
     "pregunta": "この 人[ひと]は 何日[なんにち] 学校[がっこう]を 休[やす]みましたか。",
     "opciones": [
-     "二日",
-     "一日",
-     "三日",
-     "四日"
+     "二日[ふつか]",
+     "一日[いちにち]",
+     "三日[みっか]",
+     "四日[よっか]"
     ],
     "nota": "Faltó el 水曜日[すいようび] y el 木曜日[もくようび]: dos días. El 金曜日[きんようび] ya volvió."
    },
@@ -423,8 +423,8 @@ N5.data.examenes=
     "es": "El hotel de la montaña es un poco caro, pero desde la habitación se ve el mar. El de al lado de la estación es barato y está bien situado. Como quiero ver el mar, elegí el de la montaña.",
     "pregunta": "この 人[ひと]は どうして 山[やま]の 上[うえ]の ホテルに しましたか。",
     "opciones": [
-     "うみが 見たいから。",
-     "安いから。",
+     "うみが 見[み]たいから。",
+     "安[やす]いから。",
      "えきに ちかいから。",
      "べんりだから。"
     ],
@@ -451,8 +451,8 @@ N5.data.examenes=
       "opciones": [
        "もっと ひろい うちを さがします。",
        "東京[とうきょう]へ かえります。",
-       "となりの 人に 話します。",
-       "新しい テレビを 買います。"
+       "となりの 人[ひと]に 話[はな]します。",
+       "新[あたら]しい テレビを 買[か]います。"
       ],
       "nota": "「もう 少し 広い うちを さがす つもりです」."
      }
@@ -465,9 +465,9 @@ N5.data.examenes=
      {
       "pregunta": "リーさんは アルバイトを どのぐらい して いますか。",
       "opciones": [
-       "一週間に 三日",
-       "毎日",
-       "一週間に 五日",
+       "一週間[いっしゅうかん]に 三日[みっか]",
+       "毎日[まいにち]",
+       "一週間[いっしゅうかん]に 五日[いつか]",
        "土曜日[どようび]と 日曜日[にちようび]だけ"
       ],
       "nota": "「週に 三日 働いて います」."
@@ -475,9 +475,9 @@ N5.data.examenes=
      {
       "pregunta": "リーさんは どうして この 手紙[てがみ]を 書[か]きましたか。",
       "opciones": [
-       "国へ かえるまえに 田中[たなか]さんに 会いたいから。",
-       "新しい アルバイトを さがして いるから。",
-       "日本語の 学校を 教[おし]えたいから。",
+       "国[くに]へ かえるまえに 田中[たなか]さんに 会[あ]いたいから。",
+       "新[あたら]しい アルバイトを さがして いるから。",
+       "日本語[にほんご]の 学校[がっこう]を 教[おし]えたいから。",
        "田中[たなか]さんが びょうきだから。"
       ],
       "nota": "「そのまえに 一度[いちど] 会いませんか」 es el motivo de la carta."
@@ -491,20 +491,20 @@ N5.data.examenes=
      {
       "pregunta": "だれが いつも 晩[ばん]ごはんを 作[つく]りますか。",
       "opciones": [
-       "父",
-       "母",
+       "父[ちち]",
+       "母[はは]",
        "わたし",
-       "父と 母"
+       "父[ちち]と 母[はは]"
       ],
       "nota": "「母は 仕事が いそがしいので、晩ごはんは いつも 父が 作[つく]ります」."
      },
      {
       "pregunta": "先週[せんしゅう]の 日曜日[にちようび]、この 人[ひと]は 何[なに]を しましたか。",
       "opciones": [
-       "一人で カレーを 作[つく]りました。",
+       "一人[ひとり]で カレーを 作[つく]りました。",
        "さかなの りょうりを 作[つく]りました。",
-       "父の 手伝[てつだ]いを しました。",
-       "母と りょうりを 作[つく]りました。"
+       "父[ちち]の 手伝[てつだ]いを しました。",
+       "母[はは]と りょうりを 作[つく]りました。"
       ],
       "nota": "「はじめて 一人で カレーを 作[つく]りました」. El pescado es para el próximo domingo."
      }
@@ -517,22 +517,22 @@ N5.data.examenes=
      {
       "pregunta": "二人[ふたり]は 何時[なんじ]ごろ 山[やま]に 着[つ]きましたか。",
       "opciones": [
-       "八時ごろ",
-       "六時ごろ",
-       "二時ごろ",
-       "十時ごろ"
+       "八時[はちじ]ごろ",
+       "六時[ろくじ]ごろ",
+       "二時[にじ]ごろ",
+       "十時[じゅうじ]ごろ"
       ],
       "nota": "Quedaron a las 6 y el autobús tardó 2 horas: 8時ごろ."
      },
      {
       "pregunta": "お昼[ひる]ごはんに ついて、正[ただ]しい ものは どれですか。",
       "opciones": [
-       "友だちが 作[つく]った ものを 食べました。",
-       "山の 上の 店で 買いました。",
-       "うちから 買って 行きました。",
-       "何も 食べませんでした。"
+       "友[とも]だちが 作[つく]った ものを 食[た]べました。",
+       "山[やま]の 上[うえ]の 店[みせ]で 買[か]いました。",
+       "うちから 買[か]って 行[い]きました。",
+       "なにも＋neg. 食[た]べませんでした。"
       ],
-      "nota": "「友だちが 作[つく]った おにぎりを 食べました」."
+      "nota": "「友[とも]だちが 作[つく]った おにぎりを 食べました」."
      }
     ]
    },
@@ -543,9 +543,9 @@ N5.data.examenes=
      {
       "pregunta": "子[こ]どもの とき、この 人[ひと]は 本屋[ほんや]で 何[なに]を して いましたか。",
       "opciones": [
-       "長い 時間 本を 見て いました。",
-       "おじいさんと 話して いました。",
-       "たくさん 本を 買って いました。",
+       "長[なが]い 時間[じかん] 本[ほん]を 見[み]て いました。",
+       "おじいさんと 話[はな]して いました。",
+       "たくさん 本[ほん]を 買[か]って いました。",
        "まんがを かりて いました。"
       ],
       "nota": "「長い 時間 本を 見て いました」."
@@ -569,20 +569,20 @@ N5.data.examenes=
      {
       "pregunta": "朝[あさ]の 電車[でんしゃ]は いつが 一番[いちばん] こんで いますか。",
       "opciones": [
-       "七時半から 八時半ごろ",
-       "七時ごろ",
-       "六時半ごろ",
-       "九時ごろ"
+       "七時[しちじ]半[はん]から 八時[はちじ]半[はん]ごろ",
+       "七時[しちじ]ごろ",
+       "六時[ろくじ]半[はん]ごろ",
+       "九時[くじ]ごろ"
       ],
       "nota": "「七時半から 八時半ごろが 一番 たいへんです」."
      },
      {
       "pregunta": "この 人[ひと]は どうして 早[はや]く うちを 出[で]ますか。",
       "opciones": [
-       "電車の 中で 本が 読みたいから。",
-       "会社が 遠[とお]いから。",
-       "電車が おくれるから。",
-       "朝[あさ]ごはんを 食べないから。"
+       "電車[でんしゃ]の 中[なか]で 本[ほん]が 読[よ]みたいから。",
+       "会社[かいしゃ]が 遠[とお]いから。",
+       "電車[でんしゃ]が おくれるから。",
+       "朝[あさ]ごはんを 食[た]べないから。"
       ],
       "nota": "「七時の 電車は すいて いて、…ゆっくり 本が 読めます」."
      }
@@ -667,10 +667,10 @@ N5.data.examenes=
     ],
     "pregunta": "田中[たなか]さんは 魚[さかな]を 一番[いちばん] 安[やす]く 買[か]いたいです。いつ 行[い]けば いいですか。",
     "opciones": [
-     "金曜日[きんようび]の 午後 六時から",
-     "金曜日[きんようび]の 午前中",
-     "水曜日[すいようび]の 午後 六時から",
-     "日曜日[にちようび]の 午後 六時から"
+     "金曜日[きんようび]の 午後[ごご] 六時[ろくじ]から",
+     "金曜日[きんようび]の 午前[ごぜん]中[なか]",
+     "水曜日[すいようび]の 午後[ごご] 六時[ろくじ]から",
+     "日曜日[にちようび]の 午後[ごご] 六時[ろくじ]から"
     ],
     "nota": "El pescado está de oferta el viernes, y a partir de las seis baja aún más.",
     "es": "Cartel del supermercado con el día de oferta de cada producto."
@@ -685,10 +685,10 @@ N5.data.examenes=
     ],
     "pregunta": "この 図書館[としょかん]に ついて、正[ただ]しい ものは どれですか。",
     "opciones": [
-     "月曜日[げつようび]は 休みです。",
-     "日曜日[にちようび]は 休みです。",
-     "本は 10さつまで かりられます。",
-     "新聞も かりられます。"
+     "月曜日[げつようび]は 休[やす]みです。",
+     "日曜日[にちようび]は 休[やす]みです。",
+     "本[ほん]は 10さつまで かりられます。",
+     "新聞[しんぶん]も かりられます。"
     ],
     "nota": "「休みの 日：毎週 月曜日[げつようび]」.",
     "es": "Normas de uso de la biblioteca: horario, día de cierre y condiciones de préstamo."
@@ -718,10 +718,10 @@ N5.data.examenes=
     ],
     "pregunta": "大人[おとな]二人[ふたり]と 子[こ]ども 一人[ひとり]で 1かい 行[い]きます。ぜんぶで いくらですか。",
     "opciones": [
-     "1,200円",
-     "1,000円",
-     "700円",
-     "1,500円"
+     "1,200円[えん]",
+     "1,000円[えん]",
+     "700円[えん]",
+     "1,500円[えん]"
     ],
     "nota": "500×2 ＋ 200 ＝ 1,200円.",
     "es": "Precios de la piscina municipal para adultos y niños."
@@ -751,9 +751,9 @@ N5.data.examenes=
     ],
     "pregunta": "新聞[しんぶん]を 出[だ]したいです。いつ 出[だ]しますか。",
     "opciones": [
-     "土曜日[どようび]の 朝[あさ] 八時までに",
-     "月曜日[げつようび]の 朝[あさ] 八時までに",
-     "水曜日[すいようび]の 朝[あさ] 八時までに",
+     "土曜日[どようび]の 朝[あさ] 八時[はちじ]までに",
+     "月曜日[げつようび]の 朝[あさ] 八時[はちじ]までに",
+     "水曜日[すいようび]の 朝[あさ] 八時[はちじ]までに",
      "いつでも いいです"
     ],
     "nota": "Los periódicos van el sábado, y antes de las ocho.",
@@ -796,7 +796,7 @@ N5.data.examenes=
      "3のクラス",
      "1のクラス",
      "2のクラス",
-     "どの クラスにも 入れません"
+     "どの クラスにも 入[い]れません"
     ],
     "nota": "Solo puede el sábado y quiere kanji: la clase 3.",
     "es": "Folleto de las clases de japonés, con los niveles, los días y el precio."

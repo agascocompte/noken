@@ -543,3 +543,15 @@ td.romaji{font-size:.85rem; letter-spacing:.01em}
 .excartel th{background:var(--chip); font-weight:600}
 .excartel ul{margin:0; padding-left:18px; font-size:.9rem; line-height:1.9; color:var(--ink2)}
 .exfallo .expasaje{font-size:.95rem; line-height:1.9; margin:8px 0}
+
+/* texto del examen: palabras separadas como en el papel (わかちがき) */
+.exfrase, .expasaje, .exop{word-spacing:.25em}
+.exfrase ruby rt, .expasaje ruby rt, .exop ruby rt{font-size:.55em}
+/* la furigana del examen se ve siempre, aunque la de la guía esté apagada */
+body.no-furigana #p-examenes rt{visibility:visible}
+/* 文法 もんだい２: cuatro rayas, y la ★ sentada encima de una */
+.exraya{
+  display:inline-block; width:3.6em; height:1.4em; margin:0 .3em; vertical-align:bottom;
+  border-bottom:1.5px solid var(--ink); text-align:center; line-height:1.3;
+  font-size:.95em; color:var(--ink);
+}

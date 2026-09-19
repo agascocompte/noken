@@ -176,36 +176,39 @@
     guardaCurso();
   }
 
-  // Cómo se enseña cada tipo de pregunta. La frase va siempre sin furigana:
-  // en el examen de verdad tampoco lo hay, y en 問題1 sería la respuesta.
+  // El texto llega escrito como en el papel: con espacios entre palabras y, en
+  // 文法・読解, con la furigana en la convención de data/ (漢字[かんじ]), que
+  // aquí se convierte en <ruby>. En 文字・語彙 no hay nada que convertir: va en
+  // kana salvo la palabra preguntada.
+  const jp = t => N5.rubyEsc(t || "");
+
   function cuerpo(it) {
-    const e = esc(it.frase || "");
     // se corta por «pos» y no por búsqueda de texto: la palabra puede repetirse
-    const parte = dentro => esc(it.frase.slice(0, it.pos)) + dentro + esc(it.frase.slice(it.pos + it.marca.length));
-    if (it.modo === "subrayado") return parte(`<u class="exsub">${esc(it.marca)}</u>`);
-    if (it.modo === "hueco") return parte(`<span class="exhueco">（　）</span>`);
-    if (it.modo === "prehueco") return e.replace("（　）", `<span class="exhueco">（　）</span>`);
+    const parte = dentro => jp(it.frase.slice(0, it.pos)) + dentro + jp(it.frase.slice(it.pos + it.marca.length));
+    if (it.modo === "subrayado") return parte(`<u class="exsub">${jp(it.marca)}</u>`);
+    if (it.modo === "hueco") return parte(`<span class="exhueco">（　　）</span>`);
     if (it.modo === "orden") {
-      const huecos = [0, 1, 2, 3].map(k =>
-        k === it.estrella ? `<span class="exhueco">＿★＿</span>` : `<span class="exhueco">＿＿</span>`).join(" ");
-      return esc(it.antes) + " " + huecos + " " + esc(it.despues);
+      // rayas como las del examen, con la ★ encima de una de ellas
+      const rayas = [0, 1, 2, 3].map(k =>
+        `<span class="exraya">${k === it.estrella ? "★" : ""}</span>`).join("");
+      return `${jp(it.antes)} ${rayas} ${jp(it.despues)}`;
     }
-    return e;
+    return jp(it.frase);
   }
 
   // El texto de 読解 (o el cartel de もんだい６) va encima de la pregunta, y se
   // repite en las dos preguntas del mismo texto: en el papel lo tienes delante.
   function pasaje(it) {
-    if (it.texto) return `<div class="expasaje jp">${esc(it.texto).replace(/\n/g, "<br>")}</div>`;
+    if (it.texto) return `<div class="expasaje jp">${jp(it.texto).replace(/\n/g, "<br>")}</div>`;
     if (!it.info) return "";
     const i = it.info;
     return `<div class="expasaje excartel jp">
-      <h3>${esc(i.titulo)}</h3>
+      <h3>${jp(i.titulo)}</h3>
       ${i.filas?.length ? `<table>
-        ${i.cabecera?.length ? `<thead><tr>${i.cabecera.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>` : ""}
-        <tbody>${i.filas.map(f => `<tr>${f.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+        ${i.cabecera?.length ? `<thead><tr>${i.cabecera.map(c => `<th>${jp(c)}</th>`).join("")}</tr></thead>` : ""}
+        <tbody>${i.filas.map(f => `<tr>${f.map(c => `<td>${jp(c)}</td>`).join("")}</tr>`).join("")}</tbody>
       </table>` : ""}
-      ${i.notas?.length ? `<ul>${i.notas.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+      ${i.notas?.length ? `<ul>${i.notas.map(n => `<li>${jp(n)}</li>`).join("")}</ul>` : ""}
     </div>`;
   }
 
@@ -235,7 +238,7 @@
         <p class="exfrase jp">${cuerpo(it)}</p>
         <div class="exops">${it.opciones.map((o, k) => `
           <button class="exop jp${respuestas.get(it.ref) === k ? " elegida" : ""}" data-k="${k}">
-            <span class="exnumop">${k + 1}</span>${esc(o)}</button>`).join("")}</div>
+            <span class="exnumop">${k + 1}</span><span>${jp(o)}</span></button>`).join("")}</div>
         <div class="exnav">
           <button class="btn secondary" id="exPrev"${ii === 0 && bi === 0 ? " disabled" : ""}>← Anterior</button>
           <button class="btn secondary${marcadas.has(it.ref) ? " on" : ""}" id="exMarca">
@@ -310,10 +313,10 @@
             <div class="muted">もんだい${p.n}</div>
             ${pasaje(it)}
             <p class="jp">${cuerpo(it)}</p>
-            <p><span class="ok jp">${it.correcta + 1}. ${esc(it.opciones[it.correcta])}</span>
+            <p><span class="ok jp">${it.correcta + 1}. ${jp(it.opciones[it.correcta])}</span>
               ${tuya === undefined ? `<span class="muted"> · en blanco</span>`
-                : `<span class="mal jp"> · tú: ${tuya + 1}. ${esc(it.opciones[tuya])}</span>`}</p>
-            ${it.tipo === "orden" ? `<p class="muted jp">Orden: ${esc(it.orden.join(" / "))}</p>` : ""}
+                : `<span class="mal jp"> · tú: ${tuya + 1}. ${jp(it.opciones[tuya])}</span>`}</p>
+            ${it.tipo === "orden" ? `<p class="muted jp">Orden: ${jp(it.orden.join(" / "))}</p>` : ""}
             ${it.nota ? `<p class="muted">${N5.rubyEsc(it.nota)}</p>` : ""}
             ${it.traduccion ? `<p class="muted">«${esc(it.traduccion)}»</p>` : ""}
           </div>`;

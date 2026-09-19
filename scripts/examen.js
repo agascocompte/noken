@@ -57,6 +57,9 @@
   // con furigana justo los kanji difíciles: 「新幹線[しんかんせん]」 → しんかんせん.
   const paraExamen = jp => N5.sinFurigana(
     String(jp).replace(N5.FURIGANA, (_, k, lect) => todoN5(k) ? k : lect));
+  // Lo mismo pero conservando la furigana de los que se quedan en kanji: en
+  // 文法・読解 el examen la imprime encima de TODOS sus kanji.
+  const paraExamenRuby = jp => String(jp).replace(N5.FURIGANA, (_, k, lect) => todoN5(k) ? `${k}[${lect}]` : lect);
 
   // ------------------------------------------------------------------- moras
   // Los distractores de lectura se construyen tocando UNA mora, no una letra:
@@ -199,9 +202,10 @@
     "です", "でした", "ではありません", "じゃありません", "じゃありませんでした",
     "ます", "ました", "ません", "ませんでした", "ましょう", "ましょうか", "ませんか",
     "ください", "でしょう", "たいです", "たい", "たかった", "ながら", "ましょうか",
-    "ています", "ている", "ていました", "ていません", "てから", "てください",
-    "ことができます", "ことがあります", "なければなりません", "なくてもいいです",
-    "てもいいです", "てはいけません", "はいけません", "はいけない", "つもりです",
+    // 「見て います」「見て ください」「見ても いいです」: el examen separa la
+    // forma て de lo que viene detrás, así que eso NO va aquí como una pieza
+    "てから", "たり", "だり", "なければなりません", "なくてもいいです",
+    "はいけません", "はいけない", "つもりです",
     // する se pega a un montón de sustantivos: 勉強します, コピーします, 旅行しました
     "し", "する", "した", "して", "しない", "します", "しました", "しません", "しませんでした",
     // colas de adjetivo en い y condicional たら
@@ -240,7 +244,11 @@
       }
     }
     for (const k of d.kanji) { mete(k.kanji); for (const e of k.ejemplos) { mete(e.palabra); mete(e.lectura); } }
-    return (D = formas);
+    D = formas;
+    // Cada palabra también tal como sale en el papel, con los kanji de fuera
+    // del N5 ya en kana: 食べ物 → 食べもの, 千葉 → ちば.
+    for (const [k, y] of diccLect()) { formas.add(y); formas.add(formaExamen(k, y)); }
+    return D;
   }
 
   const NUMERO = /^[0-9０-９一二三四五六七八九十百千万]+$/;
@@ -270,13 +278,28 @@
     "から", "まで", "より", "など", "しか", "ばかり"];
   const CORTAN = ["は", "が", "を", "に", "で", "へ", "と", "も", "や", "の", "から", "まで", "より"];
   const DESCONOCIDO = 1000;   // una pieza no reconocida cuesta como mil conocidas
+  const SUELTA = 3;           // una palabra de una sola letra de kana
 
   function tokeniza(frase) {
     const s = frase.replace(/[。、？！「」]/g, "");
     if (!s) return null;
     const dic = dicc();
-    const conocido = t => dic.has(t) || KATAKANA.test(t) || CONTADOR.test(t) || NUMERO.test(t)
-      || /^[A-Za-z]+$/.test(t) || EXTRA.includes(t) || AUX.includes(t) || PARTICULAS_TOK.includes(t);
+    // Coste de cada pieza. En kana hay empates que hay que romper bien:
+    //   はこ＋の (caja de) frente a は＋この       → una palabra gana a «この»
+    //   です＋か frente a で＋すか                  → una cola de verbo gana a una palabra
+    //   はし (puente) frente a は＋し              → una sola letra gramatical es cara
+    // Y las palabras de una sola letra (き 木, じ 字, は 歯) son carísimas: en una
+    // frase en kana casi nunca son eso, y si el tokenizador tira de ellas es que
+    // no conoce la palabra de verdad (「はじまります」 → は·じ·ま·り·ます).
+    const gram = t => AUX.includes(t) || PARTICULAS_TOK.includes(t);
+    const precio = t => {
+      const opciones = [];
+      if (dic.has(t) || KATAKANA.test(t) || CONTADOR.test(t) || NUMERO.test(t) || /^[A-Za-z]+$/.test(t))
+        opciones.push(t.length === 1 && /[ぁ-ゖ]/.test(t) ? SUELTA : 1);
+      if (gram(t)) opciones.push(t.length > 1 ? 0.9 : 1.2);
+      if (EXTRA.includes(t)) opciones.push(1.05);
+      return opciones.length ? Math.min(...opciones) : 0;
+    };
     const coste = new Array(s.length + 1).fill(Infinity);
     const atras = new Array(s.length + 1).fill(-1);
     coste[0] = 0;
@@ -284,14 +307,18 @@
       if (coste[i] === Infinity) continue;
       for (let j = i + 1; j <= s.length; j++) {
         const t = s.slice(i, j);
-        const c = coste[i] + (conocido(t) ? 1 : j === i + 1 ? DESCONOCIDO : Infinity);
+        // una frase no empieza por partícula: 「はこの…」 es はこ＋の, no は＋この
+        const p = i === 0 && PARTICULAS_TOK.includes(t) ? (dic.has(t) ? SUELTA : 0) : precio(t);
+        const c = coste[i] + (p || (j === i + 1 ? DESCONOCIDO : Infinity));
         if (c < coste[j]) { coste[j] = c; atras[j] = i; }
       }
     }
     if (coste[s.length] === Infinity) return null;
     const toks = [];
     for (let j = s.length; j > 0; j = atras[j]) toks.unshift(s.slice(atras[j], j));
-    return { toks, desconocidas: Math.floor(coste[s.length] / DESCONOCIDO) };
+    // una letra suelta que no es partícula cuenta como pieza desconocida
+    const sueltas = toks.filter(t => t.length === 1 && /[ぁ-ゖ]/.test(t) && !gram(t)).length;
+    return { toks, desconocidas: Math.floor(coste[s.length] / DESCONOCIDO) + sueltas };
   }
 
   // Trozos al estilo de もんだい２: palabra (o palabras) + la partícula que la
@@ -310,28 +337,37 @@
   }
 
   // ------------------------------------------------------------------ corpus
+  // Una frase de data/ lista para el examen: sin espacios ni paréntesis (los
+  // espacios los vuelve a poner escribe(), donde van), con los kanji de fuera
+  // del N5 ya en kana, y con la furigana que traía guardada aparte («anot»)
+  // para poder leerla después.
+  function hazFrase(f) {
+    const crudo = paraExamen(f.jp);
+    // Algunos «ejemplos» no son frases: tablas de conjugación (書く→書いて),
+    // alternativas (へ＝に), la forma de diccionario como pista (―行きます) o
+    // una aclaración entre paréntesis latinos.
+    if (/[→／＝―]/.test(crudo) || /\([^)]*\)/.test(crudo)) return null;
+    let p = crudo.replace(/[（）\s]/g, "").trim();
+    if (!p || p.includes("…") || p.length < 5 || p.length > 42) return null;
+    // Los ejemplos de los verbos («ドアが開きます») son frases enteras a las que
+    // el libro no les pone punto. En un examen sí lo llevan.
+    if (!/[。？]$/.test(p)) p += "。";
+    const anot = [...String(f.jp).matchAll(N5.FURIGANA)]
+      .map(m => [m[1], m[2]]).filter(([k]) => todoN5(k))
+      .sort((a, b) => b[0].length - a[0].length);
+    return { ...f, plano: p, completa: true, anot };
+  }
+
   let C = null;
   function corpus() {
     if (C) return C;
     const d = N5.data;
 
     // --- frases portadoras -------------------------------------------------
+    // Solo entran las que se pueden leer enteras: el examen las imprime en kana
+    // o con furigana, y para eso hace falta la lectura de cada palabra.
     const frases = [];
-    const añade = f => {
-      const crudo = paraExamen(f.jp);
-      // Algunos «ejemplos» no son frases: tablas de conjugación (書く→書いて),
-      // alternativas (へ＝に), la forma de diccionario como pista (―行きます) o
-      // una aclaración entre paréntesis latinos.
-      if (/[→／＝―]/.test(crudo) || /\([^)]*\)/.test(crudo)) return;
-      // El libro escribe algunas frases con espacios y con partículas opcionales
-      // entre paréntesis; el examen no los lleva.
-      let p = crudo.replace(/[（）\s]/g, "").trim();
-      if (!p || p.includes("…") || p.length < 5 || p.length > 42) return;
-      // Los ejemplos de los verbos («ドアが開きます») son frases enteras a las que
-      // el libro no les pone punto. En un examen sí lo llevan.
-      if (!/[。？]$/.test(p)) p += "。";
-      frases.push({ ...f, plano: p, completa: true });
-    };
+    const añade = f => { const x = hazFrase(f); if (x && lee(x) && !lee(x).desconocidas) frases.push(x); };
     for (const L of d.grammar) for (const pt of L.puntos) for (const e of pt.ejemplos)
       añade({ jp: e.jp, es: e.es, leccion: L.leccion, origen: "gramática" });
     for (const v of d.verbs) if (v.ejemplo)
@@ -413,56 +449,189 @@
   E.trozosDe = troceaFrase;
   E.tokeniza = tokeniza;
 
-  // Dónde aparece una palabra como palabra entera. Sin esto, 手 «aparece» dentro
-  // de 手紙, 本 dentro de 日本 y 釣り dentro de お釣り, y el examen acabaría
-  // subrayando media palabra. Se resuelve con los cortes del tokenizador: una
-  // aparición vale solo si empieza y acaba donde acaba una pieza de la frase.
-  const cortes = new Map();
-  function limites(texto) {
-    let l = cortes.get(texto);
-    if (l) return l;
-    const t = tokeniza(texto);
-    l = new Set([0]);
-    if (t) {
-      let n = 0;
-      for (const tok of t.toks) {
-        // 「千円」 es una pieza para el tokenizador, pero 千 y 円 son dos palabras
-        // que el examen pregunta por separado: se corta también entre las dos.
-        const m = /^([0-9０-９一二三四五六七八九十百千万]+)(.+)$/.exec(tok);
-        if (m) l.add(n + m[1].length);
-        l.add(n += tok.length);
+  // ------------------------------------------------ la frase, pieza a pieza
+  // Todo lo que el examen hace con una frase —subrayar una palabra, abrir un
+  // hueco, separar con espacios, poner furigana— necesita saber dónde empieza y
+  // acaba cada palabra. segmenta() la parte en piezas (la puntuación es una
+  // pieza más, con su posición), y lee() le pone a cada una su lectura.
+  const SEGS = new Map();
+  function segmenta(texto) {
+    let s = SEGS.get(texto);
+    if (s) return s;
+    const toks = [];
+    let desconocidas = 0, i = 0;
+    for (const trozo of texto.split(/([。、？！「」])/)) {
+      if (!trozo) continue;
+      if (/^[。、？！「」]$/.test(trozo)) toks.push({ t: trozo, ini: i, fin: i + 1, punt: true });
+      else {
+        const tk = tokeniza(trozo);
+        desconocidas += tk.desconocidas;
+        let j = i;
+        for (const t of tk.toks) { toks.push({ t, ini: j, fin: j + t.length }); j += t.length; }
       }
+      i += trozo.length;
     }
-    else l = null;                      // frase que no se deja trocear: se mira a mano
-    cortes.set(texto, l);
-    return l;
+    s = { toks, desconocidas };
+    SEGS.set(texto, s);
+    return s;
   }
 
+  // Dónde aparece una palabra como palabra entera. Sin esto, 手 «aparece» dentro
+  // de 手紙, 本 dentro de 日本 y 釣り dentro de お釣り, y el examen acabaría
+  // subrayando media palabra: una aparición vale solo si empieza y acaba donde
+  // acaba una pieza de la frase.
   function ocurrencias(texto, palabra) {
+    const l = new Set([0]);
+    for (const tk of segmenta(texto).toks) { l.add(tk.ini); l.add(tk.fin); }
     const out = [];
-    // el texto que se tokenizó no lleva puntuación, así que los cortes van sobre él
-    const limpio = texto.replace(/[。、？！「」]/g, "");
-    const desfase = texto.length - limpio.length;
-    const l = limites(texto);
-    const dic = dicc();
-    for (let i = texto.indexOf(palabra); i >= 0; i = texto.indexOf(palabra, i + 1)) {
-      const fin = i + palabra.length;
-      if (l) {
-        // solo se compara si la puntuación va al final (que es el caso normal)
-        if (desfase && fin > limpio.length) continue;
-        if (!l.has(i) || !l.has(fin)) continue;
-      } else {
-        if (KANJI.test(texto[i - 1] || "") || KANJI.test(texto[fin] || "")) continue;
-        let dentro = false;
-        for (let a = Math.max(0, i - 2); a <= i && !dentro; a++)
-          for (let b = fin; b <= Math.min(texto.length, fin + 2); b++)
-            if ((b - a) > palabra.length && dic.has(texto.slice(a, b))) dentro = true;
-        if (dentro) continue;
-      }
-      out.push(i);
+    for (let i = texto.indexOf(palabra); i >= 0; i = texto.indexOf(palabra, i + 1))
+      if (l.has(i) && l.has(i + palabra.length)) out.push(i);
+    return out;
+  }
+
+  // Una palabra como la escribe el examen: sus trozos en kanji del N5 se quedan,
+  // los demás pasan a su lectura. 食べ物＋たべもの → 食べもの.
+  function formaExamen(k, y) {
+    const partes = k.split(/([一-鿿々〇]+)/).filter(Boolean);
+    const m = new RegExp("^" + partes.map(p => KANJI.test(p) ? "(.+?)" : p).join("") + "$").exec(y);
+    if (!m) return todoN5(k) ? k : y;
+    let g = 1;
+    return partes.map(p => KANJI.test(p) ? (todoN5(p) ? (g++, p) : m[g++]) : p).join("");
+  }
+
+  // --- lecturas: grafía con kanji → kana, de todo lo que la guía conoce ------
+  const NOMBRES = {
+    木村: "きむら", 山田: "やまだ", 田中: "たなか", 佐藤: "さとう", 鈴木: "すずき", 中村: "なかむら",
+    小林: "こばやし", 松本: "まつもと", 渡辺: "わたなべ", 高橋: "たかはし", 伊藤: "いとう", 山本: "やまもと",
+    京都: "きょうと", 東京: "とうきょう", 大阪: "おおさか", 名古屋: "なごや", 神戸: "こうべ",
+    横浜: "よこはま", 広島: "ひろしま", 奈良: "なら", 沖縄: "おきなわ", 富士山: "ふじさん", 千葉: "ちば", 県: "けん"
+  };
+  const CONT_KANA = { 時: "じ", 分: "ふん", 円: "えん", 人: "にん", 階: "かい", 回: "かい", 歳: "さい",
+    番: "ばん", 年: "ねん", 月: "がつ", 日: "にち", 枚: "まい", 冊: "さつ", 台: "だい", 時間: "じかん" };
+  // Las palabras que los ejemplos anotan con furigana son palabras que la guía
+  // usa aunque no estén en el vocabulario (箱[はこ], 番号[ばんごう]). Se toman
+  // solo las anotaciones que cubren la palabra entera —van seguidas de una
+  // partícula o de algo que no es hiragana—, no las de 食[た]べます.
+  function anotadas() {
+    const d = N5.data, out = [];
+    const textos = [];
+    for (const L of d.grammar) for (const pt of L.puntos) for (const e of pt.ejemplos) textos.push(e.jp);
+    for (const v of d.verbs) if (v.ejemplo) textos.push(v.ejemplo);
+    for (const x of d.drills) textos.push(x.pregunta);
+    for (const f of d.examenes?.frases || []) textos.push(f.jp);
+    for (const t of textos) for (const m of String(t).matchAll(N5.FURIGANA)) {
+      const sig = String(t)[m.index + m[0].length] || "";
+      if (!/[ぁ-ゖ]/.test(sig) || "をにがはでへともの".includes(sig)) out.push([m[1], m[2]]);
     }
     return out;
   }
+
+  let LECT = null;
+  function diccLect() {
+    if (LECT) return LECT;
+    const d = N5.data, L = new Map(Object.entries(NOMBRES));
+    const limpia = x => N5.limpiaEntrada(String(x || "")).replace(/[〜～]/g, "");
+    const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && !L.has(k)) L.set(k, y); };
+    const sinNa = x => String(x || "").replace(/[（\[]な[）\]]$/, "");
+    // 「〜人（じん）」 es el sufijo de nacionalidad, no la palabra 人; y el な de
+    // 「じょうず（な）」 no se escribe con el kanji 上手
+    for (const w of d.vocab) if (!/[〜～]/.test(w.kanji + w.kana)) par(sinNa(w.kanji), sinNa(w.kana));
+    for (const v of d.verbs) {
+      par(v.kanji, v.kana);
+      for (const f of ["masu", "te", "ta", "nai"]) par(enKanji(v, v[f]), v[f]);
+      par(enKanji(v, v.masu).slice(0, -2), v.masu.slice(0, -2));
+      par(enKanji(v, v.nai).slice(0, -2), v.nai.slice(0, -2));
+    }
+    for (const w of d.vocab) {                     // 長い → 長かった, 長くて…
+      const k = limpia(w.kanji), y = limpia(w.kana);
+      if (/[（\[]な/.test(w.kana) || !/い$/.test(k) || !/い$/.test(y)) continue;
+      for (const c of ["かった", "くない", "くて", "く", "くなかった"]) par(k.slice(0, -1) + c, y.slice(0, -1) + c);
+    }
+    for (const k of d.kanji) for (const e of k.ejemplos) par(e.palabra, e.lectura);
+    for (const [k, y] of anotadas()) par(k, y);
+    for (const [k, y] of [...L]) { const f = formaExamen(k, y); if (f !== k && KANJI.test(f) && !L.has(f)) L.set(f, y); }
+    return (LECT = L);
+  }
+
+  // La lectura de una pieza. Primero la furigana de la propia frase, que sabe lo
+  // que dice (今日 puede ser きょう o こんにち); luego el diccionario.
+  function leeToken(t, anot) {
+    if (!KANJI.test(t)) return t;
+    let s = t;                                     // 食[た]べます: la furigana cubre solo el kanji
+    for (const [k, y] of anot) if (s.includes(k)) s = s.split(k).join(y);
+    if (!KANJI.test(s)) return s;
+    const L = diccLect();
+    if (L.has(t)) return L.get(t);
+    const m = /^([0-9０-９]+)(.+)$/.exec(t);        // 7時, 3人
+    if (m && CONT_KANA[m[2]]) return m[1] + CONT_KANA[m[2]];
+    return null;
+  }
+
+  // Piezas con su lectura, o null si alguna no se sabe leer: una frase así no
+  // puede salir en el examen, que la tendría que escribir en kana.
+  function lee(f) {
+    if (f.an !== undefined) return f.an;
+    const seg = segmenta(f.plano);
+    const toks = [];
+    for (const tk of seg.toks) {
+      const y = tk.punt ? tk.t : leeToken(tk.t, f.anot || []);
+      if (y == null) return (f.an = null);
+      toks.push({ ...tk, y });
+    }
+    return (f.an = { toks, desconocidas: seg.desconocidas });
+  }
+
+  // 「食べます」＋「たべます」 → 「食[た]べます」: la furigana va solo encima de
+  // los kanji, con el kana de alrededor fuera, que es como la imprime el examen.
+  function rubyTok(t, y) {
+    const partes = t.split(/([一-鿿々〇]+)/).filter(Boolean);
+    const re = new RegExp("^" + partes.map(p => KANJI.test(p) ? "(.+?)" : p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("") + "$");
+    const m = re.exec(y);
+    if (!m) return /[ぁ-ゖァ-ヺ]/.test(t) ? y : `${t}[${y}]`;
+    let g = 1;
+    return partes.map(p => KANJI.test(p) ? `${p}[${m[g++]}]` : p).join("");
+  }
+
+  // Lo que va pegado a la palabra de delante: partículas, colas de verbo y de
+  // adjetivo, さん… El resto empieza «bunsetsu» y lleva espacio delante, que es
+  // como escribe el N5 (わかちがき): 「きょうしつで 書いて ください。」
+  const PEGADOS = new Set([...PARTICULAS_TOK, ...AUX.filter(a => a !== "ください"),
+    "さん", "ちゃん", "くん", "たち", "ごろ", "ぐらい", "くらい", "だけ", "ずつ", "など"]);
+  const pegado = tk => tk.punt || PEGADOS.has(tk.t) || tk.y === "じん";   // アメリカじん
+
+  // Escribe la frase como en el papel. «kana» (文字・語彙): todo en kana.
+  // «ruby» (文法・読解): los kanji del N5 con su furigana. «dest» cambia unas
+  // piezas por otra cosa —la palabra subrayada, un hueco— y se devuelve dónde
+  // ha quedado, para que la interfaz la pueda marcar.
+  function escribe(f, modo, dest, desde = 0, hasta) {
+    const an = lee(f);
+    if (!an) return null;
+    const toks = an.toks.slice(desde, hasta ?? an.toks.length);
+    let out = "", pos = -1, marca = "", salta = -1, tras = false, previo = null;
+    for (const tk of toks) {
+      if (tk.ini < salta) continue;
+      const esDest = dest && tk.ini === dest.i;
+      const hueco = esDest && dest.como === "hueco";
+      const sep = !out || tk.punt || previo?.punt ? "" : (tras || hueco || !pegado(tk)) ? " " : "";
+      tras = false;
+      if (esDest) {
+        const texto = hueco ? "（　）" : dest.texto ?? f.plano.slice(dest.i, dest.i + dest.largo);
+        out += sep; pos = out.length; marca = texto; out += texto;
+        salta = dest.i + dest.largo;
+        tras = hueco;
+        previo = tk;
+        continue;
+      }
+      out += sep + (modo === "kana" ? tk.y : KANJI.test(tk.t) ? rubyTok(tk.t, tk.y) : tk.t);
+      previo = tk;
+    }
+    if (dest && pos < 0) return null;         // el destino no caía en un corte de pieza
+    return { frase: out, pos, marca };
+  }
+  E.escribe = (f, modo) => escribe(f, modo)?.frase;
+  // para tools/: leer y anotar palabras sueltas
+  E.lecturaDe = t => leeToken(t, []);
+  E.rubyTok = rubyTok;
 
   // Un もんだい entero de verbos en forma ます se hace monótono y no se parece al
   // examen de verdad, que mezcla sustantivos, adjetivos y verbos.
@@ -489,12 +658,14 @@
       const f = r.elige(libres);
       const c = cuatro(o.lectura, lecturasFalsas(o.lectura, r), r);
       if (!c) continue;
+      // Como en el examen: toda la frase en kana y solo la palabra preguntada
+      // en kanji. «pos» dice dónde subrayar: buscarla por texto casaría la
+      // primera aparición, que puede estar dentro de otra palabra.
+      const e = escribe(f, "kana", { i: ocurrencias(f.plano, o.kanji)[0], largo: o.kanji.length });
+      if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        // «pos» es dónde subrayar: buscar la palabra por texto casaría la primera
-        // aparición, que puede estar dentro de otra (本 dentro de 日本語).
-        tipo: "lectura", frase: f.plano, marca: o.kanji, pos: ocurrencias(f.plano, o.kanji)[0],
-        modo: "subrayado", verbo: !!o.verbo, ...c,
+        tipo: "lectura", ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
         nota: `${o.kanji}（${o.lectura}）${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -545,11 +716,11 @@
       const c = cuatro(o.kanji, r.baraja([...new Set(vista)])
         .concat(r.baraja([...new Set(suenan)])).concat(r.baraja(relleno)), r);
       if (!c) continue;
-      const i = ocurrencias(f.plano, o.kanji)[0];
+      const e = escribe(f, "kana", { i: ocurrencias(f.plano, o.kanji)[0], largo: o.kanji.length, texto: o.lectura });
+      if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "escritura", marca: o.lectura, pos: i, modo: "subrayado", verbo: !!o.verbo, ...c,
-        frase: f.plano.slice(0, i) + o.lectura + f.plano.slice(i + o.kanji.length),
+        tipo: "escritura", ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
         nota: `${o.lectura} se escribe ${o.kanji}${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -567,12 +738,12 @@
       const f = r.elige(libres);
       const c = cuatro(o.kata, escriturasFalsas(o.kata, r), r);
       if (!c) continue;
-      const i = ocurrencias(f.plano, o.kata)[0];
       const hira = aHira(o.kata);
+      const e = escribe(f, "kana", { i: ocurrencias(f.plano, o.kata)[0], largo: o.kata.length, texto: hira });
+      if (!e) continue;
       usadas.add(o.kata); usadas.add(f.plano);
       return {
-        tipo: "katakana", marca: hira, pos: i, modo: "subrayado", ...c,
-        frase: f.plano.slice(0, i) + hira + f.plano.slice(i + o.kata.length),
+        tipo: "katakana", ...e, modo: "subrayado", ...c,
         nota: `${hira} se escribe ${o.kata}${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -595,14 +766,18 @@
       const sig = f.plano[i + o.forma.length];
       // aquí se pregunta por el significado, no por la escritura, así que entran
       // también las palabras que en el examen irían en kana
+      // Las opciones, como toda la frase de este bloque, van en kana.
       const pozo = r.baraja(trasPalabra.get(sig) || [])
-        .filter(x => x.forma !== o.forma && x.es !== o.es && x.forma.length <= o.forma.length + 1)
-        .map(x => x.forma);
-      const c = cuatro(o.forma, pozo, r);
+        .filter(x => x.forma !== o.forma && x.es !== o.es && x.lectura.length <= o.lectura.length + 2
+          && !PARTICULAS_TOK.includes(x.lectura) && !AUX.includes(x.lectura))
+        .map(x => x.lectura);
+      const c = cuatro(o.lectura, pozo, r);
       if (!c) continue;
+      const e = escribe(f, "kana", { i, largo: o.forma.length, como: "hueco" });
+      if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "contexto", frase: f.plano, marca: o.forma, pos: i, modo: "hueco", ...c,
+        tipo: "contexto", ...e, modo: "hueco", ...c,
         nota: `${o.kanji}（${o.lectura}）${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -645,22 +820,27 @@
     && !x.pregunta.includes("―") && /^[ぁ-ゖァ-ヺー一-鿿々]{1,6}$/.test(N5.sinFurigana(x.respuesta));
 
   function itemDrill(r, usadas) {
-    const d = N5.data.drills.filter(x => drillLimpio(x)
-      && !usadas.has(N5.sinFurigana(x.pregunta.replace("（　）", x.respuesta)).replace(/[（）\s]/g, "")));
-    if (!d.length) return null;
-    const x = r.elige(d);
-    const resp = N5.sinFurigana(x.respuesta);
-    const otros = N5.data.drills.filter(drillLimpio).map(y => N5.sinFurigana(y.respuesta));
-    const mismoTema = N5.data.drills.filter(y => drillLimpio(y) && y.tema === x.tema).map(y => N5.sinFurigana(y.respuesta));
-    const pozo = r.baraja([...new Set(mismoTema)]).concat(r.baraja([...new Set(otros)]))
-      .filter(y => y !== resp && !incompatible(resp, y));
-    const c = cuatro(resp, pozo, r);
-    if (!c) return null;
-    usadas.add(N5.sinFurigana(x.pregunta.replace("（　）", x.respuesta)).replace(/[（）\s]/g, ""));
-    return {
-      tipo: "forma", frase: N5.sinFurigana(x.pregunta), modo: "prehueco", ...c,
-      nota: N5.sinFurigana(x.explicacion), traduccion: "", leccion: null
-    };
+    const resp = x => paraExamenRuby(x.respuesta);
+    for (const x of r.baraja(N5.data.drills.filter(drillLimpio))) {
+      // se escribe como las demás: la frase con su respuesta, y el hueco encima
+      const f = hazFrase({ jp: x.pregunta.replace("（　）", x.respuesta) });
+      if (!f || usadas.has(f.plano)) continue;
+      const i = paraExamen(x.pregunta.split("（　）")[0]).replace(/[（）\s]/g, "").length;
+      const e = escribe(f, "ruby", { i, largo: paraExamen(x.respuesta).length, como: "hueco" });
+      if (!e) continue;
+      const otros = N5.data.drills.filter(drillLimpio).map(resp);
+      const mismoTema = N5.data.drills.filter(y => drillLimpio(y) && y.tema === x.tema).map(resp);
+      const pozo = r.baraja([...new Set(mismoTema)]).concat(r.baraja([...new Set(otros)]))
+        .filter(y => y !== resp(x) && !incompatible(resp(x), y));
+      const c = cuatro(resp(x), pozo, r);
+      if (!c) continue;
+      usadas.add(f.plano);
+      return {
+        tipo: "forma", ...e, modo: "hueco", ...c,
+        nota: paraExamenRuby(x.explicacion), traduccion: "", leccion: null
+      };
+    }
+    return null;
   }
 
   // Parejas que valdrían las dos en el mismo hueco: si una es la respuesta, la
@@ -679,16 +859,18 @@
     const cands = N5.data.verbs.filter(v =>
       v.ejemplo && /^〜[をにでがへと]$/.test(v.particula) && !usadas.has("v:" + v.kana));
     for (const v of r.baraja(cands)) {
-      const plano = N5.sinFurigana(v.ejemplo).replace(/[（）\s]/g, "");
-      if (usadas.has(plano)) continue;
+      const f = hazFrase({ jp: v.ejemplo });
+      if (!f || usadas.has(f.plano) || !lee(f)) continue;
       const p = v.particula.slice(1);
-      const i = plano.lastIndexOf(p);
-      if (i <= 0) continue;
+      // la última pieza que ES esa partícula, no el carácter suelto
+      const tk = [...lee(f).toks].reverse().find(t => t.t === p);
+      if (!tk || tk.ini === 0) continue;
+      const e = escribe(f, "ruby", { i: tk.ini, largo: p.length, como: "hueco" });
       const c = cuatro(p, conParticulas(p, r), r);
-      if (!c) continue;
-      usadas.add("v:" + v.kana); usadas.add(plano);
+      if (!e || !c) continue;
+      usadas.add("v:" + v.kana); usadas.add(f.plano);
       return {
-        tipo: "forma", frase: plano.slice(0, i) + "（　）" + plano.slice(i + 1), modo: "prehueco", ...c,
+        tipo: "forma", ...e, modo: "hueco", ...c,
         nota: `${v.masu}（${v.es}）pide ${v.particula}.`, traduccion: "", leccion: v.lecciones?.[0] ?? null
       };
     }
@@ -700,20 +882,20 @@
   function itemParticulaFrase(r, usadas) {
     for (const f of r.baraja(corpus().frases)) {
       if (usadas.has(f.plano) || !f.completa || f.plano.length < 12) continue;
-      const trozos = troceaFrase(f.plano);
-      if (!trozos) continue;
+      const an = lee(f);
+      if (!an || an.desconocidas) continue;
       // は se descarta como respuesta: casi siempre valdría también が o も
-      const cands = trozos.map((t, i) => ({ t, i, p: t.slice(-1) }))
-        .filter(x => PARTICULAS.includes(x.p) && x.p !== "は" && x.t.length > 1);
+      const cands = an.toks.filter((t, k) => k > 0 && !an.toks[k - 1].punt
+        && PARTICULAS.includes(t.t) && t.t !== "は");
       if (!cands.length) continue;
-      const x = r.elige(cands);
-      const c = cuatro(x.p, conParticulas(x.p, r), r);
-      if (!c) continue;
+      const tk = r.elige(cands);
+      const e = escribe(f, "ruby", { i: tk.ini, largo: tk.t.length, como: "hueco" });
+      const c = cuatro(tk.t, conParticulas(tk.t, r), r);
+      if (!e || !c) continue;
       usadas.add(f.plano);
-      const antes = trozos.slice(0, x.i).join("") + x.t.slice(0, -1);
       return {
-        tipo: "forma", frase: antes + "（　）" + trozos.slice(x.i + 1).join(""), modo: "prehueco", ...c,
-        nota: `La frase es 「${f.plano}」.`, traduccion: f.es, leccion: f.leccion
+        tipo: "forma", ...e, modo: "hueco", ...c,
+        nota: `La frase es 「${escribe(f, "ruby").frase}」.`, traduccion: f.es, leccion: f.leccion
       };
     }
     return null;
@@ -735,8 +917,8 @@
     usadas.add("t:" + t.pregunta);
     const mezcla = r.baraja(t.opciones);
     return {
-      tipo: "texto", modo: "texto", texto: paraExamen(t.texto), frase: paraExamen(t.pregunta),
-      opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(t.opciones[0]),
+      tipo: "texto", modo: "texto", texto: paraExamenRuby(t.texto), frase: paraExamenRuby(t.pregunta),
+      opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
       nota: t.nota || "", traduccion: t.es || "", leccion: null
     };
   }
@@ -749,15 +931,15 @@
     if (!pozo.length) return null;
     const t = r.elige(pozo);
     usadas.add("m:" + t.texto);
-    const texto = paraExamen(t.texto);
+    const texto = paraExamenRuby(t.texto);
     pendientes = t.preguntas.slice(1).map(q => monta(q, texto, t.es));
     return monta(t.preguntas[0], texto, t.es);
 
     function monta(q, texto, es) {
       const mezcla = r.baraja(q.opciones);
       return {
-        tipo: "texto", modo: "texto", texto, frase: paraExamen(q.pregunta),
-        opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(q.opciones[0]),
+        tipo: "texto", modo: "texto", texto, frase: paraExamenRuby(q.pregunta),
+        opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(q.opciones[0]),
         nota: q.nota || "", traduccion: es || "", leccion: null
       };
     }
@@ -771,39 +953,82 @@
     usadas.add("i:" + t.titulo);
     const mezcla = r.baraja(t.opciones);
     return {
-      tipo: "info", modo: "info", frase: paraExamen(t.pregunta),
+      tipo: "info", modo: "info", frase: paraExamenRuby(t.pregunta),
       info: {
-        titulo: paraExamen(t.titulo),
-        cabecera: (t.cabecera || []).map(paraExamen),
-        filas: (t.filas || []).map(f => f.map(paraExamen)),
-        notas: (t.notas || []).map(paraExamen)
+        titulo: paraExamenRuby(t.titulo),
+        cabecera: (t.cabecera || []).map(paraExamenRuby),
+        filas: (t.filas || []).map(f => f.map(paraExamenRuby)),
+        notas: (t.notas || []).map(paraExamenRuby)
       },
-      opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(t.opciones[0]),
+      opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
       nota: t.nota || "", traduccion: t.es || "", leccion: null
     };
   }
 
   // --------------------------------------- 文法 もんだい２ · ordenar la frase
-  // Se parte una frase en trozos, se desordenan cuatro y hay que decir cuál cae
-  // en el ★. Es el もんだい que más gente falla y aquí sale gratis: la frase
-  // original ya dice cuál era el orden bueno.
+  // Como en el examen: una frase con cuatro huecos EN MEDIO —con frase delante
+  // y detrás— y cuatro piezas desordenadas; hay que decir cuál va en el ★. Las
+  // piezas son palabras sueltas, y las partículas van solas: 「に / しんごう /
+  // 右 / を」. Lo que se pega (ます, です, さん…) viaja con su palabra.
+  function piezasDe(toks) {
+    const out = [];
+    for (const tk of toks) {
+      if (tk.punt) { out.push({ ...tk, punt: true }); continue; }
+      const ult = out[out.length - 1];
+      // 「とらないで ください」: ese で es de la forma ないで, no una partícula
+      const suelta = PARTICULAS_TOK.includes(tk.t) && !(tk.t === "で" && ult?.t.endsWith("ない"));
+      if (ult && !ult.punt && !ult.part && !suelta && (PEGADOS.has(tk.t) || tk.t === "で"))
+        { ult.t += tk.t; ult.y += tk.y; ult.fin = tk.fin; continue; }
+      out.push({ ...tk, part: suelta });
+    }
+    return out;
+  }
+
   function itemOrden(r, usadas) {
     for (const f of r.baraja(corpus().frases)) {
       // Las frases con cita entrecomillada pierden el sentido al quitar 「」
-      if (usadas.has(f.plano) || !f.completa || f.plano.includes("「")) continue;
-      const trozos = troceaFrase(f.plano);
-      if (!trozos || trozos.length < 4) continue;
-      const desde = r.entero(trozos.length - 3);
-      const grupo = trozos.slice(desde, desde + 4);
-      if (new Set(grupo).size < 4 || grupo.some(p => p.length > 9)) continue;
+      if (usadas.has(f.plano) || f.plano.includes("「")) continue;
+      const an = lee(f);
+      if (!an || an.desconocidas) continue;
+      const ps = piezasDe(an.toks);
+      // ventanas de 4 piezas seguidas con frase de verdad a cada lado (el punto
+      // final no cuenta): el examen nunca deja los huecos al final de la frase
+      const ventanas = [];
+      for (let k = 1; k + 4 < ps.length; k++) {
+        const v = ps.slice(k, k + 4);
+        if (!ps.slice(k + 4).some(x => !x.punt && !x.part)) continue;
+        if (v.some(x => x.punt) || new Set(v.map(x => x.t)).size < 4) continue;
+        const parts = v.filter(x => x.part);
+        // dos partículas iguales o más de dos se pueden cambiar de sitio sin
+        // que la frase deje de estar bien: el examen tendría dos respuestas
+        if (parts.length > 2 || v.length - parts.length < 2) continue;
+        if (v.some(x => x.t.length > 8)) continue;
+        if (ps[k - 1].part && v[0].part) continue;   // 「には」 partido en dos
+        // Más casos con dos órdenes válidos: は y が (o を) a la vez se pueden
+        // cambiar de palabra, y dos horas o cantidades, de sitio
+        // (「9時から 3時まで」 / 「3時から 9時まで」).
+        if (v.filter(x => "はがもを".includes(x.t) && x.part).length > 1) continue;
+        if (v.filter(x => CONTADOR.test(x.t) || NUMERO.test(x.t)).length > 1) continue;
+        ventanas.push(k);
+      }
+      if (!ventanas.length) continue;
+      const k = r.elige(ventanas);
+      const grupo = ps.slice(k, k + 4);
+      const ti = an.toks.findIndex(t => t.ini === grupo[0].ini);
+      const tf = an.toks.findIndex(t => t.fin === grupo[3].fin) + 1;
+      const antes = escribe(f, "ruby", null, 0, ti);
+      const despues = escribe(f, "ruby", null, tf);
+      if (!antes || !despues) continue;
+      const pinta = x => KANJI.test(x.t) ? rubyTok(x.t, x.y) : x.t;
+      const piezas = grupo.map(pinta);
       usadas.add(f.plano);
-      const estrella = 1 + r.entero(2);                   // el ★ va en el 2º o el 3er hueco
-      const mezcla = r.baraja(grupo);
+      // en el examen el ★ cae casi siempre en el tercer hueco
+      const estrella = r.elige([1, 2, 2, 2, 3]);
+      const mezcla = r.baraja(piezas);
       return {
-        tipo: "orden", modo: "orden",
-        antes: trozos.slice(0, desde).join(""), despues: trozos.slice(desde + 4).join(""),
-        estrella, opciones: mezcla, correcta: mezcla.indexOf(grupo[estrella]), orden: grupo,
-        nota: `La frase completa es 「${f.plano}」.`, traduccion: f.es, leccion: f.leccion
+        tipo: "orden", modo: "orden", antes: antes.frase, despues: despues.frase,
+        estrella, opciones: mezcla, correcta: mezcla.indexOf(piezas[estrella]), orden: piezas,
+        nota: `La frase completa es 「${escribe(f, "ruby").frase}」.`, traduccion: f.es, leccion: f.leccion
       };
     }
     return null;
