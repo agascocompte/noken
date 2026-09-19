@@ -43,6 +43,21 @@
 
   const KANJI = /[一-鿿々〇]/;
 
+  // ------------------------------------------------------- los kanji del N5
+  // El examen solo escribe en kanji los del nivel; el resto va en kana. Aquí son
+  // los 103 marcados en data/kanji.js (81 seguros + 22 posibles): la lista de
+  // 167 es la del libro de clase, bastante más larga de lo que cae en el N5.
+  let SETN5 = null;
+  const kanjiDelN5 = () => SETN5 ||= new Set(
+    N5.data.kanji.filter(k => k.n5 === "seguro" || k.n5 === "posible").map(k => k.kanji));
+  const todoN5 = s => [...String(s)].every(c => !KANJI.test(c) || kanjiDelN5().has(c));
+
+  // Una frase tal como la escribiría el examen: las palabras cuyos kanji son del
+  // N5 se dejan en kanji y las demás pasan a kana. Se puede porque data/ anota
+  // con furigana justo los kanji difíciles: 「新幹線[しんかんせん]」 → しんかんせん.
+  const paraExamen = jp => N5.sinFurigana(
+    String(jp).replace(N5.FURIGANA, (_, k, lect) => todoN5(k) ? k : lect));
+
   // ------------------------------------------------------------------- moras
   // Los distractores de lectura se construyen tocando UNA mora, no una letra:
   // きゃ o っか son una sola pieza y hay que moverlas enteras.
@@ -71,6 +86,10 @@
     れ: "わ", わ: "れ", め: "ぬ", る: "ろ", ろ: "る", き: "け", け: "き", え: "へ", へ: "え"
   };
   const VOCALES = ["あ", "い", "う", "え", "お"];
+  const enKata = t => Object.fromEntries(Object.entries(t).map(([a, b]) =>
+    [String.fromCodePoint(a.codePointAt(0) + 0x60), String.fromCodePoint(b.codePointAt(0) + 0x60)]));
+  const KSONORAS = enKata(SONORAS), KSEMI = enKata(SEMI);
+  const KSORDAS = Object.fromEntries(Object.entries(KSONORAS).map(([a, b]) => [b, a]));
 
   // Lecturas mal escritas. Cada variante toca una sola cosa, que es como están
   // hechos los distractores de verdad: なまえ → なまい, まなえ, なまへ.
@@ -96,6 +115,54 @@
     if (/[おこそとのほもよろごぞどぼぽょ]$/.test(lectura)) mete(lectura + "う");
     mete(lectura.replace("ょう", "ょ"));
     mete(lectura.replace("ゅう", "ゅ"));
+    return r.baraja([...out]);
+  }
+
+  // ------------------------------------------------------------ katakana
+  // もんだい２ siempre lleva una palabra en katakana: te la dan en hiragana y
+  // tienes que elegir cómo se escribe. Los fallos que se ponen de opción son
+  // siempre los mismos: la ー de más o de menos, la ッ, y los pares de letras
+  // que se distinguen por un trazo (ツ/シ, ソ/ン, ク/ワ).
+  const aKata = t => [...String(t)].map(c => {
+    const o = c.codePointAt(0);
+    return o >= 0x3041 && o <= 0x3096 ? String.fromCodePoint(o + 0x60) : c;
+  }).join("");
+  const aHira = t => [...String(t)].map(c => {
+    const o = c.codePointAt(0);
+    return o >= 0x30A1 && o <= 0x30F6 ? String.fromCodePoint(o - 0x60) : c;
+  }).join("");
+
+  const KATA_PARECIDAS = {
+    ツ: "シ", シ: "ツ", ソ: "ン", ン: "ソ", ク: "ワ", ワ: "ク", ス: "ヌ", ヌ: "ス",
+    ア: "マ", マ: "ア", チ: "テ", テ: "チ", レ: "ノ", ノ: "レ", コ: "ユ", ユ: "コ",
+    ハ: "ル", ル: "ハ", ミ: "ラ", ラ: "ミ", セ: "ヤ", ヤ: "セ", オ: "ホ", ホ: "オ",
+    タ: "ケ", ケ: "タ", ウ: "ワ", ヲ: "ラ", ヘ: "ペ", ネ: "ホ"
+  };
+  const VOCAL_KATA = { a: "ア", i: "イ", u: "ウ", e: "エ", o: "オ" };
+
+  function escriturasFalsas(kata, r) {
+    const cs = [...kata];
+    const out = new Set();
+    const mete = x => { if (x && x !== kata && x.length >= 2) out.add(x); };
+    const cambia = (i, n) => { const a = cs.slice(); a[i] = n; return a.join(""); };
+    const quita = i => cs.slice(0, i).concat(cs.slice(i + 1)).join("");
+    const mete_ = (i, n) => cs.slice(0, i).concat(n, cs.slice(i)).join("");
+
+    for (let i = 0; i < cs.length; i++) {
+      const c = cs[i];
+      for (const t of [KATA_PARECIDAS, KSONORAS, KSORDAS, KSEMI]) if (t[c]) mete(cambia(i, t[c]));
+      if (c === "ー") {
+        mete(quita(i));                                   // sin el alargador
+        // 「コーヒー」 → 「コオヒー」: la vocal escrita en vez del alargador
+        const rom = N5.romaji?.(aHira(cs[i - 1] || ""));
+        const v = rom && VOCAL_KATA[rom[rom.length - 1]];
+        if (v) mete(cambia(i, v));
+      } else if (i && cs[i + 1] !== "ー") {
+        mete(mete_(i, "ー"));                              // alargador de más
+      }
+      if (c === "ッ") mete(quita(i));
+      else if (i && /[カキクケコサシスセソタチツテトパピプペポ]/.test(c)) mete(mete_(i, "ッ"));
+    }
     return r.baraja([...out]);
   }
 
@@ -251,7 +318,7 @@
     // --- frases portadoras -------------------------------------------------
     const frases = [];
     const añade = f => {
-      const crudo = N5.sinFurigana(String(f.jp));
+      const crudo = paraExamen(f.jp);
       // Algunos «ejemplos» no son frases: tablas de conjugación (書く→書いて),
       // alternativas (へ＝に), la forma de diccionario como pista (―行きます) o
       // una aclaración entre paréntesis latinos.
@@ -272,6 +339,9 @@
     // Los ejercicios, con su hueco ya relleno, son frases completas más.
     for (const x of d.drills) if (x.pregunta.includes("（　）") && !/[A-Za-z]/.test(x.pregunta))
       añade({ jp: x.pregunta.replace("（　）", x.respuesta), es: "", leccion: null, origen: "ejercicios" });
+    // Y las escritas a propósito para los kanji que el libro no usa en sus ejemplos.
+    for (const f of (d.examenes?.frases || []))
+      añade({ jp: f.jp, es: f.es, leccion: f.leccion ?? null, origen: "guía" });
 
     // --- palabras que se pueden preguntar ---------------------------------
     // Cada objetivo necesita tres cosas: cómo se escribe en kanji, cómo se lee
@@ -286,14 +356,32 @@
       const lectura = N5.limpiaEntrada(sinNa(kanaRaw));
       if (!kanji || !lectura || kanji === lectura) return;
       if (/[〜～・]/.test(kanji + lectura) || !KANJI.test(kanji)) return;
-      const donde = frases.filter(f => ocurrencias(f.plano, kanji).length === 1);
-      if (donde.length) objetivos.push({ kanji, lectura, es: es || "", frases: donde, ...extra });
+      // data/kanji.js usa frases hechas de ejemplo («駅の前», «机の上»). Como
+      // palabra suelta no valen: el examen subraya palabras, no sintagmas. Las
+      // que sí son una palabra (男の人, あの人) están en el vocabulario.
+      if (kanji.includes("の") && !extra.deVocab) return;
+      // «forma» es cómo sale la palabra en el papel del examen. Si sus kanji no
+      // son del N5 sale en kana, y entonces no se puede preguntar por su
+      // lectura ni por su escritura, pero sí por su significado (もんだい３).
+      const esN5 = todoN5(kanji);
+      const forma = esN5 ? kanji : lectura;
+      const donde = frases.filter(f => ocurrencias(f.plano, forma).length === 1);
+      if (donde.length) objetivos.push({ kanji, lectura, forma, esN5, es: es || "", frases: donde, ...extra });
     };
-    for (const w of d.vocab) mete(w.kanji, w.kana, w.es, { leccion: w.leccion });
+    for (const w of d.vocab) mete(w.kanji, w.kana, w.es, { leccion: w.leccion, deVocab: true });
     for (const v of d.verbs) mete(enKanji(v, v.masu), v.masu, v.es, { leccion: v.lecciones?.[0] ?? null, verbo: true });
     for (const k of d.kanji) for (const e of k.ejemplos) mete(e.palabra, e.lectura, e.es, { leccion: null });
     const vistos = new Set();
-    const palabras = objetivos.filter(o => !vistos.has(o.kanji) && vistos.add(o.kanji));
+    const palabras = objetivos.filter(o => !vistos.has(o.forma) && vistos.add(o.forma));
+
+    // --- palabras en katakana, para la pregunta de escritura en katakana ---
+    const katakanas = [];
+    for (const w of d.vocab) {
+      const k = N5.limpiaEntrada(w.kana);
+      if (!/^[ァ-ヶー]{3,}$/.test(k)) continue;
+      const donde = frases.filter(f => ocurrencias(f.plano, k).length === 1);
+      if (donde.length) katakanas.push({ kata: k, es: w.es, frases: donde });
+    }
 
     // --- qué partícula sigue a cada palabra --------------------------------
     // Sustituto barato de un análisis morfológico: si dos palabras aparecen las
@@ -301,9 +389,9 @@
     // de la otra sin cantar por la categoría.
     const trasPalabra = new Map();
     for (const f of frases) for (const w of palabras) {
-      const i = ocurrencias(f.plano, w.kanji)[0];
+      const i = ocurrencias(f.plano, w.forma)[0];
       if (i === undefined) continue;
-      const sig = f.plano[i + w.kanji.length];
+      const sig = f.plano[i + w.forma.length];
       if (sig && "はがをにでへとも".includes(sig)) {
         if (!trasPalabra.has(sig)) trasPalabra.set(sig, []);
         trasPalabra.get(sig).push(w);
@@ -319,27 +407,59 @@
       porOn.get(on).push(k.kanji);
     }
 
-    return (C = { frases, palabras, trasPalabra, porOn, todosKanji: d.kanji.map(k => k.kanji) });
+    return (C = { frases, palabras, katakanas, trasPalabra, porOn, todosKanji: d.kanji.map(k => k.kanji) });
   }
   E.corpus = corpus;
   E.trozosDe = troceaFrase;
   E.tokeniza = tokeniza;
 
   // Dónde aparece una palabra como palabra entera. Sin esto, 手 «aparece» dentro
-  // de 手紙 y 本 dentro de 日本, y el examen subraya media palabra.
+  // de 手紙, 本 dentro de 日本 y 釣り dentro de お釣り, y el examen acabaría
+  // subrayando media palabra. Se resuelve con los cortes del tokenizador: una
+  // aparición vale solo si empieza y acaba donde acaba una pieza de la frase.
+  const cortes = new Map();
+  function limites(texto) {
+    let l = cortes.get(texto);
+    if (l) return l;
+    const t = tokeniza(texto);
+    l = new Set([0]);
+    if (t) {
+      let n = 0;
+      for (const tok of t.toks) {
+        // 「千円」 es una pieza para el tokenizador, pero 千 y 円 son dos palabras
+        // que el examen pregunta por separado: se corta también entre las dos.
+        const m = /^([0-9０-９一二三四五六七八九十百千万]+)(.+)$/.exec(tok);
+        if (m) l.add(n + m[1].length);
+        l.add(n += tok.length);
+      }
+    }
+    else l = null;                      // frase que no se deja trocear: se mira a mano
+    cortes.set(texto, l);
+    return l;
+  }
+
   function ocurrencias(texto, palabra) {
     const out = [];
+    // el texto que se tokenizó no lleva puntuación, así que los cortes van sobre él
+    const limpio = texto.replace(/[。、？！「」]/g, "");
+    const desfase = texto.length - limpio.length;
+    const l = limites(texto);
     const dic = dicc();
     for (let i = texto.indexOf(palabra); i >= 0; i = texto.indexOf(palabra, i + 1)) {
       const fin = i + palabra.length;
-      if (KANJI.test(texto[i - 1] || "") || KANJI.test(texto[fin] || "")) continue;
-      // ¿hay una palabra conocida más larga que la envuelve? 釣り vive dentro de
-      // お釣り, y subrayar solo 釣り dejaría la お colgando fuera.
-      let dentro = false;
-      for (let a = Math.max(0, i - 2); a <= i && !dentro; a++)
-        for (let b = fin; b <= Math.min(texto.length, fin + 2); b++)
-          if ((b - a) > palabra.length && dic.has(texto.slice(a, b))) dentro = true;
-      if (!dentro) out.push(i);
+      if (l) {
+        // solo se compara si la puntuación va al final (que es el caso normal)
+        if (desfase && fin > limpio.length) continue;
+        if (!l.has(i) || !l.has(fin)) continue;
+      } else {
+        if (KANJI.test(texto[i - 1] || "") || KANJI.test(texto[fin] || "")) continue;
+        let dentro = false;
+        for (let a = Math.max(0, i - 2); a <= i && !dentro; a++)
+          for (let b = fin; b <= Math.min(texto.length, fin + 2); b++)
+            if ((b - a) > palabra.length && dic.has(texto.slice(a, b))) dentro = true;
+        if (dentro) continue;
+      }
+      out.push(i);
     }
     return out;
   }
@@ -360,7 +480,9 @@
   // Se subraya una palabra escrita en kanji y se pregunta cómo se lee.
   function itemLectura(r, usadas, hechos) {
     for (const o of r.baraja(corpus().palabras)) {
-      if (usadas.has(o.kanji) || !/^[ぁ-ゖー]+$/.test(o.lectura)) continue;
+      // si sus kanji no son del N5, en el examen esa palabra iría en kana y no
+      // habría nada que leer
+      if (!o.esN5 || usadas.has(o.kanji) || !/^[ぁ-ゖー]+$/.test(o.lectura)) continue;
       if (o.verbo && demasiados(hechos)) continue;
       const libres = o.frases.filter(f => !usadas.has(f.plano));
       if (!libres.length) continue;
@@ -383,9 +505,14 @@
   // ------------------------------------------------ もんだい２ · escritura
   // Al revés: la palabra va subrayada en hiragana y hay que elegir el kanji.
   function itemEscritura(r, usadas, hechos) {
+    // El examen mete siempre una palabra en katakana en este もんだい.
+    if (!hechos.some(x => x.tipo === "katakana")) {
+      const k = itemKatakana(r, usadas);
+      if (k) return k;
+    }
     const { palabras, porOn, todosKanji } = corpus();
     for (const o of r.baraja(palabras)) {
-      if (usadas.has(o.kanji) || o.kanji.length > 3) continue;
+      if (!o.esN5 || usadas.has(o.kanji) || o.kanji.length > 3) continue;
       if (o.verbo && demasiados(hechos)) continue;
       if (!/^[ぁ-ゖー]+$/.test(o.lectura)) continue;
       const libres = o.frases.filter(f => !usadas.has(f.plano));
@@ -400,12 +527,21 @@
       for (let i = 0; i < o.kanji.length; i++) {
         const c = o.kanji[i];
         const cambia = k => o.kanji.slice(0, i) + k + o.kanji.slice(i + 1);
-        for (const k of (PARECIDOS[c] || "")) vista.push(cambia(k));
+        for (const k of (PARECIDOS[c] || "")) if (kanjiDelN5().has(k)) vista.push(cambia(k));
         for (const ks of porOn.values()) if (ks.includes(c))
-          for (const otro of ks) if (otro !== c) suenan.push(cambia(otro));
+          for (const otro of ks) if (otro !== c && kanjiDelN5().has(otro)) suenan.push(cambia(otro));
       }
-      const mismos = palabras.filter(p => p.kanji.length === o.kanji.length && p.kanji !== o.kanji).map(p => p.kanji);
-      const relleno = o.kanji.length === 1 ? todosKanji : mismos;
+      // las opciones falsas también se escriben con kanji del nivel: una opción
+      // con un kanji rarísimo se descarta sin saberse la palabra
+      // El relleno intenta ser de la misma clase: para 「見ます」 es mejor 「出ます」
+      // que 「あの人」, que se descarta sin saber nada solo por no ser un verbo.
+      const cola = o.lectura.slice(-2);
+      const mismos = palabras.filter(p => p.esN5 && p.kanji.length === o.kanji.length && p.kanji !== o.kanji);
+      const parecidos = mismos.filter(p => p.lectura.endsWith(cola)).map(p => p.kanji);
+      const otros = mismos.filter(p => !p.lectura.endsWith(cola)).map(p => p.kanji);
+      const relleno = o.kanji.length === 1
+        ? todosKanji.filter(k => kanjiDelN5().has(k))
+        : r.baraja(parecidos).concat(r.baraja(otros));
       const c = cuatro(o.kanji, r.baraja([...new Set(vista)])
         .concat(r.baraja([...new Set(suenan)])).concat(r.baraja(relleno)), r);
       if (!c) continue;
@@ -415,6 +551,29 @@
         tipo: "escritura", marca: o.lectura, pos: i, modo: "subrayado", verbo: !!o.verbo, ...c,
         frase: f.plano.slice(0, i) + o.lectura + f.plano.slice(i + o.kanji.length),
         nota: `${o.lectura} se escribe ${o.kanji}${o.es ? " — " + o.es : ""}`,
+        traduccion: f.es, leccion: f.leccion
+      };
+    }
+    return null;
+  }
+
+  // La palabra va subrayada en hiragana y las cuatro opciones son formas de
+  // escribirla en katakana, casi iguales entre sí.
+  function itemKatakana(r, usadas) {
+    for (const o of r.baraja(corpus().katakanas)) {
+      if (usadas.has(o.kata)) continue;
+      const libres = o.frases.filter(f => !usadas.has(f.plano));
+      if (!libres.length) continue;
+      const f = r.elige(libres);
+      const c = cuatro(o.kata, escriturasFalsas(o.kata, r), r);
+      if (!c) continue;
+      const i = ocurrencias(f.plano, o.kata)[0];
+      const hira = aHira(o.kata);
+      usadas.add(o.kata); usadas.add(f.plano);
+      return {
+        tipo: "katakana", marca: hira, pos: i, modo: "subrayado", ...c,
+        frase: f.plano.slice(0, i) + hira + f.plano.slice(i + o.kata.length),
+        nota: `${hira} se escribe ${o.kata}${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
     }
@@ -431,17 +590,19 @@
       const buenas = o.frases.filter(f => f.completa && f.plano.length >= 13 && !usadas.has(f.plano));
       if (!buenas.length) continue;
       const f = r.elige(buenas);
-      const i = ocurrencias(f.plano, o.kanji)[0];
+      const i = ocurrencias(f.plano, o.forma)[0];
       if (i === 0) continue;                      // sin nada delante hay poco contexto
-      const sig = f.plano[i + o.kanji.length];
+      const sig = f.plano[i + o.forma.length];
+      // aquí se pregunta por el significado, no por la escritura, así que entran
+      // también las palabras que en el examen irían en kana
       const pozo = r.baraja(trasPalabra.get(sig) || [])
-        .filter(x => x.kanji !== o.kanji && x.es !== o.es && x.kanji.length <= o.kanji.length + 1)
-        .map(x => x.kanji);
-      const c = cuatro(o.kanji, pozo, r);
+        .filter(x => x.forma !== o.forma && x.es !== o.es && x.forma.length <= o.forma.length + 1)
+        .map(x => x.forma);
+      const c = cuatro(o.forma, pozo, r);
       if (!c) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "contexto", frase: f.plano, marca: o.kanji, pos: i, modo: "hueco", ...c,
+        tipo: "contexto", frase: f.plano, marca: o.forma, pos: i, modo: "hueco", ...c,
         nota: `${o.kanji}（${o.lectura}）${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -620,11 +781,14 @@
     for (const b of PLAN) {
       const problemas = [];
       for (const p of b.problemas) {
-        const items = [];
+        const brutos = [];
         for (let i = 0; i < p.cuantos; i++) {
-          const it = p.gen(r, usadas, items);
-          if (it) items.push({ ...it, ref: `${b.id}-${p.n}-${items.length + 1}` });
+          const it = p.gen(r, usadas, brutos);
+          if (it) brutos.push(it);
         }
+        // se barajan antes de numerarlas: si no, la de katakana caería siempre
+        // la primera del もんだい
+        const items = r.baraja(brutos).map((it, i) => ({ ...it, ref: `${b.id}-${p.n}-${i + 1}` }));
         if (items.length) problemas.push({ n: p.n, kanji: p.kanji, instruccion: p.instruccion, pedidos: p.cuantos, items });
       }
       const total = problemas.reduce((n, p) => n + p.items.length, 0);

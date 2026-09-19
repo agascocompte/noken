@@ -129,7 +129,14 @@ console.log("examenes");
     if (vistas.has(p.frase)) err("paráfrasis duplicada: " + p.frase); else vistas.add(p.frase);
     if (/[\[\]]/.test(p.frase + p.opciones.join(""))) err(`paráfrasis «${p.frase}»: se escriben sin furigana`);
   }
-  ok(d.examenes.parafrasis.length + " paráfrasis para もんだい４");
+  // frases portadoras escritas a mano para los kanji que el libro no usa
+  for (const f of d.examenes.frases) {
+    if (!f.jp || !f.es) err("frase de examen incompleta: " + JSON.stringify(f));
+    const m = furiganaMal(f.jp); if (m) err("frase de examen: " + m);
+    if (!/[。？]$/.test(f.jp)) err(`frase de examen sin punto final: ${f.jp}`);
+  }
+  ok(d.examenes.frases.length + " frases portadoras y "
+    + d.examenes.parafrasis.length + " paráfrasis para もんだい４");
 }
 
 console.log(errores ? `\n${errores} error(es)` : "\nTodo correcto ✔");

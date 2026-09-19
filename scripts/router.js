@@ -17,9 +17,15 @@
     return { id, sub: rest.join("/"), params: new URLSearchParams(query) };
   }
 
+  let anterior = null;
+
   function activate() {
     const route = parse();
     const def = sections.get(route.id) || sections.get("inicio");
+    // Avisar a la sección que se abandona: el examen aprovecha para parar el
+    // reloj y guardar por dónde iba en vez de perderlo.
+    if (anterior && anterior !== def) anterior.onLeave?.();
+    anterior = def;
     for (const [id, s] of sections) {
       const el = document.getElementById("p-" + id);
       if (el) el.classList.toggle("active", s === def);

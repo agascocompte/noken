@@ -522,3 +522,11 @@ td.romaji{font-size:.85rem; letter-spacing:.01em}
   .exitem{padding:16px}
   .exnav .btn:last-child{margin-left:0; flex:1 0 100%}
 }
+
+/* examen dejado a medias: se ofrece seguir en vez de perderlo */
+.excurso{
+  display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+  background:var(--beni-soft); border:1px solid var(--beni); border-radius:var(--radius);
+  padding:12px 16px; margin:0 0 18px; font-size:.95rem; max-width:720px;
+}
+.excurso .exbotones{margin-top:0}

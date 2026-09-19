@@ -35,7 +35,7 @@
   let bi = 0, ii = 0;         // bloque e ítem actuales
   const respuestas = new Map();
   const marcadas = new Set();
-  let restante = 0, reloj = null, pausado = false, inicio = 0;
+  let restante = 0, reloj = null, pausado = false, usado = 0;
 
   // Los ítems de un bloque, en fila y sabiendo cada uno de qué もんだい viene.
   const enFila = b => b.problemas.flatMap(p => p.items.map(it => ({ ...it, problema: p })));
@@ -46,7 +46,8 @@
     restante = segundos; pausado = false;
     reloj = setInterval(() => {
       if (pausado) return;
-      restante--;
+      restante--; usado++;
+      if (restante % 5 === 0) guardaCurso();      // por si se recarga la página
       if (restante <= 0) { para(); acabaBloque(true); return; }
       const t = $("#exReloj");
       if (t) { t.textContent = mmss(restante); t.classList.toggle("poco", restante <= 60); }
@@ -54,6 +55,44 @@
   }
   const para = () => { if (reloj) clearInterval(reloj); reloj = null; };
   const mmss = s => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+
+  // ------------------------------------------------------- examen a medias
+  // Cambiar de pestaña —o recargar sin querer— no puede costarte el examen: se
+  // guarda por dónde ibas y el reloj se queda parado hasta que vuelvas.
+  const CURSO = "n5-examen-curso";
+  function guardaCurso() {
+    if (vista !== "test") return;
+    try {
+      localStorage.setItem(CURSO, JSON.stringify({
+        semilla: ex.semilla, ids: bloques.map(b => b.id), bi, ii, restante, usado,
+        respuestas: [...respuestas], marcadas: [...marcadas]
+      }));
+    } catch { /* almacenamiento lleno o en privado: se pierde y ya está */ }
+  }
+  const olvidaCurso = () => { try { localStorage.removeItem(CURSO); } catch { /* nada */ } };
+  function leeCurso() {
+    try {
+      const c = JSON.parse(localStorage.getItem(CURSO) || "null");
+      return c && c.semilla && c.ids?.length ? c : null;
+    } catch { return null; }
+  }
+
+  // Vuelve a montar el examen guardado. El examen no se guarda: se regenera de
+  // su semilla, que para eso es determinista.
+  function retoma(c) {
+    ex = N5.examen.genera(c.semilla);
+    bloques = ex.bloques.filter(b => c.ids.includes(b.id));
+    if (!bloques.length) return olvidaCurso();
+    bi = Math.min(c.bi, bloques.length - 1);
+    ii = Math.min(c.ii, enFila(bloques[bi]).length - 1);
+    respuestas.clear(); for (const [k, v] of c.respuestas || []) respuestas.set(k, v);
+    marcadas.clear(); for (const k of c.marcadas || []) marcadas.add(k);
+    usado = c.usado || 0;
+    vista = "test";
+    arranca(c.restante > 0 ? c.restante : bloques[bi].minutos * 60);
+    N5.go("#/examenes/" + (+c.semilla.slice(-4)));
+    pinta();
+  }
 
   // ------------------------------------------------------------- catálogo
   function pintaCatalogo() {
@@ -75,7 +114,24 @@
       vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero siguen su formato.</p>
       <div class="exaviso">De momento están los dos bloques de <b>言語知識</b>: 文字・語彙 (vocabulario y escritura) y 文法
       (gramática). Faltan 読解 (lectura) y 聴解 (audición), que necesitan textos y audios escritos aparte.</div>
+      ${avisoCurso()}
       <div class="exgrid">${tarjetas.join("")}</div>`;
+  }
+
+  // Cinta de «lo dejaste a medias» encima del catálogo. El reloj sigue parado
+  // hasta que se pulsa Seguir.
+  function avisoCurso() {
+    const c = vista === "test" ? null : leeCurso();
+    if (!c) return "";
+    const n = +c.semilla.slice(-4);
+    const hechas = (c.respuestas || []).length;
+    return `<div class="excurso">
+      <div><b>Examen ${n} a medias</b> · ${hechas} ${hechas === 1 ? "respondida" : "respondidas"}
+        · quedan ${mmss(Math.max(0, c.restante))} en este bloque</div>
+      <div class="exbotones">
+        <button class="btn" id="exRetoma">Seguir</button>
+        <button class="btn secondary" id="exTira">Abandonar</button>
+      </div></div>`;
   }
 
   // -------------------------------------------------------------- portada
@@ -112,10 +168,11 @@
     bloques = cual === "todo" ? ex.bloques : ex.bloques.filter(b => b.id === cual);
     bi = 0; ii = 0;
     respuestas.clear(); marcadas.clear();
-    inicio = Date.now();
+    usado = 0;
     vista = "test";
     arranca(bloques[0].minutos * 60);
     pinta();
+    guardaCurso();
   }
 
   // Cómo se enseña cada tipo de pregunta. La frase va siempre sin furigana:
@@ -195,7 +252,8 @@
   function corrige() {
     para();
     vista = "resultado";
-    const segundos = Math.round((Date.now() - inicio) / 1000);
+    const segundos = usado;      // solo cuenta el tiempo con el reloj andando
+    olvidaCurso();
     let aciertos = 0, total = 0;
     const detalle = bloques.map(b => {
       const probs = b.problemas.map(p => {
@@ -269,6 +327,8 @@
     init() {
       $("#exView").addEventListener("click", e => {
         const t = e.target;
+        if (t.closest("#exRetoma")) { const c = leeCurso(); return c && retoma(c); }
+        if (t.closest("#exTira")) { olvidaCurso(); return pintaCatalogo(); }
         const card = t.closest(".excard");
         if (card) return N5.go("#/examenes/" + card.dataset.n);
         if (t.closest("#exVolver")) { para(); return N5.go("#/examenes"); }
@@ -283,6 +343,7 @@
         if (op) {
           const it = items()[ii];
           respuestas.set(it.ref, +op.dataset.k);
+          guardaCurso();
           // se pasa sola a la siguiente, como en Bunpro; la última se queda
           if (ii < items().length - 1) { ii++; pinta(); } else pinta();
           return;
@@ -296,7 +357,7 @@
           marcadas.has(ref) ? marcadas.delete(ref) : marcadas.add(ref);
           return pinta();
         }
-        if (t.closest("#exPausa")) { pausado = !pausado; return pinta(); }
+        if (t.closest("#exPausa")) { pausado = !pausado; guardaCurso(); return pinta(); }
         if (t.closest("#exFin")) {
           const sin = items().filter(x => !respuestas.has(x.ref)).length;
           if (sin && !confirm(`Te quedan ${sin} sin contestar. ¿Cierras el bloque igual?`)) return;
@@ -305,15 +366,25 @@
       });
       pintaCatalogo();
     },
+    // Al irse a otra pestaña el reloj se para y el examen queda guardado; al
+    // volver, el catálogo ofrece seguir donde lo dejaste.
+    onLeave() { if (vista === "test") { pausado = true; guardaCurso(); para(); } },
+
     onRoute({ sub }) {
       const n = +sub;
-      // Volver al catálogo con un examen a medias lo abandona y para el reloj.
-      // Irse a otra pestaña no: el reloj del examen sigue corriendo, como el de verdad.
-      if (vista === "test" && (!n || !ex || ex.semilla !== N5.examen.semillaDe(n))) para();
       if (n >= 1 && n <= N5.examen.CUANTOS) {
-        if (vista === "test" && ex && ex.semilla === N5.examen.semillaDe(n)) return;  // seguir donde estabas
+        const semilla = N5.examen.semillaDe(n);
+        if (vista === "test" && ex && ex.semilla === semilla) {  // seguir donde estabas
+          if (!reloj) arranca(restante);
+          pausado = false;
+          return pinta();
+        }
+        const c = leeCurso();
+        if (c && c.semilla === semilla) return retoma(c);
         return abre(n);
       }
+      // el catálogo no abandona nada: solo deja de contar y lo ofrece arriba
+      if (vista === "test") { pausado = true; guardaCurso(); para(); }
       vista = "catalogo";
       pintaCatalogo();
     }

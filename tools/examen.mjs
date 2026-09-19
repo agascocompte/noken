@@ -6,6 +6,7 @@ import { join } from "node:path";
 import { cargaN5, root } from "./datos.mjs";
 
 const N5 = cargaN5();
+new Function("N5", readFileSync(join(root, "scripts/romaji.js"), "utf8"))(N5);
 new Function("N5", readFileSync(join(root, "scripts/examen.js"), "utf8"))(N5);
 
 const desde = +(process.argv[2] || 1);
@@ -49,6 +50,13 @@ for (let n = desde; n <= hasta; n++) {
   for (const b of ex.bloques) for (const p of b.problemas) for (const it of p.items) {
     if (new Set(it.opciones).size !== 4) { console.log(`examen ${n} もんだい${p.n}: opciones repetidas`, it.opciones); malos++; }
     if (!(it.correcta >= 0 && it.correcta < 4)) { console.log(`examen ${n}: correcta inválida`, it); malos++; }
+    if (it.pos !== undefined && it.frase.slice(it.pos, it.pos + it.marca.length) !== it.marca) {
+      console.log(`examen ${n}: la marca no cae donde dice`, it.frase, it.marca); malos++;
+    }
   }
+  // もんだい２ de 文字・語彙 lleva siempre una palabra en katakana, como el de verdad
+  const escritura = ex.bloques[0]?.problemas.find(p => p.n === 2);
+  const katas = escritura?.items.filter(it => it.tipo === "katakana").length ?? 0;
+  if (katas !== 1) { console.log(`examen ${n}: ${katas} preguntas de katakana en もんだい２ (debería haber 1)`); malos++; }
 }
 if (hasta > desde) console.log(malos ? `\n${malos} aviso(s)` : `\n${hasta - desde + 1} exámenes, todo completo ✔`);

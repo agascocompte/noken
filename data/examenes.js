@@ -2,8 +2,15 @@
 // Editable a mano: es JSON puro asignado a N5.data.examenes
 //
 // Material de examen que NO se puede generar desde el resto de datos y hay que
-// escribir. De momento solo もんだい４ de 文字・語彙 (言い換え類義): se da una
-// frase y hay que elegir la que significa casi lo mismo.
+// escribir.
+//
+// "frases": frases portadoras. El generador saca las preguntas de las frases de
+// ejemplo de data/grammar.js y data/verbs.js, pero en ellas no salen ni los
+// números, ni 東西南北, ni 口目耳…, así que esos kanji del N5 no se podían
+// preguntar nunca. Estas los cubren. Con furigana, como el resto de data/.
+//
+// "parafrasis": もんだい４ de 文字・語彙 (言い換え類義). Se da una frase y hay que
+// elegir la que significa casi lo mismo.
 //
 // En cada «opciones», la PRIMERA es la correcta; el generador las baraja.
 // Se escriben como en el examen de verdad: kana con espacios y kanji fácil,
@@ -11,6 +18,268 @@
 window.N5=window.N5||{data:{}};
 N5.data.examenes=
 {
+ "frases": [
+ {
+  "jp": "りんごを一[ひと]つ買[か]いました。",
+  "es": "Compré una manzana."
+ },
+ {
+  "jp": "子[こ]どもが二人[ふたり]います。",
+  "es": "Tengo dos hijos."
+ },
+ {
+  "jp": "みかんを三[みっ]つください。",
+  "es": "Tres mandarinas, por favor."
+ },
+ {
+  "jp": "四時[よじ]に駅[えき]で会[あ]いましょう。",
+  "es": "Quedamos a las cuatro en la estación."
+ },
+ {
+  "jp": "五[いつ]つで五百円[ごひゃくえん]です。",
+  "es": "Cinco salen por quinientos yenes."
+ },
+ {
+  "jp": "ケーキを六[むっ]つ買[か]いました。",
+  "es": "Compré seis pasteles."
+ },
+ {
+  "jp": "七時[しちじ]に朝[あさ]ごはんを食[た]べます。",
+  "es": "Desayuno a las siete."
+ },
+ {
+  "jp": "八百円[はっぴゃくえん]の本[ほん]を買[か]いました。",
+  "es": "Compré un libro de ochocientos yenes."
+ },
+ {
+  "jp": "九時[くじ]に会社[かいしゃ]へ行[い]きます。",
+  "es": "Voy a la empresa a las nueve."
+ },
+ {
+  "jp": "十日[とおか]に国[くに]へ帰[かえ]ります。",
+  "es": "Vuelvo a mi país el día diez."
+ },
+ {
+  "jp": "百円[ひゃくえん]のパンを買[か]いました。",
+  "es": "Compré un pan de cien yenes."
+ },
+ {
+  "jp": "千円[せんえん]貸[か]してください。",
+  "es": "Préstame mil yenes, por favor."
+ },
+ {
+  "jp": "一万円[いちまんえん]の時計[とけい]です。",
+  "es": "Es un reloj de diez mil yenes."
+ },
+ {
+  "jp": "火曜日[かようび]に友達[ともだち]と会[あ]います。",
+  "es": "El martes quedo con un amigo."
+ },
+ {
+  "jp": "木曜日[もくようび]は学校[がっこう]が休[やす]みです。",
+  "es": "El jueves no hay clase."
+ },
+ {
+  "jp": "土曜日[どようび]に川[かわ]へ行[い]きます。",
+  "es": "El sábado voy al río."
+ },
+ {
+  "jp": "出口[でぐち]はどこですか。",
+  "es": "¿Dónde está la salida?"
+ },
+ {
+  "jp": "けさから目[め]が悪[わる]いです。",
+  "es": "Desde esta mañana veo mal."
+ },
+ {
+  "jp": "あの犬[いぬ]は耳[みみ]が大[おお]きいです。",
+  "es": "Ese perro tiene las orejas grandes."
+ },
+ {
+  "jp": "駅[えき]は東[ひがし]にあります。",
+  "es": "La estación está al este."
+ },
+ {
+  "jp": "西[にし]へ行[い]く電車[でんしゃ]はどれですか。",
+  "es": "¿Cuál es el tren que va al oeste?"
+ },
+ {
+  "jp": "南[みなみ]の国[くに]へ旅行[りょこう]したいです。",
+  "es": "Quiero viajar a un país del sur."
+ },
+ {
+  "jp": "北[きた]の窓[まど]を開[あ]けてください。",
+  "es": "Abre la ventana del norte, por favor."
+ },
+ {
+  "jp": "男[おとこ]の人[ひと]が三人[さんにん]います。",
+  "es": "Hay tres hombres."
+ },
+ {
+  "jp": "女[おんな]の人[ひと]に道[みち]を聞[き]きました。",
+  "es": "Le pregunté el camino a una mujer."
+ },
+ {
+  "jp": "日本[にほん]は魚[さかな]が多[おお]いです。",
+  "es": "En Japón hay mucho pescado."
+ },
+ {
+  "jp": "今年[ことし]の夏[なつ]は暑[あつ]かったです。",
+  "es": "Este verano ha hecho calor."
+ },
+ {
+  "jp": "午前[ごぜん]九時[くじ]に始[はじ]まります。",
+  "es": "Empieza a las nueve de la mañana."
+ },
+ {
+  "jp": "午後[ごご]から雨[あめ]が降[ふ]ります。",
+  "es": "Va a llover por la tarde."
+ },
+ {
+  "jp": "左[ひだり]を見[み]てください。",
+  "es": "Mira a la izquierda, por favor."
+ },
+ {
+  "jp": "白[しろ]いシャツを買[か]いました。",
+  "es": "Me compré una camisa blanca."
+ },
+ {
+  "jp": "学校[がっこう]は駅[えき]の前[まえ]にあります。",
+  "es": "La escuela está delante de la estación."
+ },
+ {
+  "jp": "あの店[みせ]は安[やす]いです。",
+  "es": "Esa tienda es barata."
+ },
+ {
+  "jp": "二時半[にじはん]に出[で]かけます。",
+  "es": "Salgo a las dos y media."
+ },
+ {
+  "jp": "友達[ともだち]と映画[えいが]を見[み]ました。",
+  "es": "Vi una película con un amigo."
+ },
+ {
+  "jp": "わたしの家[うち]は古[ふる]いです。",
+  "es": "Mi casa es vieja."
+ },
+ {
+  "jp": "先生[せんせい]が前[まえ]に立[た]っています。",
+  "es": "El profesor está de pie delante."
+ },
+ {
+  "jp": "先生[せんせい]は何[なに]も言[い]いませんでした。",
+  "es": "El profesor no dijo nada."
+ },
+ {
+  "jp": "外[そと]はとても寒[さむ]いです。",
+  "es": "Fuera hace mucho frío."
+ },
+ {
+  "jp": "外国[がいこく]へ行[い]きたいです。",
+  "es": "Quiero ir al extranjero."
+ },
+ {
+  "jp": "飲[の]み物[もの]は何[なに]がいいですか。",
+  "es": "¿Qué quieres de beber?"
+ },
+ {
+  "jp": "毎日[まいにち]お茶[ちゃ]を飲[の]みます。",
+  "es": "Bebo té todos los días."
+ },
+ {
+  "jp": "来週[らいしゅう]国[くに]へ帰[かえ]ります。",
+  "es": "La semana que viene vuelvo a mi país."
+ },
+ {
+  "jp": "先週[せんしゅう]京都[きょうと]へ行[い]きました。",
+  "es": "La semana pasada fui a Kioto."
+ },
+ {
+  "jp": "きのう魚[さかな]を食[た]べました。",
+  "es": "Ayer comí pescado."
+ },
+ {
+  "jp": "りんごを四[よっ]つください。",
+  "es": "Cuatro manzanas, por favor."
+ },
+ {
+  "jp": "たまごを八[やっ]つ買[か]いました。",
+  "es": "Compré ocho huevos."
+ },
+ {
+  "jp": "たばこの火[ひ]を消[け]してください。",
+  "es": "Apaga el cigarrillo, por favor."
+ },
+ {
+  "jp": "にわに大[おお]きい木[き]があります。",
+  "es": "En el jardín hay un árbol grande."
+ },
+ {
+  "jp": "子[こ]どもが土[つち]で遊[あそ]んでいます。",
+  "es": "Los niños están jugando en la tierra."
+ },
+ {
+  "jp": "電車[でんしゃ]の中[なか]で立[た]ちます。",
+  "es": "En el tren voy de pie."
+ },
+ {
+  "jp": "日本語[にほんご]で何[なん]と言[い]いますか。",
+  "es": "¿Cómo se dice en japonés?"
+ },
+ {
+  "jp": "テレビを消[け]してください。",
+  "es": "Apaga la televisión, por favor."
+ },
+ {
+  "jp": "毎朝[まいあさ]コーヒーを飲[の]みます。",
+  "es": "Todas las mañanas tomo café."
+ },
+ {
+  "jp": "ラジオでニュースを聞[き]きます。",
+  "es": "Escucho las noticias por la radio."
+ },
+ {
+  "jp": "カメラを買[か]いたいです。",
+  "es": "Quiero comprar una cámara."
+ },
+ {
+  "jp": "ビールを二[ふた]つください。",
+  "es": "Dos cervezas, por favor."
+ },
+ {
+  "jp": "エレベーターは右[みぎ]にあります。",
+  "es": "El ascensor está a la derecha."
+ },
+ {
+  "jp": "デパートで買[か]い物[もの]をしました。",
+  "es": "Hice la compra en los grandes almacenes."
+ },
+ {
+  "jp": "ノートとペンを持[も]ってきてください。",
+  "es": "Trae un cuaderno y un bolígrafo, por favor."
+ },
+ {
+  "jp": "テーブルの上[うえ]に花[はな]があります。",
+  "es": "Encima de la mesa hay flores."
+ },
+ {
+  "jp": "スプーンで食[た]べます。",
+  "es": "Como con cuchara."
+ },
+ {
+  "jp": "バスで学校[がっこう]へ行[い]きます。",
+  "es": "Voy a la escuela en autobús."
+ },
+ {
+  "jp": "カレンダーを見[み]てください。",
+  "es": "Mira el calendario, por favor."
+ },
+ {
+  "jp": "ポケットに入[い]れました。",
+  "es": "Lo metí en el bolsillo."
+ }
+ ],
  "parafrasis": [
   {
    "frase": "きのうは ひまでした。",
