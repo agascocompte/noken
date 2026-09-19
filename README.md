@@ -14,6 +14,7 @@ styles/main.css       tema claro/oscuro y componentes
 scripts/
   dom.js              helpers ($, esc, ruby, shuffle)
   romaji.js           motor de romaji por moras (búsqueda)
+  examen.js           genera exámenes tipo JLPT a partir de una semilla
   router.js           rutas por hash (#/gramatica/l13, #/verbos?q=…)
   search.js           búsqueda global (tecla /)
   app.js              arranque (tema, furigana, pestañas)
@@ -21,6 +22,7 @@ scripts/
 data/                 TODO el contenido vive aquí (JSON puro + 1 línea de envoltura)
 tools/
   check.mjs           valida los datos      → node tools/check.mjs
+  examen.mjs          imprime un examen     → node tools/examen.mjs 7
   build-single.mjs    genera dist/noken5.html autocontenido
 ```
 
@@ -47,10 +49,26 @@ los navegadores bloquean `fetch` de JSON). Añadir contenido = añadir un objeto
 
 Tras editar, ejecuta `node tools/check.mjs` (esquemas, duplicados, furigana).
 
+## Exámenes
+
+La pestaña Exámenes no guarda exámenes: guarda **semillas**. `scripts/examen.js`
+monta el «Examen 7» siempre igual a partir de `noken5-0007`, con el reparto de
+もんだい del formato vigente desde diciembre de 2020, y las preguntas salen del
+vocabulario, los kanji, los verbos y las frases de ejemplo que ya hay en `data/`.
+No son exámenes oficiales: son del mismo formato, generados con este contenido.
+
+Lo único escrito a mano es `data/examenes.js` (もんだい４, las frases equivalentes),
+porque «decir lo mismo con otras palabras» no se puede sacar de una tabla. Faltan
+los bloques 読解 y 聴解, que necesitan textos y audios aparte.
+
+Para ver qué preguntas salen sin abrir el navegador:
+`node tools/examen.mjs 7` (uno) o `node tools/examen.mjs 1 50` (valida los 50).
+
 ## Rutas
 
 `#/vocabulario?q=neko&leccion=6` · `#/gramatica/l13` · `#/gramatica/tema/forma-te`
-· `#/verbos?q=nonde` · `#/kanji?q=agua` — todas enlazables y con historial.
+· `#/verbos?q=nonde` · `#/kanji?q=agua` · `#/examenes/7` — todas enlazables y con
+historial.
 
 ## Ampliar a otros niveles (N4…)
 

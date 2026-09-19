@@ -118,5 +118,19 @@ console.log("reference / drills / kana");
   ok(d.reference.length + " tarjetas, " + d.drills.length + " ejercicios, kana OK");
 }
 
+console.log("examenes");
+{
+  // もんだい４: la opción correcta es SIEMPRE la primera; el generador las baraja
+  const vistas = new Set();
+  for (const p of d.examenes.parafrasis) {
+    for (const c of ["frase", "opciones", "es", "nota"]) if (!(c in p)) err(`paráfrasis «${p.frase}»: falta ${c}`);
+    if (p.opciones?.length !== 4) err(`paráfrasis «${p.frase}»: deben ser 4 opciones, hay ${p.opciones?.length}`);
+    if (new Set(p.opciones).size !== 4) err(`paráfrasis «${p.frase}»: opciones repetidas`);
+    if (vistas.has(p.frase)) err("paráfrasis duplicada: " + p.frase); else vistas.add(p.frase);
+    if (/[\[\]]/.test(p.frase + p.opciones.join(""))) err(`paráfrasis «${p.frase}»: se escriben sin furigana`);
+  }
+  ok(d.examenes.parafrasis.length + " paráfrasis para もんだい４");
+}
+
 console.log(errores ? `\n${errores} error(es)` : "\nTodo correcto ✔");
 process.exit(errores ? 1 : 0);

@@ -7,7 +7,7 @@ import { dirname, join } from "node:path";
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-const FICHEROS = ["vocab", "grammar", "verbs", "kanji", "reference", "drills", "kana"];
+const FICHEROS = ["vocab", "grammar", "verbs", "kanji", "reference", "drills", "kana", "examenes"];
 
 // scripts/dom.js define constantes compartidas (N5.FUENTES) y no toca el DOM al
 // cargarse, así que las herramientas pueden leerlo y no duplicar esas listas.

@@ -15,7 +15,8 @@
         ["kanji", "漢", "Kanji", d.kanji.length + " kanji", "lecturas y palabras de ejemplo"],
         ["referencia", "参", "Referencia", (d.reference.length + 2) + " chuletas", "kana, partículas, contadores, fechas…"],
         ["ejercicios", "練", "Ejercicios", d.drills.length + " resueltos", "preguntas tipo examen con explicación"],
-        ["test", "試", "Test", "a tu medida", "autoevaluación aleatoria desde el contenido"]
+        ["test", "試", "Test", "a tu medida", "autoevaluación aleatoria desde el contenido"],
+        ["examenes", "験", "Exámenes", N5.examen.CUANTOS + " exámenes", "formato real, con reloj y corrección"]
       ];
       $("#quickGrid").innerHTML = cards.map(([id, k, t, n, desc]) => `
         <a class="qcard" href="#/${id}">
