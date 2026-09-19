@@ -57,9 +57,16 @@ monta el «Examen 7» siempre igual a partir de `noken5-0007`, con el reparto de
 vocabulario, los kanji, los verbos y las frases de ejemplo que ya hay en `data/`.
 No son exámenes oficiales: son del mismo formato, generados con este contenido.
 
-Lo único escrito a mano es `data/examenes.js` (もんだい４, las frases equivalentes),
-porque «decir lo mismo con otras palabras» no se puede sacar de una tabla. Faltan
-los bloques 読解 y 聴解, que necesitan textos y audios aparte.
+Los exámenes se escriben con los **103 kanji del N5** (`n5` en `data/kanji.js`),
+no con los 167 del libro: como `data/` anota con furigana los kanji difíciles, el
+generador deja en kanji los del nivel y pasa el resto a kana, igual que el examen
+de verdad (新幹線 → しんかんせん). Preguntar por la lectura o la escritura se hace
+solo con palabras del nivel.
+
+`data/examenes.js` es lo que hay escrito a mano, porque no se puede sacar de
+ninguna tabla: las frases equivalentes de もんだい４, los textos de 読解, y frases
+portadoras para los kanji que el libro no usa en sus ejemplos (los números,
+東西南北, 口目耳…). Falta el bloque 聴解 y もんだい３ de 文法 (el texto con huecos).
 
 Para ver qué preguntas salen sin abrir el navegador:
 `node tools/examen.mjs 7` (uno) o `node tools/examen.mjs 1 50` (valida los 50).

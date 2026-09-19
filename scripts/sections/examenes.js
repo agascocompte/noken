@@ -112,8 +112,9 @@
       <p class="lead">Exámenes del estilo del N5, con sus <b>もんだい</b>, su reloj y su corrección. Cada número es siempre
       el mismo examen, así que puedes repetirlo dentro de un tiempo y ver si has mejorado. Las preguntas se generan con el
       vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero siguen su formato.</p>
-      <div class="exaviso">De momento están los dos bloques de <b>言語知識</b>: 文字・語彙 (vocabulario y escritura) y 文法
-      (gramática). Faltan 読解 (lectura) y 聴解 (audición), que necesitan textos y audios escritos aparte.</div>
+      <div class="exaviso">Están los dos bloques escritos: <b>文字・語彙</b> (vocabulario y escritura, 20 min) y
+      <b>文法・読解</b> (gramática y lectura, 40 min). Del segundo falta もんだい３ (文章の文法, el texto con huecos).
+      El bloque de <b>聴解</b> (audición) todavía no está.</div>
       ${avisoCurso()}
       <div class="exgrid">${tarjetas.join("")}</div>`;
   }
@@ -192,6 +193,22 @@
     return e;
   }
 
+  // El texto de 読解 (o el cartel de もんだい６) va encima de la pregunta, y se
+  // repite en las dos preguntas del mismo texto: en el papel lo tienes delante.
+  function pasaje(it) {
+    if (it.texto) return `<div class="expasaje jp">${esc(it.texto).replace(/\n/g, "<br>")}</div>`;
+    if (!it.info) return "";
+    const i = it.info;
+    return `<div class="expasaje excartel jp">
+      <h3>${esc(i.titulo)}</h3>
+      ${i.filas?.length ? `<table>
+        ${i.cabecera?.length ? `<thead><tr>${i.cabecera.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>` : ""}
+        <tbody>${i.filas.map(f => `<tr>${f.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+      </table>` : ""}
+      ${i.notas?.length ? `<ul>${i.notas.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+    </div>`;
+  }
+
   function pinta() {
     const b = bloques[bi];
     const items = enFila(b);
@@ -214,6 +231,7 @@
         ${primeraDelProblema ? `<div class="exprob">
           <span class="jp">もんだい${prob.n}</span> <span class="muted jp">${esc(prob.kanji)}</span>
           <p class="muted">${esc(prob.instruccion)}</p></div>` : ""}
+        ${pasaje(it)}
         <p class="exfrase jp">${cuerpo(it)}</p>
         <div class="exops">${it.opciones.map((o, k) => `
           <button class="exop jp${respuestas.get(it.ref) === k ? " elegida" : ""}" data-k="${k}">
@@ -290,12 +308,13 @@
           const tuya = respuestas.get(it.ref);
           return `<div class="exfallo">
             <div class="muted">もんだい${p.n}</div>
+            ${pasaje(it)}
             <p class="jp">${cuerpo(it)}</p>
             <p><span class="ok jp">${it.correcta + 1}. ${esc(it.opciones[it.correcta])}</span>
               ${tuya === undefined ? `<span class="muted"> · en blanco</span>`
                 : `<span class="mal jp"> · tú: ${tuya + 1}. ${esc(it.opciones[tuya])}</span>`}</p>
             ${it.tipo === "orden" ? `<p class="muted jp">Orden: ${esc(it.orden.join(" / "))}</p>` : ""}
-            ${it.nota ? `<p class="muted">${esc(it.nota)}</p>` : ""}
+            ${it.nota ? `<p class="muted">${N5.rubyEsc(it.nota)}</p>` : ""}
             ${it.traduccion ? `<p class="muted">«${esc(it.traduccion)}»</p>` : ""}
           </div>`;
         }).join("")}</div>` : `<p class="lead">Ni una fallada. 完璧です。</p>`}

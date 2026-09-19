@@ -719,6 +719,70 @@
     return null;
   }
 
+  // ------------------------------------------------------------ 読解
+  // Los textos no se generan: están escritos a mano en data/examenes.js. Lo que
+  // sí hace el generador es pasarlos a la escritura del examen (los kanji que no
+  // son del N5 se quedan en kana) y elegir cuáles tocan en cada examen.
+  //
+  // もんだい５ tiene dos preguntas sobre el mismo texto, así que el texto se
+  // repite en las dos: en el papel lo tienes delante todo el rato.
+  const lecturas = () => N5.data.examenes?.lecturas || {};
+
+  function itemTextoCorto(r, usadas) {
+    const pozo = (lecturas().cortas || []).filter(t => !usadas.has("t:" + t.pregunta));
+    if (!pozo.length) return null;
+    const t = r.elige(pozo);
+    usadas.add("t:" + t.pregunta);
+    const mezcla = r.baraja(t.opciones);
+    return {
+      tipo: "texto", modo: "texto", texto: paraExamen(t.texto), frase: paraExamen(t.pregunta),
+      opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(t.opciones[0]),
+      nota: t.nota || "", traduccion: t.es || "", leccion: null
+    };
+  }
+
+  // Devuelve las DOS preguntas de un mismo texto de golpe: no tendría sentido
+  // partirlas entre dos textos distintos.
+  function itemTextoMedio(r, usadas, hechos) {
+    if (hechos.length % 2) return null;            // la segunda la puso ya la primera
+    const pozo = (lecturas().medias || []).filter(t => !usadas.has("m:" + t.texto));
+    if (!pozo.length) return null;
+    const t = r.elige(pozo);
+    usadas.add("m:" + t.texto);
+    const texto = paraExamen(t.texto);
+    pendientes = t.preguntas.slice(1).map(q => monta(q, texto, t.es));
+    return monta(t.preguntas[0], texto, t.es);
+
+    function monta(q, texto, es) {
+      const mezcla = r.baraja(q.opciones);
+      return {
+        tipo: "texto", modo: "texto", texto, frase: paraExamen(q.pregunta),
+        opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(q.opciones[0]),
+        nota: q.nota || "", traduccion: es || "", leccion: null
+      };
+    }
+  }
+  let pendientes = [];      // preguntas del mismo texto que aún no se han soltado
+
+  function itemInformacion(r, usadas) {
+    const pozo = (lecturas().informacion || []).filter(t => !usadas.has("i:" + t.titulo));
+    if (!pozo.length) return null;
+    const t = r.elige(pozo);
+    usadas.add("i:" + t.titulo);
+    const mezcla = r.baraja(t.opciones);
+    return {
+      tipo: "info", modo: "info", frase: paraExamen(t.pregunta),
+      info: {
+        titulo: paraExamen(t.titulo),
+        cabecera: (t.cabecera || []).map(paraExamen),
+        filas: (t.filas || []).map(f => f.map(paraExamen)),
+        notas: (t.notas || []).map(paraExamen)
+      },
+      opciones: mezcla.map(paraExamen), correcta: mezcla.indexOf(t.opciones[0]),
+      nota: t.nota || "", traduccion: t.es || "", leccion: null
+    };
+  }
+
   // --------------------------------------- 文法 もんだい２ · ordenar la frase
   // Se parte una frase en trozos, se desordenan cuatro y hay que decir cuál cae
   // en el ★. Es el もんだい que más gente falla y aquí sale gratis: la frase
@@ -762,12 +826,18 @@
       ]
     },
     {
-      id: "gramatica", kanji: "文法", titulo: "Gramática", minutos: 20,
+      id: "gramatica", kanji: "文法・読解", titulo: "Gramática y lectura", minutos: 40,
       problemas: [
         { n: 1, gen: itemForma, cuantos: 9, kanji: "ぶんぽうけいしきの はんだん",
           instruccion: "¿Qué va en el hueco （　）? Elige la mejor opción de 1 a 4." },
         { n: 2, gen: itemOrden, cuantos: 4, kanji: "ぶんの くみたて",
-          instruccion: "Ordena las cuatro piezas para formar la frase. ¿Cuál va en el ★?" }
+          instruccion: "Ordena las cuatro piezas para formar la frase. ¿Cuál va en el ★?" },
+        { n: 4, gen: itemTextoCorto, cuantos: 2, kanji: "たんぶん（読解）",
+          instruccion: "Lee el texto y responde. Elige la mejor opción de 1 a 4." },
+        { n: 5, gen: itemTextoMedio, cuantos: 2, kanji: "ちゅうぶん（読解）",
+          instruccion: "Lee el texto y responde. Elige la mejor opción de 1 a 4." },
+        { n: 6, gen: itemInformacion, cuantos: 1, kanji: "じょうほうけんさく",
+          instruccion: "Mira el cartel y responde. Elige la mejor opción de 1 a 4." }
       ]
     }
   ];
@@ -782,13 +852,16 @@
       const problemas = [];
       for (const p of b.problemas) {
         const brutos = [];
+        pendientes = [];
         for (let i = 0; i < p.cuantos; i++) {
-          const it = p.gen(r, usadas, brutos);
+          const it = pendientes.length ? pendientes.shift() : p.gen(r, usadas, brutos);
           if (it) brutos.push(it);
         }
-        // se barajan antes de numerarlas: si no, la de katakana caería siempre
-        // la primera del もんだい
-        const items = r.baraja(brutos).map((it, i) => ({ ...it, ref: `${b.id}-${p.n}-${i + 1}` }));
+        // se barajan antes de numerarlas: si no, la de katakana caería siempre la
+        // primera del もんだい. Las de 読解 no: las dos preguntas de un mismo texto
+        // van seguidas y en su orden.
+        const orden = brutos.some(x => x.modo === "texto" || x.modo === "info") ? brutos : r.baraja(brutos);
+        const items = orden.map((it, i) => ({ ...it, ref: `${b.id}-${p.n}-${i + 1}` }));
         if (items.length) problemas.push({ n: p.n, kanji: p.kanji, instruccion: p.instruccion, pedidos: p.cuantos, items });
       }
       const total = problemas.reduce((n, p) => n + p.items.length, 0);

@@ -22,6 +22,16 @@ function imprime(ex) {
       console.log(`\nもんだい${p.n}  ${p.kanji}  [${p.items.length}]`);
       for (const it of p.items) {
         let linea;
+        if (it.modo === "texto" || it.modo === "info") {
+          if (it.texto) console.log("\n   ┌─ " + it.texto.replace(/\n/g, "\n   │  "));
+          if (it.info) {
+            console.log("\n   ┌─ " + it.info.titulo);
+            if (it.info.cabecera?.length) console.log("   │  " + it.info.cabecera.join("  |  "));
+            for (const f of it.info.filas || []) console.log("   │  " + f.join("  |  "));
+            for (const n of it.info.notas || []) console.log("   │  " + n);
+          }
+          console.log("   └─");
+        }
         if (it.tipo === "orden") {
           linea = `${it.antes} ＿＿ ＿★＿ ＿＿ ＿＿ ${it.despues}`;
         } else if (it.modo === "subrayado") {

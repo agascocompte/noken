@@ -135,6 +135,41 @@ console.log("examenes");
     const m = furiganaMal(f.jp); if (m) err("frase de examen: " + m);
     if (!/[。？]$/.test(f.jp)) err(`frase de examen sin punto final: ${f.jp}`);
   }
+  // Todo lo que se escribe a mano para el examen tiene que poder pasarse a la
+  // escritura del examen: los kanji que no son del N5 van en kana, y para eso
+  // el generador necesita su lectura. Un kanji de fuera del nivel SIN furigana
+  // se quedaría en el papel y el examen pediría algo que no toca.
+  const N5SET = new Set(d.kanji.filter(k => k.n5 === "seguro" || k.n5 === "posible").map(k => k.kanji));
+  const fueraDelN5 = t => {
+    const resto = String(t).replace(/([一-鿿々〇]+)\[[ぁ-ゖァ-ヺー]+\]/g, "");
+    return [...new Set([...resto].filter(c => /[一-鿿々〇]/.test(c) && !N5SET.has(c)))];
+  };
+  const revisa = (t, quien) => {
+    const malos = fueraDelN5(t);
+    if (malos.length) err(`${quien}: ${malos.join("")} no ${malos.length === 1 ? "es kanji" : "son kanji"} del N5 y va${malos.length === 1 ? "" : "n"} sin furigana`);
+    const m = furiganaMal(t); if (m) err(`${quien}: ${m}`);
+  };
+  const L = d.examenes.lecturas;
+  for (const t of L.cortas) {
+    for (const c of ["texto", "es", "pregunta", "opciones", "nota"]) if (!(c in t)) err(`もんだい４: falta ${c}`);
+    if (t.opciones.length !== 4 || new Set(t.opciones).size !== 4) err("もんだい４: deben ser 4 opciones distintas — " + t.pregunta);
+    revisa(t.texto, "texto corto"); revisa(t.pregunta, "pregunta");
+    for (const o of t.opciones) revisa(o, "opción de 「" + t.pregunta + "」");
+  }
+  for (const t of L.medias) {
+    if (t.preguntas.length !== 2) err("もんだい５: cada texto lleva 2 preguntas");
+    revisa(t.texto, "texto medio");
+    for (const q of t.preguntas) {
+      if (q.opciones.length !== 4 || new Set(q.opciones).size !== 4) err("もんだい５: deben ser 4 opciones distintas — " + q.pregunta);
+      revisa(q.pregunta, "pregunta"); for (const o of q.opciones) revisa(o, "opción de 「" + q.pregunta + "」");
+    }
+  }
+  for (const t of L.informacion) {
+    if (t.opciones.length !== 4 || new Set(t.opciones).size !== 4) err("もんだい６: deben ser 4 opciones distintas — " + t.titulo);
+    for (const x of [t.titulo, ...(t.notas || []), ...(t.cabecera || []), ...(t.filas || []).flat(), t.pregunta, ...t.opciones])
+      revisa(x, "información 「" + t.titulo + "」");
+  }
+  ok(`${L.cortas.length} textos cortos, ${L.medias.length} medios y ${L.informacion.length} de información`);
   ok(d.examenes.frases.length + " frases portadoras y "
     + d.examenes.parafrasis.length + " paráfrasis para もんだい４");
 }
