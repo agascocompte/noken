@@ -160,7 +160,7 @@
         const rom = N5.romaji?.(aHira(cs[i - 1] || ""));
         const v = rom && VOCAL_KATA[rom[rom.length - 1]];
         if (v) mete(cambia(i, v));
-      } else if (i && cs[i + 1] !== "ー") {
+      } else if (i && cs[i + 1] !== "ー" && cs[i - 1] !== "ー") {   // nunca 「ーー」
         mete(mete_(i, "ー"));                              // alargador de más
       }
       if (c === "ッ") mete(quita(i));
@@ -531,7 +531,8 @@
     if (LECT) return LECT;
     const d = N5.data, L = new Map(Object.entries(NOMBRES));
     const limpia = x => N5.limpiaEntrada(String(x || "")).replace(/[〜～]/g, "");
-    const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && !L.has(k)) L.set(k, y); };
+    // 「なん／なに」 son dos lecturas: no sirve como lectura de nada
+    const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && !/[／/]/.test(y) && !L.has(k)) L.set(k, y); };
     const sinNa = x => String(x || "").replace(/[（\[]な[）\]]$/, "");
     // 「〜人（じん）」 es el sufijo de nacionalidad, no la palabra 人; y el な de
     // 「じょうず（な）」 no se escribe con el kanji 上手
@@ -1034,6 +1035,69 @@
     return null;
   }
 
+  // ------------------------------------------------------------ 聴解
+  // Los guiones están escritos en data/examenes.js y los lee la voz del
+  // navegador (scripts/escucha.js). Aquí se montan como en la grabación: el
+  // narrador presenta la situación y la pregunta, hablan los dos, y el
+  // narrador repite la pregunta. En pantalla no sale la pregunta —en el examen
+  // tampoco—, solo las opciones; en もんだい３ y ４ ni eso, solo los números.
+  const escucha = () => N5.data.examenes?.escucha || {};
+  const P = pausa => ({ pausa });
+  const NUMEROS = ["いち", "に", "さん"];
+
+  function itemDialogo(tipo) {
+    return (r, usadas) => {
+      const pozo = (escucha()[tipo] || []).filter(t => !usadas.has("e:" + t.pregunta));
+      if (!pozo.length) return null;
+      const t = r.elige(pozo);
+      usadas.add("e:" + t.pregunta);
+      const mezcla = r.baraja(t.opciones);
+      const guion = [{ voz: "N", texto: t.situacion }, P(1500),
+        ...t.dialogo.map(([voz, texto]) => ({ voz, texto })), P(1200), { voz: "N", texto: t.pregunta }];
+      return {
+        tipo: "escucha", modo: "escucha", frase: "", guion,
+        opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
+        nota: t.nota || "", traduccion: t.es || "", leccion: null
+      };
+    };
+  }
+
+  // Tres opciones dichas en voz alta, numeradas como en la grabación.
+  function tresOidas(r, voz, opciones) {
+    const mezcla = r.baraja(opciones);
+    const guion = mezcla.flatMap((o, k) => [{ voz, texto: NUMEROS[k] + "、" + o }, P(900)]);
+    return { mezcla, guion };
+  }
+
+  function itemExpresion(r, usadas) {
+    const pozo = (escucha().expresion || []).filter(t => !usadas.has("e:" + t.situacion));
+    if (!pozo.length) return null;
+    const t = r.elige(pozo);
+    usadas.add("e:" + t.situacion);
+    const { mezcla, guion } = tresOidas(r, t.voz, t.opciones);
+    return {
+      tipo: "escucha", modo: "escucha", frase: "", soloNumeros: true,
+      guion: [{ voz: "N", texto: t.situacion }, P(1500), ...guion],
+      opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
+      nota: t.nota || "", traduccion: "", leccion: null
+    };
+  }
+
+  function itemRespuesta(r, usadas) {
+    const pozo = (escucha().respuesta || []).filter(t => !usadas.has("e:" + t.frase));
+    if (!pozo.length) return null;
+    const t = r.elige(pozo);
+    usadas.add("e:" + t.frase);
+    // contesta la otra persona
+    const { mezcla, guion } = tresOidas(r, t.voz === "M" ? "F" : "M", t.opciones);
+    return {
+      tipo: "escucha", modo: "escucha", frase: "", soloNumeros: true,
+      guion: [{ voz: t.voz, texto: t.frase }, P(1300), ...guion],
+      opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
+      nota: t.nota || "", traduccion: "", leccion: null
+    };
+  }
+
   // --------------------------------------------------------------- el examen
   // Reparto de もんだい según el formato vigente desde diciembre de 2020.
   const PLAN = [
@@ -1063,6 +1127,19 @@
           instruccion: "Lee el texto y responde. Elige la mejor opción de 1 a 4." },
         { n: 6, gen: itemInformacion, cuantos: 1, kanji: "じょうほうけんさく",
           instruccion: "Mira el cartel y responde. Elige la mejor opción de 1 a 4." }
+      ]
+    },
+    {
+      id: "escucha", kanji: "聴解", titulo: "Audición", minutos: 30,
+      problemas: [
+        { n: 1, gen: itemDialogo("tarea"), cuantos: 7, kanji: "かだいりかい",
+          instruccion: "Escucha la situación, la conversación y la pregunta. Elige la mejor opción de 1 a 4." },
+        { n: 2, gen: itemDialogo("punto"), cuantos: 6, kanji: "ポイントりかい",
+          instruccion: "Escucha la situación, la conversación y la pregunta. Elige la mejor opción de 1 a 4." },
+        { n: 3, gen: itemExpresion, cuantos: 5, kanji: "はつわひょうげん",
+          instruccion: "Escucha la situación. ¿Qué se dice? Elige 1, 2 o 3." },
+        { n: 4, gen: itemRespuesta, cuantos: 6, kanji: "そくじおうとう",
+          instruccion: "Escucha la frase y las tres respuestas. Elige la que va bien: 1, 2 o 3." }
       ]
     }
   ];

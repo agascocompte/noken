@@ -15,6 +15,7 @@ scripts/
   dom.js              helpers ($, esc, ruby, shuffle)
   romaji.js           motor de romaji por moras (búsqueda)
   examen.js           genera exámenes tipo JLPT a partir de una semilla
+  escucha.js          la voz del 聴解 (SpeechSynthesis)
   router.js           rutas por hash (#/gramatica/l13, #/verbos?q=…)
   search.js           búsqueda global (tecla /)
   app.js              arranque (tema, furigana, pestañas)
@@ -66,7 +67,9 @@ solo con palabras del nivel.
 `data/examenes.js` es lo que hay escrito a mano, porque no se puede sacar de
 ninguna tabla: las frases equivalentes de もんだい４, los textos de 読解, y frases
 portadoras para los kanji que el libro no usa en sus ejemplos (los números,
-東西南北, 口目耳…). Falta el bloque 聴解 y もんだい３ de 文法 (el texto con huecos).
+東西南北, 口目耳…). Los guiones de 聴解 también están ahí y los lee la voz japonesa del navegador
+(`scripts/escucha.js`), con voz distinta para narrador, hombre y mujer. Falta
+もんだい３ de 文法 (el texto con huecos).
 
 Para ver qué preguntas salen sin abrir el navegador:
 `node tools/examen.mjs 7` (uno) o `node tools/examen.mjs 1 50` (valida los 50).

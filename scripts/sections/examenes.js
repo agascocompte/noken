@@ -35,6 +35,8 @@
   let bi = 0, ii = 0;         // bloque e ítem actuales
   const respuestas = new Map();
   const marcadas = new Set();
+  // audios de 聴解 ya escuchados: como en el examen, cada uno se oye una vez
+  const oidos = new Set();
   let restante = 0, reloj = null, pausado = false, usado = 0;
 
   // Los ítems de un bloque, en fila y sabiendo cada uno de qué もんだい viene.
@@ -65,7 +67,7 @@
     try {
       localStorage.setItem(CURSO, JSON.stringify({
         semilla: ex.semilla, ids: bloques.map(b => b.id), bi, ii, restante, usado,
-        respuestas: [...respuestas], marcadas: [...marcadas]
+        respuestas: [...respuestas], marcadas: [...marcadas], oidos: [...oidos]
       }));
     } catch { /* almacenamiento lleno o en privado: se pierde y ya está */ }
   }
@@ -87,6 +89,7 @@
     ii = Math.min(c.ii, enFila(bloques[bi]).length - 1);
     respuestas.clear(); for (const [k, v] of c.respuestas || []) respuestas.set(k, v);
     marcadas.clear(); for (const k of c.marcadas || []) marcadas.add(k);
+    oidos.clear(); for (const k of c.oidos || []) oidos.add(k);
     usado = c.usado || 0;
     vista = "test";
     arranca(c.restante > 0 ? c.restante : bloques[bi].minutos * 60);
@@ -112,9 +115,9 @@
       <p class="lead">Exámenes del estilo del N5, con sus <b>もんだい</b>, su reloj y su corrección. Cada número es siempre
       el mismo examen, así que puedes repetirlo dentro de un tiempo y ver si has mejorado. Las preguntas se generan con el
       vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero siguen su formato.</p>
-      <div class="exaviso">Están los dos bloques escritos: <b>文字・語彙</b> (vocabulario y escritura, 20 min) y
-      <b>文法・読解</b> (gramática y lectura, 40 min). Del segundo falta もんだい３ (文章の文法, el texto con huecos).
-      El bloque de <b>聴解</b> (audición) todavía no está.</div>
+      <div class="exaviso">Los tres bloques: <b>文字・語彙</b> (20 min), <b>文法・読解</b> (40 min) y <b>聴解</b>
+      (30 min), que lee la voz japonesa del navegador; sube el volumen. Falta もんだい３ de 文法 (el texto con
+      huecos), y en 聴解 las opciones que en el examen son dibujos van escritas.</div>
       ${avisoCurso()}
       <div class="exgrid">${tarjetas.join("")}</div>`;
   }
@@ -168,7 +171,7 @@
   function empieza(cual) {
     bloques = cual === "todo" ? ex.bloques : ex.bloques.filter(b => b.id === cual);
     bi = 0; ii = 0;
-    respuestas.clear(); marcadas.clear();
+    respuestas.clear(); marcadas.clear(); oidos.clear();
     usado = 0;
     vista = "test";
     arranca(bloques[0].minutos * 60);
@@ -212,7 +215,50 @@
     </div>`;
   }
 
+  // 聴解: el botón de escuchar. En el examen el audio suena una sola vez y no se
+  // puede repetir; aquí igual. Si el navegador no tiene voz japonesa se avisa y
+  // se deja volver a intentarlo.
+  function reproductor(it) {
+    const oido = oidos.has(it.ref);
+    return `<div class="exoir">
+      <button class="btn" id="exOir"${oido ? " disabled" : ""}>${oido ? "✓ Escuchado" : "▶ Escuchar"}</button>
+      <span class="muted" id="exOirNota">${oido ? "En el examen solo se oye una vez." :
+        it.soloNumeros ? "Se oye la situación y luego las opciones 1, 2 y 3." : "Una sola vez, como en el examen."}</span>
+    </div>`;
+  }
+
+  function oye(it) {
+    if (!N5.escucha?.disponible()) {
+      $("#exOirNota").textContent = "Este navegador no puede leer en voz alta.";
+      return;
+    }
+    oidos.add(it.ref);
+    guardaCurso();
+    const b = $("#exOir");
+    b.disabled = true; b.textContent = "🔊 Escuchando…";
+    N5.escucha.reproduce(it.guion, ok => {
+      const bb = $("#exOir");
+      if (ok) { if (bb) bb.textContent = "✓ Escuchado"; return; }
+      // no ha sonado (sin voz japonesa, o cortado por el sistema): otra oportunidad
+      oidos.delete(it.ref);
+      guardaCurso();
+      if (bb) { bb.disabled = false; bb.textContent = "▶ Escuchar"; }
+      const n = $("#exOirNota");
+      if (n && !N5.escucha.hayJapones()) n.textContent = "No encuentro una voz japonesa en este dispositivo.";
+    });
+  }
+
+  // En la corrección de 聴解 se ve lo que se dijo, y se puede volver a oír.
+  const QUIEN = { N: "", M: "男", F: "女" };
+  function guion(it, b) {
+    const lineas = it.guion.filter(g => g.texto).map(g =>
+      `<div class="exguion-l">${QUIEN[g.voz] ? `<span class="exquien">${QUIEN[g.voz]}</span>` : ""}<span>${jp(g.texto)}</span></div>`).join("");
+    return `<div class="expasaje exguion jp">${lineas}</div>
+      <button class="btn secondary" data-reoir="${it.ref}" data-b="${b.id}">▶ Volver a escuchar</button>`;
+  }
+
   function pinta() {
+    N5.escucha?.para();
     const b = bloques[bi];
     const items = enFila(b);
     const it = items[ii];
@@ -235,10 +281,10 @@
           <span class="jp">もんだい${prob.n}</span> <span class="muted jp">${esc(prob.kanji)}</span>
           <p class="muted">${esc(prob.instruccion)}</p></div>` : ""}
         ${pasaje(it)}
-        <p class="exfrase jp">${cuerpo(it)}</p>
-        <div class="exops">${it.opciones.map((o, k) => `
+        ${it.guion ? reproductor(it) : `<p class="exfrase jp">${cuerpo(it)}</p>`}
+        <div class="exops${it.soloNumeros ? " numeros" : ""}">${it.opciones.map((o, k) => `
           <button class="exop jp${respuestas.get(it.ref) === k ? " elegida" : ""}" data-k="${k}">
-            <span class="exnumop">${k + 1}</span><span>${jp(o)}</span></button>`).join("")}</div>
+            <span class="exnumop">${k + 1}</span>${it.soloNumeros ? "" : `<span>${jp(o)}</span>`}</button>`).join("")}</div>
         <div class="exnav">
           <button class="btn secondary" id="exPrev"${ii === 0 && bi === 0 ? " disabled" : ""}>← Anterior</button>
           <button class="btn secondary${marcadas.has(it.ref) ? " on" : ""}" id="exMarca">
@@ -307,12 +353,12 @@
         </table>
 
         ${falladas.length ? `<h3 class="hsub">Las que fallaste</h3>
-        <div class="exrepaso">${falladas.map(({ it, p }) => {
+        <div class="exrepaso">${falladas.map(({ it, p, b }) => {
           const tuya = respuestas.get(it.ref);
           return `<div class="exfallo">
             <div class="muted">もんだい${p.n}</div>
             ${pasaje(it)}
-            <p class="jp">${cuerpo(it)}</p>
+            ${it.guion ? guion(it, b) : `<p class="jp">${cuerpo(it)}</p>`}
             <p><span class="ok jp">${it.correcta + 1}. ${jp(it.opciones[it.correcta])}</span>
               ${tuya === undefined ? `<span class="muted"> · en blanco</span>`
                 : `<span class="mal jp"> · tú: ${tuya + 1}. ${jp(it.opciones[tuya])}</span>`}</p>
@@ -360,7 +406,14 @@
         if (t.closest("#exSigue")) { bi++; ii = 0; vista = "test"; arranca(bloques[bi].minutos * 60); return pinta(); }
         if (t.closest("#exOtra")) return pintaPortada();
 
+        const reoir = t.closest("[data-reoir]");
+        if (reoir) {                        // en la corrección se puede volver a oír
+          const it = enFila(bloques.find(b => b.id === reoir.dataset.b)).find(x => x.ref === reoir.dataset.reoir);
+          if (it) N5.escucha.reproduce(it.guion);
+          return;
+        }
         if (vista !== "test") return;
+        if (t.closest("#exOir")) return oye(items()[ii]);
         const op = t.closest(".exop");
         if (op) {
           const it = items()[ii];
@@ -390,7 +443,7 @@
     },
     // Al irse a otra pestaña el reloj se para y el examen queda guardado; al
     // volver, el catálogo ofrece seguir donde lo dejaste.
-    onLeave() { if (vista === "test") { pausado = true; guardaCurso(); para(); } },
+    onLeave() { N5.escucha?.para(); if (vista === "test") { pausado = true; guardaCurso(); para(); } },
 
     onRoute({ sub }) {
       const n = +sub;

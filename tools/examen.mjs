@@ -32,6 +32,7 @@ function imprime(ex) {
           }
           console.log("   └─");
         }
+        if (it.guion) console.log("   🔊 " + it.guion.filter(g => g.texto).map(g => g.voz + ": " + g.texto).join(" / "));
         if (it.tipo === "orden") {
           linea = `${it.antes} ＿＿ ＿★＿ ＿＿ ＿＿ ${it.despues}`;
         } else if (it.modo === "subrayado") {
@@ -58,8 +59,8 @@ for (let n = desde; n <= hasta; n++) {
   if (falta) { console.log(`examen ${n}: faltan ${falta} preguntas`); malos++; }
   // ninguna pregunta puede tener opciones repetidas ni respuesta fuera de rango
   for (const b of ex.bloques) for (const p of b.problemas) for (const it of p.items) {
-    if (new Set(it.opciones).size !== 4) { console.log(`examen ${n} もんだい${p.n}: opciones repetidas`, it.opciones); malos++; }
-    if (!(it.correcta >= 0 && it.correcta < 4)) { console.log(`examen ${n}: correcta inválida`, it); malos++; }
+    if (new Set(it.opciones).size !== (it.soloNumeros ? 3 : 4)) { console.log(`examen ${n} もんだい${p.n}: opciones repetidas`, it.opciones); malos++; }
+    if (!(it.correcta >= 0 && it.correcta < it.opciones.length)) { console.log(`examen ${n}: correcta inválida`, it); malos++; }
     if (it.pos !== undefined && it.frase.slice(it.pos, it.pos + it.marca.length) !== it.marca) {
       console.log(`examen ${n}: la marca no cae donde dice`, it.frase, it.marca); malos++;
     }

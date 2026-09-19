@@ -176,6 +176,21 @@ console.log("examenes");
       revisa(x, "información 「" + t.titulo + "」");
   }
   ok(`${L.cortas.length} textos cortos, ${L.medias.length} medios y ${L.informacion.length} de información`);
+
+  // 聴解: guiones con quién habla, y opciones distintas (4 en 1 y 2, 3 en 3 y 4)
+  const S = d.examenes.escucha;
+  const voz = (v, quien) => { if (!["N", "M", "F"].includes(v)) err(`${quien}: voz «${v}» (N, M o F)`); };
+  const ops = (o, n, quien) => { if (o?.length !== n || new Set(o).size !== n) err(`${quien}: deben ser ${n} opciones distintas`); };
+  for (const k of ["tarea", "punto"]) for (const t of S[k]) {
+    const q = `聴解 ${k} 「${t.pregunta}」`;
+    ops(t.opciones, 4, q);
+    if (!t.dialogo?.length) err(q + ": sin diálogo");
+    for (const [v, x] of t.dialogo) { voz(v, q); revisa(x, q); }
+    for (const x of [t.situacion, t.pregunta, ...t.opciones]) revisa(x, q);
+  }
+  for (const t of S.expresion) { const q = `聴解 expresión 「${t.situacion}」`; voz(t.voz, q); ops(t.opciones, 3, q); for (const x of [t.situacion, ...t.opciones]) revisa(x, q); }
+  for (const t of S.respuesta) { const q = `聴解 respuesta 「${t.frase}」`; voz(t.voz, q); ops(t.opciones, 3, q); for (const x of [t.frase, ...t.opciones]) revisa(x, q); }
+  ok(`聴解: ${S.tarea.length} + ${S.punto.length} diálogos, ${S.expresion.length} situaciones y ${S.respuesta.length} respuestas`);
   ok(d.examenes.frases.length + " frases portadoras y "
     + d.examenes.parafrasis.length + " paráfrasis para もんだい４");
 }
