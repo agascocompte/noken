@@ -75,6 +75,7 @@ header.site{
 }
 .hbtn:hover{color:var(--ink); border-color:var(--ink2)}
 .hbtn.on{background:var(--accent-soft); color:var(--accent); border-color:var(--accent)}
+.hbtn.off{background:var(--beni-soft); color:var(--beni); border-color:var(--beni); text-decoration:line-through}
 .hbtn:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
 
 /* búsqueda global */

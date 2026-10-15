@@ -19,10 +19,14 @@
 
   function initFurigana() {
     const btn = $("#furiBtn");
+    // Apagado tiene que verse a la primera: si no, parece que la guía no trae
+    // furigana, cuando lo que pasa es que está oculta (y se recuerda por navegador).
     const apply = on => {
       document.body.classList.toggle("no-furigana", !on);
       btn.classList.toggle("on", on);
-      btn.title = on ? "Ocultar furigana" : "Mostrar furigana";
+      btn.classList.toggle("off", !on);
+      btn.textContent = on ? "ふりがな" : "ふりがな オフ";
+      btn.title = on ? "Ocultar furigana" : "La furigana está oculta: pulsa para mostrarla";
     };
     let on = localStorage.getItem("n5-furigana") !== "off";
     apply(on);

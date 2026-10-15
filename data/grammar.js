@@ -1067,7 +1067,7 @@ N5.data.grammar=
     ]
    },
    {
-    "patron": "疑問詞 ＋ でも",
+    "patron": "疑問詞[ぎもんし] ＋ でも",
     "explicacion": "«Cualquiera»: el interrogativo seguido de でも abre la opción a todos los casos. だれでも «cualquiera», 何[なん]でも «cualquier cosa», どこでも «en cualquier sitio», いつでも «cuando sea». No lo confundas con el でも de «pero».",
     "ejemplos": [
      {
@@ -1089,7 +1089,7 @@ N5.data.grammar=
     "fuente": "soumatome"
    },
    {
-    "patron": "疑問詞 ＋ も ＋ negativo",
+    "patron": "疑問詞[ぎもんし] ＋ も ＋ negativo",
     "explicacion": "«Nadie, nada, a ningún sitio»: con el verbo en negativo, el interrogativo más も niega todos los casos. Es el reverso exacto de 〜でも.",
     "ejemplos": [
      {
@@ -1689,7 +1689,7 @@ N5.data.grammar=
   "puntos": [
    {
     "patron": "V + S (oración de relativo)",
-    "explicacion": "Un verbo en forma de diccionario, ない o た delante de un nombre lo modifica, como una oración de relativo. En japonés va siempre delante: 作ったケーキ = «la tarta que hice».",
+    "explicacion": "Un verbo en forma de diccionario, ない o た delante de un nombre lo modifica, como una oración de relativo. En japonés va siempre delante: 作[つく]ったケーキ = «la tarta que hice».",
     "temas": [
      "oracion-relativo"
     ],

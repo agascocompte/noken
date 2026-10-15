@@ -68,13 +68,13 @@ N5.data.drills=
   "tema": "Partículas",
   "pregunta": "次[つぎ]の駅[えき]で電車[でんしゃ]（　）降[お]りて、地下鉄[ちかてつ]（　）乗[の]ります。",
   "respuesta": "を／に",
-  "explicacion": "Pareja clásica de examen: se BAJA de algo con を (電車を降ります) y se SUBE a algo con に (電車に乗ります). Nunca で."
+  "explicacion": "Pareja clásica de examen: se BAJA de algo con を (電車[でんしゃ]を降[お]ります) y se SUBE a algo con に (電車[でんしゃ]に乗[の]ります). Nunca で."
  },
  {
   "tema": "Partículas",
   "pregunta": "毎朝[まいあさ]公園[こうえん]（　）散歩[さんぽ]して、会社[かいしゃ]（　）働[はたら]きます。",
   "respuesta": "を／で",
-  "explicacion": "を marca el lugar que se recorre (公園を散歩します); で marca el lugar donde ocurre la acción (会社で働きます)."
+  "explicacion": "を marca el lugar que se recorre (公園[こうえん]を散歩[さんぽ]します); で marca el lugar donde ocurre la acción (会社[かいしゃ]で働[はたら]きます)."
  },
  {
   "tema": "Conjugación",
@@ -92,7 +92,7 @@ N5.data.drills=
   "tema": "Conjugación",
   "pregunta": "Forma て de 「行[い]きます」",
   "respuesta": "行[い]って（いって）★",
-  "explicacion": "Excepción: aunque termina en き, 行[い]く hace 行[い]って (no 行いて)."
+  "explicacion": "Excepción: aunque termina en き, 行[い]く hace 行[い]って (no 行[い]いて)."
  },
  {
   "tema": "Conjugación",
