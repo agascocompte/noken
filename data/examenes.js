@@ -287,6 +287,1178 @@ N5.data.examenes=
   {
    "jp": "ポケットに入[い]れました。",
    "es": "Lo metí en el bolsillo."
+  },
+  {
+   "jp": "毎朝[まいあさ] 7時[じ]に 起[お]きて、朝[あさ]ごはんを 食[た]べます。",
+   "es": "Todas las mañanas me levanto a las 7 y desayuno."
+  },
+  {
+   "jp": "わたしは 毎日[まいにち] 電車[でんしゃ]で 会社[かいしゃ]へ 行[い]きます。",
+   "es": "Todos los días voy a la oficina en tren."
+  },
+  {
+   "jp": "きのうは 雨[あめ]でしたから、どこへも 行[い]きませんでした。",
+   "es": "Ayer llovió, así que no fui a ningún sitio."
+  },
+  {
+   "jp": "あしたは 天気[てんき]が いいでしょう。",
+   "es": "Mañana seguramente hará buen tiempo."
+  },
+  {
+   "jp": "先生[せんせい]は 教室[きょうしつ]で 学生[がくせい]に 日本語[にほんご]を 教[おし]えて います。",
+   "es": "El profesor enseña japonés a los alumnos en el aula."
+  },
+  {
+   "jp": "友達[ともだち]と いっしょに 山[やま]へ 行[い]きました。",
+   "es": "Fui a la montaña con un amigo."
+  },
+  {
+   "jp": "川[かわ]の 水[みず]は とても つめたかったです。",
+   "es": "El agua del río estaba muy fría."
+  },
+  {
+   "jp": "この 本[ほん]は 先週[せんしゅう] 図書館[としょかん]で 借[か]りました。",
+   "es": "Este libro lo saqué de la biblioteca la semana pasada."
+  },
+  {
+   "jp": "母[はは]は 毎晩[まいばん] 9時[じ]に 寝[ね]ます。",
+   "es": "Mi madre se acuesta todas las noches a las 9."
+  },
+  {
+   "jp": "父[ちち]は 新[あたら]しい 車[くるま]を 買[か]いました。",
+   "es": "Mi padre se ha comprado un coche nuevo."
+  },
+  {
+   "jp": "駅[えき]の 前[まえ]に 大[おお]きい 店[みせ]が あります。",
+   "es": "Delante de la estación hay una tienda grande."
+  },
+  {
+   "jp": "今日[きょう]は 何曜日[なんようび]ですか。",
+   "es": "¿Qué día de la semana es hoy?"
+  },
+  {
+   "jp": "わたしは 毎週[まいしゅう] 金曜日[きんようび]に 日本語[にほんご]を 勉強[べんきょう]します。",
+   "es": "Estudio japonés todos los viernes."
+  },
+  {
+   "jp": "この 店[みせ]の 魚[さかな]は 安[やす]くて おいしいです。",
+   "es": "El pescado de esta tienda es barato y bueno."
+  },
+  {
+   "jp": "来年[らいねん] 日本[にほん]へ 旅行[りょこう]に 行[い]きたいです。",
+   "es": "El año que viene quiero ir de viaje a Japón."
+  },
+  {
+   "jp": "妹[いもうと]は 今[いま] 高校[こうこう]の 学生[がくせい]です。",
+   "es": "Mi hermana pequeña ahora estudia en el instituto."
+  },
+  {
+   "jp": "兄[あに]は 東京[とうきょう]の 会社[かいしゃ]で 働[はたら]いて います。",
+   "es": "Mi hermano mayor trabaja en una empresa de Tokio."
+  },
+  {
+   "jp": "わたしの 家[いえ]は 駅[えき]から 近[ちか]いです。",
+   "es": "Mi casa está cerca de la estación."
+  },
+  {
+   "jp": "この 道[みち]を まっすぐ 行[い]って ください。",
+   "es": "Siga recto por esta calle, por favor."
+  },
+  {
+   "jp": "右[みぎ]に 銀行[ぎんこう]が あって、左[ひだり]に 郵便局[ゆうびんきょく]が あります。",
+   "es": "A la derecha hay un banco y a la izquierda, correos."
+  },
+  {
+   "jp": "外[そと]は 雨[あめ]が 降[ふ]って います。",
+   "es": "Fuera está lloviendo."
+  },
+  {
+   "jp": "午後[ごご] 3時[じ]に 友達[ともだち]が 来[き]ます。",
+   "es": "A las 3 de la tarde viene un amigo."
+  },
+  {
+   "jp": "この 時計[とけい]は 高[たか]かったです。",
+   "es": "Este reloj fue caro."
+  },
+  {
+   "jp": "千円[せんえん]で 何[なに]が 買[か]えますか。",
+   "es": "¿Qué se puede comprar con mil yenes?"
+  },
+  {
+   "jp": "百円[ひゃくえん]の ペンを 二本[にほん] 買[か]いました。",
+   "es": "Compré dos bolígrafos de cien yenes."
+  },
+  {
+   "jp": "あの 白[しろ]い 車[くるま]は 山田[やまだ]さんのです。",
+   "es": "Aquel coche blanco es de Yamada."
+  },
+  {
+   "jp": "休[やす]みの 日[ひ]は 家[いえ]で 本[ほん]を 読[よ]みます。",
+   "es": "Los días libres leo en casa."
+  },
+  {
+   "jp": "わたしは 毎朝[まいあさ] 新聞[しんぶん]を 読[よ]みます。",
+   "es": "Todas las mañanas leo el periódico."
+  },
+  {
+   "jp": "電話[でんわ]で 母[はは]と 話[はなし]しました。",
+   "es": "Hablé con mi madre por teléfono."
+  },
+  {
+   "jp": "この 漢字[かんじ]の 読[よ]み方[かた]を 教[おし]えて ください。",
+   "es": "Enséñame cómo se lee este kanji, por favor."
+  },
+  {
+   "jp": "田中[たなか]さんは 毎日[まいにち] テレビで ニュースを 見[み]ます。",
+   "es": "Tanaka ve las noticias en la tele todos los días."
+  },
+  {
+   "jp": "学校[がっこう]の 中[なか]に 大[おお]きい 木[き]が あります。",
+   "es": "Dentro de la escuela hay un árbol grande."
+  },
+  {
+   "jp": "子[こ]どもたちが 外[そと]で 遊[あそ]んで います。",
+   "es": "Los niños están jugando fuera."
+  },
+  {
+   "jp": "わたしは 水[みず]を 飲[の]みたいです。",
+   "es": "Quiero beber agua."
+  },
+  {
+   "jp": "お茶[ちゃ]を 一杯[いっぱい] ください。",
+   "es": "Un té, por favor."
+  },
+  {
+   "jp": "この 町[まち]は 人[ひと]が 多[おお]いです。",
+   "es": "En esta ciudad hay mucha gente."
+  },
+  {
+   "jp": "来週[らいしゅう]の 月曜日[げつようび]に 試験[しけん]が あります。",
+   "es": "El lunes que viene hay examen."
+  },
+  {
+   "jp": "先月[せんげつ] 国[くに]へ 帰[かえ]りました。",
+   "es": "El mes pasado volví a mi país."
+  },
+  {
+   "jp": "きのう 友達[ともだち]に 手紙[てがみ]を 書[か]きました。",
+   "es": "Ayer le escribí una carta a un amigo."
+  },
+  {
+   "jp": "わたしの 名前[なまえ]は マリアです。",
+   "es": "Me llamo María."
+  },
+  {
+   "jp": "あの 人[ひと]の 名前[なまえ]を 知[し]って いますか。",
+   "es": "¿Sabes cómo se llama esa persona?"
+  },
+  {
+   "jp": "まだ 昼[ひる]ごはんを 食[た]べて いません。",
+   "es": "Todavía no he comido."
+  },
+  {
+   "jp": "もう 宿題[しゅくだい]を しましたか。",
+   "es": "¿Ya has hecho los deberes?"
+  },
+  {
+   "jp": "日本[にほん]の 夏[なつ]は 暑[あつ]いです。",
+   "es": "El verano en Japón es caluroso."
+  },
+  {
+   "jp": "わたしの 国[くに]の 冬[ふゆ]は とても 寒[さむ]いです。",
+   "es": "En mi país el invierno es muy frío."
+  },
+  {
+   "jp": "春[はる]に なると、花[はな]が きれいに 咲[さ]きます。",
+   "es": "Al llegar la primavera las flores se abren preciosas."
+  },
+  {
+   "jp": "秋[あき]は 食[た]べ物[もの]が おいしいです。",
+   "es": "En otoño la comida está buena."
+  },
+  {
+   "jp": "今年[ことし]の 冬[ふゆ]は 雪[ゆき]が 多[おお]かったです。",
+   "es": "Este invierno ha nevado mucho."
+  },
+  {
+   "jp": "わたしは 週[しゅう]に 三回[さんかい] プールで 泳[およ]ぎます。",
+   "es": "Nado en la piscina tres veces por semana."
+  },
+  {
+   "jp": "この ケーキは 半分[はんぶん] 食[た]べました。",
+   "es": "De esta tarta me comí la mitad."
+  },
+  {
+   "jp": "一週間[いっしゅうかん]に 一回[いっかい] そうじを します。",
+   "es": "Limpio una vez a la semana."
+  },
+  {
+   "jp": "わたしは 毎晩[まいばん] シャワーを 浴[あ]びます。",
+   "es": "Me ducho todas las noches."
+  },
+  {
+   "jp": "南[みなみ]の 国[くに]へ 行[い]きたいです。",
+   "es": "Quiero ir a un país del sur."
+  },
+  {
+   "jp": "北[きた]の 山[やま]は もう 雪[ゆき]が あります。",
+   "es": "En las montañas del norte ya hay nieve."
+  },
+  {
+   "jp": "駅[えき]の 東[ひがし]に 公園[こうえん]が あります。",
+   "es": "Al este de la estación hay un parque."
+  },
+  {
+   "jp": "西[にし]の 空[そら]が 赤[あか]いです。",
+   "es": "El cielo del oeste está rojo."
+  },
+  {
+   "jp": "男[おとこ]の 子[こ]が 二人[ふたり]と 女[おんな]の 子[こ]が 三人[さんにん] います。",
+   "es": "Hay dos niños y tres niñas."
+  },
+  {
+   "jp": "あの 女[おんな]の 人[ひと]は 先生[せんせい]です。",
+   "es": "Esa mujer es la profesora."
+  },
+  {
+   "jp": "この 男[おとこ]の 人[ひと]を 知[し]って いますか。",
+   "es": "¿Conoces a este hombre?"
+  },
+  {
+   "jp": "目[め]が いたいので、病院[びょういん]へ 行[い]きます。",
+   "es": "Me duelen los ojos, así que voy al hospital."
+  },
+  {
+   "jp": "耳[みみ]が 少[すこ]し 悪[わる]いです。",
+   "es": "Oigo un poco mal."
+  },
+  {
+   "jp": "手[て]を 洗[あら]ってから、ご飯[はん]を 食[た]べます。",
+   "es": "Me lavo las manos y luego como."
+  },
+  {
+   "jp": "足[あし]が いたくて、歩[ある]けません。",
+   "es": "Me duele el pie y no puedo andar."
+  },
+  {
+   "jp": "口[くち]を 大[おお]きく 開[あ]けて ください。",
+   "es": "Abra bien la boca, por favor."
+  },
+  {
+   "jp": "この 川[かわ]で 魚[さかな]を とりました。",
+   "es": "En este río pesqué un pez."
+  },
+  {
+   "jp": "田中[たなか]さんは 山[やま]の 上[うえ]の 家[いえ]に 住[す]んで います。",
+   "es": "Tanaka vive en una casa en lo alto de la montaña."
+  },
+  {
+   "jp": "わたしは 午前[ごぜん]中[なか] ずっと 家[いえ]に いました。",
+   "es": "Toda la mañana estuve en casa."
+  },
+  {
+   "jp": "毎日[まいにち] 一時間[いちじかん] 日本語[にほんご]を 勉強[べんきょう]して います。",
+   "es": "Estudio japonés una hora al día."
+  },
+  {
+   "jp": "この 電車[でんしゃ]は 東京[とうきょう]へ 行[い]きますか。",
+   "es": "¿Este tren va a Tokio?"
+  },
+  {
+   "jp": "次[つぎ]の 電車[でんしゃ]は 何時[なんじ]ですか。",
+   "es": "¿A qué hora es el próximo tren?"
+  },
+  {
+   "jp": "わたしは 先生[せんせい]に 質問[しつもん]しました。",
+   "es": "Le hice una pregunta al profesor."
+  },
+  {
+   "jp": "父[ちち]は 会社[かいしゃ]を 休[やす]んで、家[いえ]で 寝[ね]て います。",
+   "es": "Mi padre ha faltado al trabajo y está acostado en casa."
+  },
+  {
+   "jp": "来月[らいげつ] 友達[ともだち]が 国[くに]から 来[き]ます。",
+   "es": "El mes que viene viene un amigo de mi país."
+  },
+  {
+   "jp": "きのう 買[か]った 本[ほん]は とても おもしろいです。",
+   "es": "El libro que compré ayer es muy interesante."
+  },
+  {
+   "jp": "これは 母[はは]が 作[つく]った 料理[りょうり]です。",
+   "es": "Esta es la comida que hizo mi madre."
+  },
+  {
+   "jp": "わたしが 住[す]んで いる 町[まち]は 小[ちい]さいです。",
+   "es": "La ciudad en la que vivo es pequeña."
+  },
+  {
+   "jp": "あそこで 新聞[しんぶん]を 読[よ]んで いる 人[ひと]は だれですか。",
+   "es": "¿Quién es esa persona que lee el periódico allí?"
+  },
+  {
+   "jp": "日本語[にほんご]で 手紙[てがみ]を 書[か]く ことが できます。",
+   "es": "Sé escribir cartas en japonés."
+  },
+  {
+   "jp": "わたしは ピアノを 弾[ひ]く ことが できません。",
+   "es": "No sé tocar el piano."
+  },
+  {
+   "jp": "すしを 食[た]べた ことが ありますか。",
+   "es": "¿Has comido sushi alguna vez?"
+  },
+  {
+   "jp": "富士山[ふじさん]に 登[のぼ]った ことが あります。",
+   "es": "He subido al Fuji."
+  },
+  {
+   "jp": "日曜日[にちようび]は 本[ほん]を 読[よ]んだり、映画[えいが]を 見[み]たり します。",
+   "es": "Los domingos leo o veo películas."
+  },
+  {
+   "jp": "ここで 写真[しゃしん]を とっても いいですか。",
+   "es": "¿Puedo hacer fotos aquí?"
+  },
+  {
+   "jp": "ここで たばこを すっては いけません。",
+   "es": "Aquí no se puede fumar."
+  },
+  {
+   "jp": "あしたは 早[はや]く 起[お]きなければ なりません。",
+   "es": "Mañana tengo que madrugar."
+  },
+  {
+   "jp": "あしたは 学校[がっこう]へ 行[い]かなくても いいです。",
+   "es": "Mañana no hace falta ir a clase."
+  },
+  {
+   "jp": "食事[しょくじ]の あとで、薬[くすり]を 飲[の]んで ください。",
+   "es": "Tómese la medicina después de comer."
+  },
+  {
+   "jp": "寝[ね]る 前[まえ]に、歯[は]を みがきます。",
+   "es": "Antes de dormir me lavo los dientes."
+  },
+  {
+   "jp": "雨[あめ]が 降[ふ]ったら、家[いえ]に います。",
+   "es": "Si llueve, me quedo en casa."
+  },
+  {
+   "jp": "お金[かね]が あったら、新[あたら]しい 車[くるま]を 買[か]いたいです。",
+   "es": "Si tuviera dinero, me compraría un coche nuevo."
+  },
+  {
+   "jp": "あしたは 雨[あめ]が 降[ふ]ると 思[おも]います。",
+   "es": "Creo que mañana lloverá."
+  },
+  {
+   "jp": "田中[たなか]さんは あした 来[こ]ないと 言[い]いました。",
+   "es": "Tanaka dijo que mañana no vendría."
+  },
+  {
+   "jp": "この かばんは わたしのより 大[おお]きいです。",
+   "es": "Este bolso es más grande que el mío."
+  },
+  {
+   "jp": "電車[でんしゃ]と バスと どちらが 速[はや]いですか。",
+   "es": "¿Qué es más rápido, el tren o el autobús?"
+  },
+  {
+   "jp": "家族[かぞく]の 中[なか]で 父[ちち]が 一番[いちばん] 背[せ]が 高[たか]いです。",
+   "es": "De mi familia, mi padre es el más alto."
+  },
+  {
+   "jp": "わたしは 肉[にく]より 魚[さかな]の ほうが 好[す]きです。",
+   "es": "Me gusta más el pescado que la carne."
+  },
+  {
+   "jp": "母[はは]に 花[はな]を あげました。",
+   "es": "Le di flores a mi madre."
+  },
+  {
+   "jp": "友達[ともだち]に 本[ほん]を もらいました。",
+   "es": "Un amigo me dio un libro."
+  },
+  {
+   "jp": "先生[せんせい]が 辞書[じしょ]を 貸[か]して くれました。",
+   "es": "El profesor me prestó un diccionario."
+  },
+  {
+   "jp": "わたしは 弟[おとうと]に 日本語[にほんご]を 教[おし]えて あげました。",
+   "es": "Le enseñé japonés a mi hermano pequeño."
+  },
+  {
+   "jp": "この 部屋[へや]は 静[しず]かで、明[あか]るいです。",
+   "es": "Esta habitación es tranquila y luminosa."
+  },
+  {
+   "jp": "あの 店[みせ]は 安[やす]くて、おいしいです。",
+   "es": "Esa tienda es barata y buena."
+  },
+  {
+   "jp": "きのうは 忙[いそが]しくて、昼[ひる]ごはんを 食[た]べませんでした。",
+   "es": "Ayer estaba tan ocupado que no comí."
+  },
+  {
+   "jp": "寒[さむ]く なりましたね。",
+   "es": "Ha empezado a hacer frío."
+  },
+  {
+   "jp": "日本語[にほんご]が 上手[じょうず]に なりたいです。",
+   "es": "Quiero llegar a hablar bien japonés."
+  },
+  {
+   "jp": "弟[おとうと]は 医者[いしゃ]に なりました。",
+   "es": "Mi hermano pequeño se ha hecho médico."
+  },
+  {
+   "jp": "この 料理[りょうり]は 少[すこ]し からいです。",
+   "es": "Esta comida pica un poco."
+  },
+  {
+   "jp": "あの 山[やま]は 高[たか]くて、きれいです。",
+   "es": "Aquella montaña es alta y bonita."
+  },
+  {
+   "jp": "わたしの 部屋[へや]に テレビが ありません。",
+   "es": "En mi cuarto no hay tele."
+  },
+  {
+   "jp": "教室[きょうしつ]に 学生[がくせい]が 十人[じゅうにん] います。",
+   "es": "En el aula hay diez alumnos."
+  },
+  {
+   "jp": "つくえの 上[うえ]に 本[ほん]が 三冊[さんさつ] あります。",
+   "es": "Encima de la mesa hay tres libros."
+  },
+  {
+   "jp": "冷蔵庫[れいぞうこ]に 卵[たまご]が 四[よっ]つ あります。",
+   "es": "En la nevera hay cuatro huevos."
+  },
+  {
+   "jp": "庭[にわ]に 犬[いぬ]が 一匹[いっぴき] います。",
+   "es": "En el jardín hay un perro."
+  },
+  {
+   "jp": "わたしは 毎朝[まいあさ] 牛乳[ぎゅうにゅう]を 一杯[いっぱい] 飲[の]みます。",
+   "es": "Cada mañana me tomo un vaso de leche."
+  },
+  {
+   "jp": "切手[きって]を 五枚[ごまい] ください。",
+   "es": "Cinco sellos, por favor."
+  },
+  {
+   "jp": "りんごを 六[むっ]つ 買[か]いました。",
+   "es": "Compré seis manzanas."
+  },
+  {
+   "jp": "この クラスには 外国人[がいこくじん]の 学生[がくせい]が 八人[はちにん] います。",
+   "es": "En esta clase hay ocho estudiantes extranjeros."
+  },
+  {
+   "jp": "九時[くじ]から 五時[ごじ]まで 働[はたら]きます。",
+   "es": "Trabajo de nueve a cinco."
+  },
+  {
+   "jp": "十時[じゅうじ]に 駅[えき]の 前[まえ]で 会[あ]いましょう。",
+   "es": "Quedemos a las diez delante de la estación."
+  },
+  {
+   "jp": "会議[かいぎ]は 二時半[にじはん]に 始[はじ]まります。",
+   "es": "La reunión empieza a las dos y media."
+  },
+  {
+   "jp": "この 映画[えいが]は 三時間[さんじかん] かかります。",
+   "es": "Esta película dura tres horas."
+  },
+  {
+   "jp": "駅[えき]まで 歩[ある]いて 十分[じゅっぷん]ぐらいです。",
+   "es": "A la estación hay unos diez minutos andando."
+  },
+  {
+   "jp": "この シャツは 三千円[さんぜんえん]でした。",
+   "es": "Esta camisa costó tres mil yenes."
+  },
+  {
+   "jp": "この 時計[とけい]は 一万円[いちまんえん]でした。",
+   "es": "Este reloj costó diez mil yenes."
+  },
+  {
+   "jp": "わたしの 父[ちち]は 五十歳[ごじゅっさい]です。",
+   "es": "Mi padre tiene cincuenta años."
+  },
+  {
+   "jp": "今日[きょう]は 四月[しがつ] 一日[ついたち]です。",
+   "es": "Hoy es uno de abril."
+  },
+  {
+   "jp": "わたしの 誕生日[たんじょうび]は 七月[しちがつ] 七日[なのか]です。",
+   "es": "Mi cumpleaños es el siete de julio."
+  },
+  {
+   "jp": "九月[くがつ]に 日本[にほん]へ 行[い]きます。",
+   "es": "En septiembre voy a Japón."
+  },
+  {
+   "jp": "来週[らいしゅう]の 火曜日[かようび]は 休[やす]みです。",
+   "es": "El martes que viene es fiesta."
+  },
+  {
+   "jp": "水曜日[すいようび]の 午後[ごご]は 時間[じかん]が あります。",
+   "es": "El miércoles por la tarde tengo tiempo."
+  },
+  {
+   "jp": "木曜日[もくようび]に 友達[ともだち]と 会[あ]います。",
+   "es": "El jueves quedo con un amigo."
+  },
+  {
+   "jp": "土曜日[どようび]と 日曜日[にちようび]は 学校[がっこう]が ありません。",
+   "es": "Los sábados y domingos no hay clase."
+  },
+  {
+   "jp": "金曜日[きんようび]の 夜[よる] レストランへ 行[い]きました。",
+   "es": "El viernes por la noche fui a un restaurante."
+  },
+  {
+   "jp": "今年[ことし]の 夏[なつ] 休[やす]みは 長[なが]いです。",
+   "es": "Las vacaciones de verano de este año son largas."
+  },
+  {
+   "jp": "毎年[まいとし] お正月[しょうがつ]に 国[くに]へ 帰[かえ]ります。",
+   "es": "Cada Año Nuevo vuelvo a mi país."
+  },
+  {
+   "jp": "去年[きょねん] 日本語[にほんご]の 勉強[べんきょう]を 始[はじ]めました。",
+   "es": "El año pasado empecé a estudiar japonés."
+  },
+  {
+   "jp": "来年[らいねん] 大学[だいがく]に 入[はい]ります。",
+   "es": "El año que viene entro en la universidad."
+  },
+  {
+   "jp": "わたしは 大学[だいがく]で 経済[けいざい]を 勉強[べんきょう]して います。",
+   "es": "En la universidad estudio economía."
+  },
+  {
+   "jp": "この 大学[だいがく]には 外国人[がいこくじん]の 先生[せんせい]が 多[おお]いです。",
+   "es": "En esta universidad hay muchos profesores extranjeros."
+  },
+  {
+   "jp": "高校[こうこう]の 時[とき]、テニスを して いました。",
+   "es": "En el instituto jugaba al tenis."
+  },
+  {
+   "jp": "小学校[しょうがっこう]は 家[いえ]の 近[ちか]くに あります。",
+   "es": "La escuela primaria está cerca de casa."
+  },
+  {
+   "jp": "この 古[ふる]い 家[いえ]は 百年[ひゃくねん] 前[まえ]に 建[た]てられました。",
+   "es": "Esta casa vieja se construyó hace cien años."
+  },
+  {
+   "jp": "新[あたら]しい 先生[せんせい]は 若[わか]くて、やさしいです。",
+   "es": "El profesor nuevo es joven y amable."
+  },
+  {
+   "jp": "その 長[なが]い 名前[なまえ]は おぼえられません。",
+   "es": "Ese nombre tan largo no lo puedo memorizar."
+  },
+  {
+   "jp": "あの 高[たか]い ビルは 何[なん]ですか。",
+   "es": "¿Qué es aquel edificio alto?"
+  },
+  {
+   "jp": "この 安[やす]い かばんを 買[か]いましょう。",
+   "es": "Compremos este bolso barato."
+  },
+  {
+   "jp": "もう 少[すこ]し 大[おお]きい 声[こえ]で 話[はな]して ください。",
+   "es": "Hable un poco más alto, por favor."
+  },
+  {
+   "jp": "小[ちい]さい 子[こ]どもが 泣[な]いて います。",
+   "es": "Un niño pequeño está llorando."
+  },
+  {
+   "jp": "母[はは]は 毎朝[まいあさ] 早[はや]く 起[お]きます。",
+   "es": "Mi madre se levanta temprano todas las mañanas."
+  },
+  {
+   "jp": "父[ちち]は 夜[よる] 遅[おそ]く 帰[かえ]ります。",
+   "es": "Mi padre vuelve tarde por la noche."
+  },
+  {
+   "jp": "わたしは 毎日[まいにち] 会社[かいしゃ]まで 歩[ある]きます。",
+   "es": "Todos los días voy andando al trabajo."
+  },
+  {
+   "jp": "この 電車[でんしゃ]は 次[つぎ]の 駅[えき]で 止[と]まりますか。",
+   "es": "¿Este tren para en la próxima estación?"
+  },
+  {
+   "jp": "バスを 降[お]りて、少[すこ]し 歩[ある]きました。",
+   "es": "Me bajé del autobús y anduve un poco."
+  },
+  {
+   "jp": "タクシーに 乗[の]って、空港[くうこう]へ 行[い]きました。",
+   "es": "Cogí un taxi y fui al aeropuerto."
+  },
+  {
+   "jp": "わたしは 先週[せんしゅう] 京都[きょうと]へ 行[い]って、写真[しゃしん]を たくさん とりました。",
+   "es": "La semana pasada fui a Kioto e hice muchas fotos."
+  },
+  {
+   "jp": "この 写真[しゃしん]は 父[ちち]が とりました。",
+   "es": "Esta foto la hizo mi padre."
+  },
+  {
+   "jp": "ドアを 閉[し]めて ください。",
+   "es": "Cierre la puerta, por favor."
+  },
+  {
+   "jp": "窓[まど]を 開[あ]けても いいですか。",
+   "es": "¿Puedo abrir la ventana?"
+  },
+  {
+   "jp": "電気[でんき]を 消[け]して、寝[ね]ました。",
+   "es": "Apagué la luz y me dormí."
+  },
+  {
+   "jp": "エアコンを つけて ください。",
+   "es": "Encienda el aire acondicionado, por favor."
+  },
+  {
+   "jp": "ここに 名前[なまえ]と 住所[じゅうしょ]を 書[か]いて ください。",
+   "es": "Escriba aquí su nombre y dirección, por favor."
+  },
+  {
+   "jp": "すみません、もう 一度[いちど] 言[い]って ください。",
+   "es": "Perdone, dígalo otra vez, por favor."
+  },
+  {
+   "jp": "ちょっと 待[ま]って ください。",
+   "es": "Espere un momento, por favor."
+  },
+  {
+   "jp": "この 漢字[かんじ]は 何[なに]と 読[よ]みますか。",
+   "es": "¿Cómo se lee este kanji?"
+  },
+  {
+   "jp": "日本語[にほんご]で 何[なに]と 言[い]いますか。",
+   "es": "¿Cómo se dice en japonés?"
+  },
+  {
+   "jp": "田中[たなか]さんは 英語[えいご]が 上手[じょうず]です。",
+   "es": "Tanaka habla bien inglés."
+  },
+  {
+   "jp": "わたしは 料理[りょうり]が 下手[へた]です。",
+   "es": "Cocino mal."
+  },
+  {
+   "jp": "あなたは 何[なに]が 好[す]きですか。",
+   "es": "¿Qué te gusta?"
+  },
+  {
+   "jp": "わたしは 犬[いぬ]が 好[す]きですが、猫[ねこ]は きらいです。",
+   "es": "Me gustan los perros, pero los gatos no."
+  },
+  {
+   "jp": "父[ちち]は お酒[さけ]が 大好[だいす]きです。",
+   "es": "A mi padre le encanta el sake."
+  },
+  {
+   "jp": "わたしは 日本語[にほんご]が 少[すこ]し わかります。",
+   "es": "Entiendo un poco de japonés."
+  },
+  {
+   "jp": "あの 人[ひと]の 話[はなし]が よく わかりませんでした。",
+   "es": "No entendí bien lo que dijo esa persona."
+  },
+  {
+   "jp": "わたしは 車[くるま]が ほしいです。",
+   "es": "Quiero un coche."
+  },
+  {
+   "jp": "あたらしい パソコンが ほしいです。",
+   "es": "Quiero un ordenador nuevo."
+  },
+  {
+   "jp": "冷[つめ]たい 水[みず]が 飲[の]みたいです。",
+   "es": "Quiero beber agua fría."
+  },
+  {
+   "jp": "今日[きょう]は 何[なに]も 食[た]べたく ありません。",
+   "es": "Hoy no me apetece comer nada."
+  },
+  {
+   "jp": "映画[えいが]を 見[み]に 行[い]きませんか。",
+   "es": "¿Vamos a ver una película?"
+  },
+  {
+   "jp": "いっしょに 昼[ひる]ごはんを 食[た]べましょう。",
+   "es": "Comamos juntos."
+  },
+  {
+   "jp": "少[すこ]し 休[やす]みましょうか。",
+   "es": "¿Descansamos un poco?"
+  },
+  {
+   "jp": "駅[えき]まで 送[おく]りましょうか。",
+   "es": "¿Te llevo a la estación?"
+  },
+  {
+   "jp": "わたしは 毎朝[まいあさ] 犬[いぬ]と 散歩[さんぽ]します。",
+   "es": "Todas las mañanas paseo con el perro."
+  },
+  {
+   "jp": "妹[いもうと]は 毎日[まいにち] ピアノを 練習[れんしゅう]して います。",
+   "es": "Mi hermana practica piano todos los días."
+  },
+  {
+   "jp": "兄[あに]は 今[いま] アメリカに 住[す]んで います。",
+   "es": "Mi hermano mayor vive ahora en Estados Unidos."
+  },
+  {
+   "jp": "姉[あね]は 銀行[ぎんこう]で 働[はたら]いて います。",
+   "es": "Mi hermana mayor trabaja en un banco."
+  },
+  {
+   "jp": "わたしは 結婚[けっこん]して います。",
+   "es": "Estoy casado."
+  },
+  {
+   "jp": "田中[たなか]さんは めがねを かけて います。",
+   "es": "Tanaka lleva gafas."
+  },
+  {
+   "jp": "山田[やまだ]さんは 青[あお]い シャツを 着[き]て います。",
+   "es": "Yamada lleva una camisa azul."
+  },
+  {
+   "jp": "この 店[みせ]は 十時[じゅうじ]に 開[あ]きます。",
+   "es": "Esta tienda abre a las diez."
+  },
+  {
+   "jp": "銀行[ぎんこう]は 三時[さんじ]に 閉[し]まります。",
+   "es": "El banco cierra a las tres."
+  },
+  {
+   "jp": "雨[あめ]が やみました。",
+   "es": "Ha dejado de llover."
+  },
+  {
+   "jp": "風[かぜ]が 強[つよ]いです。",
+   "es": "Hace mucho viento."
+  },
+  {
+   "jp": "今日[きょう]は 曇[くも]って います。",
+   "es": "Hoy está nublado."
+  },
+  {
+   "jp": "あしたは 晴[は]れるでしょう。",
+   "es": "Mañana seguramente hará sol."
+  },
+  {
+   "jp": "夏[なつ] 休[やす]みに 海[うみ]で 泳[およ]ぎました。",
+   "es": "En las vacaciones de verano nadé en el mar."
+  },
+  {
+   "jp": "冬[ふゆ]に なると、山[やま]に 雪[ゆき]が 降[ふ]ります。",
+   "es": "Cuando llega el invierno, nieva en la montaña."
+  },
+  {
+   "jp": "この 花[はな]は 春[はる]に 咲[さ]きます。",
+   "es": "Esta flor se abre en primavera."
+  },
+  {
+   "jp": "秋[あき]に 紅葉[もみじ]を 見[み]に 行[い]きました。",
+   "es": "En otoño fui a ver las hojas rojas."
+  },
+  {
+   "jp": "わたしは 毎日[まいにち] 日記[にっき]を 書[か]いて います。",
+   "es": "Escribo un diario todos los días."
+  },
+  {
+   "jp": "学生[がくせい]は 先生[せんせい]の 話[はなし]を 聞[き]いて います。",
+   "es": "Los alumnos escuchan lo que dice el profesor."
+  },
+  {
+   "jp": "わたしは 音楽[おんがく]を 聞[き]くのが 好[す]きです。",
+   "es": "Me gusta escuchar música."
+  },
+  {
+   "jp": "子[こ]どもの 時[とき]、よく 川[かわ]で 遊[あそ]びました。",
+   "es": "De pequeño jugaba a menudo en el río."
+  },
+  {
+   "jp": "この 本[ほん]は 長[なが]いですが、おもしろいです。",
+   "es": "Este libro es largo, pero interesante."
+  },
+  {
+   "jp": "この 部屋[へや]は 広[ひろ]いですが、少[すこ]し 暗[くら]いです。",
+   "es": "Esta habitación es amplia, pero algo oscura."
+  },
+  {
+   "jp": "今日[きょう]は 寒[さむ]いですから、コートを 着[き]て 行[い]きます。",
+   "es": "Hoy hace frío, así que me pongo el abrigo."
+  },
+  {
+   "jp": "お金[かね]が ないので、どこへも 行[い]きません。",
+   "es": "Como no tengo dinero, no voy a ningún sitio."
+  },
+  {
+   "jp": "時間[じかん]が ありませんから、タクシーで 行[い]きましょう。",
+   "es": "Como no hay tiempo, vamos en taxi."
+  },
+  {
+   "jp": "朝[あさ]から 何[なに]も 食[た]べて いないので、おなかが すきました。",
+   "es": "No he comido nada desde la mañana y tengo hambre."
+  },
+  {
+   "jp": "この 道[みち]は 車[くるま]が 多[おお]いですから、気[き]を つけて ください。",
+   "es": "Por esta calle pasan muchos coches: ten cuidado."
+  },
+  {
+   "jp": "わたしは 毎朝[まいあさ] 六時半[ろくじはん]に 家[いえ]を 出[で]ます。",
+   "es": "Todas las mañanas salgo de casa a las seis y media."
+  },
+  {
+   "jp": "会社[かいしゃ]は 八時半[はちじはん]から 五時半[ごじはん]までです。",
+   "es": "La oficina es de ocho y media a cinco y media."
+  },
+  {
+   "jp": "わたしの 学校[がっこう]は 駅[えき]の 北[きた]に あります。",
+   "es": "Mi escuela está al norte de la estación."
+  },
+  {
+   "jp": "郵便局[ゆうびんきょく]は 駅[えき]の 南[みなみ]に あります。",
+   "es": "Correos está al sur de la estación."
+  },
+  {
+   "jp": "病院[びょういん]は 学校[がっこう]の 西[にし]です。",
+   "es": "El hospital está al oeste de la escuela."
+  },
+  {
+   "jp": "公園[こうえん]は 銀行[ぎんこう]の 東[ひがし]に あります。",
+   "es": "El parque está al este del banco."
+  },
+  {
+   "jp": "本屋[ほんや]の 中[なか]に 喫茶店[きっさてん]が あります。",
+   "es": "Dentro de la librería hay una cafetería."
+  },
+  {
+   "jp": "かばんの 中[なか]に 何[なに]が ありますか。",
+   "es": "¿Qué hay dentro del bolso?"
+  },
+  {
+   "jp": "いすの 下[した]に ねこが います。",
+   "es": "Debajo de la silla hay un gato."
+  },
+  {
+   "jp": "テレビの 上[うえ]に 写真[しゃしん]が あります。",
+   "es": "Encima de la tele hay una foto."
+  },
+  {
+   "jp": "銀行[ぎんこう]の 前[まえ]で 友達[ともだち]を 待[ま]って います。",
+   "es": "Estoy esperando a un amigo delante del banco."
+  },
+  {
+   "jp": "駅[えき]の 後[うし]ろに 大[おお]きい 公園[こうえん]が あります。",
+   "es": "Detrás de la estación hay un parque grande."
+  },
+  {
+   "jp": "わたしの 右[みぎ]に いる 人[ひと]が 田中[たなか]さんです。",
+   "es": "La persona que está a mi derecha es Tanaka."
+  },
+  {
+   "jp": "ドアの 左[ひだり]に 電気[でんき]の スイッチが あります。",
+   "es": "A la izquierda de la puerta está el interruptor de la luz."
+  },
+  {
+   "jp": "この 学校[がっこう]の 先生[せんせい]は みんな 日本人[にほんじん]です。",
+   "es": "Todos los profesores de esta escuela son japoneses."
+  },
+  {
+   "jp": "クラスの 学生[がくせい]は 全部[ぜんぶ]で 二十人[にじゅうにん]です。",
+   "es": "En la clase hay veinte alumnos en total."
+  },
+  {
+   "jp": "父[ちち]の 会社[かいしゃ]は 大阪[おおさか]に あります。",
+   "es": "La empresa de mi padre está en Osaka."
+  },
+  {
+   "jp": "わたしは 会社員[かいしゃいん]です。",
+   "es": "Soy empleado de una empresa."
+  },
+  {
+   "jp": "母[はは]は 小学校[しょうがっこう]の 先生[せんせい]です。",
+   "es": "Mi madre es maestra de primaria."
+  },
+  {
+   "jp": "田中[たなか]さんの お父[とう]さんは 医者[いしゃ]です。",
+   "es": "El padre de Tanaka es médico."
+  },
+  {
+   "jp": "山田[やまだ]さんの お母[かあ]さんは 料理[りょうり]が 上手[じょうず]です。",
+   "es": "La madre de Yamada cocina muy bien."
+  },
+  {
+   "jp": "わたしの 友達[ともだち]は 中国[ちゅうごく]から 来[き]ました。",
+   "es": "Mi amigo vino de China."
+  },
+  {
+   "jp": "あの 人[ひと]は 何人[なにじん]ですか。",
+   "es": "¿De qué país es esa persona?"
+  },
+  {
+   "jp": "この 車[くるま]は 日本[にほん]の 車[くるま]です。",
+   "es": "Este coche es japonés."
+  },
+  {
+   "jp": "わたしは 日本[にほん]の 映画[えいが]が 好[す]きです。",
+   "es": "Me gustan las películas japonesas."
+  },
+  {
+   "jp": "日本語[にほんご]の 先生[せんせい]は 女[おんな]の 人[ひと]です。",
+   "es": "La profesora de japonés es una mujer."
+  },
+  {
+   "jp": "この 時計[とけい]は 父[ちち]に もらいました。",
+   "es": "Este reloj me lo dio mi padre."
+  },
+  {
+   "jp": "この かさは 友達[ともだち]に 借[か]りました。",
+   "es": "Este paraguas se lo pedí prestado a un amigo."
+  },
+  {
+   "jp": "図書館[としょかん]で 本[ほん]を 二冊[にさつ] 借[か]りました。",
+   "es": "Saqué dos libros de la biblioteca."
+  },
+  {
+   "jp": "きのう 本屋[ほんや]で 雑誌[ざっし]を 買[か]いました。",
+   "es": "Ayer compré una revista en la librería."
+  },
+  {
+   "jp": "デパートで 母[はは]の 誕生日[たんじょうび]の プレゼントを 買[か]いました。",
+   "es": "Compré el regalo de cumpleaños de mi madre en los grandes almacenes."
+  },
+  {
+   "jp": "スーパーで 肉[にく]と 野菜[やさい]を 買[か]いました。",
+   "es": "Compré carne y verdura en el súper."
+  },
+  {
+   "jp": "この 店[みせ]では 新[あたら]しい 服[ふく]を 売[う]って います。",
+   "es": "En esta tienda venden ropa nueva."
+  },
+  {
+   "jp": "古[ふる]い 自転車[じてんしゃ]を 友達[ともだち]に あげました。",
+   "es": "Le di mi bici vieja a un amigo."
+  },
+  {
+   "jp": "わたしは 三年[さんねん] 前[まえ]に 日本[にほん]へ 来[き]ました。",
+   "es": "Vine a Japón hace tres años."
+  },
+  {
+   "jp": "二年[にねん] 前[まえ]から 日本語[にほんご]を 勉強[べんきょう]して います。",
+   "es": "Estudio japonés desde hace dos años."
+  },
+  {
+   "jp": "一年[いちねん]に 一回[いっかい] 国[くに]へ 帰[かえ]ります。",
+   "es": "Vuelvo a mi país una vez al año."
+  },
+  {
+   "jp": "今月[こんげつ]は 忙[いそが]しいですが、来月[らいげつ]は 暇[ひま]です。",
+   "es": "Este mes estoy ocupado, pero el que viene estoy libre."
+  },
+  {
+   "jp": "先週[せんしゅう]は 毎日[まいにち] 雨[あめ]でした。",
+   "es": "La semana pasada llovió todos los días."
+  },
+  {
+   "jp": "今週[こんしゅう]の 金曜日[きんようび]は 何[なに]を しますか。",
+   "es": "¿Qué haces este viernes?"
+  },
+  {
+   "jp": "来週[らいしゅう] 友達[ともだち]の 家[いえ]へ 遊[あそ]びに 行[い]きます。",
+   "es": "La semana que viene voy a casa de un amigo."
+  },
+  {
+   "jp": "あさって 東京[とうきょう]へ 出張[しゅっちょう]します。",
+   "es": "Pasado mañana voy a Tokio de viaje de trabajo."
+  },
+  {
+   "jp": "おととい 友達[ともだち]と 映画[えいが]を 見[み]ました。",
+   "es": "Anteayer vi una película con un amigo."
+  },
+  {
+   "jp": "今朝[けさ] 何時[なんじ]に 起[お]きましたか。",
+   "es": "¿A qué hora te levantaste esta mañana?"
+  },
+  {
+   "jp": "今晩[こんばん] 何[なに]を 食[た]べますか。",
+   "es": "¿Qué cenas esta noche?"
+  },
+  {
+   "jp": "毎晩[まいばん] 何[なに]時間[じかん] 寝[ね]ますか。",
+   "es": "¿Cuántas horas duermes cada noche?"
+  },
+  {
+   "jp": "この 漢字[かんじ]は むずかしくて 書[か]けません。",
+   "es": "Este kanji es tan difícil que no lo sé escribir."
+  },
+  {
+   "jp": "日本語[にほんご]の 本[ほん]を 読[よ]む ことが できますか。",
+   "es": "¿Sabes leer libros en japonés?"
+  },
+  {
+   "jp": "わたしは まだ 漢字[かんじ]が 少[すこ]ししか 読[よ]めません。",
+   "es": "Todavía solo sé leer unos pocos kanji."
+  },
+  {
+   "jp": "田中[たなか]さんは 毎日[まいにち] 何[なに]時間[じかん] 働[はたら]きますか。",
+   "es": "¿Cuántas horas trabaja Tanaka al día?"
+  },
+  {
+   "jp": "先生[せんせい]、ちょっと 質問[しつもん]が あります。",
+   "es": "Profesor, tengo una pregunta."
+  },
+  {
+   "jp": "この 問題[もんだい]は 少[すこ]し むずかしいです。",
+   "es": "Este problema es un poco difícil."
+  },
+  {
+   "jp": "試験[しけん]は 来週[らいしゅう]の 水曜日[すいようび]です。",
+   "es": "El examen es el miércoles que viene."
+  },
+  {
+   "jp": "この 部屋[へや]で 食[た]べたり 飲[の]んだり しないで ください。",
+   "es": "No coman ni beban en esta sala, por favor."
+  },
+  {
+   "jp": "大[おお]きい 声[こえ]で 話[はな]さないで ください。",
+   "es": "No hablen alto, por favor."
+  },
+  {
+   "jp": "雨[あめ]の 日[ひ]は 車[くるま]で 会社[かいしゃ]へ 行[い]きます。",
+   "es": "Los días de lluvia voy a la oficina en coche."
+  },
+  {
+   "jp": "天気[てんき]が いい 日[ひ]は 自転車[じてんしゃ]で 学校[がっこう]へ 行[い]きます。",
+   "es": "Los días de buen tiempo voy a la escuela en bici."
+  },
+  {
+   "jp": "わたしは 毎日[まいにち] 一時間[いちじかん] ぐらい 歩[ある]きます。",
+   "es": "Ando una hora al día más o menos."
+  },
+  {
+   "jp": "父[ちち]は 毎朝[まいあさ] コーヒーを 飲[の]みながら、新聞[しんぶん]を 読[よ]みます。",
+   "es": "Mi padre lee el periódico cada mañana mientras toma café."
+  },
+  {
+   "jp": "音楽[おんがく]を 聞[き]きながら 勉強[べんきょう]します。",
+   "es": "Estudio escuchando música."
+  },
+  {
+   "jp": "この 川[かわ]の 水[みず]は きれいです。",
+   "es": "El agua de este río está limpia."
+  },
+  {
+   "jp": "山[やま]の 上[うえ]から 町[まち]が よく 見[み]えます。",
+   "es": "Desde lo alto de la montaña se ve bien la ciudad."
+  },
+  {
+   "jp": "ここから 海[うみ]が 見[み]えます。",
+   "es": "Desde aquí se ve el mar."
+  },
+  {
+   "jp": "隣[となり]の 部屋[へや]から 音楽[おんがく]が 聞[き]こえます。",
+   "es": "Se oye música de la habitación de al lado."
+  },
+  {
+   "jp": "この 町[まち]に 大[おお]きい 病院[びょういん]が 二[ふた]つ あります。",
+   "es": "En esta ciudad hay dos hospitales grandes."
+  },
+  {
+   "jp": "駅[えき]の 近[ちか]くに 安[やす]い レストランが たくさん あります。",
+   "es": "Cerca de la estación hay muchos restaurantes baratos."
+  },
+  {
+   "jp": "わたしの 町[まち]には 川[かわ]が あって、きれいです。",
+   "es": "En mi ciudad hay un río y es bonita."
+  },
+  {
+   "jp": "日本[にほん]は 山[やま]が 多[おお]い 国[くに]です。",
+   "es": "Japón es un país con muchas montañas."
+  },
+  {
+   "jp": "東京[とうきょう]は 人[ひと]が とても 多[おお]いです。",
+   "es": "En Tokio hay muchísima gente."
+  },
+  {
+   "jp": "この 水[みず]は 飲[の]んでも いいですか。",
+   "es": "¿Se puede beber esta agua?"
+  },
+  {
+   "jp": "魚[さかな]の 料理[りょうり]と 肉[にく]の 料理[りょうり]と どちらが いいですか。",
+   "es": "¿Qué prefieres, plato de pescado o de carne?"
+  },
+  {
+   "jp": "この 店[みせ]の 人[ひと]は とても 親切[しんせつ]です。",
+   "es": "La gente de esta tienda es muy amable."
+  },
+  {
+   "jp": "田中[たなか]さんは 日本人[にほんじん]ですが、日本[にほん]の 料理[りょうり]が 作[つく]れません。",
+   "es": "Tanaka es japonés, pero no sabe cocinar comida japonesa."
+  },
+  {
+   "jp": "この 料理[りょうり]は 母[はは]に 習[なら]いました。",
+   "es": "Este plato lo aprendí de mi madre."
+  },
+  {
+   "jp": "わたしは 友達[ともだち]に 日本語[にほんご]を 習[なら]って います。",
+   "es": "Aprendo japonés con un amigo."
+  },
+  {
+   "jp": "先生[せんせい]に 作文[さくぶん]を 見[み]て もらいました。",
+   "es": "El profesor me revisó la redacción."
+  },
+  {
+   "jp": "田中[たなか]さんに 駅[えき]まで 送[おく]って もらいました。",
+   "es": "Tanaka me llevó a la estación."
+  },
+  {
+   "jp": "この 字[じ]は 小[ちい]さくて 読[よ]めません。",
+   "es": "Esta letra es tan pequeña que no puedo leerla."
+  },
+  {
+   "jp": "空[そら]が 青[あお]くて きれいです。",
+   "es": "El cielo es azul y precioso."
+  },
+  {
+   "jp": "今日[きょう]は 空[そら]気[き]が つめたいです。",
+   "es": "Hoy el aire está frío."
+  },
+  {
+   "jp": "天気[てんき]が 悪[わる]いので、出[で]かけません。",
+   "es": "Como hace mal tiempo, no salgo."
+  },
+  {
+   "jp": "六時[ろくじ]に なったら、帰[かえ]りましょう。",
+   "es": "Cuando sean las seis, nos vamos."
+  },
+  {
+   "jp": "仕事[しごと]が 終[お]わったら、電話[でんわ]して ください。",
+   "es": "Cuando termines el trabajo, llámame."
+  },
+  {
+   "jp": "日本[にほん]へ 来[き]て、もう 一年[いちねん]に なります。",
+   "es": "Ya hace un año que vine a Japón."
+  },
+  {
+   "jp": "わたしは 日本語[にほんご]を 一年[いちねん] 勉強[べんきょう]しました。",
+   "es": "Estudié japonés un año."
   }
  ],
  "lecturas": {

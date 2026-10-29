@@ -211,8 +211,15 @@
     // colas de adjetivo en い y condicional たら
     "く", "くて", "くない", "かった", "くなかった", "ら",
     "と", "な", "の", "か", "ね", "よ", "が", "けど", "けれど", "けれども",
-    "から", "ので", "とき", "まえに", "あとで", "までに"
+    "から", "ので", "とき", "まえに", "あとで", "までに", "ですから", "でしたから", "ですが", "でしたが"
   ];
+
+  const FILA_E = { う: "え", く: "け", ぐ: "げ", す: "せ", つ: "て", ぬ: "ね", ぶ: "べ", む: "め", る: "れ" };
+  function potencial(v) {
+    if (v.grupo === 1 && FILA_E[v.kana.slice(-1)]) return v.kana.slice(0, -1) + FILA_E[v.kana.slice(-1)];
+    if (v.grupo === 2 && v.kana.endsWith("る")) return v.kana.slice(0, -1) + "られ";
+    return "";
+  }
 
   let D = null;
   function dicc() {
@@ -234,6 +241,11 @@
       // y la de ない con なければなりません: 飲ま＋なければなりません
       mete(v.nai.slice(0, -2));
       mete(enKanji(v, v.nai).slice(0, -2));
+      // 〜たり: 読んだり, 見たり
+      mete(v.ta + "り"); mete(enKanji(v, v.ta) + "り");
+      // potencial: 買う → 買え(ます), 読む → 読め(ません); 食べる → 食べられ(ます)
+      const raiz = potencial(v);
+      if (raiz) { mete(raiz); mete(enKanji(v, raiz)); }
     }
     // adjetivos en い: 長い da 長かった, 長くない, 長くて…
     for (const w of d.vocab) {
@@ -265,7 +277,10 @@
     "京都", "東京", "大阪", "北京", "名古屋", "神戸", "横浜", "広島", "奈良", "沖縄", "甲子園", "富士山",
     "千葉", "県", "あまり", "とても", "もう", "まだ", "ちょっと", "すぐ", "また", "いつも", "よく",
     "たいてい", "ときどき", "ぜんぜん", "だいたい", "たぶん", "きっと", "いちばん", "もっと", "ゆっくり",
-    "はじめて", "もちろん", "そろそろ", "ぜひ", "ずっと", "たくさん", "すこし", "みんな", "みなさん"
+    "はじめて", "もちろん", "そろそろ", "ぜひ", "ずっと", "たくさん", "すこし", "みんな", "みなさん",
+    // verbos y palabras que salen en las frases de examen y no en el vocabulario
+    "見え", "みえ", "聞こえ", "きこえ", "始まり", "はじまり", "始まる", "やみ", "やむ", "みがき", "みがく",
+    "晴れ", "はれ", "すし", "おぼえ", "おぼえる", "建てられ"
   ];
 
   // ------------------------------------------------------------ tokenizador
@@ -530,7 +545,8 @@
   function diccLect() {
     if (LECT) return LECT;
     const d = N5.data, L = new Map(Object.entries(NOMBRES));
-    const limpia = x => N5.limpiaEntrada(String(x || "")).replace(/[〜～]/g, "");
+    // 「ぎゅうにゅう（ミルク）」: lo del paréntesis en katakana es otra palabra, no la lectura
+    const limpia = x => N5.limpiaEntrada(String(x || "").replace(/（[ァ-ヺー]+）/g, "")).replace(/[〜～]/g, "");
     // 「なん／なに」 son dos lecturas: no sirve como lectura de nada
     const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && /^[ぁ-ゖァ-ヺー]+$/.test(y) && !L.has(k)) L.set(k, y); };   // 「なにも＋neg.」 no es una lectura
     const sinNa = x => String(x || "").replace(/[（\[]な[）\]]$/, "");
