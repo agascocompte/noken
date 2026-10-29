@@ -16,6 +16,8 @@ const d = N5.data;
 
 // Nombres propios: por criterio no son vocabulario de estudio (el JLPT no los pregunta).
 const PROPIOS = /^(東京|大阪|京都|奈良|神戸|沖縄|北海道|富士山|甲子園|千葉県|木村|山田|田中|佐藤|鈴木|大学前|日本橋)$/;
+// Términos de gramática que salen en los patrones (疑問詞 = interrogativo): no son vocabulario
+const METALENGUAJE = /^(疑問詞)$/;
 
 // Todo texto japonés de la guía, venga de donde venga.
 const textos = [];
@@ -59,7 +61,7 @@ const esCompuesta = kanji => {
 };
 
 const huerfanas = [...usos]
-  .filter(([k]) => k.length > 1 && !definido.has(k) && !PROPIOS.test(k)
+  .filter(([k]) => k.length > 1 && !definido.has(k) && !PROPIOS.test(k) && !METALENGUAJE.test(k)
                    && !esParteDeAlgoDefinido(k) && !esCompuesta(k))
   .sort((a, b) => b[1].veces - a[1].veces);
 
