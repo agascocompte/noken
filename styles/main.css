@@ -566,3 +566,13 @@ body.no-furigana #p-examenes rt{visibility:visible}
 /* guion en la corrección: quién habla y qué dice */
 .exguion-l{display:flex; gap:10px; margin:2px 0}
 .exquien{flex:0 0 auto; color:var(--ink2); font-size:.85em; min-width:1.2em}
+
+/* inicio de Exámenes: botones grandes e historial */
+.exprincipal .btn{font-size:1rem; padding:10px 18px}
+.exnota-vistas{margin:10px 0 22px}
+.exhistorial tr.abre{cursor:pointer}
+.exhistorial tr.abre:hover td{background:var(--accent-soft)}
+.extipo{display:inline-block; font-size:.7rem; font-weight:600; letter-spacing:.03em; border-radius:5px; padding:0 6px; margin-right:4px}
+.extipo.nuevo{background:var(--accent-soft); color:var(--accent)}
+.extipo.fallos{background:var(--beni-soft); color:var(--beni)}
+.extipo.antiguo{background:var(--chip); color:var(--ink2)}

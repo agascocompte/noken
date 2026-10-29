@@ -638,6 +638,17 @@
   // examen de verdad, que mezcla sustantivos, adjetivos y verbos.
   const demasiados = hechos => hechos.filter(x => x.verbo).length >= Math.ceil((hechos.length + 1) / 2);
 
+  // Lo que ya has visto, con la fecha en que lo viste (lo pasa la sección a
+  // genera()). Cada もんだい elige primero entre lo que no has visto nunca, y solo
+  // cuando eso se acaba vuelve a lo visto, empezando por lo que hace más tiempo.
+  let VISTAS = new Map();
+  function prefiere(r, lista, claveDe) {
+    const nuevas = [], viejas = [];
+    for (const x of lista) (VISTAS.has(claveDe(x)) ? viejas : nuevas).push(x);
+    viejas.sort((a, b) => VISTAS.get(claveDe(a)) - VISTAS.get(claveDe(b)));
+    return r.baraja(nuevas).concat(viejas);
+  }
+
   const cuatro = (correcta, pozo, r) => {
     const ops = [correcta];
     for (const x of pozo) if (!ops.includes(x) && ops.length < 4) ops.push(x);
@@ -649,7 +660,7 @@
   // ------------------------------------------------- もんだい１ · lectura
   // Se subraya una palabra escrita en kanji y se pregunta cómo se lee.
   function itemLectura(r, usadas, hechos) {
-    for (const o of r.baraja(corpus().palabras)) {
+    for (const o of prefiere(r, corpus().palabras, o => "lectura:" + o.kanji)) {
       // si sus kanji no son del N5, en el examen esa palabra iría en kana y no
       // habría nada que leer
       if (!o.esN5 || usadas.has(o.kanji) || !/^[ぁ-ゖー]+$/.test(o.lectura)) continue;
@@ -666,7 +677,7 @@
       if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "lectura", ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
+        tipo: "lectura", clave: "lectura:" + o.kanji, ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
         nota: `${o.kanji}（${o.lectura}）${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -683,7 +694,7 @@
       if (k) return k;
     }
     const { palabras, porOn, todosKanji } = corpus();
-    for (const o of r.baraja(palabras)) {
+    for (const o of prefiere(r, palabras, o => "escritura:" + o.kanji)) {
       if (!o.esN5 || usadas.has(o.kanji) || o.kanji.length > 3) continue;
       if (o.verbo && demasiados(hechos)) continue;
       if (!/^[ぁ-ゖー]+$/.test(o.lectura)) continue;
@@ -721,7 +732,7 @@
       if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "escritura", ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
+        tipo: "escritura", clave: "escritura:" + o.kanji, ...e, modo: "subrayado", verbo: !!o.verbo, ...c,
         nota: `${o.lectura} se escribe ${o.kanji}${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -732,7 +743,7 @@
   // La palabra va subrayada en hiragana y las cuatro opciones son formas de
   // escribirla en katakana, casi iguales entre sí.
   function itemKatakana(r, usadas) {
-    for (const o of r.baraja(corpus().katakanas)) {
+    for (const o of prefiere(r, corpus().katakanas, o => "katakana:" + o.kata)) {
       if (usadas.has(o.kata)) continue;
       const libres = o.frases.filter(f => !usadas.has(f.plano));
       if (!libres.length) continue;
@@ -744,7 +755,7 @@
       if (!e) continue;
       usadas.add(o.kata); usadas.add(f.plano);
       return {
-        tipo: "katakana", ...e, modo: "subrayado", ...c,
+        tipo: "katakana", clave: "katakana:" + o.kata, ...e, modo: "subrayado", ...c,
         nota: `${hira} se escribe ${o.kata}${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -757,7 +768,7 @@
   // algo de cuerpo: en 「（　）を売ります」 encajarían las cuatro opciones.
   function itemContexto(r, usadas) {
     const { palabras, trasPalabra } = corpus();
-    for (const o of r.baraja(palabras)) {
+    for (const o of prefiere(r, palabras, o => "contexto:" + o.forma)) {
       if (usadas.has(o.kanji)) continue;
       const buenas = o.frases.filter(f => f.completa && f.plano.length >= 13 && !usadas.has(f.plano));
       if (!buenas.length) continue;
@@ -778,7 +789,7 @@
       if (!e) continue;
       usadas.add(o.kanji); usadas.add(f.plano);
       return {
-        tipo: "contexto", ...e, modo: "hueco", ...c,
+        tipo: "contexto", clave: "contexto:" + o.forma, ...e, modo: "hueco", ...c,
         nota: `${o.kanji}（${o.lectura}）${o.es ? " — " + o.es : ""}`,
         traduccion: f.es, leccion: f.leccion
       };
@@ -793,11 +804,11 @@
   function itemParafrasis(r, usadas) {
     const pozo = (N5.data.examenes?.parafrasis || []).filter(p => !usadas.has(p.frase));
     if (!pozo.length) return null;
-    const p = r.elige(pozo);
+    const p = prefiere(r, pozo, p => "parafrasis:" + p.frase)[0];
     usadas.add(p.frase);
     const mezcla = r.baraja(p.opciones);
     return {
-      tipo: "parafrasis", frase: p.frase, modo: "ninguno",
+      tipo: "parafrasis", clave: "parafrasis:" + p.frase, frase: p.frase, modo: "ninguno",
       opciones: mezcla, correcta: mezcla.indexOf(p.opciones[0]),
       nota: p.nota || "", traduccion: p.es || "", leccion: null
     };
@@ -809,8 +820,19 @@
   // partículas de las frases de ejemplo de la gramática.
   function itemForma(r, usadas) {
     const gens = r.baraja([itemDrill, itemParticulaVerbo, itemParticulaFrase]);
-    for (const g of gens) { const it = g(r, usadas); if (it) return it; }
-    return null;
+    // La primera cantera que dé algo no visto. Cada una se prueba con una copia
+    // de «usadas» y solo se confirma la que se elige.
+    let reserva = null;
+    for (const g of gens) {
+      const u = new Set(usadas);
+      const it = g(r, u);
+      if (!it) continue;
+      if (!VISTAS.has(it.clave)) { for (const k of u) usadas.add(k); return it; }
+      reserva ||= { it, u };
+    }
+    if (!reserva) return null;
+    for (const k of reserva.u) usadas.add(k);
+    return reserva.it;
   }
 
   // Los ejercicios de data/drills.js ya tienen este formato exacto, con su
@@ -822,7 +844,7 @@
 
   function itemDrill(r, usadas) {
     const resp = x => paraExamenRuby(x.respuesta);
-    for (const x of r.baraja(N5.data.drills.filter(drillLimpio))) {
+    for (const x of prefiere(r, N5.data.drills.filter(drillLimpio), x => "forma:" + x.pregunta)) {
       // se escribe como las demás: la frase con su respuesta, y el hueco encima
       const f = hazFrase({ jp: x.pregunta.replace("（　）", x.respuesta) });
       if (!f || usadas.has(f.plano)) continue;
@@ -837,7 +859,7 @@
       if (!c) continue;
       usadas.add(f.plano);
       return {
-        tipo: "forma", ...e, modo: "hueco", ...c,
+        tipo: "forma", clave: "forma:" + x.pregunta, ...e, modo: "hueco", ...c,
         nota: paraExamenRuby(x.explicacion), traduccion: "", leccion: null
       };
     }
@@ -859,7 +881,7 @@
   function itemParticulaVerbo(r, usadas) {
     const cands = N5.data.verbs.filter(v =>
       v.ejemplo && /^〜[をにでがへと]$/.test(v.particula) && !usadas.has("v:" + v.kana));
-    for (const v of r.baraja(cands)) {
+    for (const v of prefiere(r, cands, v => "forma:v:" + v.kana)) {
       const f = hazFrase({ jp: v.ejemplo });
       if (!f || usadas.has(f.plano) || !lee(f)) continue;
       const p = v.particula.slice(1);
@@ -871,7 +893,7 @@
       if (!e || !c) continue;
       usadas.add("v:" + v.kana); usadas.add(f.plano);
       return {
-        tipo: "forma", ...e, modo: "hueco", ...c,
+        tipo: "forma", clave: "forma:v:" + v.kana, ...e, modo: "hueco", ...c,
         nota: `${v.masu}（${v.es}）pide ${v.particula}.`, traduccion: "", leccion: v.lecciones?.[0] ?? null
       };
     }
@@ -881,7 +903,7 @@
   // Y si no, se tapa una partícula de una frase de ejemplo. El troceo garantiza
   // que es una partícula de verdad y no el で de です ni el が de ひらがな.
   function itemParticulaFrase(r, usadas) {
-    for (const f of r.baraja(corpus().frases)) {
+    for (const f of prefiere(r, corpus().frases, f => "forma:" + f.plano)) {
       if (usadas.has(f.plano) || !f.completa || f.plano.length < 12) continue;
       const an = lee(f);
       if (!an || an.desconocidas) continue;
@@ -895,7 +917,7 @@
       if (!e || !c) continue;
       usadas.add(f.plano);
       return {
-        tipo: "forma", ...e, modo: "hueco", ...c,
+        tipo: "forma", clave: "forma:" + f.plano, ...e, modo: "hueco", ...c,
         nota: `La frase es 「${escribe(f, "ruby").frase}」.`, traduccion: f.es, leccion: f.leccion
       };
     }
@@ -912,13 +934,13 @@
   const lecturas = () => N5.data.examenes?.lecturas || {};
 
   function itemTextoCorto(r, usadas) {
-    const pozo = (lecturas().cortas || []).filter(t => !usadas.has("t:" + t.pregunta));
+    const pozo = (lecturas().cortas || []).filter(t => !usadas.has("t:" + t.texto));
     if (!pozo.length) return null;
-    const t = r.elige(pozo);
-    usadas.add("t:" + t.pregunta);
+    const t = prefiere(r, pozo, t => "corto:" + t.texto.slice(0, 40))[0];
+    usadas.add("t:" + t.texto);
     const mezcla = r.baraja(t.opciones);
     return {
-      tipo: "texto", modo: "texto", texto: paraExamenRuby(t.texto), frase: paraExamenRuby(t.pregunta),
+      tipo: "texto", clave: "corto:" + t.texto.slice(0, 40), modo: "texto", texto: paraExamenRuby(t.texto), frase: paraExamenRuby(t.pregunta),
       opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
       nota: t.nota || "", traduccion: t.es || "", leccion: null
     };
@@ -930,7 +952,7 @@
     if (hechos.length % 2) return null;            // la segunda la puso ya la primera
     const pozo = (lecturas().medias || []).filter(t => !usadas.has("m:" + t.texto));
     if (!pozo.length) return null;
-    const t = r.elige(pozo);
+    const t = prefiere(r, pozo, t => "medio:" + t.texto.slice(0, 40) + "#" + t.preguntas[0].pregunta)[0];
     usadas.add("m:" + t.texto);
     const texto = paraExamenRuby(t.texto);
     pendientes = t.preguntas.slice(1).map(q => monta(q, texto, t.es));
@@ -939,7 +961,7 @@
     function monta(q, texto, es) {
       const mezcla = r.baraja(q.opciones);
       return {
-        tipo: "texto", modo: "texto", texto, frase: paraExamenRuby(q.pregunta),
+        tipo: "texto", clave: "medio:" + t.texto.slice(0, 40) + "#" + q.pregunta, modo: "texto", texto, frase: paraExamenRuby(q.pregunta),
         opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(q.opciones[0]),
         nota: q.nota || "", traduccion: es || "", leccion: null
       };
@@ -950,11 +972,11 @@
   function itemInformacion(r, usadas) {
     const pozo = (lecturas().informacion || []).filter(t => !usadas.has("i:" + t.titulo));
     if (!pozo.length) return null;
-    const t = r.elige(pozo);
+    const t = prefiere(r, pozo, t => "info:" + t.titulo)[0];
     usadas.add("i:" + t.titulo);
     const mezcla = r.baraja(t.opciones);
     return {
-      tipo: "info", modo: "info", frase: paraExamenRuby(t.pregunta),
+      tipo: "info", clave: "info:" + t.titulo, modo: "info", frase: paraExamenRuby(t.pregunta),
       info: {
         titulo: paraExamenRuby(t.titulo),
         cabecera: (t.cabecera || []).map(paraExamenRuby),
@@ -986,7 +1008,7 @@
   }
 
   function itemOrden(r, usadas) {
-    for (const f of r.baraja(corpus().frases)) {
+    for (const f of prefiere(r, corpus().frases, f => "orden:" + f.plano)) {
       // Las frases con cita entrecomillada pierden el sentido al quitar 「」
       if (usadas.has(f.plano) || f.plano.includes("「")) continue;
       const an = lee(f);
@@ -1027,7 +1049,7 @@
       const estrella = r.elige([1, 2, 2, 2, 3]);
       const mezcla = r.baraja(piezas);
       return {
-        tipo: "orden", modo: "orden", antes: antes.frase, despues: despues.frase,
+        tipo: "orden", clave: "orden:" + f.plano, modo: "orden", antes: antes.frase, despues: despues.frase,
         estrella, opciones: mezcla, correcta: mezcla.indexOf(piezas[estrella]), orden: piezas,
         nota: `La frase completa es 「${escribe(f, "ruby").frase}」.`, traduccion: f.es, leccion: f.leccion
       };
@@ -1047,15 +1069,15 @@
 
   function itemDialogo(tipo) {
     return (r, usadas) => {
-      const pozo = (escucha()[tipo] || []).filter(t => !usadas.has("e:" + t.pregunta));
+      const pozo = (escucha()[tipo] || []).filter(t => !usadas.has("e:" + t.dialogo[0][1]));
       if (!pozo.length) return null;
-      const t = r.elige(pozo);
-      usadas.add("e:" + t.pregunta);
+      const t = prefiere(r, pozo, t => "dialogo:" + t.dialogo[0][1])[0];
+      usadas.add("e:" + t.dialogo[0][1]);
       const mezcla = r.baraja(t.opciones);
       const guion = [{ voz: "N", texto: t.situacion }, P(1500),
         ...t.dialogo.map(([voz, texto]) => ({ voz, texto })), P(1200), { voz: "N", texto: t.pregunta }];
       return {
-        tipo: "escucha", modo: "escucha", frase: "", guion,
+        tipo: "escucha", clave: "dialogo:" + t.dialogo[0][1], modo: "escucha", frase: "", guion,
         opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
         nota: t.nota || "", traduccion: t.es || "", leccion: null
       };
@@ -1072,11 +1094,11 @@
   function itemExpresion(r, usadas) {
     const pozo = (escucha().expresion || []).filter(t => !usadas.has("e:" + t.situacion));
     if (!pozo.length) return null;
-    const t = r.elige(pozo);
+    const t = prefiere(r, pozo, t => "expresion:" + t.situacion)[0];
     usadas.add("e:" + t.situacion);
     const { mezcla, guion } = tresOidas(r, t.voz, t.opciones);
     return {
-      tipo: "escucha", modo: "escucha", frase: "", soloNumeros: true,
+      tipo: "escucha", clave: "expresion:" + t.situacion, modo: "escucha", frase: "", soloNumeros: true,
       guion: [{ voz: "N", texto: t.situacion }, P(1500), ...guion],
       opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
       nota: t.nota || "", traduccion: "", leccion: null
@@ -1086,12 +1108,12 @@
   function itemRespuesta(r, usadas) {
     const pozo = (escucha().respuesta || []).filter(t => !usadas.has("e:" + t.frase));
     if (!pozo.length) return null;
-    const t = r.elige(pozo);
+    const t = prefiere(r, pozo, t => "respuesta:" + t.frase)[0];
     usadas.add("e:" + t.frase);
     // contesta la otra persona
     const { mezcla, guion } = tresOidas(r, t.voz === "M" ? "F" : "M", t.opciones);
     return {
-      tipo: "escucha", modo: "escucha", frase: "", soloNumeros: true,
+      tipo: "escucha", clave: "respuesta:" + t.frase, modo: "escucha", frase: "", soloNumeros: true,
       guion: [{ voz: t.voz, texto: t.frase }, P(1300), ...guion],
       opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(t.opciones[0]),
       nota: t.nota || "", traduccion: "", leccion: null
@@ -1146,8 +1168,11 @@
   E.PLAN = PLAN;
 
   // Semilla → examen montado. Determinista: la misma semilla da el mismo examen.
-  E.genera = semilla => {
+  // opts.vistas: Map clave → fecha (número) de lo que ya se ha visto
+  // opts.bloques: ids de los bloques que se quieren (por defecto, todos)
+  E.genera = (semilla, opts = {}) => {
     const r = azar(semilla);
+    VISTAS = opts.vistas instanceof Map ? opts.vistas : new Map(Object.entries(opts.vistas || {}));
     const usadas = new Set();      // nada se repite dentro del mismo examen
     const bloques = [];
     for (const b of PLAN) {

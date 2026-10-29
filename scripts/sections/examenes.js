@@ -1,35 +1,70 @@
 // Sección Exámenes: hacer un examen del N5 como si fuera el de verdad, con su
 // reloj por bloque y la corrección al final.
 //
-// Los exámenes los monta scripts/examen.js a partir de una semilla, así que el
-// «Examen 7» es siempre el mismo y se puede repetir para ver si vas mejorando.
-// Aquí solo está la mesa de examen: navegación, cronómetro, marcar para
-// revisar, corregir y guardar la nota.
+// Cada «Nuevo examen» se genera en el momento (scripts/examen.js) y procura no
+// repetir nada de lo que ya has visto: hasta que no se gasta la bolsa entera de
+// un もんだい no vuelve a salir una pregunta, y entonces vuelven primero las más
+// antiguas. Lo que fallas se guarda para el «Examen de fallos», y sale de ahí
+// cuando la aciertas.
 //
-// Lo único que se guarda es el historial de notas (localStorage), no las
-// respuestas: si repites el examen, lo haces de cero.
+// Todo se guarda en este navegador (localStorage): lo visto, los fallos y el
+// historial con el detalle de cada examen.
 "use strict";
 
 (() => {
   const { $, esc } = N5;
-  const CLAVE = "n5-examenes";
+  const CLAVE = "n5-examenes-v2";
+  const ANTIGUA = "n5-examenes";          // los 50 exámenes fijos de antes
+  const DETALLE = 100;                    // exámenes que guardan sus falladas
 
-  // ------------------------------------------------------------- historial
-  let historial = {};
-  try { historial = JSON.parse(localStorage.getItem(CLAVE) || "{}"); } catch { historial = {}; }
-  const guarda = () => { try { localStorage.setItem(CLAVE, JSON.stringify(historial)); } catch { /* lleno o privado */ } };
+  // ------------------------------------------------------------- almacén
+  let db = { vistas: {}, fallos: {}, hechos: [] };
+  try { db = { ...db, ...JSON.parse(localStorage.getItem(CLAVE) || "{}") }; } catch { /* vacío */ }
+  const guarda = () => {
+    try { localStorage.setItem(CLAVE, JSON.stringify(db)); }
+    catch {
+      // lleno: se queda sin el detalle de los exámenes más viejos y se reintenta
+      for (const h of db.hechos.slice(20)) delete h.falladas;
+      try { localStorage.setItem(CLAVE, JSON.stringify(db)); } catch { /* nada */ }
+    }
+  };
 
-  function anota(semilla, intento) {
-    const lista = historial[semilla] ||= [];
-    lista.unshift(intento);
-    lista.length = Math.min(lista.length, 5);   // con los cinco últimos sobra
+  // Las notas de los antiguos «Examen 1…50» pasan al historial, y sus preguntas
+  // cuentan como vistas para que el generador no te las vuelva a poner pronto.
+  function migra() {
+    if (db.migrado) return;
+    db.migrado = true;
+    let viejo = {};
+    try { viejo = JSON.parse(localStorage.getItem(ANTIGUA) || "{}"); } catch { /* nada */ }
+    for (const [semilla, intentos] of Object.entries(viejo)) {
+      if (!Array.isArray(intentos)) continue;
+      const n = +semilla.slice(-4);
+      const ex = N5.examen.genera(semilla);
+      for (const i of intentos) {
+        const ts = fechaATs(i.fecha);
+        db.hechos.push({ id: semilla + "-" + ts, ts, tipo: "antiguo", titulo: "Examen " + n + " (de los fijos)",
+          aciertos: i.aciertos, total: i.total, segundos: i.segundos, bloques: [] });
+        for (const b of ex.bloques) {
+          if (i.parcial && b.titulo.toLowerCase() !== i.parcial) continue;
+          for (const p of b.problemas) for (const it of p.items)
+            db.vistas[it.clave] = Math.max(db.vistas[it.clave] || 0, ts);
+        }
+      }
+    }
+    db.hechos.sort((a, b) => b.ts - a.ts);
     guarda();
   }
-  const mejorDe = s => (historial[s] || []).reduce((m, i) => Math.max(m, i.aciertos / i.total), 0);
+  // «19/9/2026» → marca de tiempo
+  const fechaATs = f => {
+    const m = /^(\d+)\/(\d+)\/(\d+)$/.exec(f || "");
+    return m ? new Date(+m[3], +m[2] - 1, +m[1], 12).getTime() : Date.now();
+  };
+  const fecha = ts => new Date(ts).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
   const pct = x => Math.round(x * 100) + "%";
+  const nFallos = () => Object.keys(db.fallos).length;
 
   // ---------------------------------------------------------------- estado
-  let vista = "catalogo";     // catalogo · portada · test · descanso · resultado
+  let vista = "inicio";       // inicio · portada · test · descanso · resultado
   let ex = null;              // examen generado
   let bloques = [];           // los bloques que se están haciendo
   let bi = 0, ii = 0;         // bloque e ítem actuales
@@ -61,12 +96,13 @@
   // ------------------------------------------------------- examen a medias
   // Cambiar de pestaña —o recargar sin querer— no puede costarte el examen: se
   // guarda por dónde ibas y el reloj se queda parado hasta que vuelvas.
-  const CURSO = "n5-examen-curso";
+  const CURSO = "n5-examen-curso-v2";
   function guardaCurso() {
     if (vista !== "test") return;
     try {
+      // el examen entero: ya no sale de una semilla fija, depende de lo visto
       localStorage.setItem(CURSO, JSON.stringify({
-        semilla: ex.semilla, ids: bloques.map(b => b.id), bi, ii, restante, usado,
+        ex, ids: bloques.map(b => b.id), bi, ii, restante, usado,
         respuestas: [...respuestas], marcadas: [...marcadas], oidos: [...oidos]
       }));
     } catch { /* almacenamiento lleno o en privado: se pierde y ya está */ }
@@ -75,14 +111,12 @@
   function leeCurso() {
     try {
       const c = JSON.parse(localStorage.getItem(CURSO) || "null");
-      return c && c.semilla && c.ids?.length ? c : null;
+      return c && c.ex && c.ids?.length ? c : null;
     } catch { return null; }
   }
 
-  // Vuelve a montar el examen guardado. El examen no se guarda: se regenera de
-  // su semilla, que para eso es determinista.
   function retoma(c) {
-    ex = N5.examen.genera(c.semilla);
+    ex = c.ex;
     bloques = ex.bloques.filter(b => c.ids.includes(b.id));
     if (!bloques.length) return olvidaCurso();
     bi = Math.min(c.bi, bloques.length - 1);
@@ -93,44 +127,49 @@
     usado = c.usado || 0;
     vista = "test";
     arranca(c.restante > 0 ? c.restante : bloques[bi].minutos * 60);
-    N5.go("#/examenes/" + (+c.semilla.slice(-4)));
     pinta();
   }
 
-  // ------------------------------------------------------------- catálogo
-  function pintaCatalogo() {
-    const tarjetas = [];
-    for (let n = 1; n <= N5.examen.CUANTOS; n++) {
-      const s = N5.examen.semillaDe(n);
-      const hechos = (historial[s] || []).length;
-      const mejor = mejorDe(s);
-      tarjetas.push(`<button class="excard${hechos ? " hecho" : ""}" data-n="${n}">
-        <span class="exnum">${n}</span>
-        <span class="exnota">${hechos ? pct(mejor) : "—"}</span>
-        <span class="exveces muted">${hechos ? (hechos === 1 ? "1 vez" : hechos + " veces") : "sin hacer"}</span>
-      </button>`);
-    }
+  // --------------------------------------------------------------- inicio
+  const ETIQUETA = { nuevo: "Examen", fallos: "Fallos", antiguo: "Fijo" };
+  function pintaInicio() {
+    vista = "inicio";
+    const vistas = Object.keys(db.vistas).length;
+    const nf = nFallos();
     $("#exView").innerHTML = `
       <h2>Exámenes</h2>
-      <p class="lead">Exámenes del estilo del N5, con sus <b>もんだい</b>, su reloj y su corrección. Cada número es siempre
-      el mismo examen, así que puedes repetirlo dentro de un tiempo y ver si has mejorado. Las preguntas se generan con el
-      vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero siguen su formato.</p>
-      <div class="exaviso">Los tres bloques: <b>文字・語彙</b> (20 min), <b>文法・読解</b> (40 min) y <b>聴解</b>
-      (30 min), que lee la voz japonesa del navegador; sube el volumen. Falta もんだい３ de 文法 (el texto con
-      huecos), y en 聴解 las opciones que en el examen son dibujos van escritas.</div>
+      <p class="lead">Exámenes del estilo del N5, con sus <b>もんだい</b>, su reloj y su corrección. Cada examen nuevo
+      se genera en el momento y evita lo que ya te ha salido: no se repite nada hasta que se gasta todo lo que hay.
+      Las preguntas salen del vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero
+      siguen su formato.</p>
+      <div class="exaviso">Tres bloques: <b>文字・語彙</b> (20 min), <b>文法・読解</b> (40 min) y <b>聴解</b>
+      (30 min), que lee la voz japonesa del navegador. Falta もんだい３ de 文法 (el texto con huecos), y en 聴解 las
+      opciones que en el examen son dibujos van escritas.</div>
       ${avisoCurso()}
-      <div class="exgrid">${tarjetas.join("")}</div>`;
+      <div class="exbotones exprincipal">
+        <button class="btn" id="exNuevo">＋ Nuevo examen</button>
+        <button class="btn secondary" id="exFallos"${nf ? "" : " disabled"}>Examen de fallos (${nf})</button>
+      </div>
+      <p class="muted exnota-vistas">${vistas ? `Llevas ${vistas} preguntas vistas.` : "Aún no has hecho ninguno."}
+        ${nf ? ` ${nf} ${nf === 1 ? "fallada espera" : "falladas esperan"} en el examen de fallos: salen de ahí cuando las aciertas.` : ""}</p>
+      ${db.hechos.length ? `<h3 class="hsub">Historial</h3>
+      <div class="tablewrap"><table class="extabla exhistorial">
+        <thead><tr><th>Fecha</th><th>Qué</th><th class="num">Nota</th><th class="num">Tiempo</th><th></th></tr></thead>
+        <tbody>${db.hechos.map(h => `<tr data-h="${esc(h.id)}"${h.falladas || h.desglose ? ' class="abre"' : ""}>
+          <td>${fecha(h.ts)}</td>
+          <td><span class="extipo ${h.tipo}">${ETIQUETA[h.tipo] || ""}</span> ${esc(h.titulo || "")}</td>
+          <td class="num"><b>${h.aciertos}/${h.total}</b> <span class="muted">${pct(h.aciertos / h.total)}</span></td>
+          <td class="num muted">${mmss(h.segundos || 0)}</td>
+          <td class="num">${h.falladas || h.desglose ? "Ver →" : ""}</td></tr>`).join("")}</tbody>
+      </table></div>` : ""}`;
   }
 
-  // Cinta de «lo dejaste a medias» encima del catálogo. El reloj sigue parado
-  // hasta que se pulsa Seguir.
   function avisoCurso() {
     const c = vista === "test" ? null : leeCurso();
     if (!c) return "";
-    const n = +c.semilla.slice(-4);
     const hechas = (c.respuestas || []).length;
     return `<div class="excurso">
-      <div><b>Examen ${n} a medias</b> · ${hechas} ${hechas === 1 ? "respondida" : "respondidas"}
+      <div><b>${esc(c.ex.titulo || "Examen")} a medias</b> · ${hechas} ${hechas === 1 ? "respondida" : "respondidas"}
         · quedan ${mmss(Math.max(0, c.restante))} en este bloque</div>
       <div class="exbotones">
         <button class="btn" id="exRetoma">Seguir</button>
@@ -138,15 +177,48 @@
       </div></div>`;
   }
 
+  // ------------------------------------------------------ exámenes nuevos
+  function nuevo() {
+    const semilla = "n5-" + Date.now().toString(36);
+    ex = N5.examen.genera(semilla, { vistas: db.vistas });
+    ex.tipo = "nuevo";
+    ex.titulo = "Examen del " + fecha(Date.now());
+    pintaPortada();
+  }
+
+  // Las falladas, agrupadas en sus bloques y もんだい como en un examen normal.
+  // Tiempo proporcional: lo que daría el examen real para ese número de preguntas.
+  const MAX_FALLOS = 40;
+  function deFallos() {
+    const lista = Object.values(db.fallos).sort((a, b) => a.ts - b.ts).slice(0, MAX_FALLOS);
+    const bloquesEx = [];
+    for (const plan of N5.examen.PLAN) {
+      const delBloque = lista.filter(f => f.bloque === plan.id);
+      if (!delBloque.length) continue;
+      const totalPlan = plan.problemas.reduce((n, p) => n + p.cuantos, 0);
+      const problemas = plan.problemas.map(p => {
+        const items = delBloque.filter(f => f.n === p.n)
+          .map((f, i) => ({ ...f.item, ref: `${plan.id}-${p.n}-${i + 1}` }));
+        return items.length ? { n: p.n, kanji: p.kanji, instruccion: p.instruccion, items } : null;
+      }).filter(Boolean);
+      const total = problemas.reduce((n, p) => n + p.items.length, 0);
+      bloquesEx.push({ id: plan.id, kanji: plan.kanji, titulo: plan.titulo, problemas, total,
+        minutos: Math.max(3, Math.round(plan.minutos * total / totalPlan)) });
+    }
+    ex = { semilla: "fallos-" + Date.now().toString(36), bloques: bloquesEx, tipo: "fallos",
+      titulo: "Examen de fallos", total: bloquesEx.reduce((n, b) => n + b.total, 0) };
+    pintaPortada();
+  }
+
   // -------------------------------------------------------------- portada
   function pintaPortada() {
-    const s = ex.semilla;
-    const n = +s.slice(-4);
-    const intentos = historial[s] || [];
+    vista = "portada";
     $("#exView").innerHTML = `
       <div class="exportada">
-        <button class="btn secondary" id="exVolver">← Todos los exámenes</button>
-        <h2>Examen ${n}</h2>
+        <button class="btn secondary" id="exVolver">← Exámenes</button>
+        <h2>${esc(ex.titulo || "Examen")}</h2>
+        ${ex.tipo === "fallos" ? `<p class="lead">Las ${ex.total} preguntas que tienes falladas${nFallos() > ex.total ?
+          ` (las ${ex.total} más antiguas de ${nFallos()})` : ""}. Las que aciertes salen de la lista.</p>` : ""}
         <table class="extabla">
           <thead><tr><th>Bloque</th><th>Preguntas</th><th class="num">Tiempo</th></tr></thead>
           <tbody>${ex.bloques.map(b => `<tr>
@@ -156,14 +228,11 @@
             <td class="num">${ex.bloques.reduce((t, b) => t + b.minutos, 0)} min</td></tr></tbody>
         </table>
         <div class="exbotones">
-          <button class="btn" data-empezar="todo">Hacer el examen entero</button>
-          ${ex.bloques.map(b => `<button class="btn secondary" data-empezar="${b.id}">Solo ${esc(b.titulo.toLowerCase())}</button>`).join("")}
+          <button class="btn" data-empezar="todo">Hacer ${ex.bloques.length > 1 ? "el examen entero" : "el examen"}</button>
+          ${ex.bloques.length > 1 ? ex.bloques.map(b => `<button class="btn secondary" data-empezar="${b.id}">Solo ${esc(b.titulo.toLowerCase())}</button>`).join("") : ""}
         </div>
-        ${intentos.length ? `<div class="exhist">
-          <h3 class="hsub">Lo que llevas</h3>
-          <ul>${intentos.map(i => `<li><b>${i.aciertos}/${i.total}</b> (${pct(i.aciertos / i.total)})
-            · ${esc(i.fecha)} · ${mmss(i.segundos)}${i.parcial ? " · solo " + esc(i.parcial) : ""}</li>`).join("")}</ul>
-        </div>` : ""}
+        ${ex.tipo === "nuevo" ? `<p class="muted">Solo cuenta como visto lo que hagas: si haces un bloque, las preguntas
+          de los otros pueden salirte en el siguiente examen.</p>` : ""}
       </div>`;
   }
 
@@ -250,11 +319,11 @@
 
   // En la corrección de 聴解 se ve lo que se dijo, y se puede volver a oír.
   const QUIEN = { N: "", M: "男", F: "女" };
-  function guion(it, b) {
+  function guion(it, k) {
     const lineas = it.guion.filter(g => g.texto).map(g =>
       `<div class="exguion-l">${QUIEN[g.voz] ? `<span class="exquien">${QUIEN[g.voz]}</span>` : ""}<span>${jp(g.texto)}</span></div>`).join("");
     return `<div class="expasaje exguion jp">${lineas}</div>
-      <button class="btn secondary" data-reoir="${it.ref}" data-b="${b.id}">▶ Volver a escuchar</button>`;
+      <button class="btn secondary" data-reoir="${k}">▶ Volver a escuchar</button>`;
   }
 
   function pinta() {
@@ -316,61 +385,79 @@
   }
 
   // ------------------------------------------------------------ corrección
+  // Una pregunta para guardar: sin lo que añade enFila (el もんだい entero).
+  const limpia = it => { const { problema, ...resto } = it; return resto; };
+
   function corrige() {
     para();
-    vista = "resultado";
     const segundos = usado;      // solo cuenta el tiempo con el reloj andando
     olvidaCurso();
+    const ahora = Date.now();
     let aciertos = 0, total = 0;
-    const detalle = bloques.map(b => {
-      const probs = b.problemas.map(p => {
-        const ok = p.items.filter(it => respuestas.get(it.ref) === it.correcta).length;
-        aciertos += ok; total += p.items.length;
-        return { p, ok };
-      });
-      return { b, probs };
-    });
-    anota(ex.semilla, {
-      fecha: new Date().toLocaleDateString("es-ES"), aciertos, total, segundos,
-      parcial: bloques.length < ex.bloques.length ? bloques[0].titulo.toLowerCase() : ""
-    });
+    const desglose = [], falladas = [];
+    for (const b of bloques) for (const p of b.problemas) {
+      let ok = 0;
+      for (const it of p.items) {
+        const tuya = respuestas.get(it.ref);
+        db.vistas[it.clave] = ahora;
+        if (tuya === it.correcta) { ok++; delete db.fallos[it.clave]; continue; }
+        const item = limpia(it);
+        db.fallos[it.clave] = { item, bloque: b.id, n: p.n, veces: (db.fallos[it.clave]?.veces || 0) + 1, ts: ahora };
+        falladas.push({ item, bloque: b.id, n: p.n, tuya });
+      }
+      aciertos += ok; total += p.items.length;
+      desglose.push({ bloque: b.id, bkanji: b.kanji, n: p.n, pkanji: p.kanji, ok, total: p.items.length });
+    }
+    const h = {
+      id: ex.semilla + "-" + ahora, ts: ahora, tipo: ex.tipo || "nuevo",
+      titulo: bloques.length < ex.bloques.length ? `${ex.titulo} · solo ${bloques[0].titulo.toLowerCase()}` : ex.titulo,
+      aciertos, total, segundos, desglose, falladas
+    };
+    db.hechos.unshift(h);
+    for (const viejo of db.hechos.slice(DETALLE)) delete viejo.falladas;
+    guarda();
+    pintaInforme(h, true);
+  }
 
-    const falladas = bloques.flatMap(b => b.problemas.flatMap(p => p.items
-      .filter(it => respuestas.get(it.ref) !== it.correcta)
-      .map(it => ({ it, p, b }))));
-
+  // El informe de un examen: la nota, cómo fue cada もんだい y las falladas con
+  // su explicación. Sirve recién corregido y para abrirlo desde el historial.
+  let informe = [];                       // las falladas que se están enseñando
+  function pintaInforme(h, recien) {
+    vista = "resultado";
+    informe = h.falladas || [];
     $("#exView").innerHTML = `
       <div class="exresultado">
-        <div class="exnotagrande">${aciertos} <span class="muted">/ ${total}</span></div>
-        <p class="lead">${pct(aciertos / total)} · ${mmss(segundos)}
-          ${aciertos / total >= 0.6 ? "— por ahí va la cosa." : "— a seguir dándole."}</p>
-        <table class="extabla">
+        ${recien ? "" : `<button class="btn secondary" id="exVolver">← Exámenes</button>`}
+        <h2>${esc(h.titulo || "Examen")}</h2>
+        <div class="exnotagrande">${h.aciertos} <span class="muted">/ ${h.total}</span></div>
+        <p class="lead">${pct(h.aciertos / h.total)} · ${mmss(h.segundos || 0)} · ${fecha(h.ts)}
+          ${recien ? (h.aciertos / h.total >= 0.6 ? "— por ahí va la cosa." : "— a seguir dándole.") : ""}</p>
+        ${h.desglose?.length ? `<table class="extabla">
           <thead><tr><th>Bloque</th><th>もんだい</th><th class="num">Aciertos</th></tr></thead>
-          <tbody>${detalle.map(d => d.probs.map((x, k) => `<tr>
-            <td>${k === 0 ? `<span class="jp">${esc(d.b.kanji)}</span>` : ""}</td>
-            <td><span class="jp">もんだい${x.p.n}</span> <span class="muted jp">${esc(x.p.kanji)}</span></td>
-            <td class="num">${x.ok} / ${x.p.items.length}</td></tr>`).join("")).join("")}</tbody>
-        </table>
+          <tbody>${h.desglose.map((x, k) => `<tr>
+            <td>${k === 0 || h.desglose[k - 1].bloque !== x.bloque ? `<span class="jp">${esc(x.bkanji)}</span>` : ""}</td>
+            <td><span class="jp">もんだい${x.n}</span> <span class="muted jp">${esc(x.pkanji)}</span></td>
+            <td class="num">${x.ok} / ${x.total}</td></tr>`).join("")}</tbody>
+        </table>` : ""}
 
-        ${falladas.length ? `<h3 class="hsub">Las que fallaste</h3>
-        <div class="exrepaso">${falladas.map(({ it, p, b }) => {
-          const tuya = respuestas.get(it.ref);
-          return `<div class="exfallo">
-            <div class="muted">もんだい${p.n}</div>
+        ${!h.falladas ? `<p class="muted">De este examen solo se guardó la nota.</p>`
+          : h.falladas.length ? `<h3 class="hsub">Las que fallaste</h3>
+        <div class="exrepaso">${h.falladas.map(({ item: it, n, tuya }, k) => `<div class="exfallo">
+            <div class="muted">もんだい${n}${db.fallos[it.clave] ? "" : ` · <span class="ok">ya acertada después</span>`}</div>
             ${pasaje(it)}
-            ${it.guion ? guion(it, b) : `<p class="jp">${cuerpo(it)}</p>`}
+            ${it.guion ? guion(it, k) : `<p class="jp">${cuerpo(it)}</p>`}
             <p><span class="ok jp">${it.correcta + 1}. ${jp(it.opciones[it.correcta])}</span>
-              ${tuya === undefined ? `<span class="muted"> · en blanco</span>`
+              ${tuya === undefined || tuya === null ? `<span class="muted"> · en blanco</span>`
                 : `<span class="mal jp"> · tú: ${tuya + 1}. ${jp(it.opciones[tuya])}</span>`}</p>
             ${it.tipo === "orden" ? `<p class="muted jp">Orden: ${jp(it.orden.join(" / "))}</p>` : ""}
             ${it.nota ? `<p class="muted">${N5.rubyEsc(it.nota)}</p>` : ""}
             ${it.traduccion ? `<p class="muted">«${esc(it.traduccion)}»</p>` : ""}
-          </div>`;
-        }).join("")}</div>` : `<p class="lead">Ni una fallada. 完璧です。</p>`}
+          </div>`).join("")}</div>` : `<p class="lead">Ni una fallada. 完璧です。</p>`}
 
         <div class="exbotones">
-          <button class="btn" id="exOtra">Repetir este examen</button>
-          <button class="btn secondary" id="exVolver">← Todos los exámenes</button>
+          ${recien ? `<button class="btn" id="exNuevo">＋ Nuevo examen</button>` : ""}
+          ${nFallos() ? `<button class="btn secondary" id="exFallos">Examen de fallos (${nFallos()})</button>` : ""}
+          <button class="btn secondary" id="exVolver">← Exámenes</button>
         </div>
       </div>`;
   }
@@ -384,11 +471,6 @@
     ii = k; pinta();
   }
 
-  function abre(n) {
-    ex = N5.examen.genera(N5.examen.semillaDe(n));
-    vista = "portada";
-    pintaPortada();
-  }
 
   N5.registerSection({
     id: "examenes", titulo: "Exámenes",
@@ -396,20 +478,21 @@
       $("#exView").addEventListener("click", e => {
         const t = e.target;
         if (t.closest("#exRetoma")) { const c = leeCurso(); return c && retoma(c); }
-        if (t.closest("#exTira")) { olvidaCurso(); return pintaCatalogo(); }
-        const card = t.closest(".excard");
-        if (card) return N5.go("#/examenes/" + card.dataset.n);
-        if (t.closest("#exVolver")) { para(); return N5.go("#/examenes"); }
+        if (t.closest("#exTira")) { olvidaCurso(); return pintaInicio(); }
+        if (t.closest("#exVolver")) { para(); N5.escucha?.para(); return pintaInicio(); }
+        if (t.closest("#exNuevo")) { N5.escucha?.para(); return nuevo(); }
+        if (t.closest("#exFallos")) { N5.escucha?.para(); return deFallos(); }
+        const fila = t.closest("tr.abre");
+        if (fila) { const h = db.hechos.find(x => x.id === fila.dataset.h); if (h) pintaInforme(h, false); return; }
 
         const emp = t.closest("[data-empezar]");
         if (emp) return empieza(emp.dataset.empezar);
         if (t.closest("#exSigue")) { bi++; ii = 0; vista = "test"; arranca(bloques[bi].minutos * 60); return pinta(); }
-        if (t.closest("#exOtra")) return pintaPortada();
 
         const reoir = t.closest("[data-reoir]");
         if (reoir) {                        // en la corrección se puede volver a oír
-          const it = enFila(bloques.find(b => b.id === reoir.dataset.b)).find(x => x.ref === reoir.dataset.reoir);
-          if (it) N5.escucha.reproduce(it.guion);
+          const f = informe[+reoir.dataset.reoir];
+          if (f) N5.escucha.reproduce(f.item.guion);
           return;
         }
         if (vista !== "test") return;
@@ -439,29 +522,17 @@
           return acabaBloque(false);
         }
       });
-      pintaCatalogo();
+      migra();
+      pintaInicio();
     },
     // Al irse a otra pestaña el reloj se para y el examen queda guardado; al
     // volver, el catálogo ofrece seguir donde lo dejaste.
     onLeave() { N5.escucha?.para(); if (vista === "test") { pausado = true; guardaCurso(); para(); } },
 
-    onRoute({ sub }) {
-      const n = +sub;
-      if (n >= 1 && n <= N5.examen.CUANTOS) {
-        const semilla = N5.examen.semillaDe(n);
-        if (vista === "test" && ex && ex.semilla === semilla) {  // seguir donde estabas
-          if (!reloj) arranca(restante);
-          pausado = false;
-          return pinta();
-        }
-        const c = leeCurso();
-        if (c && c.semilla === semilla) return retoma(c);
-        return abre(n);
-      }
-      // el catálogo no abandona nada: solo deja de contar y lo ofrece arriba
+    onRoute() {
+      // volver a la pestaña con un examen a medias: no se abandona, se ofrece seguir
       if (vista === "test") { pausado = true; guardaCurso(); para(); }
-      vista = "catalogo";
-      pintaCatalogo();
+      if (vista !== "portada" && vista !== "resultado" && vista !== "descanso") pintaInicio();
     }
   });
 })();

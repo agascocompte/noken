@@ -52,10 +52,13 @@ Tras editar, ejecuta `node tools/check.mjs` (esquemas, duplicados, furigana).
 
 ## Exámenes
 
-La pestaña Exámenes no guarda exámenes: guarda **semillas**. `scripts/examen.js`
-monta el «Examen 7» siempre igual a partir de `noken5-0007`, con el reparto de
-もんだい del formato vigente desde diciembre de 2020, y las preguntas salen del
-vocabulario, los kanji, los verbos y las frases de ejemplo que ya hay en `data/`.
+Cada «Nuevo examen» se genera en el momento (`scripts/examen.js`) con el
+reparto de もんだい del formato vigente desde diciembre de 2020, y las preguntas
+salen del vocabulario, los kanji, los verbos y las frases de ejemplo que ya hay
+en `data/`. Cada pregunta tiene una clave; el generador recibe las que ya has
+visto y elige primero entre las que no, así que no se repite nada hasta que se
+gasta la bolsa de ese もんだい. Lo visto, los fallos (para el «Examen de fallos»)
+y el historial se guardan en el navegador.
 No son exámenes oficiales: son del mismo formato, generados con este contenido.
 
 Los exámenes se escriben con los **103 kanji del N5** (`n5` en `data/kanji.js`),
@@ -72,12 +75,12 @@ portadoras para los kanji que el libro no usa en sus ejemplos (los números,
 もんだい３ de 文法 (el texto con huecos).
 
 Para ver qué preguntas salen sin abrir el navegador:
-`node tools/examen.mjs 7` (uno) o `node tools/examen.mjs 1 50` (valida los 50).
+`node tools/examen.mjs 7` (uno, con la semilla 7) o `node tools/examen.mjs 1 50` (valida 50).
 
 ## Rutas
 
 `#/vocabulario?q=neko&leccion=6` · `#/gramatica/l13` · `#/gramatica/tema/forma-te`
-· `#/verbos?q=nonde` · `#/kanji?q=agua` · `#/examenes/7` — todas enlazables y con
+· `#/verbos?q=nonde` · `#/kanji?q=agua` · `#/examenes` — todas enlazables y con
 historial.
 
 ## Ampliar a otros niveles (N4…)
