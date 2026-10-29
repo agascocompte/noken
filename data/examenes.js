@@ -434,6 +434,594 @@ N5.data.examenes=
      "べんりだから。"
     ],
     "nota": "「海が 見たいので、山の 上の ホテルに しました」."
+   },
+   {
+    "texto": "きのうは 母[はは]の たんじょうびでした。わたしは 花[はな]を 買[か]って、兄[あに]は ケーキを 作[つく]りました。父[ちち]は 仕事[しごと]で おそく 帰[かえ]りましたが、みんなで ケーキを 食[た]べました。",
+    "es": "Ayer fue el cumpleaños de mi madre. Yo compré flores y mi hermano hizo una tarta. Mi padre volvió tarde del trabajo, pero comimos la tarta todos juntos.",
+    "pregunta": "ケーキを 作[つく]ったのは だれですか。",
+    "opciones": [
+     "あに",
+     "わたし",
+     "ちち",
+     "はは"
+    ],
+    "nota": "「兄は ケーキを 作りました」."
+   },
+   {
+    "texto": "田中[たなか]さんへ\n\nきょうの 3時[じ]の かいぎは あしたの 10時[じ]に なりました。へやは 同[おな]じです。しりょうは あした わたします。\n\n山田[やまだ]",
+    "es": "Tanaka: la reunión de hoy a las 3 pasa a mañana a las 10. La sala es la misma. Los documentos te los doy mañana. Yamada.",
+    "pregunta": "かいぎは いつに なりましたか。",
+    "opciones": [
+     "あしたの 10時[じ]",
+     "きょうの 3時[じ]",
+     "きょうの 10時[じ]",
+     "あしたの 3時[じ]"
+    ],
+    "nota": "「あしたの 10時に なりました」."
+   },
+   {
+    "texto": "わたしは まいばん 日本語[にほんご]の テレビを 見[み]ます。はじめは ぜんぜん わかりませんでしたが、今[いま]は 少[すこ]し わかります。ニュースは まだ むずかしいです。",
+    "es": "Todas las noches veo la tele en japonés. Al principio no entendía nada, pero ahora entiendo un poco. Las noticias aún me cuestan.",
+    "pregunta": "この 人[ひと]は 今[いま] どうですか。",
+    "opciones": [
+     "テレビが 少[すこ]し わかります。",
+     "テレビが ぜんぜん わかりません。",
+     "ニュースが よく わかります。",
+     "テレビを 見[み]ません。"
+    ],
+    "nota": "「今は 少し わかります」."
+   },
+   {
+    "texto": "わたしの へやには つくえと いすと ベッドが あります。テレビは ありません。ほんだなは 小[ちい]さいですから、本[ほん]は ベッドの 下[した]に おいて います。",
+    "es": "En mi cuarto hay una mesa, una silla y una cama. No hay tele. Como la estantería es pequeña, los libros los tengo debajo de la cama.",
+    "pregunta": "本[ほん]は どこに ありますか。",
+    "opciones": [
+     "ベッドの 下[した]",
+     "ほんだなの 中[なか]",
+     "つくえの 上[うえ]",
+     "いすの 下[した]"
+    ],
+    "nota": "La estantería es pequeña, así que los libros van debajo de la cama."
+   },
+   {
+    "texto": "きょうは とても いい 天気[てんき]です。でも、あしたは 雨[あめ]が ふるでしょう。それで、わたしは きょう せんたくを します。",
+    "es": "Hoy hace muy buen tiempo, pero mañana lloverá. Por eso hoy hago la colada.",
+    "pregunta": "この 人[ひと]は どうして きょう せんたくを しますか。",
+    "opciones": [
+     "あした 雨[あめ]が ふるから",
+     "きょう 雨[あめ]が ふるから",
+     "あした ひまだから",
+     "きょう いそがしいから"
+    ],
+    "nota": "Mañana lloverá: mejor lavar hoy."
+   },
+   {
+    "texto": "わたしは バスで 学校[がっこう]へ 行[い]きます。バスは 20分[ぷん] かかります。でも、雨[あめ]の 日[ひ]は バスが こむので、ちかてつで 行[い]きます。",
+    "es": "Voy a clase en autobús, que tarda 20 minutos. Pero los días de lluvia el autobús va lleno, así que voy en metro.",
+    "pregunta": "雨[あめ]の 日[ひ]、この 人[ひと]は 何[なに]で 学校[がっこう]へ 行[い]きますか。",
+    "opciones": [
+     "ちかてつ",
+     "バス",
+     "じてんしゃ",
+     "あるいて"
+    ],
+    "nota": "「雨の 日は…ちかてつで 行きます」."
+   },
+   {
+    "texto": "ミラーさんは にく りょうりが すきですが、さかなは あまり 食[た]べません。やさいも すきです。くだものは 毎朝[まいあさ] 食[た]べます。",
+    "es": "Al Sr. Miller le gusta la carne, pero apenas come pescado. También le gusta la verdura. Fruta come todas las mañanas.",
+    "pregunta": "ミラーさんが あまり 食[た]べない ものは 何[なん]ですか。",
+    "opciones": [
+     "さかな",
+     "にく",
+     "やさい",
+     "くだもの"
+    ],
+    "nota": "「さかなは あまり 食べません」."
+   },
+   {
+    "texto": "あした 友[とも]だちと 山[やま]へ 行[い]きます。朝[あさ] 7時[じ]に 駅[えき]で 会[あ]います。おべんとうは 友[とも]だちが 作[つく]ります。わたしは 飲[の]み物[もの]を 持[も]って 行[い]きます。",
+    "es": "Mañana voy a la montaña con un amigo. Quedamos a las 7 en la estación. La comida la hace mi amigo; yo llevo las bebidas.",
+    "pregunta": "この 人[ひと]は あした 何[なに]を 持[も]って 行[い]きますか。",
+    "opciones": [
+     "のみもの",
+     "おべんとう",
+     "くだもの",
+     "おかし"
+    ],
+    "nota": "La comida la hace el amigo; esta persona lleva las bebidas."
+   },
+   {
+    "texto": "この 店[みせ]は 月曜日[げつようび]から 金曜日[きんようび]まで 朝[あさ] 10時[じ]から 夜[よる] 8時[じ]までです。土曜日[どようび]は 6時[じ]までです。日曜日[にちようび]は 休[やす]みです。",
+    "es": "Esta tienda abre de lunes a viernes de 10 de la mañana a 8 de la tarde. Los sábados hasta las 6. El domingo cierra.",
+    "pregunta": "土曜日[どようび]は 何時[なんじ]に しまりますか。",
+    "opciones": [
+     "6時[じ]",
+     "8時[じ]",
+     "10時[じ]",
+     "しまりません"
+    ],
+    "nota": "「土曜日は 6時までです」."
+   },
+   {
+    "texto": "わたしは 先月[せんげつ] 日本[にほん]へ 来[き]ました。今[いま] 大学[だいがく]の 近[ちか]くの アパートに すんで います。へやは せまいですが、駅[えき]から 近[ちか]くて べんりです。",
+    "es": "Vine a Japón el mes pasado. Ahora vivo en un piso cerca de la universidad. Es pequeño, pero está cerca de la estación y es práctico.",
+    "pregunta": "この 人[ひと]の アパートは どうですか。",
+    "opciones": [
+     "せまいですが、べんりです。",
+     "ひろくて、べんりです。",
+     "せまくて、えきから とおいです。",
+     "ひろいですが、ふべんです。"
+    ],
+    "nota": "「せまいですが、駅から 近くて べんりです」."
+   },
+   {
+    "texto": "けさ ねぼうしました。7時[じ]半[はん]に 起[お]きて、朝[あさ]ごはんを 食[た]べないで 家[いえ]を 出[で]ました。でも、電車[でんしゃ]に まにあいました。",
+    "es": "Esta mañana me he dormido. Me levanté a las 7:30 y salí de casa sin desayunar. Pero llegué a tiempo al tren.",
+    "pregunta": "この 人[ひと]は けさ 何[なに]を しませんでしたか。",
+    "opciones": [
+     "あさごはんを たべること",
+     "でんしゃに のること",
+     "いえを でること",
+     "おきること"
+    ],
+    "nota": "「朝ごはんを 食べないで」."
+   },
+   {
+    "texto": "わたしの いもうとは 8さいです。まいにち 学校[がっこう]から 帰[かえ]ってから、ピアノの れんしゅうを します。日曜日[にちようび]は 友[とも]だちと こうえんで あそびます。",
+    "es": "Mi hermana tiene 8 años. Todos los días, al volver de clase, practica piano. Los domingos juega en el parque con sus amigos.",
+    "pregunta": "いもうとは 日曜日[にちようび]に 何[なに]を しますか。",
+    "opciones": [
+     "こうえんで あそびます。",
+     "ピアノの れんしゅうを します。",
+     "学校[がっこう]へ 行[い]きます。",
+     "いえで ねます。"
+    ],
+    "nota": "El piano es entre semana; el domingo, parque."
+   },
+   {
+    "texto": "リーさん\n\nあなたの かさが きょうしつに ありました。わたしが もって います。あしたの 朝[あさ]、わたします。\n\nキム",
+    "es": "Lee: tu paraguas estaba en el aula. Lo tengo yo. Te lo doy mañana por la mañana. Kim.",
+    "pregunta": "リーさんの かさは 今[いま] どこに ありますか。",
+    "opciones": [
+     "キムさんが もって います。",
+     "きょうしつに あります。",
+     "リーさんの いえに あります。",
+     "じむしょに あります。"
+    ],
+    "nota": "「わたしが もって います」."
+   },
+   {
+    "texto": "わたしは コーヒーが すきです。毎朝[まいあさ] 2はい 飲[の]みます。でも、夜[よる]は 飲[の]みません。ねられませんから。",
+    "es": "Me gusta el café. Me tomo dos tazas cada mañana. Pero por la noche no, porque luego no puedo dormir.",
+    "pregunta": "この 人[ひと]は どうして 夜[よる] コーヒーを 飲[の]みませんか。",
+    "opciones": [
+     "ねられないから",
+     "すきじゃないから",
+     "たかいから",
+     "あさ のんだから"
+    ],
+    "nota": "「ねられませんから」."
+   },
+   {
+    "texto": "先週[せんしゅう]の 日曜日[にちようび]、家族[かぞく]で うみへ 行[い]きました。天気[てんき]が よくて、たくさん およぎました。帰[かえ]りに おいしい さかなを 食[た]べました。",
+    "es": "El domingo pasado fuimos en familia a la playa. Hacía buen tiempo y nadamos mucho. A la vuelta comimos un pescado buenísimo.",
+    "pregunta": "いつ さかなを 食[た]べましたか。",
+    "opciones": [
+     "うみから かえる とき",
+     "うみへ いく まえ",
+     "およぐ まえ",
+     "つぎの 日[ひ]"
+    ],
+    "nota": "「帰りに」 = a la vuelta."
+   },
+   {
+    "texto": "このへやで たばこを すっては いけません。たばこは 1かいの そとで すって ください。",
+    "es": "En esta sala no se puede fumar. Fumad fuera, en la planta baja.",
+    "pregunta": "たばこは どこで すいますか。",
+    "opciones": [
+     "1かいの そと",
+     "この へや",
+     "2かいの そと",
+     "どこでも だめです"
+    ],
+    "nota": "「1かいの そとで すって ください」."
+   },
+   {
+    "texto": "わたしは 毎日[まいにち] 日記[にっき]を 書[か]きます。はじめは スペイン語[ご]で 書[か]いて いましたが、先月[せんげつ]から 日本語[にほんご]で 書[か]いて います。かんじは まだ 少[すこ]ししか 書[か]けません。",
+    "es": "Escribo un diario todos los días. Al principio lo escribía en español, pero desde el mes pasado lo escribo en japonés. Todavía sé escribir pocos kanji.",
+    "pregunta": "この 人[ひと]は 今[いま] 何語[なにご]で 日記[にっき]を 書[か]いて いますか。",
+    "opciones": [
+     "にほんご",
+     "スペインご",
+     "えいご",
+     "かんじだけ"
+    ],
+    "nota": "「先月から 日本語で 書いて います」."
+   },
+   {
+    "texto": "あしたは しけんです。こんばん 早[はや]く ねたいですが、まだ べんきょうが おわって いません。たぶん 12時[じ]ごろ ねます。",
+    "es": "Mañana tengo examen. Esta noche quiero acostarme pronto, pero aún no he terminado de estudiar. Seguramente me acueste sobre las 12.",
+    "pregunta": "この 人[ひと]は こんばん 何時[なんじ]ごろ ねますか。",
+    "opciones": [
+     "12時[じ]ごろ",
+     "はやく",
+     "9時[じ]ごろ",
+     "ねません"
+    ],
+    "nota": "Quiere acostarse pronto, pero será sobre las 12."
+   },
+   {
+    "texto": "この 時計[とけい]は 父[ちち]に もらいました。古[ふる]いですが、とても たいせつです。毎日[まいにち] つけて います。",
+    "es": "Este reloj me lo dio mi padre. Es viejo, pero lo aprecio mucho. Lo llevo todos los días.",
+    "pregunta": "この 時計[とけい]に ついて、ただしい ものは どれですか。",
+    "opciones": [
+     "ちちに もらいました。",
+     "あたらしい とけいです。",
+     "じぶんで かいました。",
+     "ときどき つけます。"
+    ],
+    "nota": "「父に もらいました」."
+   },
+   {
+    "texto": "わたしの 会社[かいしゃ]は 9時[じ]からです。家[いえ]から 会社[かいしゃ]まで 1時間[じかん] かかりますから、毎朝[まいあさ] 7時[じ]半[はん]に 家[いえ]を 出[で]ます。",
+    "es": "Mi trabajo empieza a las 9. De casa al trabajo tardo una hora, así que salgo cada mañana a las 7:30.",
+    "pregunta": "この 人[ひと]は 何時[なんじ]ごろ 会社[かいしゃ]に つきますか。",
+    "opciones": [
+     "8時[じ]半[はん]ごろ",
+     "7時[じ]半[はん]ごろ",
+     "9時[じ]ごろ",
+     "10時[じ]ごろ"
+    ],
+    "nota": "Sale a las 7:30 y tarda una hora: 8:30."
+   },
+   {
+    "texto": "スーパーで たまごと ぎゅうにゅうを 買[か]いました。パンも 買[か]いたかったですが、もう ありませんでした。",
+    "es": "En el súper compré huevos y leche. También quería pan, pero ya no quedaba.",
+    "pregunta": "この 人[ひと]が 買[か]わなかった ものは 何[なん]ですか。",
+    "opciones": [
+     "パン",
+     "たまご",
+     "ぎゅうにゅう",
+     "たまごと パン"
+    ],
+    "nota": "El pan ya se había acabado."
+   },
+   {
+    "texto": "わたしは 月曜日[げつようび]と 水曜日[すいようび]に ジムへ 行[い]きます。金曜日[きんようび]は 友[とも]だちと テニスを します。週末[しゅうまつ]は 家[いえ]で ゆっくり 休[やす]みます。",
+    "es": "Los lunes y miércoles voy al gimnasio. Los viernes juego al tenis con un amigo. El fin de semana descanso tranquilo en casa.",
+    "pregunta": "この 人[ひと]は 金曜日[きんようび]に 何[なに]を しますか。",
+    "opciones": [
+     "テニス",
+     "ジム",
+     "いえで やすみます",
+     "かいもの"
+    ],
+    "nota": "「金曜日は 友[とも]だちと テニスを します」."
+   },
+   {
+    "texto": "きょうは あたまが いたいので、学校[がっこう]を 休[やす]みます。先生[せんせい]に 電話[でんわ]を しました。あしたは 行[い]く つもりです。",
+    "es": "Hoy me duele la cabeza, así que no voy a clase. He llamado al profesor. Mañana pienso ir.",
+    "pregunta": "この 人[ひと]は きょう 何[なに]を しましたか。",
+    "opciones": [
+     "せんせいに でんわを しました。",
+     "がっこうへ いきました。",
+     "びょういんへ いきました。",
+     "くすりを かいました。"
+    ],
+    "nota": "「先生に 電話を しました」."
+   },
+   {
+    "texto": "駅[えき]の 前[まえ]に 新[あたら]しい レストランが できました。りょうりは おいしいですが、少[すこ]し 高[たか]いです。昼[ひる]は 安[やす]い ランチが あります。",
+    "es": "Delante de la estación han abierto un restaurante nuevo. La comida está buena, pero es un poco caro. A mediodía hay un menú barato.",
+    "pregunta": "この レストランは いつ 安[やす]いですか。",
+    "opciones": [
+     "ひる",
+     "よる",
+     "あさ",
+     "いつも"
+    ],
+    "nota": "「昼は 安い ランチが あります」."
+   },
+   {
+    "texto": "わたしは 子[こ]どもの とき、犬[いぬ]を かって いました。名前[なまえ]は ポチでした。今[いま]は アパートに すんで いるので、犬[いぬ]は かえません。",
+    "es": "De pequeño tenía un perro que se llamaba Pochi. Ahora vivo en un piso y no puedo tener perro.",
+    "pregunta": "この 人[ひと]は 今[いま] どうして 犬[いぬ]を かいませんか。",
+    "opciones": [
+     "アパートに すんで いるから",
+     "いぬが きらいだから",
+     "いそがしいから",
+     "ポチが いるから"
+    ],
+    "nota": "「アパートに すんで いるので、犬は かえません」."
+   },
+   {
+    "texto": "こんどの 土曜日[どようび]は 山田[やまだ]さんの 家[いえ]で パーティーが あります。わたしは 飲[の]み物[もの]を 持[も]って 行[い]きます。リーさんは ケーキを 買[か]って 来[き]ます。",
+    "es": "Este sábado hay una fiesta en casa de Yamada. Yo llevo las bebidas. Lee trae una tarta.",
+    "pregunta": "ケーキを 持[も]って 来[く]るのは だれですか。",
+    "opciones": [
+     "リーさん",
+     "わたし",
+     "やまださん",
+     "やまださんの かぞく"
+    ],
+    "nota": "「リーさんは ケーキを 買って 来ます」."
+   },
+   {
+    "texto": "この 本[ほん]は としょかんで かりました。来週[らいしゅう]の 火曜日[かようび]までに かえさなければ なりません。まだ 半分[はんぶん]しか 読[よ]んで いません。",
+    "es": "Este libro lo saqué de la biblioteca. Tengo que devolverlo antes del martes que viene. Solo he leído la mitad.",
+    "pregunta": "この 人[ひと]は 本[ほん]を どのぐらい 読[よ]みましたか。",
+    "opciones": [
+     "はんぶん",
+     "ぜんぶ",
+     "すこしも よんで いません",
+     "3ぶんの 1"
+    ],
+    "nota": "「半分しか 読んで いません」."
+   },
+   {
+    "texto": "わたしの 父[ちち]は いしゃです。毎日[まいにち] びょういんで はたらいて います。とても いそがしいので、家族[かぞく]と いっしょに ばんごはんを 食[た]べる ことが あまり ありません。",
+    "es": "Mi padre es médico y trabaja todos los días en el hospital. Está tan ocupado que casi nunca cena con la familia.",
+    "pregunta": "父[ちち]に ついて、ただしい ものは どれですか。",
+    "opciones": [
+     "いつも いそがしいです。",
+     "まいばん かぞくと たべます。",
+     "びょういんに にゅういんして います。",
+     "しごとが ありません。"
+    ],
+    "nota": "「とても いそがしいので」."
+   },
+   {
+    "texto": "きのう デパートで くつを 買[か]いました。でも、家[いえ]で はいて みたら、少[すこ]し 小[ちい]さかったです。きょう とりかえに 行[い]きます。",
+    "es": "Ayer compré unos zapatos en los grandes almacenes, pero al probármelos en casa me quedaban un poco pequeños. Hoy voy a cambiarlos.",
+    "pregunta": "この 人[ひと]は きょう 何[なに]を しますか。",
+    "opciones": [
+     "くつを とりかえに いきます。",
+     "あたらしい くつを はきます。",
+     "くつを うりに いきます。",
+     "デパートで はたらきます。"
+    ],
+    "nota": "「きょう とりかえに 行きます」."
+   },
+   {
+    "texto": "ことしの なつ やすみは 国[くに]へ 帰[かえ]りません。日本[にほん]で アルバイトを して、お金[かね]を ためます。ふゆ やすみに 帰[かえ]る つもりです。",
+    "es": "Estas vacaciones de verano no vuelvo a mi país. Me quedo en Japón trabajando para ahorrar. Pienso volver en las de invierno.",
+    "pregunta": "この 人[ひと]は いつ 国[くに]へ 帰[かえ]りますか。",
+    "opciones": [
+     "ふゆやすみ",
+     "なつやすみ",
+     "らいねんの なつ",
+     "かえりません"
+    ],
+    "nota": "「ふゆ やすみに 帰る つもりです」."
+   },
+   {
+    "texto": "わたしの 町[まち]には 大[おお]きい こうえんが あります。春[はる]は さくらが きれいで、たくさんの 人[ひと]が 来[き]ます。わたしは 毎朝[まいあさ] そこを さんぽします。",
+    "es": "En mi ciudad hay un parque grande. En primavera los cerezos están preciosos y viene mucha gente. Yo paseo por allí todas las mañanas.",
+    "pregunta": "この 人[ひと]は 毎朝[まいあさ] 何[なに]を しますか。",
+    "opciones": [
+     "こうえんを さんぽします。",
+     "さくらを みに いきます。",
+     "こうえんで はたらきます。",
+     "はなを かいます。"
+    ],
+    "nota": "「毎朝 そこを さんぽします」."
+   },
+   {
+    "texto": "先生[せんせい]\n\nかぜを ひいたので、きょうの じゅぎょうを 休[やす]みます。しゅくだいは あした 出[だ]します。すみません。\n\nワン",
+    "es": "Profesor: me he resfriado y hoy falto a clase. Los deberes los entrego mañana. Lo siento. Wang.",
+    "pregunta": "ワンさんは しゅくだいを いつ 出[だ]しますか。",
+    "opciones": [
+     "あした",
+     "きょう",
+     "らいしゅう",
+     "もう だしました"
+    ],
+    "nota": "「しゅくだいは あした 出します」."
+   },
+   {
+    "texto": "わたしは 日本[にほん]の りょうりの 中[なか]で すしが 一番[いちばん] すきです。てんぷらも すきですが、すしほどでは ありません。",
+    "es": "De la comida japonesa lo que más me gusta es el sushi. La tempura también, pero no tanto como el sushi.",
+    "pregunta": "この 人[ひと]が 一番[いちばん] すきな りょうりは 何[なん]ですか。",
+    "opciones": [
+     "すし",
+     "てんぷら",
+     "すしと てんぷら",
+     "ラーメン"
+    ],
+    "nota": "「すしが 一番 すきです」."
+   },
+   {
+    "texto": "駅[えき]から 大学[だいがく]まで あるいて 15分[ふん]です。でも、とちゅうに 長[なが]い さかが あるので、わたしは いつも バスに のります。",
+    "es": "De la estación a la universidad hay 15 minutos andando. Pero como por el camino hay una cuesta larga, siempre cojo el autobús.",
+    "pregunta": "この 人[ひと]は どうして バスに のりますか。",
+    "opciones": [
+     "さかが あるから",
+     "えきから とおいから",
+     "バスが やすいから",
+     "あめが ふるから"
+    ],
+    "nota": "「とちゅうに 長い さかが あるので」."
+   },
+   {
+    "texto": "けさ 電車[でんしゃ]の 中[なか]で 友[とも]だちに 会[あ]いました。友[とも]だちは 大阪[おおさか]へ しゅっちょうに 行[い]く ところでした。わたしは 会社[かいしゃ]へ 行[い]きました。",
+    "es": "Esta mañana me encontré con un amigo en el tren. Él iba de viaje de trabajo a Osaka. Yo iba a la oficina.",
+    "pregunta": "友[とも]だちは どこへ 行[い]きましたか。",
+    "opciones": [
+     "おおさか",
+     "かいしゃ",
+     "えき",
+     "いえ"
+    ],
+    "nota": "El amigo iba a Osaka; esta persona, a la oficina."
+   },
+   {
+    "texto": "わたしの へやは 3かいです。エレベーターが ないので、まいにち かいだんを のぼります。にもつが 多[おお]い 日[ひ]は たいへんです。",
+    "es": "Mi piso está en la tercera planta. Como no hay ascensor, subo escaleras todos los días. Los días que llevo mucho peso es duro.",
+    "pregunta": "この 人[ひと]は いつ たいへんですか。",
+    "opciones": [
+     "にもつが おおい 日[ひ]",
+     "あめの 日[ひ]",
+     "あさ",
+     "やすみの 日[ひ]"
+    ],
+    "nota": "「にもつが 多い 日は たいへんです」."
+   },
+   {
+    "texto": "あした 友[とも]だちが 国[くに]から 来[き]ます。わたしは 空港[くうこう]まで むかえに 行[い]きます。ひこうきは 午後[ごご] 3時[じ]に つきます。",
+    "es": "Mañana viene un amigo de mi país. Voy a recogerlo al aeropuerto. El avión llega a las 3 de la tarde.",
+    "pregunta": "この 人[ひと]は あした 何[なに]を しますか。",
+    "opciones": [
+     "くうこうへ ともだちを むかえに いきます。",
+     "くにへ かえります。",
+     "ひこうきに のります。",
+     "ともだちの くにへ いきます。"
+    ],
+    "nota": "「空港まで むかえに 行きます」."
+   },
+   {
+    "texto": "この カメラは 先週[せんしゅう] 買[か]いました。小[ちい]さくて かるいので、どこにでも 持[も]って 行[い]けます。しゃしんも きれいです。",
+    "es": "Esta cámara la compré la semana pasada. Es pequeña y ligera, así que la puedo llevar a cualquier parte. Y las fotos salen bonitas.",
+    "pregunta": "この カメラは どんな カメラですか。",
+    "opciones": [
+     "ちいさくて かるい カメラ",
+     "おおきくて おもい カメラ",
+     "ふるくて かるい カメラ",
+     "たかくて おもい カメラ"
+    ],
+    "nota": "「小さくて かるい」."
+   },
+   {
+    "texto": "わたしは 毎晩[まいばん] 11時[じ]に ねますが、きのうは しごとが 多[おお]くて、1時[じ]に ねました。それで、きょうは とても ねむいです。",
+    "es": "Me acuesto cada noche a las 11, pero ayer tenía mucho trabajo y me acosté a la 1. Por eso hoy tengo mucho sueño.",
+    "pregunta": "この 人[ひと]は きのう 何時[なんじ]に ねましたか。",
+    "opciones": [
+     "1時[じ]",
+     "11時[じ]",
+     "12時[じ]",
+     "10時[じ]"
+    ],
+    "nota": "「きのうは…1時に ねました」."
+   },
+   {
+    "texto": "わたしの 学校[がっこう]には りゅうがくせいが 30人[にん] います。中国[ちゅうごく]人[ひと]が 一番[いちばん] 多[おお]くて、15人[にん]です。アメリカ人[ひと]は 5人[にん]です。",
+    "es": "En mi escuela hay 30 estudiantes extranjeros. Los más numerosos son los chinos, 15. Estadounidenses hay 5.",
+    "pregunta": "中国[ちゅうごく]人[ひと]の りゅうがくせいは 何人[なんにん]ですか。",
+    "opciones": [
+     "15人[にん]",
+     "30人[にん]",
+     "5人[にん]",
+     "10人[にん]"
+    ],
+    "nota": "「中国人が 一番 多くて、15人です」."
+   },
+   {
+    "texto": "この へやは 少[すこ]し くらいので、電気[でんき]を つけましょう。それから、まどを あけて ください。少[すこ]し あついです。",
+    "es": "Esta habitación está algo oscura: encendamos la luz. Y abre la ventana, por favor; hace un poco de calor.",
+    "pregunta": "この 人[ひと]は どうして まどを あけますか。",
+    "opciones": [
+     "すこし あついから",
+     "くらいから",
+     "さむいから",
+     "でんきが つかないから"
+    ],
+    "nota": "La luz es por la oscuridad; la ventana, por el calor."
+   },
+   {
+    "texto": "わたしは スポーツが あまり すきでは ありません。でも、見[み]るのは すきです。週末[しゅうまつ]は よく テレビで サッカーを 見[み]ます。",
+    "es": "No me gusta mucho hacer deporte, pero me gusta verlo. Los fines de semana veo a menudo fútbol en la tele.",
+    "pregunta": "この 人[ひと]に ついて、ただしい ものは どれですか。",
+    "opciones": [
+     "スポーツを 見[み]るのが すきです。",
+     "サッカーを よく します。",
+     "スポーツが 大[だい]すきです。",
+     "テレビを 見[み]ません。"
+    ],
+    "nota": "No le gusta practicarlo, pero sí verlo."
+   },
+   {
+    "texto": "こんしゅうの 土曜日[どようび]に ひっこしを します。友[とも]だちが 3人[にん] てつだいに 来[き]ます。ひるごはんは わたしが ごちそうします。",
+    "es": "Este sábado me mudo. Vienen tres amigos a ayudarme. La comida la invito yo.",
+    "pregunta": "ひるごはんは だれが はらいますか。",
+    "opciones": [
+     "この 人[ひと]",
+     "ともだち",
+     "みんなで",
+     "ともだちの 一人[ひとり]"
+    ],
+    "nota": "「ひるごはんは わたしが ごちそうします」."
+   },
+   {
+    "texto": "この 町[まち]は 夏[なつ] とても あついですが、ふゆは あまり さむく ありません。ゆきは ほとんど ふりません。",
+    "es": "En esta ciudad hace mucho calor en verano, pero en invierno no hace mucho frío. Casi nunca nieva.",
+    "pregunta": "この 町[まち]の ふゆは どうですか。",
+    "opciones": [
+     "あまり さむく ありません。",
+     "とても さむいです。",
+     "ゆきが よく ふります。",
+     "とても あついです。"
+    ],
+    "nota": "「ふゆは あまり さむく ありません」."
+   },
+   {
+    "texto": "わたしは 週[しゅう]に 3回[かい] 日本語[にほんご]の クラスに 行[い]きます。クラスは 夜[よる] 7時[じ]から 9時[じ]までです。クラスの あとで、友[とも]だちと ごはんを 食[た]べます。",
+    "es": "Voy a clase de japonés tres veces por semana, de 7 a 9 de la noche. Después ceno con mis compañeros.",
+    "pregunta": "クラスは 何[なに]時間[じかん]ですか。",
+    "opciones": [
+     "2時間[じかん]",
+     "3時間[じかん]",
+     "7時間[じかん]",
+     "9時間[じかん]"
+    ],
+    "nota": "De 7 a 9: dos horas."
+   },
+   {
+    "texto": "きょうは 母[はは]の 日[ひ]です。わたしは 母[はは]に 手紙[てがみ]を 書[か]きました。それから、いっしょに 買[か]い物[もの]に 行[い]って、母[はは]が ほしかった かばんを プレゼントしました。",
+    "es": "Hoy es el día de la madre. Le escribí una carta a mi madre. Luego fuimos de compras y le regalé el bolso que quería.",
+    "pregunta": "この 人[ひと]は 母[はは]に 何[なに]を プレゼントしましたか。",
+    "opciones": [
+     "かばん",
+     "てがみだけ",
+     "はな",
+     "くつ"
+    ],
+    "nota": "Carta y además el bolso que quería."
+   },
+   {
+    "texto": "たなかさんは ギターが じょうずです。大学[だいがく]の とき から ひいて います。こんど 友[とも]だちと コンサートを します。",
+    "es": "Tanaka toca muy bien la guitarra. La toca desde la universidad. Dentro de poco da un concierto con sus amigos.",
+    "pregunta": "たなかさんは いつから ギターを ひいて いますか。",
+    "opciones": [
+     "だいがくの ときから",
+     "こどもの ときから",
+     "きょねんから",
+     "せんげつから"
+    ],
+    "nota": "「大学の ときから ひいて います」."
+   },
+   {
+    "texto": "わたしの 家[いえ]の 近[ちか]くに コンビニが 2つ あります。駅[えき]の 前[まえ]の コンビニは 24時間[じかん] あいて いますが、もう 1つは 夜[よる] 11時[じ]に しまります。",
+    "es": "Cerca de mi casa hay dos tiendas de conveniencia. La de delante de la estación abre las 24 horas, pero la otra cierra a las 11 de la noche.",
+    "pregunta": "駅[えき]の 前[まえ]の コンビニは どうですか。",
+    "opciones": [
+     "いつも あいて います。",
+     "よる 11時[じ]に しまります。",
+     "あさ あきません。",
+     "やすみが おおいです。"
+    ],
+    "nota": "「24時間 あいて います」."
+   },
+   {
+    "texto": "あしたは 朝[あさ] 早[はや]く 出[で]かけるので、こんばんは 早[はや]く ねます。目[め]ざまし時計[とけい]を 5時[じ]に しました。",
+    "es": "Mañana salgo temprano, así que esta noche me acuesto pronto. He puesto el despertador a las 5.",
+    "pregunta": "この 人[ひと]は あした 何時[なんじ]に 起[お]きますか。",
+    "opciones": [
+     "5時[じ]",
+     "6時[じ]",
+     "7時[じ]",
+     "4時[じ]"
+    ],
+    "nota": "El despertador está a las 5."
    }
   ],
   "medias": [
@@ -590,6 +1178,604 @@ N5.data.examenes=
        "朝[あさ]ごはんを 食[た]べないから。"
       ],
       "nota": "「七時の 電車は すいて いて、…ゆっくり 本が 読めます」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしは 去年[きょねん]の 4月[がつ]に 日本[にほん]へ 来[き]ました。はじめは 日本語[にほんご]が ぜんぜん わかりませんでした。店[みせ]で 買[か]い物[もの]を する ときも、駅[えき]で きっぷを 買[か]う ときも、とても こまりました。\n\nでも、日本語[にほんご]の 学校[がっこう]で 毎日[まいにち] べんきょうして、少[すこ]しずつ わかるように なりました。今[いま]は 友[とも]だちと 日本語[にほんご]で 話[はな]す ことが できます。\n\n来年[らいねん]は 大学[だいがく]に 入[はい]りたいです。それで、今[いま] しけんの べんきょうを して います。",
+    "es": "Vine a Japón en abril del año pasado. Al principio no entendía nada de japonés y lo pasaba muy mal comprando o sacando billetes. Pero estudiando cada día en la escuela fui entendiendo poco a poco, y ahora hablo con mis amigos en japonés. El año que viene quiero entrar en la universidad, así que estudio para el examen.",
+    "preguntas": [
+     {
+      "pregunta": "はじめ、この 人[ひと]は どうでしたか。",
+      "opciones": [
+       "日本語[にほんご]が ぜんぜん わかりませんでした。",
+       "日本語[にほんご]が 少[すこ]し わかりました。",
+       "友[とも]だちと 日本語[にほんご]で 話[はなし]しました。",
+       "大学[だいがく]で べんきょうして いました。"
+      ],
+      "nota": "「はじめは 日本語が ぜんぜん わかりませんでした」."
+     },
+     {
+      "pregunta": "この 人[ひと]は 今[いま] 何[なに]を して いますか。",
+      "opciones": [
+       "しけんの べんきょう",
+       "大学[だいがく]の じゅぎょう",
+       "きっぷの しごと",
+       "店[みせ]の アルバイト"
+      ],
+      "nota": "「今 しけんの べんきょうを して います」."
+     }
+    ]
+   },
+   {
+    "texto": "先週[せんしゅう]の 土曜日[どようび]、友[とも]だちの けっこんしきに 行[い]きました。けっこんしきは ホテルで ありました。たくさんの 人[ひと]が 来[き]て、とても にぎやかでした。\n\nわたしは 友[とも]だちに 時計[とけい]を プレゼントしました。友[とも]だちは とても よろこんで くれました。\n\nパーティーの あとで、大学[だいがく]の ときの 友[とも]だちと きっさてんで 3時間[じかん]ぐらい 話[はなし]しました。久[ひさ]しぶりに 会[あ]ったので、とても 楽[たの]しかったです。",
+    "es": "El sábado pasado fui a la boda de un amigo, en un hotel. Vino muchísima gente y fue muy animada. Le regalé un reloj y se alegró mucho. Después de la fiesta estuve unas tres horas en una cafetería con amigos de la universidad. Hacía mucho que no nos veíamos y lo pasé muy bien.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は 友[とも]だちに 何[なに]を あげましたか。",
+      "opciones": [
+       "とけい",
+       "はな",
+       "おかね",
+       "ほん"
+      ],
+      "nota": "「友[とも]だちに 時計を プレゼントしました」."
+     },
+     {
+      "pregunta": "パーティーの あとで 何[なに]を しましたか。",
+      "opciones": [
+       "きっさてんで 話[はなし]しました。",
+       "ホテルに とまりました。",
+       "すぐ 家[いえ]へ 帰[かえ]りました。",
+       "友[とも]だちの 家[いえ]へ 行[い]きました。"
+      ],
+      "nota": "「きっさてんで 3時間ぐらい 話しました」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの 家族[かぞく]は 4人[にん]です。父[ちち]と 母[はは]と 弟[おとうと]と わたしです。父[ちち]は 銀行[ぎんこう]で はたらいて います。毎朝[まいあさ] 7時[じ]に 家[いえ]を 出[で]て、夜[よる] 8時[じ]ごろ 帰[かえ]ります。\n\n母[はは]は 近[ちか]くの スーパーで 午前[ごぜん]中[なか]だけ はたらいて います。午後[ごご]は 家[いえ]で りょうりを したり、そうじを したり します。\n\n弟[おとうと]は 高校生[こうこうせい]です。サッカーが 大[だい]すきで、毎日[まいにち] 学校[がっこう]の あとで れんしゅうして います。",
+    "es": "Somos cuatro: mi padre, mi madre, mi hermano pequeño y yo. Mi padre trabaja en un banco; sale a las 7 y vuelve sobre las 8 de la noche. Mi madre trabaja solo por la mañana en el súper de al lado; por la tarde cocina y limpia en casa. Mi hermano está en el instituto y le encanta el fútbol: entrena cada día después de clase.",
+    "preguntas": [
+     {
+      "pregunta": "母[はは]は 午後[ごご] 何[なに]を しますか。",
+      "opciones": [
+       "家[いえ]で りょうりや そうじを します。",
+       "スーパーで はたらきます。",
+       "ぎんこうへ 行[い]きます。",
+       "サッカーを します。"
+      ],
+      "nota": "Por la mañana, súper; por la tarde, casa."
+     },
+     {
+      "pregunta": "この 家族[かぞく]に ついて、ただしい ものは どれですか。",
+      "opciones": [
+       "父[ちち]は ぎんこうで はたらいて います。",
+       "母[はは]は 一日中[いちにちじゅう] はたらいて います。",
+       "弟[おとうと]は 大学生[だいがくせい]です。",
+       "家族[かぞく]は 5人[にん]です。"
+      ],
+      "nota": "「父は 銀行で はたらいて います」."
+     }
+    ]
+   },
+   {
+    "texto": "きのう はじめて 日本[にほん]の びょういんへ 行[い]きました。朝[あさ]から のどが いたくて、ねつも ありました。\n\nびょういんは 人[ひと]が 多[おお]くて、1時間[じかん]ぐらい まちました。いしゃは「かぜですね。くすりを 飲[の]んで、2、3日[みっか] ゆっくり 休[やす]んで ください」と 言[い]いました。\n\nきょうは 会社[かいしゃ]を 休[やす]んで、家[いえ]で ねて います。少[すこ]し よく なりました。",
+    "es": "Ayer fui por primera vez a un hospital en Japón. Desde por la mañana me dolía la garganta y tenía fiebre. Había mucha gente y esperé casi una hora. El médico dijo: «Es un resfriado. Tómate la medicina y descansa dos o tres días». Hoy he faltado al trabajo y estoy en la cama. Estoy un poco mejor.",
+    "preguntas": [
+     {
+      "pregunta": "びょういんで どのぐらい まちましたか。",
+      "opciones": [
+       "1時間[じかん]ぐらい",
+       "2、3時間[じかん]",
+       "30分[ぷん]ぐらい",
+       "2、3日[みっか]"
+      ],
+      "nota": "「1時間ぐらい まちました」."
+     },
+     {
+      "pregunta": "この 人[ひと]は きょう 何[なに]を して いますか。",
+      "opciones": [
+       "家[いえ]で ねて います。",
+       "会社[かいしゃ]で はたらいて います。",
+       "びょういんで まって います。",
+       "くすりを 買[か]いに 行[い]きました。"
+      ],
+      "nota": "「家で ねて います」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの しゅみは りょうりです。毎週[まいしゅう] 日曜日[にちようび]に 新[あたら]しい りょうりを 作[つく]ります。先週[せんしゅう]は はじめて 日本[にほん]の カレーを 作[つく]りました。\n\nスーパーで カレーの ルーを 買[か]って、はこに 書[か]いて ある とおりに 作[つく]りました。かんたんでしたが、とても おいしかったです。\n\n来週[らいしゅう]は すしを 作[つく]って みたいです。でも、すしは むずかしそうですから、まず 本[ほん]で べんきょうします。",
+    "es": "Mi afición es cocinar. Cada domingo hago un plato nuevo. La semana pasada hice por primera vez curry japonés: compré el preparado en el súper y seguí lo que ponía la caja. Era fácil y quedó buenísimo. La próxima semana quiero probar el sushi, pero parece difícil, así que primero lo estudiaré en un libro.",
+    "preguntas": [
+     {
+      "pregunta": "カレーは どうでしたか。",
+      "opciones": [
+       "かんたんで、おいしかったです。",
+       "むずかしくて、おいしくなかったです。",
+       "かんたんでしたが、まずかったです。",
+       "作[つく]りませんでした。"
+      ],
+      "nota": "「かんたんでしたが、とても おいしかったです」."
+     },
+     {
+      "pregunta": "この 人[ひと]は 来週[らいしゅう]の 前[まえ]に 何[なに]を しますか。",
+      "opciones": [
+       "本[ほん]で すしの べんきょうを します。",
+       "すしを 買[か]います。",
+       "カレーを 作[つく]ります。",
+       "すしの 店[みせ]へ 行[い]きます。"
+      ],
+      "nota": "「まず 本で べんきょうします」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしは 毎朝[まいあさ] 電車[でんしゃ]で 会社[かいしゃ]へ 行[い]きます。家[いえ]から 駅[えき]まで あるいて 10分[ぷん]、電車[でんしゃ]で 40分[ぷん] かかります。\n\n先月[せんげつ]まで 朝[あさ]の 電車[でんしゃ]は とても こんで いて、たいへんでした。それで、今月[こんげつ]から 1時間[じかん] 早[はや]く 家[いえ]を 出[で]る ことに しました。\n\n早[はや]い 電車[でんしゃ]は すいて いて、すわる ことが できます。電車[でんしゃ]の 中[なか]で 本[ほん]を 読[よ]んだり、日本語[にほんご]の べんきょうを したり して います。",
+    "es": "Cada mañana voy al trabajo en tren: diez minutos andando hasta la estación y cuarenta de tren. Hasta el mes pasado el tren iba lleno y era horrible, así que este mes decidí salir una hora antes. El tren temprano va vacío y puedo sentarme; leo o estudio japonés.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]の 家[いえ]から 会社[かいしゃ]まで、ぜんぶで 何分[なんぷん] かかりますか。",
+      "opciones": [
+       "50分[ぷん]",
+       "40分[ぷん]",
+       "10分[ぷん]",
+       "1時間[じかん] 10分[ぷん]"
+      ],
+      "nota": "10 andando + 40 de tren = 50."
+     },
+     {
+      "pregunta": "この 人[ひと]は どうして 早[はや]く 家[いえ]を 出[で]るように しましたか。",
+      "opciones": [
+       "電車[でんしゃ]が こんで いたから",
+       "会社[かいしゃ]が 遠[とお]く なったから",
+       "本[ほん]を 読[よ]む 時間[じかん]が なかったから",
+       "朝[あさ]の 電車[でんしゃ]が おくれるから"
+      ],
+      "nota": "「朝の 電車は とても こんで いて」."
+     }
+    ]
+   },
+   {
+    "texto": "田中[たなか]さんへ\n\nきのうは ありがとうございました。田中[たなか]さんの 家[いえ]で 食[た]べた りょうりは とても おいしかったです。お母[かあ]さんにも よろしく 言[い]って ください。\n\nこんどは わたしの 家[いえ]に 来[き]て ください。わたしの 国[くに]の りょうりを 作[つく]ります。来月[らいげつ]の 10日[とおか]は どうですか。都合[つごう]が わるかったら、電話[でんわ]して ください。\n\nマリア",
+    "es": "Querido Tanaka: gracias por lo de ayer. La comida en tu casa estaba buenísima. Dale recuerdos a tu madre. La próxima vez venid a mi casa: haré comida de mi país. ¿Qué tal el día 10 del mes que viene? Si no te va bien, llámame. María.",
+    "preguntas": [
+     {
+      "pregunta": "マリアさんは きのう どこで ごはんを 食[た]べましたか。",
+      "opciones": [
+       "田中[たなか]さんの 家[いえ]",
+       "マリアさんの 家[いえ]",
+       "レストラン",
+       "マリアさんの 国[くに]"
+      ],
+      "nota": "「田中さんの 家で 食べた りょうり」."
+     },
+     {
+      "pregunta": "田中[たなか]さんは 来月[らいげつ]の 10日[とおか]に 行[い]けない とき、どう しますか。",
+      "opciones": [
+       "マリアさんに 電話[でんわ]します。",
+       "手紙[てがみ]を 書[か]きます。",
+       "お母[かあ]さんに 言[い]います。",
+       "何[なに]も しません。"
+      ],
+      "nota": "「都合が わるかったら、電話して ください」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの 町[まち]には 古[ふる]い お寺[てら]が あります。300年[ねん] まえに たてられた お寺[てら]で、春[はる]には さくらが とても きれいです。\n\n毎年[まいとし] 4月[がつ]に なると、たくさんの 人[ひと]が さくらを 見[み]に 来[き]ます。外国[がいこく]から 来[く]る 人[ひと]も 多[おお]いです。\n\nわたしは 人[ひと]が 多[おお]いのが すきでは ないので、いつも 朝[あさ] 早[はや]く 行[い]きます。朝[あさ]の お寺[てら]は しずかで、とても きもちが いいです。",
+    "es": "En mi ciudad hay un templo antiguo, construido hace 300 años, con unos cerezos preciosos en primavera. Cada abril viene muchísima gente a verlos, también del extranjero. A mí no me gusta la aglomeración, así que voy siempre muy temprano. Por la mañana el templo está tranquilo y se está muy a gusto.",
+    "preguntas": [
+     {
+      "pregunta": "4月[がつ]に お寺[てら]は どう なりますか。",
+      "opciones": [
+       "人[ひと]が たくさん 来[き]ます。",
+       "しずかに なります。",
+       "しまります。",
+       "さくらが ありません。"
+      ],
+      "nota": "「たくさんの 人が さくらを 見に 来ます」."
+     },
+     {
+      "pregunta": "この 人[ひと]は どうして 朝[あさ] 早[はや]く 行[い]きますか。",
+      "opciones": [
+       "人[ひと]が 多[おお]いのが すきじゃないから",
+       "朝[あさ]しか ひまが ないから",
+       "朝[あさ]の さくらが 一番[いちばん] きれいだから",
+       "お寺[てら]が 朝[あさ]だけ あいて いるから"
+      ],
+      "nota": "「人が 多いのが すきでは ないので」."
+     }
+    ]
+   },
+   {
+    "texto": "ことしの なつ やすみに 北海道[ほっかいどう]へ りょこうしました。ひこうきで 2時間[じかん]ぐらいでした。\n\n北海道[ほっかいどう]の なつは 東京[とうきょう]より すずしくて、とても すごしやすかったです。3日間[みっかかん] いて、山[やま]に のぼったり、おいしい さかなを 食[た]べたり しました。\n\nいちばん よかったのは、夜[よる] ホテルから 見[み]た 星[ほし]です。東京[とうきょう]では 見[み]えない 星[ほし]が たくさん 見[み]えました。また 行[い]きたいです。",
+    "es": "Este verano fui de viaje a Hokkaido, unas dos horas en avión. El verano allí es más fresco que en Tokio y se estaba muy bien. Estuve tres días: subí montes y comí pescado buenísimo. Lo mejor fueron las estrellas que vi desde el hotel por la noche: se veían muchas que en Tokio no se ven. Quiero volver.",
+    "preguntas": [
+     {
+      "pregunta": "北海道[ほっかいどう]の なつは どうでしたか。",
+      "opciones": [
+       "東京[とうきょう]より すずしかったです。",
+       "東京[とうきょう]より あつかったです。",
+       "雨[あめ]が 多[おお]かったです。",
+       "とても さむかったです。"
+      ],
+      "nota": "「東京より すずしくて」."
+     },
+     {
+      "pregunta": "この 人[ひと]が いちばん よかったと 思[おも]ったのは 何[なん]ですか。",
+      "opciones": [
+       "夜[よる]の 星[ほし]",
+       "山[やま]",
+       "さかな",
+       "ひこうき"
+      ],
+      "nota": "「いちばん よかったのは、夜 ホテルから 見た 星[ほし]です」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしは 先月[せんげつ]から ピアノを ならって います。子[こ]どもの ときから ずっと ひきたいと 思[おも]って いましたが、時間[じかん]が ありませんでした。\n\n先生[せんせい]は 近[ちか]くに すんで いる 女[おんな]の 人[ひと]で、とても やさしいです。じゅぎょうは 毎週[まいしゅう] 木曜日[もくようび]の 夜[よる]です。\n\nまだ かんたんな きょくしか ひけませんが、毎日[まいにち] 30分[ぷん] れんしゅうして います。来年[らいねん] 友[とも]だちの 前[まえ]で ひいて みたいです。",
+    "es": "Desde el mes pasado aprendo piano. Desde niño quería tocarlo, pero no tenía tiempo. La profesora es una mujer que vive cerca y es muy amable. La clase es los jueves por la noche. Todavía solo toco piezas fáciles, pero practico media hora al día. El año que viene quiero tocar delante de mis amigos.",
+    "preguntas": [
+     {
+      "pregunta": "ピアノの じゅぎょうは いつですか。",
+      "opciones": [
+       "木曜日[もくようび]の 夜[よる]",
+       "毎日[まいにち]",
+       "日曜日[にちようび]の 朝[あさ]",
+       "金曜日[きんようび]の 夜[よる]"
+      ],
+      "nota": "「毎週 木曜日の 夜です」."
+     },
+     {
+      "pregunta": "この 人[ひと]は 来年[らいねん] 何[なに]を したいですか。",
+      "opciones": [
+       "友[とも]だちの 前[まえ]で ピアノを ひきたいです。",
+       "ピアノの 先生[せんせい]に なりたいです。",
+       "新[あたら]しい ピアノを 買[か]いたいです。",
+       "ピアノを やめたいです。"
+      ],
+      "nota": "「来年 友[とも]だちの 前で ひいて みたいです」."
+     }
+    ]
+   },
+   {
+    "texto": "きのう、駅[えき]で さいふを おとしました。家[いえ]に 帰[かえ]ってから 気[き]が つきました。中[なか]には お金[かね]と カードが 入[はい]って いました。\n\nすぐ 駅[えき]に 電話[でんわ]を しましたが、「ありません」と 言[い]われました。それで、こうばんへ 行[い]きました。\n\nきょうの 朝[あさ]、こうばんから 電話[でんわ]が ありました。だれかが さいふを とどけて くれたそうです。お金[かね]も カードも ぜんぶ ありました。本当[ほんとう]に うれしかったです。",
+    "es": "Ayer perdí la cartera en la estación; me di cuenta al llegar a casa. Llevaba dinero y tarjetas. Llamé enseguida a la estación, pero me dijeron que no estaba, así que fui a la caseta de policía. Esta mañana me han llamado: alguien la había entregado. Estaba todo, el dinero y las tarjetas. Me he alegrado muchísimo.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は いつ さいふが ない ことに 気[き]が つきましたか。",
+      "opciones": [
+       "家[いえ]に 帰[かえ]ってから",
+       "駅[えき]で",
+       "こうばんで",
+       "けさ"
+      ],
+      "nota": "「家に 帰ってから 気が つきました」."
+     },
+     {
+      "pregunta": "さいふは どう なりましたか。",
+      "opciones": [
+       "ぜんぶ もどって きました。",
+       "お金[かね]だけ ありませんでした。",
+       "カードだけ ありませんでした。",
+       "まだ 見[み]つかりません。"
+      ],
+      "nota": "「お金も カードも ぜんぶ ありました」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの 会社[かいしゃ]では 毎年[まいとし] 12月[がつ]に パーティーが あります。ことしは 会社[かいしゃ]の 近[ちか]くの レストランで しました。\n\n社長[しゃちょう]が 話[はなし]を したあとで、みんなで ごはんを 食[た]べたり、歌[うた]を うたったり しました。わたしは 日本[にほん]の 歌[うた]を 一[ひと]つ うたいました。\n\nパーティーは 9時[じ]に おわりましたが、わかい 人[ひと]たちは そのあと カラオケに 行[い]きました。わたしは つかれたので、家[いえ]へ 帰[かえ]りました。",
+    "es": "En mi empresa hay cada diciembre una fiesta. Este año fue en un restaurante cerca de la oficina. Después del discurso del presidente comimos y cantamos; yo canté una canción japonesa. La fiesta terminó a las 9, pero los jóvenes se fueron luego al karaoke. Yo estaba cansado y me fui a casa.",
+    "preguntas": [
+     {
+      "pregunta": "パーティーで この 人[ひと]は 何[なに]を しましたか。",
+      "opciones": [
+       "日本[にほん]の 歌[うた]を うたいました。",
+       "話[はなし]を しました。",
+       "カラオケに 行[い]きました。",
+       "りょうりを 作[つく]りました。"
+      ],
+      "nota": "「わたしは 日本の 歌を 一つ うたいました」."
+     },
+     {
+      "pregunta": "パーティーの あとで この 人[ひと]は どう しましたか。",
+      "opciones": [
+       "家[いえ]へ 帰[かえ]りました。",
+       "カラオケに 行[い]きました。",
+       "会社[かいしゃ]へ もどりました。",
+       "レストランに のこりました。"
+      ],
+      "nota": "Estaba cansado y volvió a casa."
+     }
+    ]
+   },
+   {
+    "texto": "わたしは 大学[だいがく]で けいざいを べんきょうして います。じゅぎょうは 月曜日[げつようび]から 金曜日[きんようび]までで、毎日[まいにち] 朝[あさ] 9時[じ]から 午後[ごご] 3時[じ]ごろまでです。\n\nじゅぎょうの あとは としょかんで しゅくだいを します。そして、火曜日[かようび]と 木曜日[もくようび]の 夜[よる]は コンビニで アルバイトを して います。\n\n土曜日[どようび]と 日曜日[にちようび]は じゅぎょうも アルバイトも ないので、友[とも]だちと あそんだり、家[いえ]で ゆっくり したり します。",
+    "es": "Estudio economía en la universidad. Hay clase de lunes a viernes, de 9 a 3 más o menos. Después hago los deberes en la biblioteca, y los martes y jueves por la noche trabajo en una tienda. Los sábados y domingos no tengo ni clase ni trabajo, así que salgo con amigos o descanso en casa.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は いつ アルバイトを しますか。",
+      "opciones": [
+       "火曜日[かようび]と 木曜日[もくようび]の 夜[よる]",
+       "月曜日[げつようび]から 金曜日[きんようび]まで",
+       "土曜日[どようび]と 日曜日[にちようび]",
+       "毎日[まいにち] 午後[ごご]"
+      ],
+      "nota": "「火曜日と 木曜日の 夜は…アルバイト」."
+     },
+     {
+      "pregunta": "じゅぎょうの あと、この 人[ひと]は ふつう どこへ 行[い]きますか。",
+      "opciones": [
+       "としょかん",
+       "コンビニ",
+       "友[とも]だちの 家[いえ]",
+       "家[いえ]"
+      ],
+      "nota": "「じゅぎょうの あとは としょかんで しゅくだいを します」."
+     }
+    ]
+   },
+   {
+    "texto": "この 前[まえ]の 日曜日[にちようび]、デパートへ 冬[ふゆ]の コートを 買[か]いに 行[い]きました。\n\n店[みせ]には いろいろな コートが ありました。はじめに 見[み]た 黒[くろ]い コートは とても かっこよかったですが、高[たか]すぎました。茶色[ちゃいろ]の コートは 安[やす]かったですが、少[すこ]し 大[おお]きかったです。\n\nさいごに、店[みせ]の 人[ひと]が 白[しろ]い コートを 見[み]せて くれました。ねだんも ちょうど よくて、サイズも あって いたので、それを 買[か]いました。",
+    "es": "El domingo pasado fui a los grandes almacenes a comprar un abrigo de invierno. Había muchos. El primero, negro, era precioso pero carísimo. El marrón era barato, pero me quedaba algo grande. Al final la dependienta me enseñó uno blanco; el precio estaba bien y era de mi talla, así que me lo quedé.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は どの コートを 買[か]いましたか。",
+      "opciones": [
+       "白[しろ]い コート",
+       "黒[くろ]い コート",
+       "茶色[ちゃいろ]の コート",
+       "買[か]いませんでした"
+      ],
+      "nota": "Al final, el blanco."
+     },
+     {
+      "pregunta": "黒[くろ]い コートは どうして 買[か]いませんでしたか。",
+      "opciones": [
+       "高[たか]すぎたから",
+       "大[おお]きかったから",
+       "小[ちい]さかったから",
+       "いろが よくなかったから"
+      ],
+      "nota": "「高すぎました」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの 国[くに]では 日本語[にほんご]を べんきょうする 人[ひと]が 多[おお]く なりました。わたしが 日本語[にほんご]を はじめたのは 高校生[こうこうせい]の ときです。日本[にほん]の アニメが 好[す]きだったからです。\n\nはじめは ひらがなと カタカナだけでしたが、大学[だいがく]で かんじも べんきょうしました。今[いま]は 200ぐらい 読[よ]む ことが できます。\n\nいつか 日本[にほん]の 会社[かいしゃ]で はたらきたいです。それで、来年[らいねん] N4の しけんを うける つもりです。",
+    "es": "En mi país cada vez hay más gente que estudia japonés. Yo empecé en el instituto, porque me gustaba el anime. Al principio solo hiragana y katakana, pero en la universidad también estudié kanji; ahora leo unos 200. Algún día quiero trabajar en una empresa japonesa, así que el año que viene pienso presentarme al N4.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は どうして 日本語[にほんご]を はじめましたか。",
+      "opciones": [
+       "日本[にほん]の アニメが 好[す]きだったから",
+       "日本[にほん]の 会社[かいしゃ]で はたらきたかったから",
+       "大学[だいがく]の じゅぎょうだったから",
+       "友[とも]だちが 日本人[にほんじん]だったから"
+      ],
+      "nota": "「日本の アニメが 好きだったからです」."
+     },
+     {
+      "pregunta": "この 人[ひと]は 来年[らいねん] 何[なに]を しますか。",
+      "opciones": [
+       "N4の しけんを うけます。",
+       "日本[にほん]の 会社[かいしゃ]に 入[はい]ります。",
+       "日本[にほん]へ 行[い]きます。",
+       "大学[だいがく]に 入[はい]ります。"
+      ],
+      "nota": "「来年 N4の しけんを うける つもりです」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの アパートの となりに 小[ちい]さい パン屋[や]が あります。おじいさんと おばあさんが 二人[ふたり]で やって いる 店[みせ]です。\n\n朝[あさ] 6時[じ]から あいて いるので、わたしは 毎朝[まいあさ] 会社[かいしゃ]へ 行[い]く まえに そこで パンを 買[か]います。一番[いちばん] 好[す]きなのは チーズの パンです。\n\n先週[せんしゅう] 店[みせ]が 休[やす]みでした。おじいさんが びょうきに なったそうです。早[はや]く よく なって ほしいです。",
+    "es": "Al lado de mi piso hay una panadería pequeña que llevan un abuelo y una abuela. Abre a las 6, así que cada mañana compro allí pan antes de ir al trabajo. El que más me gusta es el de queso. La semana pasada estuvo cerrada: dicen que el abuelo se puso enfermo. Ojalá se mejore pronto.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は いつ パンを 買[か]いますか。",
+      "opciones": [
+       "毎朝[まいあさ] 会社[かいしゃ]へ 行[い]く まえ",
+       "会社[かいしゃ]の あと",
+       "日曜日[にちようび]だけ",
+       "ひるやすみ"
+      ],
+      "nota": "「毎朝 会社へ 行く まえに」."
+     },
+     {
+      "pregunta": "先週[せんしゅう] 店[みせ]は どうして 休[やす]みでしたか。",
+      "opciones": [
+       "おじいさんが びょうきに なったから",
+       "パンが なかったから",
+       "りょこうに 行[い]ったから",
+       "日曜日[にちようび]だったから"
+      ],
+      "nota": "「おじいさんが びょうきに なったそうです」."
+     }
+    ]
+   },
+   {
+    "texto": "先週[せんしゅう]から 日本語[にほんご]の クラスに 新[あたら]しい 学生[がくせい]が 来[き]ました。ブラジルから 来[き]た カルロスさんです。\n\nカルロスさんは 日本[にほん]へ 来[く]る まえに 国[くに]で 1年[ねん] 日本語[にほんご]を べんきょうしたので、もう じょうずに 話[はな]す ことが できます。でも、かんじは まだ 少[すこ]ししか わかりません。\n\nカルロスさんは サッカーが とても じょうずです。こんどの 日曜日[にちようび]、クラスの みんなで いっしょに サッカーを する ことに なりました。",
+    "es": "Desde la semana pasada hay un estudiante nuevo en clase: Carlos, de Brasil. Estudió japonés un año en su país antes de venir, así que ya lo habla bien, aunque de kanji sabe poco. Juega muy bien al fútbol, y este domingo vamos a jugar todos los de la clase juntos.",
+    "preguntas": [
+     {
+      "pregunta": "カルロスさんに ついて、ただしい ものは どれですか。",
+      "opciones": [
+       "話[はな]すのは じょうずですが、かんじは まだ 少[すこ]ししか わかりません。",
+       "かんじも 話[はな]すのも じょうずです。",
+       "日本[にほん]で 1年[ねん] べんきょうしました。",
+       "サッカーが へたです。"
+      ],
+      "nota": "Habla bien, pero de kanji sabe poco."
+     },
+     {
+      "pregunta": "こんどの 日曜日[にちようび]に 何[なに]を しますか。",
+      "opciones": [
+       "みんなで サッカーを します。",
+       "カルロスさんの 国[くに]へ 行[い]きます。",
+       "かんじの べんきょうを します。",
+       "パーティーを します。"
+      ],
+      "nota": "「クラスの みんなで いっしょに サッカーを する」."
+     }
+    ]
+   },
+   {
+    "texto": "ゆうべ、となりの へやの 人[ひと]が とても うるさかったです。夜[よる] 12時[じ]を すぎても、大[おお]きい 音[おと]で 音楽[おんがく]を 聞[き]いて いました。\n\nわたしは あさ 早[はや]く 起[お]きなければ ならないので、ねむれなくて こまりました。\n\nきょう、アパートの かんりにんさんに 話[はなし]しました。かんりにんさんは「となりの 人[ひと]に 言[い]って おきます」と 言[い]いました。",
+    "es": "Anoche el vecino de al lado hizo mucho ruido: pasadas las 12 seguía con la música muy alta. Yo tengo que madrugar y no podía dormir. Hoy se lo he contado al administrador del edificio, que me ha dicho que hablará con el vecino.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は どうして こまりましたか。",
+      "opciones": [
+       "ねむれなかったから",
+       "音楽[おんがく]が すきじゃないから",
+       "朝[あさ] おそく 起[お]きたから",
+       "となりの 人[ひと]が いなかったから"
+      ],
+      "nota": "「ねむれなくて こまりました」."
+     },
+     {
+      "pregunta": "かんりにんさんは 何[なに]を しますか。",
+      "opciones": [
+       "となりの 人[ひと]に 話[はな]します。",
+       "この 人[ひと]の へやを かえます。",
+       "けいさつに 電話[でんわ]します。",
+       "何[なに]も しません。"
+      ],
+      "nota": "「となりの 人に 言って おきます」."
+     }
+    ]
+   },
+   {
+    "texto": "きのう、はじめて 自転車[じてんしゃ]で 会社[かいしゃ]へ 行[い]きました。いつもは バスで 30分[ぷん]ぐらい かかりますが、自転車[じてんしゃ]では 25分[ふん]でした。\n\nあさの 空気[くうき]は きもちが よくて、とても たのしかったです。それに、バスの お金[かね]も いりません。\n\nでも、雨[あめ]の 日[ひ]は 自転車[じてんしゃ]に のれません。それで、天気[てんき]が いい 日[ひ]だけ 自転車[じてんしゃ]で 行[い]く ことに しました。",
+    "es": "Ayer fui por primera vez al trabajo en bici. En autobús tardo unos 30 minutos; en bici, 25. El aire de la mañana era agradable y me lo pasé muy bien; además no pago el autobús. Pero los días de lluvia no se puede ir en bici, así que he decidido ir en bici solo cuando haga buen tiempo.",
+    "preguntas": [
+     {
+      "pregunta": "自転車[じてんしゃ]で 会社[かいしゃ]まで 何分[なんぷん] かかりましたか。",
+      "opciones": [
+       "25分[ふん]",
+       "30分[ぷん]",
+       "5分[ふん]",
+       "1時間[じかん]"
+      ],
+      "nota": "「自転車では 25分でした」."
+     },
+     {
+      "pregunta": "この 人[ひと]は これから どう しますか。",
+      "opciones": [
+       "天気[てんき]が いい 日[ひ]だけ 自転車[じてんしゃ]で 行[い]きます。",
+       "毎日[まいにち] 自転車[じてんしゃ]で 行[い]きます。",
+       "毎日[まいにち] バスで 行[い]きます。",
+       "雨[あめ]の 日[ひ]だけ 自転車[じてんしゃ]で 行[い]きます。"
+      ],
+      "nota": "「天気が いい 日だけ 自転車で 行く ことに しました」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしは 毎年[まいとし] お正月[しょうがつ]に 家族[かぞく]で おばあさんの 家[いえ]へ 行[い]きます。おばあさんの 家[いえ]は いなかに あって、車[くるま]で 4時間[じかん]ぐらい かかります。\n\nおばあさんは いつも おいしい りょうりを たくさん 作[つく]って まって いて くれます。いとこたちも 来[く]るので、とても にぎやかです。\n\nことしは 雪[ゆき]が たくさん ふったので、子[こ]どもたちは 外[そと]で 雪[ゆき]だるまを 作[つく]って あそびました。",
+    "es": "Cada Año Nuevo voy con mi familia a casa de mi abuela, en el campo, a unas cuatro horas en coche. Siempre nos espera con muchísima comida rica. También vienen mis primos, así que hay mucho ambiente. Este año nevó mucho y los niños hicieron muñecos de nieve fuera.",
+    "preguntas": [
+     {
+      "pregunta": "おばあさんの 家[いえ]まで 何[なに]で 行[い]きますか。",
+      "opciones": [
+       "くるま",
+       "でんしゃ",
+       "ひこうき",
+       "バス"
+      ],
+      "nota": "「車で 4時間ぐらい」."
+     },
+     {
+      "pregunta": "ことし 子[こ]どもたちは 何[なに]を しましたか。",
+      "opciones": [
+       "雪[ゆき]だるまを 作[つく]りました。",
+       "りょうりを 作[つく]りました。",
+       "山[やま]に のぼりました。",
+       "いなかへ 行[い]きませんでした。"
+      ],
+      "nota": "「外で 雪だるまを 作って あそびました」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの ルームメートの ケンさんは とても きれい好[す]きです。毎日[まいにち] へやを そうじして、ごみも きちんと 分[わ]けて すてます。\n\nわたしは あまり そうじが すきでは ありません。それで、ケンさんと「月曜日[げつようび]と 木曜日[もくようび]は わたしが そうじを する」と きめました。\n\nその かわりに、ケンさんは あまり りょうりを しないので、わたしが よく 晩[ばん]ごはんを 作[つく]ります。",
+    "es": "Mi compañero de piso, Ken, es muy limpio: limpia la habitación a diario y separa bien la basura. A mí no me gusta mucho limpiar, así que acordamos que yo limpio los lunes y los jueves. A cambio, como Ken apenas cocina, yo suelo hacer la cena.",
+    "preguntas": [
+     {
+      "pregunta": "この 人[ひと]は いつ そうじを しますか。",
+      "opciones": [
+       "月曜日[げつようび]と 木曜日[もくようび]",
+       "毎日[まいにち]",
+       "土曜日[どようび]と 日曜日[にちようび]",
+       "しません"
+      ],
+      "nota": "「月曜日と 木曜日は わたしが そうじを する」."
+     },
+     {
+      "pregunta": "この 人[ひと]は ケンさんの ために 何[なに]を よく しますか。",
+      "opciones": [
+       "晩[ばん]ごはんを 作[つく]ります。",
+       "ごみを すてます。",
+       "へやを そうじします。",
+       "買[か]い物[もの]に 行[い]きます。"
+      ],
+      "nota": "「わたしが よく 晩[ばん]ごはんを 作ります」."
+     }
+    ]
+   },
+   {
+    "texto": "先月[せんげつ] スマホを 新[あたら]しく しました。前[まえ]の スマホは 5年[ねん] 使[つか]って いたので、とても 古[ふる]く なって いました。\n\n新[あたら]しい スマホは しゃしんが とても きれいに とれます。それに、大[おお]きくて 字[じ]が 見[み]やすいです。\n\nでも、使[つか]いかたが まだ よく わかりません。こんどの 週末[しゅうまつ]、弟[おとうと]に おしえて もらう つもりです。",
+    "es": "El mes pasado me cambié de móvil; el anterior lo había usado cinco años y estaba muy viejo. El nuevo hace fotos muy bonitas y es grande, con la letra fácil de leer. Pero todavía no sé bien cómo se usa: este fin de semana mi hermano pequeño me va a enseñar.",
+    "preguntas": [
+     {
+      "pregunta": "前[まえ]の スマホは 何年[なんねん] 使[つか]いましたか。",
+      "opciones": [
+       "5年[ねん]",
+       "1年[ねん]",
+       "3年[ねん]",
+       "10年[ねん]"
+      ],
+      "nota": "「前の スマホは 5年 使って いた」."
+     },
+     {
+      "pregunta": "この 人[ひと]は 週末[しゅうまつ] 何[なに]を しますか。",
+      "opciones": [
+       "弟[おとうと]に スマホの 使[つか]いかたを ならいます。",
+       "新[あたら]しい スマホを 買[か]います。",
+       "しゃしんを とりに 行[い]きます。",
+       "弟[おとうと]に スマホを あげます。"
+      ],
+      "nota": "「弟に おしえて もらう つもりです」."
+     }
+    ]
+   },
+   {
+    "texto": "わたしの 町[まち]では 毎年[まいとし] 8月[がつ]に 大[おお]きい なつまつりが あります。駅[えき]の 前[まえ]の 道[みち]に たくさんの 店[みせ]が ならんで、夜[よる]は はなびが あります。\n\nことしは 友[とも]だちと ゆかたを きて 行[い]きました。やきそばを 食[た]べたり、金魚[きんぎょ]すくいを したり しました。\n\nはなびは 8時[じ]から 30分[ぷん] ありました。人[ひと]が とても 多[おお]くて、帰[かえ]りの 電車[でんしゃ]は すごく こんで いました。",
+    "es": "En mi ciudad hay cada agosto un gran festival de verano: la calle de la estación se llena de puestos y por la noche hay fuegos artificiales. Este año fui con amigos en yukata. Comimos yakisoba y pescamos pececillos. Los fuegos fueron de 8 a 8:30. Había muchísima gente y el tren de vuelta iba a reventar.",
+    "preguntas": [
+     {
+      "pregunta": "はなびは 何時[なんじ]に おわりましたか。",
+      "opciones": [
+       "8時[じ]半[はん]",
+       "8時[じ]",
+       "9時[じ]",
+       "9時[じ]半[はん]"
+      ],
+      "nota": "De 8 a 8:30."
+     },
+     {
+      "pregunta": "帰[かえ]りの 電車[でんしゃ]は どうでしたか。",
+      "opciones": [
+       "とても こんで いました。",
+       "すいて いました。",
+       "ありませんでした。",
+       "おくれました。"
+      ],
+      "nota": "「帰りの 電車は すごく こんで いました」."
      }
     ]
    }

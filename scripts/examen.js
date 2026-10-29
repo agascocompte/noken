@@ -532,7 +532,7 @@
     const d = N5.data, L = new Map(Object.entries(NOMBRES));
     const limpia = x => N5.limpiaEntrada(String(x || "")).replace(/[〜～]/g, "");
     // 「なん／なに」 son dos lecturas: no sirve como lectura de nada
-    const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && !/[／/]/.test(y) && !L.has(k)) L.set(k, y); };
+    const par = (k, y) => { k = limpia(k); y = limpia(y); if (k && y && KANJI.test(k) && /^[ぁ-ゖァ-ヺー]+$/.test(y) && !L.has(k)) L.set(k, y); };   // 「なにも＋neg.」 no es una lectura
     const sinNa = x => String(x || "").replace(/[（\[]な[）\]]$/, "");
     // 「〜人（じん）」 es el sufijo de nacionalidad, no la palabra 人; y el な de
     // 「じょうず（な）」 no se escribe con el kanji 上手
