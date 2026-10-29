@@ -143,8 +143,8 @@
       Las preguntas salen del vocabulario, los kanji y la gramática de esta guía: no son exámenes oficiales, pero
       siguen su formato.</p>
       <div class="exaviso">Tres bloques: <b>文字・語彙</b> (20 min), <b>文法・読解</b> (40 min) y <b>聴解</b>
-      (30 min), que lee la voz japonesa del navegador. Falta もんだい３ de 文法 (el texto con huecos), y en 聴解 las
-      opciones que en el examen son dibujos van escritas.</div>
+      (30 min), que lee la voz japonesa del navegador. En 聴解 las opciones que en el examen son dibujos van
+      escritas.</div>
       ${avisoCurso()}
       <div class="exbotones exprincipal">
         <button class="btn" id="exNuevo">＋ Nuevo examen</button>
@@ -271,7 +271,12 @@
   // El texto de 読解 (o el cartel de もんだい６) va encima de la pregunta, y se
   // repite en las dos preguntas del mismo texto: en el papel lo tienes delante.
   function pasaje(it) {
-    if (it.texto) return `<div class="expasaje jp">${jp(it.texto).replace(/\n/g, "<br>")}</div>`;
+    if (it.texto) {
+      let t = jp(it.texto).replace(/\n/g, "<br>");
+      // もんだい３: el hueco por el que se pregunta, resaltado
+      if (it.hueco) t = t.split(it.hueco).join(`<span class="exhueco actual">${it.hueco}</span>`);
+      return `<div class="expasaje jp">${t}</div>`;
+    }
     if (!it.info) return "";
     const i = it.info;
     return `<div class="expasaje excartel jp">

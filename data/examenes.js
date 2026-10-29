@@ -401,7 +401,7 @@ N5.data.examenes=
    "es": "Todas las mañanas leo el periódico."
   },
   {
-   "jp": "電話[でんわ]で 母[はは]と 話[はなし]しました。",
+   "jp": "電話[でんわ]で 母[はは]と 話[はな]しました。",
    "es": "Hablé con mi madre por teléfono."
   },
   {
@@ -553,7 +553,7 @@ N5.data.examenes=
    "es": "Tanaka vive en una casa en lo alto de la montaña."
   },
   {
-   "jp": "わたしは 午前[ごぜん]中[なか] ずっと 家[いえ]に いました。",
+   "jp": "わたしは 午前中[ごぜんちゅう] ずっと 家[いえ]に いました。",
    "es": "Toda la mañana estuve en casa."
   },
   {
@@ -1437,7 +1437,7 @@ N5.data.examenes=
    "es": "El cielo es azul y precioso."
   },
   {
-   "jp": "今日[きょう]は 空[そら]気[き]が つめたいです。",
+   "jp": "今日[きょう]は 空気[くうき]が つめたいです。",
    "es": "Hoy el aire está frío."
   },
   {
@@ -2076,9 +2076,9 @@ N5.data.examenes=
     "nota": "「きのうは…1時に ねました」."
    },
    {
-    "texto": "わたしの 学校[がっこう]には りゅうがくせいが 30人[にん] います。中国[ちゅうごく]人[ひと]が 一番[いちばん] 多[おお]くて、15人[にん]です。アメリカ人[ひと]は 5人[にん]です。",
+    "texto": "わたしの 学校[がっこう]には りゅうがくせいが 30人[にん] います。中国人[ちゅうごくじん]が 一番[いちばん] 多[おお]くて、15人[にん]です。アメリカ人[ひと]は 5人[にん]です。",
     "es": "En mi escuela hay 30 estudiantes extranjeros. Los más numerosos son los chinos, 15. Estadounidenses hay 5.",
-    "pregunta": "中国[ちゅうごく]人[ひと]の りゅうがくせいは 何人[なんにん]ですか。",
+    "pregunta": "中国人[ちゅうごくじん]の りゅうがくせいは 何人[なんにん]ですか。",
     "opciones": [
      "15人[にん]",
      "30人[にん]",
@@ -2362,7 +2362,7 @@ N5.data.examenes=
       "opciones": [
        "日本語[にほんご]が ぜんぜん わかりませんでした。",
        "日本語[にほんご]が 少[すこ]し わかりました。",
-       "友[とも]だちと 日本語[にほんご]で 話[はなし]しました。",
+       "友[とも]だちと 日本語[にほんご]で 話[はな]しました。",
        "大学[だいがく]で べんきょうして いました。"
       ],
       "nota": "「はじめは 日本語が ぜんぜん わかりませんでした」."
@@ -2380,7 +2380,7 @@ N5.data.examenes=
     ]
    },
    {
-    "texto": "先週[せんしゅう]の 土曜日[どようび]、友[とも]だちの けっこんしきに 行[い]きました。けっこんしきは ホテルで ありました。たくさんの 人[ひと]が 来[き]て、とても にぎやかでした。\n\nわたしは 友[とも]だちに 時計[とけい]を プレゼントしました。友[とも]だちは とても よろこんで くれました。\n\nパーティーの あとで、大学[だいがく]の ときの 友[とも]だちと きっさてんで 3時間[じかん]ぐらい 話[はなし]しました。久[ひさ]しぶりに 会[あ]ったので、とても 楽[たの]しかったです。",
+    "texto": "先週[せんしゅう]の 土曜日[どようび]、友[とも]だちの けっこんしきに 行[い]きました。けっこんしきは ホテルで ありました。たくさんの 人[ひと]が 来[き]て、とても にぎやかでした。\n\nわたしは 友[とも]だちに 時計[とけい]を プレゼントしました。友[とも]だちは とても よろこんで くれました。\n\nパーティーの あとで、大学[だいがく]の ときの 友[とも]だちと きっさてんで 3時間[じかん]ぐらい 話[はな]しました。久[ひさ]しぶりに 会[あ]ったので、とても 楽[たの]しかったです。",
     "es": "El sábado pasado fui a la boda de un amigo, en un hotel. Vino muchísima gente y fue muy animada. Le regalé un reloj y se alegró mucho. Después de la fiesta estuve unas tres horas en una cafetería con amigos de la universidad. Hacía mucho que no nos veíamos y lo pasé muy bien.",
     "preguntas": [
      {
@@ -2396,7 +2396,7 @@ N5.data.examenes=
      {
       "pregunta": "パーティーの あとで 何[なに]を しましたか。",
       "opciones": [
-       "きっさてんで 話[はなし]しました。",
+       "きっさてんで 話[はな]しました。",
        "ホテルに とまりました。",
        "すぐ 家[いえ]へ 帰[かえ]りました。",
        "友[とも]だちの 家[いえ]へ 行[い]きました。"
@@ -2406,7 +2406,7 @@ N5.data.examenes=
     ]
    },
    {
-    "texto": "わたしの 家族[かぞく]は 4人[にん]です。父[ちち]と 母[はは]と 弟[おとうと]と わたしです。父[ちち]は 銀行[ぎんこう]で はたらいて います。毎朝[まいあさ] 7時[じ]に 家[いえ]を 出[で]て、夜[よる] 8時[じ]ごろ 帰[かえ]ります。\n\n母[はは]は 近[ちか]くの スーパーで 午前[ごぜん]中[なか]だけ はたらいて います。午後[ごご]は 家[いえ]で りょうりを したり、そうじを したり します。\n\n弟[おとうと]は 高校生[こうこうせい]です。サッカーが 大[だい]すきで、毎日[まいにち] 学校[がっこう]の あとで れんしゅうして います。",
+    "texto": "わたしの 家族[かぞく]は 4人[にん]です。父[ちち]と 母[はは]と 弟[おとうと]と わたしです。父[ちち]は 銀行[ぎんこう]で はたらいて います。毎朝[まいあさ] 7時[じ]に 家[いえ]を 出[で]て、夜[よる] 8時[じ]ごろ 帰[かえ]ります。\n\n母[はは]は 近[ちか]くの スーパーで 午前中[ごぜんちゅう]だけ はたらいて います。午後[ごご]は 家[いえ]で りょうりを したり、そうじを したり します。\n\n弟[おとうと]は 高校生[こうこうせい]です。サッカーが 大[だい]すきで、毎日[まいにち] 学校[がっこう]の あとで れんしゅうして います。",
     "es": "Somos cuatro: mi padre, mi madre, mi hermano pequeño y yo. Mi padre trabaja en un banco; sale a las 7 y vuelve sobre las 8 de la noche. Mi madre trabaja solo por la mañana en el súper de al lado; por la tarde cocina y limpia en casa. Mi hermano está en el instituto y le encanta el fútbol: entrena cada día después de clase.",
     "preguntas": [
      {
@@ -2796,7 +2796,7 @@ N5.data.examenes=
     ]
    },
    {
-    "texto": "ゆうべ、となりの へやの 人[ひと]が とても うるさかったです。夜[よる] 12時[じ]を すぎても、大[おお]きい 音[おと]で 音楽[おんがく]を 聞[き]いて いました。\n\nわたしは あさ 早[はや]く 起[お]きなければ ならないので、ねむれなくて こまりました。\n\nきょう、アパートの かんりにんさんに 話[はなし]しました。かんりにんさんは「となりの 人[ひと]に 言[い]って おきます」と 言[い]いました。",
+    "texto": "ゆうべ、となりの へやの 人[ひと]が とても うるさかったです。夜[よる] 12時[じ]を すぎても、大[おお]きい 音[おと]で 音楽[おんがく]を 聞[き]いて いました。\n\nわたしは あさ 早[はや]く 起[お]きなければ ならないので、ねむれなくて こまりました。\n\nきょう、アパートの かんりにんさんに 話[はな]しました。かんりにんさんは「となりの 人[ひと]に 言[い]って おきます」と 言[い]いました。",
     "es": "Anoche el vecino de al lado hizo mucho ruido: pasadas las 12 seguía con la música muy alta. Yo tengo que madrugar y no podía dormir. Hoy se lo he contado al administrador del edificio, que me ha dicho que hablará con el vecino.",
     "preguntas": [
      {
@@ -3031,7 +3031,7 @@ N5.data.examenes=
     "pregunta": "田中[たなか]さんは 魚[さかな]を 一番[いちばん] 安[やす]く 買[か]いたいです。いつ 行[い]けば いいですか。",
     "opciones": [
      "金曜日[きんようび]の 午後[ごご] 六時[ろくじ]から",
-     "金曜日[きんようび]の 午前[ごぜん]中[なか]",
+     "金曜日[きんようび]の 午前中[ごぜんちゅう]",
      "水曜日[すいようび]の 午後[ごご] 六時[ろくじ]から",
      "日曜日[にちようび]の 午後[ごご] 六時[ろくじ]から"
     ],
@@ -6676,5 +6676,1015 @@ N5.data.examenes=
     "nota": "Piden permiso: se contesta sí o no al permiso."
    }
   ]
- }
+ },
+ "huecos": [
+  {
+   "texto": "わたしは 毎朝[まいあさ] 6時[じ]に 起[お]きます。（１） 、シャワーを 浴[あ]びて、朝[あさ]ごはんを 食[た]べます。会社[かいしゃ]まで 電車[でんしゃ]で 1時間[じかん] （２） かかります。電車[でんしゃ]の 中[なか]では いつも 本[ほん]を （３） 。会社[かいしゃ]に 着[つ]くのは 8時[じ]半[はん]です。日本[にほん]の 会社[かいしゃ]は 朝[あさ]が 早[はや]いので、最初[さいしょ]は たいへん （４） 。",
+   "es": "Me levanto a las 6, me ducho, desayuno… El tren tarda una hora; siempre leo dentro. Llego a las 8:30. Al principio costaba porque las empresas japonesas empiezan pronto.",
+   "huecos": [
+    {
+     "opciones": [
+      "それから",
+      "でも",
+      "だから",
+      "じゃ"
+     ],
+     "nota": "それから = y después, para encadenar acciones."
+    },
+    {
+     "opciones": [
+      "ぐらい",
+      "ごろ",
+      "まで",
+      "から"
+     ],
+     "nota": "ぐらい con duraciones; ごろ es para horas del reloj."
+    },
+    {
+     "opciones": [
+      "読[よ]みます",
+      "読[よ]みました",
+      "読[よ]みたいです",
+      "読[よ]みません"
+     ],
+     "nota": "いつも pide presente habitual."
+    },
+    {
+     "opciones": [
+      "でした",
+      "です",
+      "でしょう",
+      "じゃありません"
+     ],
+     "nota": "最初[さいしょ]は (al principio): pasado."
+    }
+   ]
+  },
+  {
+   "texto": "先週[せんしゅう]の 日曜日[にちようび]、友[とも]だち （１） 動物園[どうぶつえん]へ 行[い]きました。動物園[どうぶつえん]は 駅[えき]から バスで 20分[ふん]ぐらいの ところに あります。いろいろな 動物[どうぶつ]が いましたが、わたしは パンダが 一番[いちばん] （２） です。パンダは とても かわいかったです。昼[ひる]ごはんは 動物園[どうぶつえん]の 中[なか]の レストランで 食[た]べました。カレーは （３） 、あまり おいしく なかったです。また 行[い]きたいですが、（４） 行[い]く ときは おべんとうを 持[も]って 行[い]きます。",
+   "es": "El domingo fui al zoo con un amigo. Lo que más me gustó fue el panda. Comimos en el restaurante del zoo: el curry era caro y no muy bueno. La próxima vez llevaré comida.",
+   "huecos": [
+    {
+     "opciones": [
+      "と",
+      "に",
+      "を",
+      "で"
+     ],
+     "nota": "と = con quién."
+    },
+    {
+     "opciones": [
+      "好[す]き",
+      "好[す]きな",
+      "好[す]きに",
+      "好[す]きで"
+     ],
+     "nota": "一番 好きです: el adjetivo な ante です va sin な."
+    },
+    {
+     "opciones": [
+      "高[たか]くて",
+      "高[たか]い",
+      "高[たか]かった",
+      "高[たか]く"
+     ],
+     "nota": "Unir dos adjetivos: forma て (高くて、…)."
+    },
+    {
+     "opciones": [
+      "こんど",
+      "きのう",
+      "まえに",
+      "さっき"
+     ],
+     "nota": "こんど = la próxima vez; el verbo va en presente."
+    }
+   ]
+  },
+  {
+   "texto": "わたしの 町[まち]には 古[ふる]い お寺[てら]が あります。お寺[てら]の 前[まえ]には 大[おお]きい さくらの 木[き]が （１） 。毎年[まいとし] 4月[がつ]に なると、たくさんの 人[ひと]が さくらを 見[み] （２） 来[き]ます。わたしも 毎年[まいとし] 家族[かぞく]と 行[い]きます。お寺[てら]の 近[ちか]くには おいしい だんごの 店[みせ]も あります。去年[きょねん]は そこで だんごを 五[いつ]つ （３） 。ことしは もっと たくさん 食[た]べたいと （４） 。",
+   "es": "En mi ciudad hay un templo antiguo con un gran cerezo delante. En abril viene muchísima gente a verlo. Cerca hay una tienda de dango: el año pasado me comí cinco; este año quiero comer más.",
+   "huecos": [
+    {
+     "opciones": [
+      "あります",
+      "います",
+      "しまります",
+      "なります"
+     ],
+     "nota": "Un árbol: あります (cosa)."
+    },
+    {
+     "opciones": [
+      "に",
+      "を",
+      "で",
+      "が"
+     ],
+     "nota": "V(raíz)＋に 来る: venir a hacer algo."
+    },
+    {
+     "opciones": [
+      "食[た]べました",
+      "食[た]べます",
+      "食[た]べて います",
+      "食[た]べたいです"
+     ],
+     "nota": "去年: pasado."
+    },
+    {
+     "opciones": [
+      "思[おも]って います",
+      "思[おも]いました",
+      "思[おも]いましょう",
+      "思[おも]わないです"
+     ],
+     "nota": "〜と 思って います: lo que se piensa ahora."
+    }
+   ]
+  },
+  {
+   "texto": "きのうは 雨[あめ]でした。わたしは どこへも （１） 、家[いえ]で 映画[えいが]を 見[み]ました。映画[えいが]は 3時間[じかん]ぐらい ありましたが、とても おもしろかったです。夜[よる]、友[とも]だちから 電話[でんわ]が （２） 。友[とも]だちも 同[おな]じ 映画[えいが]を 見[み]たそうです。来週[らいしゅう] いっしょに 映画館[えいがかん]へ （３） と 言[い]われました。わたしは 「いいですね。（４） 行[い]きましょう」と 言[い]いました。",
+   "es": "Ayer llovió y no salí: vi una película en casa. Por la noche llamó un amigo que había visto la misma. Me propuso ir juntos al cine la semana que viene y dije: «¡Vale, vamos!».",
+   "huecos": [
+    {
+     "opciones": [
+      "行[い]かないで",
+      "行[い]って",
+      "行[い]きたくて",
+      "行[い]ったら"
+     ],
+     "nota": "〜ないで = sin hacer: no fui a ningún sitio y…"
+    },
+    {
+     "opciones": [
+      "ありました",
+      "しました",
+      "かけました",
+      "もらいました"
+     ],
+     "nota": "電話が ある = recibir una llamada."
+    },
+    {
+     "opciones": [
+      "行[い]きませんか",
+      "行[い]きましたか",
+      "行[い]って いますか",
+      "行[い]きたいですか"
+     ],
+     "nota": "Invitación: 〜ませんか."
+    },
+    {
+     "opciones": [
+      "ぜひ",
+      "あまり",
+      "ぜんぜん",
+      "まだ"
+     ],
+     "nota": "ぜひ = sin falta, con ganas."
+    }
+   ]
+  },
+  {
+   "texto": "わたしは 日本[にほん]へ 来[き]て、6か月[げつ]に なります。最初[さいしょ]は 日本語[にほんご]が ぜんぜん わかりませんでした。（１） 、今[いま]は 少[すこ]し わかる ように なりました。毎日[まいにち] 学校[がっこう]で 4時間[じかん] 勉強[べんきょう]して います。学校[がっこう]の あとは コンビニで アルバイトを （２） 。アルバイトは たいへんですが、日本語[にほんご]を 使[つか]う （３） が できるので、楽[たの]しいです。来年[らいねん]は 大学[だいがく]に （４） と 思[おも]って います。",
+   "es": "Llevo seis meses en Japón. Al principio no entendía nada; ahora algo. Estudio cuatro horas al día y después trabajo en una tienda: es duro, pero puedo usar el japonés. El año que viene quiero entrar en la universidad.",
+   "huecos": [
+    {
+     "opciones": [
+      "でも",
+      "それから",
+      "だから",
+      "そして"
+     ],
+     "nota": "Contraste entre antes y ahora: でも."
+    },
+    {
+     "opciones": [
+      "して います",
+      "しました",
+      "しませんか",
+      "したいです"
+     ],
+     "nota": "Hábito actual: 〜て います."
+    },
+    {
+     "opciones": [
+      "こと",
+      "もの",
+      "ところ",
+      "とき"
+     ],
+     "nota": "〜こと が できる."
+    },
+    {
+     "opciones": [
+      "入[はい]りたい",
+      "入[はい]った",
+      "入[はい]って",
+      "入[はい]らない"
+     ],
+     "nota": "〜たいと 思って います = querer."
+    }
+   ]
+  },
+  {
+   "texto": "田中[たなか]さん、こんにちは。お元気[げんき]ですか。わたしは 今[いま] 北海道[ほっかいどう]に 来[き]て います。北海道[ほっかいどう]は 東京[とうきょう] （１） ずっと すずしいです。きのうは 山[やま]に 登[のぼ]りました。山[やま]の 上[うえ]から 見[み]た 景色[けしき]は とても （２） 。今日[きょう]は 牧場[ぼくじょう]へ 行[い]って、牛乳[ぎゅうにゅう]を 飲[の]みました。とても おいしかったです。あしたの 夜[よる] 東京[とうきょう]へ （３） 。おみやげを 買[か]って 行[い]きます から、（４） 。リン",
+   "es": "Hola Tanaka: estoy en Hokkaido, mucho más fresco que Tokio. Ayer subí a una montaña; las vistas eran preciosas. Hoy fui a una granja y bebí leche. Mañana por la noche vuelvo a Tokio: te llevo un recuerdo, espérame. Lin.",
+   "huecos": [
+    {
+     "opciones": [
+      "より",
+      "から",
+      "まで",
+      "ほど"
+     ],
+     "nota": "A より B: más que."
+    },
+    {
+     "opciones": [
+      "きれいでした",
+      "きれいです",
+      "きれいな",
+      "きれいに"
+     ],
+     "nota": "Algo que se vio ayer: pasado."
+    },
+    {
+     "opciones": [
+      "帰[かえ]ります",
+      "帰[かえ]りました",
+      "帰[かえ]って います",
+      "帰[かえ]りたかったです"
+     ],
+     "nota": "あしたの 夜: futuro."
+    },
+    {
+     "opciones": [
+      "待[ま]って いて ください",
+      "待[ま]ちましたか",
+      "待[ま]ちません",
+      "待[ま]って いました"
+     ],
+     "nota": "Petición: 〜て いて ください."
+    }
+   ]
+  },
+  {
+   "texto": "わたしの 家族[かぞく]は 5人[にん]です。父[ちち]は 銀行員[ぎんこういん]で、毎日[まいにち] （１） 帰[かえ]ります。母[はは]は 料理[りょうり]が 上手[じょうず]で、毎晩[まいばん] おいしい 晩[ばん]ごはんを 作[つく]って くれます。兄[あに]は 大[おお]学生[がくせい]です。（２） 東京[とうきょう]の 大学[だいがく]に 入[はい]ったので、今[いま]は 一人[ひとり]で アパートに 住[す]んで います。妹[いもうと]は まだ 小[ちい]学生[がくせい]です。妹[いもうと]は 犬[いぬ]が 大好[だいす]きで、毎朝[まいあさ] 犬[いぬ] （３） 散歩[さんぽ]します。わたしは 家族[かぞく]が とても （４） です。",
+   "es": "Somos cinco. Mi padre trabaja en un banco y vuelve tarde; mi madre cocina muy bien; mi hermano mayor entró en una universidad de Tokio y vive solo; mi hermana pequeña pasea al perro cada mañana. Quiero mucho a mi familia.",
+   "huecos": [
+    {
+     "opciones": [
+      "おそく",
+      "おそい",
+      "おそくて",
+      "おそかった"
+     ],
+     "nota": "Adverbio ante verbo: おそく 帰ります."
+    },
+    {
+     "opciones": [
+      "去年[きょねん]",
+      "来年[らいねん]",
+      "あした",
+      "今度[こんど]"
+     ],
+     "nota": "Pasado (入った): 去年."
+    },
+    {
+     "opciones": [
+      "と",
+      "を",
+      "が",
+      "に"
+     ],
+     "nota": "Con quién: と."
+    },
+    {
+     "opciones": [
+      "好[す]き",
+      "好[す]きな",
+      "好[す]きで",
+      "好[す]きに"
+     ],
+     "nota": "〜が 好きです."
+    }
+   ]
+  },
+  {
+   "texto": "先週[せんしゅう]から 料理[りょうり]教室[きょうしつ]に 通[かよ]って います。教室[きょうしつ]は 毎週[まいしゅう] 土曜日[どようび]の 午前[ごぜん] 10時[じ]から 12時[じ]までです。先生[せんせい]は とても やさしい 女[おんな]の 人[ひと]です。最初[さいしょ]の 日[ひ]は すしを 作[つく]りました。すしを 作[つく]る のは はじめてでした （１） 、とても むずかしかったです。でも、先生[せんせい]が ていねいに 教[おし]えて （２） ので、上手[じょうず]に 作[つく]る ことが できました。作[つく]った すしは 家[いえ]に 持[も]って （３） 、家族[かぞく]と いっしょに 食[た]べました。来週[らいしゅう]は てんぷらを 作[つく]る （４） です。",
+   "es": "Desde la semana pasada voy a clases de cocina los sábados de 10 a 12. La profesora es muy amable. El primer día hicimos sushi: era la primera vez y costó, pero ella explicó con cuidado y me salió bien. Me lo llevé a casa y lo comimos en familia. La semana que viene haremos tempura.",
+   "huecos": [
+    {
+     "opciones": [
+      "から",
+      "が",
+      "のに",
+      "ので"
+     ],
+     "nota": "Motivo de lo difícil: から."
+    },
+    {
+     "opciones": [
+      "くれた",
+      "あげた",
+      "もらった",
+      "やった"
+     ],
+     "nota": "Alguien me enseña a mí: 〜て くれる."
+    },
+    {
+     "opciones": [
+      "帰[かえ]って",
+      "帰[かえ]ると",
+      "帰[かえ]ったら",
+      "帰[かえ]らないで"
+     ],
+     "nota": "Encadenar: llevar a casa y comer → 〜て."
+    },
+    {
+     "opciones": [
+      "予定[よてい]",
+      "ため",
+      "はず",
+      "まま"
+     ],
+     "nota": "〜予定[よてい]です = está previsto."
+    }
+   ]
+  },
+  {
+   "texto": "駅[えき]の 近[ちか]くに 新[あたら]しい 図書館[としょかん]が できました。前[まえ]の 図書館[としょかん] （１） 大[おお]きくて、本[ほん]も たくさん あります。2階[かい]には 子[こ]どもの 本[ほん]が あって、いつも 子[こ]どもたちで にぎやかです。3階[かい]は 静[しず]かに 勉強[べんきょう] （２） 部屋[へや]です。わたしは 毎週[まいしゅう] 日曜日[にちようび]に そこで 勉強[べんきょう]します。図書館[としょかん]は 朝[あさ] 9時[じ]から 夜[よる] 8時[じ]まで 開[あ]いて います （３） 、月曜日[げつようび]は 休[やす]みです。（４） 行[い]く 人[ひと]は 気[き]を つけて ください。",
+   "es": "Han abierto una biblioteca nueva cerca de la estación, más grande que la anterior. En la segunda planta están los libros infantiles; la tercera es una sala de estudio silencioso. Abre de 9 a 8, pero los lunes cierra: cuidado si vais ese día.",
+   "huecos": [
+    {
+     "opciones": [
+      "より",
+      "から",
+      "と",
+      "まで"
+     ],
+     "nota": "Comparación: より."
+    },
+    {
+     "opciones": [
+      "する",
+      "した",
+      "して",
+      "しない"
+     ],
+     "nota": "Ante nombre (部屋): forma de diccionario."
+    },
+    {
+     "opciones": [
+      "が",
+      "から",
+      "ので",
+      "し"
+     ],
+     "nota": "Contraste: が."
+    },
+    {
+     "opciones": [
+      "月曜日[げつようび]に",
+      "日曜日[にちようび]に",
+      "毎日[まいにち]",
+      "午前[ごぜん]に"
+     ],
+     "nota": "Cuidado: el lunes está cerrado."
+    }
+   ]
+  },
+  {
+   "texto": "わたしは 毎日[まいにち] 日記[にっき]を 書[か]いて います。日本語[にほんご]の 勉強[べんきょう]の ために、日本語[にほんご]で 書[か]く （１） に しました。最初[さいしょ]は ひらがなだけで 書[か]いて いましたが、今[いま]は かんじも 少[すこ]し 使[つか]います。わからない かんじが ある ときは、辞書[じしょ]で （２） 。きのうの 日記[にっき]には、友[とも]だちと 食[た]べた ラーメンの ことを 書[か]きました。（３） ラーメンは わたしが 日本[にほん]で 食[た]べた ラーメンの 中[なか]で 一番[いちばん] おいしかったです。いつか 日記[にっき]を 先生[せんせい]に 見[み]て （４） と 思[おも]って います。",
+   "es": "Escribo un diario todos los días, en japonés para practicar. Al principio solo en hiragana; ahora también algo de kanji, y los que no sé los busco en el diccionario. Ayer escribí del ramen que comí con un amigo: el mejor que he comido en Japón. Algún día quiero que el profesor lo lea.",
+   "huecos": [
+    {
+     "opciones": [
+      "こと",
+      "もの",
+      "ほう",
+      "ため"
+     ],
+     "nota": "〜ことに しました = decidí hacer."
+    },
+    {
+     "opciones": [
+      "しらべます",
+      "かえます",
+      "おしえます",
+      "わすれます"
+     ],
+     "nota": "Buscar en el diccionario: しらべる."
+    },
+    {
+     "opciones": [
+      "その",
+      "この",
+      "あの",
+      "どの"
+     ],
+     "nota": "Algo recién mencionado: その."
+    },
+    {
+     "opciones": [
+      "もらいたい",
+      "あげたい",
+      "くれたい",
+      "やりたい"
+     ],
+     "nota": "Que otro haga algo por mí: 〜て もらいたい."
+    }
+   ]
+  },
+  {
+   "texto": "ゆうべ、となりの 家[いえ]の ねこが わたしの 家[いえ]に 入[はい]って きました。ねこは とても おなかが すいて いる （１） でした。わたしは 少[すこ]し 魚[さかな]を あげました。ねこは すぐ 全部[ぜんぶ] （２） 。けさ、となりの 人[ひと]に 話[はな]したら、「すみません。ねこは 夜[よる] 外[そと]に 出[で]るのが 好[す]きなんです」と 言[い]って いました。となりの 人[ひと]は お礼[れい]に ケーキを （３） 。ねこの おかげで、となりの 人[ひと]と 仲[なか]よく （４） 。",
+   "es": "Anoche el gato del vecino se coló en casa; parecía muy hambriento y le di un poco de pescado, que se comió enseguida. Esta mañana se lo conté al vecino, que se disculpó y me trajo una tarta en agradecimiento. Gracias al gato nos hemos hecho amigos.",
+   "huecos": [
+    {
+     "opciones": [
+      "よう",
+      "ため",
+      "はず",
+      "つもり"
+     ],
+     "nota": "〜ようでした = parecía."
+    },
+    {
+     "opciones": [
+      "食[た]べました",
+      "食[た]べます",
+      "食[た]べて ください",
+      "食[た]べません"
+     ],
+     "nota": "Acción pasada."
+    },
+    {
+     "opciones": [
+      "くれました",
+      "もらいました",
+      "あげました",
+      "やりました"
+     ],
+     "nota": "El vecino me da a mí: くれる."
+    },
+    {
+     "opciones": [
+      "なりました",
+      "しました",
+      "いました",
+      "ありました"
+     ],
+     "nota": "〜く/に なる: llegar a ser."
+    }
+   ]
+  },
+  {
+   "texto": "先月[せんげつ]、はじめて 一人[ひとり]で 京都[きょうと]へ 旅行[りょこう]しました。京都[きょうと]には 古[ふる]い お寺[てら]や 神社[じんじゃ]が たくさん あります。一日目[いちにちめ]は 有名[ゆうめい]な お寺[てら]を 三[みっ]つ （１） 。とても 歩[ある]いたので、夜[よる]は 足[あし]が いたかったです。二日目[ふつかめ]は 雨[あめ]でした。（２） 、美術館[びじゅつかん]へ 行[い]きました。美術館[びじゅつかん]は 静[しず]かで、ゆっくり 絵[え]を 見[み]る ことが （３） 。一人[ひとり]の 旅行[りょこう]は 少[すこ]し さびしかったですが、（４） 楽[たの]しかったです。",
+   "es": "El mes pasado viajé solo a Kioto por primera vez. El primer día visité tres templos famosos y acabé con los pies doloridos. El segundo llovió, así que fui a un museo, donde pude ver los cuadros tranquilo. Viajar solo fue algo solitario, pero bastante divertido.",
+   "huecos": [
+    {
+     "opciones": [
+      "見[み]ました",
+      "見[み]ます",
+      "見[み]て います",
+      "見[み]たいです"
+     ],
+     "nota": "Pasado."
+    },
+    {
+     "opciones": [
+      "それで",
+      "でも",
+      "そして",
+      "それから"
+     ],
+     "nota": "Consecuencia de la lluvia: それで."
+    },
+    {
+     "opciones": [
+      "できました",
+      "しました",
+      "なりました",
+      "ありました"
+     ],
+     "nota": "〜ことが できる, en pasado."
+    },
+    {
+     "opciones": [
+      "けっこう",
+      "ぜんぜん",
+      "あまり",
+      "すこしも"
+     ],
+     "nota": "Con afirmativo: けっこう (bastante). ぜんぜん/あまり piden negativo."
+    }
+   ]
+  },
+  {
+   "texto": "わたしの 学校[がっこう]には 外国人[がいこくじん]の 学生[がくせい]が たくさん います。中国[ちゅうごく] （１） 来[き]た 人[ひと]が 一番[いちばん] 多[おお]いです。わたしの クラスにも 中国人[ちゅうごくじん]の リーさんが います。リーさんは 日本[にほん]へ 来[く]る 前[まえ]に 国[くに]で 2年[ねん] 日本語[にほんご]を 勉強[べんきょう]した （２） 、日本語[にほんご]が とても 上手[じょうず]です。わたしは よく リーさんに 宿題[しゅくだい]を 手伝[てつだ]って もらいます。リーさんは いつも 「（３） いいですよ」と 言[い]って くれます。わたしも いつか リーさんの ように 上手[じょうず]に （４） たいです。",
+   "es": "En mi escuela hay muchos estudiantes extranjeros; los que más, de China. En mi clase está Lee, que estudió japonés dos años antes de venir y lo habla muy bien. A menudo me ayuda con los deberes y siempre dice «claro, no pasa nada». Algún día quiero hablar tan bien como Lee.",
+   "huecos": [
+    {
+     "opciones": [
+      "から",
+      "まで",
+      "で",
+      "に"
+     ],
+     "nota": "Procedencia: から."
+    },
+    {
+     "opciones": [
+      "ので",
+      "のに",
+      "けど",
+      "が"
+     ],
+     "nota": "Causa: ので."
+    },
+    {
+     "opciones": [
+      "いつでも",
+      "いつも",
+      "いつか",
+      "いつ"
+     ],
+     "nota": "いつでも いい = cuando quieras."
+    },
+    {
+     "opciones": [
+      "話[はな]せる ように なり",
+      "話[はな]す ことに し",
+      "話[はな]して み",
+      "話[はな]さなくて"
+     ],
+     "nota": "〜ように なりたい = llegar a poder."
+    }
+   ]
+  },
+  {
+   "texto": "土曜日[どようび]に 引[ひ]っ越[こ]しを しました。新[あたら]しい アパートは 前[まえ]の アパートより 広[ひろ]くて、窓[まど] （１） 公園[こうえん]が 見[み]えます。引[ひ]っ越[こ]しは 友[とも]だちが 三人[さんにん] 手伝[てつだ]いに 来[き]て くれました。重[おも]い 荷物[にもつ]が 多[おお]かったので、たいへんでした。昼[ひる]ごはんは みんなで ピザを （２） 。夜[よる] 7時[じ]ごろ やっと 全部[ぜんぶ] （３） 。友[とも]だちに 「ありがとう」と 言[い]って、こんど みんなを 家[いえ]に （４） と 約束[やくそく]しました。",
+   "es": "El sábado me mudé. El piso nuevo es más amplio que el anterior y desde la ventana se ve un parque. Vinieron tres amigos a ayudarme; había mucho peso y fue duro. Comimos pizza entre todos y sobre las 7 por fin terminamos. Les di las gracias y prometí invitarles a casa.",
+   "huecos": [
+    {
+     "opciones": [
+      "から",
+      "で",
+      "に",
+      "へ"
+     ],
+     "nota": "Desde dónde se ve: から."
+    },
+    {
+     "opciones": [
+      "食[た]べました",
+      "作[つく]りました",
+      "売[う]りました",
+      "持[も]ちました"
+     ],
+     "nota": "La comida: la comieron."
+    },
+    {
+     "opciones": [
+      "終[お]わりました",
+      "始[はじ]まりました",
+      "はじめました",
+      "かかりました"
+     ],
+     "nota": "Terminar: 終わる."
+    },
+    {
+     "opciones": [
+      "呼[よ]ぶ",
+      "呼[よ]んだ",
+      "呼[よ]んで",
+      "呼[よ]ばない"
+     ],
+     "nota": "Lo que se promete hacer: forma de diccionario ＋ と."
+    }
+   ]
+  },
+  {
+   "texto": "きょう、学校[がっこう]の 帰[かえ]りに 本屋[ほんや]へ 寄[よ]りました。日本語[にほんご]の 辞書[じしょ]が （１） からです。本屋[ほんや]には いろいろな 辞書[じしょ]が ありました。大[おお]きい 辞書[じしょ]は 字[じ]が 見[み]やすいですが、重[おも]くて 高[たか]いです。小[ちい]さい 辞書[じしょ]は 軽[かる]いですが、字[じ]が 小[ちい]さくて 見[み] （２） です。店[みせ]の 人[ひと]に 聞[き]いたら、「学生[がくせい] （３） この 辞書[じしょ]が 人気[にんき]ですよ」と 教[おし]えて くれました。それは 大[おお]きくなくて、字[じ]も 見[み]やすい 辞書[じしょ]でした。わたしは それに （４） 。",
+   "es": "Hoy al volver de clase pasé por una librería porque quería un diccionario. Los grandes se leen bien pero pesan y son caros; los pequeños son ligeros pero la letra es diminuta. El dependiente me dijo que entre estudiantes el más popular era uno no muy grande y fácil de leer. Me quedé con ese.",
+   "huecos": [
+    {
+     "opciones": [
+      "ほしかった",
+      "ほしい",
+      "ほしくて",
+      "ほしく"
+     ],
+     "nota": "Motivo pasado: ほしかったからです."
+    },
+    {
+     "opciones": [
+      "にくい",
+      "やすい",
+      "すぎ",
+      "たい"
+     ],
+     "nota": "見にくい = difícil de ver."
+    },
+    {
+     "opciones": [
+      "には",
+      "では",
+      "とは",
+      "へは"
+     ],
+     "nota": "Entre/para los estudiantes: 学生には."
+    },
+    {
+     "opciones": [
+      "しました",
+      "なりました",
+      "ありました",
+      "いました"
+     ],
+     "nota": "〜に する = decidirse por."
+    }
+   ]
+  },
+  {
+   "texto": "わたしの 趣味[しゅみ]は 写真[しゃしん]です。休[やす]みの 日[ひ]は いつも カメラを 持[も]って 出[で]かけます。（１） 花[はな]や 山[やま]の 写真[しゃしん]を とります。きのうは 近[ちか]くの 公園[こうえん]で さくらの 写真[しゃしん]を たくさん とりました。家[いえ]に 帰[かえ]って、パソコンで 写真[しゃしん]を 見[み]ました。一番[いちばん] よく とれた 写真[しゃしん]を 母[はは]に （２） 。母[はは]は 「きれいね」と 言[い]って、とても よろこびました。来月[らいげつ]、町[まち]の 写真[しゃしん]の コンテストが あるので、（３） 写真[しゃしん]を 出[だ]して （４） と 思[おも]います。",
+   "es": "Mi afición es la fotografía. Los días libres salgo con la cámara; sobre todo hago fotos de flores y montañas. Ayer hice muchas de los cerezos del parque; al volver las miré en el ordenador y le enseñé a mi madre la mejor, que se puso muy contenta. El mes que viene hay un concurso en la ciudad y creo que presentaré esa foto.",
+   "huecos": [
+    {
+     "opciones": [
+      "よく",
+      "まだ",
+      "もう",
+      "あまり"
+     ],
+     "nota": "Con frecuencia: よく."
+    },
+    {
+     "opciones": [
+      "見[み]せました",
+      "見[み]ました",
+      "見[み]えました",
+      "見[み]に 行[い]きました"
+     ],
+     "nota": "Enseñar algo a alguien: 見せる."
+    },
+    {
+     "opciones": [
+      "その",
+      "この",
+      "どの",
+      "あんな"
+     ],
+     "nota": "La foto ya mencionada: その."
+    },
+    {
+     "opciones": [
+      "みよう",
+      "みる",
+      "みた",
+      "みない"
+     ],
+     "nota": "〜て みようと 思う = pensar intentar."
+    }
+   ]
+  },
+  {
+   "texto": "先週[せんしゅう]、デパートで くつを 買[か]いました。でも、家[いえ]で はいて みたら、少[すこ]し 小[ちい]さかったです。（１） 、きのう デパートへ 行[い]って、店[みせ]の 人[ひと]に 話[はな]しました。店[みせ]の 人[ひと]は 「大[おお]きい サイズと かえ （２） 」と 言[い]いました。大[おお]きい サイズを はいて みたら、ちょうど よかったです。店[みせ]の 人[ひと]が とても 親切[しんせつ]だったので、また この 店[みせ]で 買[か]い物[もの]を （３） 。こんどは 買[か]う 前[まえ]に ちゃんと はいて （４） 。",
+   "es": "La semana pasada compré unos zapatos, pero en casa me quedaban pequeños. Ayer volví y se lo dije al dependiente, que me ofreció cambiarlos por una talla más; me quedaron perfectos. Como fue tan amable volveré a comprar allí. La próxima vez me los probaré antes de comprar.",
+   "huecos": [
+    {
+     "opciones": [
+      "それで",
+      "でも",
+      "しかし",
+      "けれど"
+     ],
+     "nota": "Consecuencia: それで."
+    },
+    {
+     "opciones": [
+      "ましょうか",
+      "ませんでした",
+      "て いました",
+      "たかったです"
+     ],
+     "nota": "Ofrecimiento: 〜ましょうか."
+    },
+    {
+     "opciones": [
+      "したいです",
+      "しました",
+      "して いません",
+      "しなくても いいです"
+     ],
+     "nota": "Deseo: 〜たいです."
+    },
+    {
+     "opciones": [
+      "みます",
+      "みました",
+      "みません",
+      "いました"
+     ],
+     "nota": "〜て みる en futuro."
+    }
+   ]
+  },
+  {
+   "texto": "うちの 近[ちか]くに 大[おお]きい スーパーが あります。この スーパーは 夜[よる] 11時[じ]まで 開[あ]いて いるので、とても （１） 。わたしは 仕事[しごと]が 終[お]わって から、よく ここで 買[か]い物[もの]を します。夜[よる] 9時[じ]を すぎると、お弁当[べんとう]や パンが 安[やす]く （２） 。きのうも 9時[じ]半[はん]ごろ 行[い]って、お弁当[べんとう]を 二[ふた]つ 買[か]いました。一[ひと]つは 晩[ばん]ごはんに 食[た]べて、もう 一[ひと]つは 次[つぎ]の 日[ひ]の 昼[ひる]ごはんに （３） 。安[やす]くて 便利[べんり]なので、（４） 行[い]きます。",
+   "es": "Cerca de casa hay un súper grande que abre hasta las 11 de la noche: muy práctico. Después del trabajo suelo comprar allí. Pasadas las 9, la comida preparada y el pan se abaratan. Ayer fui a las 9:30 y compré dos bentos: uno para cenar y otro para comer al día siguiente. Como es barato y práctico, voy a menudo.",
+   "huecos": [
+    {
+     "opciones": [
+      "便利[べんり]です",
+      "便利[べんり]な",
+      "便利[べんり]に",
+      "便利[べんり]で"
+     ],
+     "nota": "Final de frase: 便利です."
+    },
+    {
+     "opciones": [
+      "なります",
+      "します",
+      "あります",
+      "います"
+     ],
+     "nota": "〜く なる: volverse."
+    },
+    {
+     "opciones": [
+      "しました",
+      "なりました",
+      "ありました",
+      "いました"
+     ],
+     "nota": "〜に する = destinar a."
+    },
+    {
+     "opciones": [
+      "よく",
+      "ぜんぜん",
+      "あまり",
+      "はじめて"
+     ],
+     "nota": "A menudo: よく."
+    }
+   ]
+  },
+  {
+   "texto": "わたしは 子[こ]どもの とき、野菜[やさい]が きらいでした。特[とく]に にんじんが きらいで、いつも お皿[さら]の 上[うえ]に （１） 。母[はは]は いろいろな 料理[りょうり]を 作[つく]って、わたしに 野菜[やさい]を 食[た]べさせようと しました。ある 日[ひ]、母[はは]が にんじんの ケーキを 作[つく]って くれました。とても あまくて おいしかったので、全部[ぜんぶ] （２） 。あとで、それが にんじんだと （３） 、とても びっくりしました。今[いま]は 野菜[やさい]が 大好[だいす]きで、毎日[まいにち] たくさん （４） 。",
+   "es": "De niño odiaba la verdura, sobre todo la zanahoria, que siempre dejaba en el plato. Mi madre probaba de todo para que la comiera. Un día me hizo una tarta de zanahoria; estaba tan rica que me la comí entera. Cuando luego supe qué era, me llevé una sorpresa. Ahora me encanta la verdura y como mucha todos los días.",
+   "huecos": [
+    {
+     "opciones": [
+      "のこしました",
+      "食[た]べました",
+      "買[か]いました",
+      "洗[あら]いました"
+     ],
+     "nota": "La odiaba: la dejaba."
+    },
+    {
+     "opciones": [
+      "食[た]べました",
+      "のこしました",
+      "作[つく]りました",
+      "あげました"
+     ],
+     "nota": "Estaba rica: se la comió."
+    },
+    {
+     "opciones": [
+      "わかって",
+      "わかると",
+      "わかったり",
+      "わからないで"
+     ],
+     "nota": "Al saberlo, se sorprendió: 〜て."
+    },
+    {
+     "opciones": [
+      "食[た]べて います",
+      "食[た]べました",
+      "食[た]べたかったです",
+      "食[た]べませんでした"
+     ],
+     "nota": "Hábito actual."
+    }
+   ]
+  },
+  {
+   "texto": "会社[かいしゃ]の 山田[やまだ]さんは 来月[らいげつ] 結婚[けっこん]します。それで、みんなで プレゼントを あげる ことに なりました。何[なに]が いいか、いろいろ （１） 。お皿[さら]や コップが いいと 言[い]う 人[ひと]も いました （２） 、山田[やまだ]さんは コーヒーが 好[す]きなので、コーヒーの 道具[どうぐ]に しました。きのう、わたしが デパートへ 買[か]いに 行[い]きました。きれいな コーヒーカップが あったので、それも いっしょに （３） 。山田[やまだ]さんが よろこんで （４） と いいです。",
+   "es": "Yamada, de la oficina, se casa el mes que viene y decidimos regalarle algo. Lo discutimos mucho: algunos decían platos o vasos, pero como le gusta el café elegimos un juego para hacer café. Ayer fui a comprarlo y, como había unas tazas preciosas, las compré también. Ojalá le guste.",
+   "huecos": [
+    {
+     "opciones": [
+      "話[はな]しました",
+      "話[はな]して います",
+      "話[はな]したいです",
+      "話[はな]しません"
+     ],
+     "nota": "Pasado."
+    },
+    {
+     "opciones": [
+      "が",
+      "ので",
+      "から",
+      "し"
+     ],
+     "nota": "Contraste: が."
+    },
+    {
+     "opciones": [
+      "買[か]いました",
+      "売[う]りました",
+      "もらいました",
+      "かりました"
+     ],
+     "nota": "Comprar."
+    },
+    {
+     "opciones": [
+      "くれる",
+      "あげる",
+      "もらう",
+      "やる"
+     ],
+     "nota": "Que él se alegre (por nosotros): 〜て くれる."
+    }
+   ]
+  },
+  {
+   "texto": "日曜日[にちようび]の 朝[あさ]、公園[こうえん]で ジョギングを しました。公園[こうえん]には 走[はし]って いる 人[ひと]が たくさん いました。犬[いぬ]と （１） 歩[ある]いて いる 人[ひと]も いました。わたしは 30分[ふん]ぐらい 走[はし]りました。走[はし]った あとは、公園[こうえん]の 中[なか]の 店[みせ]で 水[みず]を 買[か]って 飲[の]みました。とても （２） 。家[いえ]に 帰[かえ]って シャワーを 浴[あ]びてから、朝[あさ]ごはんを 食[た]べました。運動[うんどう]した あとの 朝[あさ]ごはんは いつもより おいしく （３） 。これから 毎週[まいしゅう] 日曜日[にちようび]に 走[はし]る （４） です。",
+   "es": "El domingo por la mañana salí a correr al parque. Había mucha gente corriendo y otros paseando con el perro. Corrí unos 30 minutos y luego compré agua en la tienda del parque: estaba buenísima. En casa me duché y desayuné; después de hacer ejercicio el desayuno sabe mejor. A partir de ahora correré todos los domingos.",
+   "huecos": [
+    {
+     "opciones": [
+      "いっしょに",
+      "ひとりで",
+      "すぐ",
+      "また"
+     ],
+     "nota": "Con el perro: いっしょに."
+    },
+    {
+     "opciones": [
+      "おいしかったです",
+      "おいしいです",
+      "おいしく ないです",
+      "おいしそうです"
+     ],
+     "nota": "Pasado."
+    },
+    {
+     "opciones": [
+      "感[かん]じました",
+      "しました",
+      "いました",
+      "ありました"
+     ],
+     "nota": "Notar: 感じる."
+    },
+    {
+     "opciones": [
+      "つもり",
+      "こと",
+      "ため",
+      "ところ"
+     ],
+     "nota": "Intención: 〜つもりです."
+    }
+   ]
+  },
+  {
+   "texto": "わたしの 部屋[へや]は 2階[かい]に あります。窓[まど]から 山[やま]が 見[み]えて、とても 気持[きも]ちが いいです。でも、部屋[へや]は あまり 広[ひろ]く ありません。ベッドと 机[つくえ]を （１） 、もう ほかの 物[もの]は 置[お]けません。本[ほん]が 多[おお]いので、本棚[ほんだな]が ほしいですが、置[お]く ところが （２） 。それで、先週[せんしゅう] ベッドの 下[した]に 本[ほん]を 入[い]れる はこを 買[か]いました。はこに 本[ほん]を 入[い]れたら、部屋[へや]が 少[すこ]し （３） 。今[いま]は 前[まえ]より 部屋[へや]が 好[す]きに （４） 。",
+   "es": "Mi cuarto está en la segunda planta; desde la ventana se ve la montaña. Pero es pequeño: con la cama y la mesa ya no cabe nada. Tengo muchos libros y querría una estantería, pero no hay sitio, así que compré una caja para meterlos debajo de la cama. Al guardarlos, la habitación quedó más amplia. Ahora me gusta más que antes.",
+   "huecos": [
+    {
+     "opciones": [
+      "置[お]いたら",
+      "置[お]いて",
+      "置[お]くと",
+      "置[お]くので"
+     ],
+     "nota": "Al ponerlos (condición cumplida): 〜たら."
+    },
+    {
+     "opciones": [
+      "ありません",
+      "あります",
+      "いません",
+      "います"
+     ],
+     "nota": "No hay sitio."
+    },
+    {
+     "opciones": [
+      "広[ひろ]く なりました",
+      "広[ひろ]く しました",
+      "広[ひろ]かったです",
+      "広[ひろ]いです"
+     ],
+     "nota": "Cambio: 〜く なる."
+    },
+    {
+     "opciones": [
+      "なりました",
+      "しました",
+      "ありました",
+      "いました"
+     ],
+     "nota": "〜に なる: llegar a gustar."
+    }
+   ]
+  },
+  {
+   "texto": "あした、友[とも]だちの たんじょうびの パーティーが あります。わたしは ケーキを 作[つく]って 持[も]って いく ことに しました。ケーキを 作[つく]るのは はじめてなので、インターネットで 作[つく]り方[かた]を （１） 。きょう スーパーで たまごと さとうと バターを 買[か]いました。家[いえ]に 帰[かえ]って すぐ 作[つく]りはじめましたが、（２） うまく いきませんでした。母[はは]に 手伝[てつだ]って もらって、もう 一度[いちど] （３） 。二回目[にかいめ]は とても きれいに できました。友[とも]だちが よろこんで くれる （４） 。",
+   "es": "Mañana es la fiesta de cumpleaños de un amigo y decidí llevar una tarta hecha por mí. Como era la primera vez, miré la receta en internet. Hoy compré huevos, azúcar y mantequilla; me puse enseguida, pero la primera no salió bien. Con la ayuda de mi madre la hice otra vez y salió preciosa. Ojalá le guste.",
+   "huecos": [
+    {
+     "opciones": [
+      "しらべました",
+      "あそびました",
+      "わすれました",
+      "やめました"
+     ],
+     "nota": "Buscar información: しらべる."
+    },
+    {
+     "opciones": [
+      "一回目[いっかいめ]は",
+      "二回目[にかいめ]は",
+      "いつも",
+      "もう"
+     ],
+     "nota": "La primera vez salió mal."
+    },
+    {
+     "opciones": [
+      "作[つく]りました",
+      "食[た]べました",
+      "買[か]いました",
+      "すてました"
+     ],
+     "nota": "Hacerla otra vez."
+    },
+    {
+     "opciones": [
+      "と いいです",
+      "から です",
+      "ので",
+      "かもしれません ので"
+     ],
+     "nota": "Deseo: 〜と いいです."
+    }
+   ]
+  },
+  {
+   "texto": "わたしは 毎年[まいとし] 夏[なつ]に 家族[かぞく]と 海[うみ]へ 行[い]きます。ことしは 沖縄[おきなわ]へ 行[い]きました。沖縄[おきなわ]の 海[うみ]は とても きれいで、水[みず]が 青[あお]くて すきとおって いました。わたしは 毎日[まいにち] 海[うみ]で （１） 。夜[よる]は ホテルの 近[ちか]くの 店[みせ]で 沖縄[おきなわ]の 料理[りょうり]を 食[た]べました。（２） 料理[りょうり]は 東京[とうきょう]では 食[た]べた ことが ない 料理[りょうり]でした。最後[さいご]の 日[ひ]は 雨[あめ]でしたが、水族館[すいぞくかん]へ 行[い]ったので、（３） 。来年[らいねん]も （４） 行[い]きたいです。",
+   "es": "Cada verano voy a la playa con mi familia; este año fuimos a Okinawa. El mar era precioso, azul y transparente, y nadé todos los días. Por la noche cenábamos comida de Okinawa, platos que nunca había probado en Tokio. El último día llovió, pero fuimos al acuario y no pasó nada. El año que viene quiero volver.",
+   "huecos": [
+    {
+     "opciones": [
+      "泳[およ]ぎました",
+      "泳[およ]ぎます",
+      "泳[およ]ぎたいです",
+      "泳[およ]ぎませんでした"
+     ],
+     "nota": "Pasado habitual de esos días."
+    },
+    {
+     "opciones": [
+      "その",
+      "この",
+      "あんな",
+      "どんな"
+     ],
+     "nota": "Esos platos (ya mencionados): その."
+    },
+    {
+     "opciones": [
+      "だいじょうぶでした",
+      "たいへんでした",
+      "ざんねんでした",
+      "こまりました"
+     ],
+     "nota": "Llovió, pero con el acuario no hubo problema."
+    },
+    {
+     "opciones": [
+      "また",
+      "まだ",
+      "もう",
+      "さっき"
+     ],
+     "nota": "Otra vez: また."
+    }
+   ]
+  }
+ ]
 }

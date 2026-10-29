@@ -576,3 +576,5 @@ body.no-furigana #p-examenes rt{visibility:visible}
 .extipo.nuevo{background:var(--accent-soft); color:var(--accent)}
 .extipo.fallos{background:var(--beni-soft); color:var(--beni)}
 .extipo.antiguo{background:var(--chip); color:var(--ink2)}
+/* もんだい３: el hueco del texto por el que se pregunta ahora */
+.exhueco.actual{background:var(--accent-soft); border-radius:4px; padding:0 2px}

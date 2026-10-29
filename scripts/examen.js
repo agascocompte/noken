@@ -985,6 +985,29 @@
   }
   let pendientes = [];      // preguntas del mismo texto que aún no se han soltado
 
+  // 文法 もんだい３ (文章の文法): un texto con cuatro huecos （１）…（４）. Salen las
+  // cuatro preguntas seguidas, todas con el texto delante y su hueco resaltado.
+  const NUM = ["１", "２", "３", "４", "５"];
+  function itemHueco(r, usadas, hechos) {
+    if (hechos.length % 4) return null;            // las demás las puso ya la primera
+    const pozo = (N5.data.examenes?.huecos || []).filter(t => !usadas.has("h:" + t.texto));
+    if (!pozo.length) return null;
+    const t = prefiere(r, pozo, t => "hueco:" + t.texto.slice(0, 40) + "#1")[0];
+    usadas.add("h:" + t.texto);
+    const texto = paraExamenRuby(t.texto);
+    const items = t.huecos.map((h, k) => {
+      const mezcla = r.baraja(h.opciones);
+      return {
+        tipo: "hueco", clave: "hueco:" + t.texto.slice(0, 40) + "#" + (k + 1), modo: "texto",
+        texto, hueco: "（" + NUM[k] + "）", frase: "（" + NUM[k] + "）",
+        opciones: mezcla.map(paraExamenRuby), correcta: mezcla.indexOf(h.opciones[0]),
+        nota: h.nota || "", traduccion: t.es || "", leccion: null
+      };
+    });
+    pendientes = items.slice(1);
+    return items[0];
+  }
+
   function itemInformacion(r, usadas) {
     const pozo = (lecturas().informacion || []).filter(t => !usadas.has("i:" + t.titulo));
     if (!pozo.length) return null;
@@ -1159,6 +1182,8 @@
           instruccion: "¿Qué va en el hueco （　）? Elige la mejor opción de 1 a 4." },
         { n: 2, gen: itemOrden, cuantos: 4, kanji: "ぶんの くみたて",
           instruccion: "Ordena las cuatro piezas para formar la frase. ¿Cuál va en el ★?" },
+        { n: 3, gen: itemHueco, cuantos: 4, kanji: "ぶんしょうの ぶんぽう",
+          instruccion: "Lee el texto. ¿Qué va en cada hueco （１）…（４）? Elige la mejor opción de 1 a 4." },
         { n: 4, gen: itemTextoCorto, cuantos: 2, kanji: "たんぶん（読解）",
           instruccion: "Lee el texto y responde. Elige la mejor opción de 1 a 4." },
         { n: 5, gen: itemTextoMedio, cuantos: 2, kanji: "ちゅうぶん（読解）",

@@ -68,11 +68,11 @@ de verdad (新幹線 → しんかんせん). Preguntar por la lectura o la escr
 solo con palabras del nivel.
 
 `data/examenes.js` es lo que hay escrito a mano, porque no se puede sacar de
-ninguna tabla: las frases equivalentes de もんだい４, los textos de 読解, y frases
+ninguna tabla: las frases equivalentes de もんだい４, los textos de 読解 y los textos con
+huecos de 文法 もんだい３, y frases
 portadoras para los kanji que el libro no usa en sus ejemplos (los números,
 東西南北, 口目耳…). Los guiones de 聴解 también están ahí y los lee la voz japonesa del navegador
-(`scripts/escucha.js`), con voz distinta para narrador, hombre y mujer. Falta
-もんだい３ de 文法 (el texto con huecos).
+(`scripts/escucha.js`), con voz distinta para narrador, hombre y mujer. 
 
 Para ver qué preguntas salen sin abrir el navegador:
 `node tools/examen.mjs 7` (uno, con la semilla 7) o `node tools/examen.mjs 1 50` (valida 50).

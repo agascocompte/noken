@@ -176,6 +176,17 @@ console.log("examenes");
       revisa(x, "información 「" + t.titulo + "」");
   }
   ok(`${L.cortas.length} textos cortos, ${L.medias.length} medios y ${L.informacion.length} de información`);
+  // もんだい３: cada texto con sus huecos （１）…（ｎ）, uno por pregunta
+  const NUMS = "１２３４５";
+  for (const t of d.examenes.huecos || []) {
+    revisa(t.texto, "texto con huecos");
+    t.huecos.forEach((h, k) => {
+      if (!t.texto.includes("（" + NUMS[k] + "）")) err(`texto con huecos: falta el hueco （${NUMS[k]}） — ${t.texto.slice(0, 20)}`);
+      if (h.opciones?.length !== 4 || new Set(h.opciones).size !== 4) err(`texto con huecos: el （${NUMS[k]}） debe tener 4 opciones distintas`);
+      for (const o of h.opciones) revisa(o, "opción de hueco");
+    });
+  }
+  ok((d.examenes.huecos || []).length + " textos con huecos para 文法 もんだい３");
 
   // 聴解: guiones con quién habla, y opciones distintas (4 en 1 y 2, 3 en 3 y 4)
   const S = d.examenes.escucha;
