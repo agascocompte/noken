@@ -157,7 +157,8 @@
         <thead><tr><th>Fecha</th><th>Qué</th><th class="num">Nota</th><th class="num">Tiempo</th><th></th></tr></thead>
         <tbody>${db.hechos.map(h => `<tr data-h="${esc(h.id)}"${h.falladas || h.desglose ? ' class="abre"' : ""}>
           <td>${fecha(h.ts)}</td>
-          <td><span class="extipo ${h.tipo}">${ETIQUETA[h.tipo] || ""}</span> ${esc(h.titulo || "")}</td>
+          <td><span class="extipo ${h.tipo}">${ETIQUETA[h.tipo] || ""}</span> ${esc(tituloDe(h))}
+            ${h.restantes?.length ? `<div class="exseguir">${botonesSeguir(h)}</div>` : ""}</td>
           <td class="num"><b>${h.aciertos}/${h.total}</b> <span class="muted">${pct(h.aciertos / h.total)}</span></td>
           <td class="num muted">${mmss(h.segundos || 0)}</td>
           <td class="num">${h.falladas || h.desglose ? "Ver →" : ""}</td></tr>`).join("")}</tbody>
@@ -180,7 +181,12 @@
   // ------------------------------------------------------ exámenes nuevos
   function nuevo() {
     const semilla = "n5-" + Date.now().toString(36);
-    ex = N5.examen.genera(semilla, { vistas: db.vistas });
+    // lo que espera en bloques pendientes del historial cuenta como visto, para
+    // no ponértelo ahora y que luego te salga repetido al continuar aquel examen
+    const vistas = { ...db.vistas };
+    for (const h of db.hechos) for (const b of h.restantes || [])
+      for (const p of b.problemas) for (const it of p.items) vistas[it.clave] ||= h.ts;
+    ex = N5.examen.genera(semilla, { vistas });
     ex.tipo = "nuevo";
     ex.titulo = "Examen del " + fecha(Date.now());
     pintaPortada();
@@ -231,8 +237,8 @@
           <button class="btn" data-empezar="todo">Hacer ${ex.bloques.length > 1 ? "el examen entero" : "el examen"}</button>
           ${ex.bloques.length > 1 ? ex.bloques.map(b => `<button class="btn secondary" data-empezar="${b.id}">Solo ${esc(b.titulo.toLowerCase())}</button>`).join("") : ""}
         </div>
-        ${ex.tipo === "nuevo" ? `<p class="muted">Solo cuenta como visto lo que hagas: si haces un bloque, las preguntas
-          de los otros pueden salirte en el siguiente examen.</p>` : ""}
+        ${ex.tipo === "nuevo" && ex.bloques.length > 1 ? `<p class="muted">Si haces solo un bloque, los demás se quedan
+          guardados con este examen y puedes hacerlos otro día desde el historial.</p>` : ""}
       </div>`;
   }
 
@@ -413,16 +419,48 @@
       aciertos += ok; total += p.items.length;
       desglose.push({ bloque: b.id, bkanji: b.kanji, n: p.n, pkanji: p.kanji, ok, total: p.items.length });
     }
-    const h = {
-      id: ex.semilla + "-" + ahora, ts: ahora, tipo: ex.tipo || "nuevo",
-      titulo: bloques.length < ex.bloques.length ? `${ex.titulo} · solo ${bloques[0].titulo.toLowerCase()}` : ex.titulo,
-      aciertos, total, segundos, desglose, falladas
-    };
-    db.hechos.unshift(h);
-    for (const viejo of db.hechos.slice(DETALLE)) delete viejo.falladas;
+    // Los bloques que no se han hecho se quedan guardados con el examen, para
+    // hacerlos otro día desde el historial; al hacerlos se suman a este mismo.
+    const hechos = new Set(bloques.map(b => b.id));
+    const restantes = ex.bloques.filter(b => !hechos.has(b.id));
+    let h = ex.padre && db.hechos.find(x => x.id === ex.padre);
+    if (h) {
+      h.aciertos += aciertos; h.total += total; h.segundos = (h.segundos || 0) + segundos;
+      h.desglose = ordenaDesglose([...(h.desglose || []), ...desglose]);
+      h.falladas = [...(h.falladas || []), ...falladas];
+      h.bloquesHechos = [...(h.bloquesHechos || []), ...hechos];
+      h.restantes = restantes;
+      h.ts = ahora;
+      db.hechos = [h, ...db.hechos.filter(x => x !== h)];
+    } else {
+      h = {
+        id: ex.semilla + "-" + ahora, ts: ahora, tipo: ex.tipo || "nuevo", titulo: ex.titulo,
+        aciertos, total, segundos, desglose, falladas, bloquesHechos: [...hechos], restantes
+      };
+      db.hechos.unshift(h);
+    }
+    if (!h.restantes.length) delete h.restantes;
+    for (const viejo of db.hechos.slice(DETALLE)) { delete viejo.falladas; delete viejo.restantes; }
     guarda();
     pintaInforme(h, true);
   }
+
+  // El desglose en el orden del examen (vocabulario, gramática, audición)
+  const ORDEN = () => N5.examen.PLAN.map(b => b.id);
+  const ordenaDesglose = d => d.slice().sort((a, b) => ORDEN().indexOf(a.bloque) - ORDEN().indexOf(b.bloque) || a.n - b.n);
+
+  // «Examen del 30 oct · falta audición»: lo que le queda, si le queda algo
+  const tituloDe = h => (h.titulo || "Examen") + (h.restantes?.length
+    ? " · falta " + h.restantes.map(b => b.titulo.toLowerCase()).join(", ") : "");
+
+  // Retomar los bloques pendientes de un examen del historial
+  function continua(h) {
+    ex = { semilla: h.id, tipo: h.tipo, titulo: h.titulo, padre: h.id, bloques: h.restantes,
+      total: h.restantes.reduce((n, b) => n + b.total, 0) };
+    pintaPortada();
+  }
+  const botonesSeguir = h => (h.restantes || []).map(b =>
+    `<button class="btn" data-seguir="${esc(h.id)}" data-b="${b.id}">Seguir con ${esc(b.titulo.toLowerCase())}</button>`).join("");
 
   // El informe de un examen: la nota, cómo fue cada もんだい y las falladas con
   // su explicación. Sirve recién corregido y para abrirlo desde el historial.
@@ -433,7 +471,7 @@
     $("#exView").innerHTML = `
       <div class="exresultado">
         ${recien ? "" : `<button class="btn secondary" id="exVolver">← Exámenes</button>`}
-        <h2>${esc(h.titulo || "Examen")}</h2>
+        <h2>${esc(tituloDe(h))}</h2>
         <div class="exnotagrande">${h.aciertos} <span class="muted">/ ${h.total}</span></div>
         <p class="lead">${pct(h.aciertos / h.total)} · ${mmss(h.segundos || 0)} · ${fecha(h.ts)}
           ${recien ? (h.aciertos / h.total >= 0.6 ? "— por ahí va la cosa." : "— a seguir dándole.") : ""}</p>
@@ -459,8 +497,11 @@
             ${it.traduccion ? `<p class="muted">«${esc(it.traduccion)}»</p>` : ""}
           </div>`).join("")}</div>` : `<p class="lead">Ni una fallada. 完璧です。</p>`}
 
+        ${h.restantes?.length ? `<p class="lead">Te queda ${h.restantes.map(b => esc(b.titulo.toLowerCase())).join(", ")}
+          de este examen: lo puedes hacer ahora o cuando quieras desde el historial.</p>` : ""}
         <div class="exbotones">
-          ${recien ? `<button class="btn" id="exNuevo">＋ Nuevo examen</button>` : ""}
+          ${botonesSeguir(h)}
+          ${recien ? `<button class="btn${h.restantes?.length ? " secondary" : ""}" id="exNuevo">＋ Nuevo examen</button>` : ""}
           ${nFallos() ? `<button class="btn secondary" id="exFallos">Examen de fallos (${nFallos()})</button>` : ""}
           <button class="btn secondary" id="exVolver">← Exámenes</button>
         </div>
@@ -487,6 +528,14 @@
         if (t.closest("#exVolver")) { para(); N5.escucha?.para(); return pintaInicio(); }
         if (t.closest("#exNuevo")) { N5.escucha?.para(); return nuevo(); }
         if (t.closest("#exFallos")) { N5.escucha?.para(); return deFallos(); }
+        const seg = t.closest("[data-seguir]");
+        if (seg) {
+          const h = db.hechos.find(x => x.id === seg.dataset.seguir);
+          if (!h?.restantes) return;
+          continua(h);
+          // ir directo al bloque pulsado
+          return empieza(seg.dataset.b);
+        }
         const fila = t.closest("tr.abre");
         if (fila) { const h = db.hechos.find(x => x.id === fila.dataset.h); if (h) pintaInforme(h, false); return; }
 

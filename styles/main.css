@@ -578,3 +578,6 @@ body.no-furigana #p-examenes rt{visibility:visible}
 .extipo.antiguo{background:var(--chip); color:var(--ink2)}
 /* もんだい３: el hueco del texto por el que se pregunta ahora */
 .exhueco.actual{background:var(--accent-soft); border-radius:4px; padding:0 2px}
+/* historial: botones para seguir con los bloques que quedan de un examen */
+.exseguir{display:flex; flex-wrap:wrap; gap:6px; margin-top:6px}
+.exseguir .btn{font-size:.8rem; padding:4px 10px}
